@@ -1,0 +1,178 @@
+.about-truckster-container {
+    width: 100%;
+    background: #fff !important;
+    overflow: hidden;
+    .home-main-header {
+        height: 536px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        overflow: auto;
+        background-position: bottom;
+        overflow: hidden;
+        .content-city {
+            margin: 0 20px;
+            max-width: 730px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            position: absolute;
+            .title {
+                white-space: pre-wrap;
+                margin: 0 auto;
+                padding-bottom: 16px;
+            }
+            .explore-breweries {
+                padding-bottom: 32px;
+            }
+            .button-explore {
+                button {
+                    width: 217px;
+                    height: 56px;
+                }
+            }
+        }
+        .cover {
+            height: 536px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+            .cover-mask {
+                height: 536px;
+                position: absolute;
+                width: 100%;
+                background-color: rgba(33, 33, 33, 0.8);
+            }
+        }
+    }
+    .about-body {
+        white-space: pre-line;
+        padding-top: 56px;
+        margin: 0 auto;
+        background: #fafafa;
+        .carousel-item {
+            .carousel-image {
+                img {
+                    width: 640px;
+                    height: 560px;
+                    @media only screen and (max-width: 768px) {
+                        width: 377px;
+                        height: 331px;
+                    }
+                    @media only screen and (max-width: 375px) {
+                        width: 345px;
+                        height: 303px;
+                    }
+                }
+            }
+        }
+        .carousel-info {
+            width: 360px;
+            .carousel-bref {
+                min-height: 360px;
+                padding-top: 70px;
+                .carousel-icon {
+                    padding-bottom: 24px;
+                    img {
+                        padding: 16px;
+                        border-radius: 50%;
+                    }
+                }
+                .title {
+                    padding-bottom: 24px;
+                }
+            }
+            .carousel-controller {
+                color: #d8d8d8;
+                font-size: 24px;
+                span {
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+    .get-the-app {
+        text-align: center;
+        background: #fff;
+        padding: 80px 0;
+        .get-the-app-bref {
+            white-space: pre-wrap;
+            margin: 0 auto;
+            padding-top: 17px;
+            padding-bottom: 31px;
+            font-size: 24px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: normal;
+            text-align: center;
+            color: #757575;
+        }
+        .get-the-app-store {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .store-container {
+                img {
+                    margin: 0 8px;
+                    width: 192px;
+                    height: 60px;
+                }
+                transform: perspective(1px) translateZ(0);
+                box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                position: relative;
+                transition-duration: 0.3s;
+                transition-property: transform;
+                &:hover {
+                    transform: translateY(-5px);
+                    &::before {
+                        opacity: 1;
+                        transform: translateY(5px);
+                    }
+                }
+                &::before {
+                    pointer-events: none;
+                    position: absolute;
+                    z-index: -1;
+                    content: '';
+                    top: 100%;
+                    left: 5%;
+                    height: 10px;
+                    width: 90%;
+                    opacity: 0;
+                    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+                    transition-duration: 0.3s;
+                    transition-property: transform, opacity;
+                }
+            }
+        }
+    }
+}
+
+.selected-circle {
+    border-radius: 50%;
+    border: solid 2px #fa393d;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.slick-dots {
+    color: #d8d8d8;
+    font-size: 24px;
+    top: 360px;
+    left: 171px;
+    @media only screen and (max-width: 1014px) {
+        position: relative;
+        top: initial;
+        left: initial;
+    }
+}

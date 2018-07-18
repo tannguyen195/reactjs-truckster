@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/Arrow-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6.23642671,13.5049304 L0.365748139,7.63425186 C-0.121916046,7.14658768 -0.121916046,6.35834275 0.365748139,5.87067857 L6.23642671,0 L8,1.76357329 L3.01110808,6.75246521 L8,11.7413571 L6.23642671,13.5049304 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/Arrow-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-keyboard-arrow-right-48px" transform="translate(7.000000, 5.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Shape" fill="#bdbdbd" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Color/Black" mask="url(#mask-2)" fill="#bdbdbd">
+                <g transform="translate(-7.000000, -5.000000)" id="icon/mask-color/grey">
+                    <polygon points="0 0 24 0 24 6.46875 24 24 0 24"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
