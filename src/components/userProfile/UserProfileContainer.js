@@ -1,0 +1,46 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import UserProfile from './UserProfile'
+import Fade from 'react-reveal/Fade'
+import { getUserReview, getUserFavorite, getUserBreweryReview } from '../../../api/reviewApi'
+class UserProfileContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+    componentWillMount() {
+        
+        sessionStorage.setItem("reloadUrl", window.location.href)
+    }
+    componentDidMount() {
+        this.props.getUserReview()
+        this.props.getUserFavorite()
+        this.props.getUserBreweryReview()
+    }
+    render() {
+
+        return (
+            <Fade>  <UserProfile {...this.props} /></Fade>
+
+        )
+    }
+}
+export function mapStateToProps(state) {
+    return {
+        userData: state.profileReducer.userData,
+        userReview: state.reviewReducer.userReview,
+        userFavorite: state.reviewReducer.userFavorite,
+        userBreweryReview: state.reviewReducer.userBreweryReview
+    };
+}
+export function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getUserBreweryReview,
+        getUserReview,
+        getUserFavorite
+    }, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfileContainer);

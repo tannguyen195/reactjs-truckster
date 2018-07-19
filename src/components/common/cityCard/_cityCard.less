@@ -1,0 +1,40 @@
+.city-card-container {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    background-position: 50%;
+    .content-city {
+        z-index: 10;
+        position: absolute;
+        .title {
+            text-align: center;
+           ;
+            color: #fff;
+        }
+        .bref {
+            text-align: center;
+            color: #fff;
+        }
+    }
+    .cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+        height: 100px;
+        .cover-mask {
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+    }
+}

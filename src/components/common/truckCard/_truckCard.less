@@ -1,0 +1,56 @@
+.truck-card-container {
+    border-radius: 8px !important;
+    .ant-card {}
+    .ant-card-body {
+        padding: 10px;
+    }
+    .truck-image {
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        width: 100%;
+        height: 128px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .meta-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin: 0;
+            max-width: 170px;
+        }
+        .ant-rate {
+            line-height: 0;
+            li {
+                margin: 0 2px;
+                i {
+                    &::before {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .meta-body {
+        display: flex;
+        justify-content: flex-start;
+        padding-top: 10px;
+        align-items: center;
+        .logo {
+            margin-right: 15px;
+            img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+        }
+        .bref {
+            min-height: 16px;
+            .text {}
+        }
+    }
+}

@@ -1,3 +1,4 @@
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   webpack: (config, { dev }) => {
     config.module.rules.push(
@@ -10,7 +11,19 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ['babel-loader', 'raw-loader', 'less-loader'],
+        use: [
+          { loader: 'babel-loader' },
+          { loader: 'raw-loader' },
+          {
+            loader: 'less-loader',
+            options: {
+              modifyVars: {
+                "@primary-color": "#f32126",
+                "@font-family": "'Nunito Sans', sans-serif",
+                "@heading-color": "#212121",
+              },
+            }
+          }],
 
       },
       {
@@ -24,7 +37,11 @@ module.exports = {
           }
         ]
       },
-      { test: /\.svg$/, loader: 'svg-loader?pngScale=2' }
+      {
+        test: /\.svg$/,
+        loader: 'svg-loader?pngScale=2'
+      },
+
 
     );
     return config;

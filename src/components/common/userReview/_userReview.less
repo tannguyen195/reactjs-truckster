@@ -1,0 +1,40 @@
+.review-user-container{
+    .review {
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            .header-left {
+                display: flex;
+                img {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 30px;
+                }
+                .info {
+                    padding-left: 16px;
+                    .user-name {}
+                    .date {
+                        color: #bdbdbd;
+                    }
+                }
+            }
+            .header-right {
+                ul {
+                    li {
+                        margin-right: 3px;
+                        i {
+                            &::before {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .review-content {
+            color: #757575;
+            padding-top: 16px;
+            padding-bottom: 32px;
+        }
+    }
+}

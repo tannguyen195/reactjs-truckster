@@ -1,0 +1,344 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import TruckDetail from './TruckDetail'
+import Fade from 'react-reveal/Fade';
+import { getTruckDetail } from '../../../api/truckApi'
+import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../../api/reviewApi'
+import AnnounceModal from '../common/announceModal/AnnounceModal'
+import ErrorPage from '../common/errorPage/ErrorPage'
+import { toggleShareModal } from '../../../actions/toggleAction'
+import { getSchedule } from '../../../global'
+import moment from 'moment'
+class TruckDetailContainer extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            current: "introduction",
+            favorite: false,
+            locationArr: [{ latitude: 39.7384953, longtitude: -104.9964992 }],
+            order: [],
+            subTotal: 0,
+            total: 0,
+            visibleAnnounce: false,
+            iconMarker: "truck",
+            locations: [],
+            mode: 'upcoming',
+            events: [],
+            selectedKey: "0",
+        }
+    }
+
+    componentWillMount() {
+        
+        sessionStorage.setItem("reloadUrl", window.location.href)
+    }
+
+    componentDidMount() {
+        this.props.getTruckDetail(this.props.match.params.id)
+        this.props.getTruckReview(this.props.match.params.id)
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+        if (nextProps.truckDetail) {
+            // Set location
+            let locations = [], icon = "", events = []
+            getSchedule(nextProps.truckDetail.calendar).forEach((item, index) => {
+                if (item && item.brewery === null) {
+                    icon = "truck"
+                }
+                else {
+                    icon = "pairing"
+                }
+                events.push({
+                    ...item,
+                    key: index,
+                    icon: icon,
+                })
+                if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a") > moment())
+                    locations.push(item)
+            })
+
+            //Sort upcoming schedule
+            locations.sort((a, b) => {
+
+                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                    return -1
+                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                    return 1
+                return 0
+            })
+            let sortedLocations = []
+            locations.forEach((item, index) => {
+                sortedLocations.push({
+                    ...item,
+                    index: String(index)
+                })
+            })
+
+            //render first icon
+            if (sortedLocations[0] && sortedLocations[0].brewery === null) {
+                icon = "truck"
+            }
+            else {
+                icon = "pairing"
+            }
+
+            this.setState({
+                locationArr: [sortedLocations[0]],
+                locations: sortedLocations,
+                iconMarker: icon,
+                events: events,
+                selectedKey: sortedLocations[0] && sortedLocations[0].index
+            })
+
+           
+        }
+        if (nextProps.match.params.id !== this.props.match.params.id) {
+            this.props.getTruckDetail(nextProps.match.params.id)
+        }
+    }
+    handleModeChange(e) {
+        const mode = e.target.value;
+        this.setState({ mode });
+    }
+    handleCheckOut() {
+        this.setState({
+            visibleAnnounce: true
+        })
+    }
+
+    handleCancel() {
+        this.setState({
+            visibleAnnounce: false
+        })
+    }
+    checkExistOrder(value, arr) {
+        for (var i = 0; i < arr.length; ++i) {
+            if (arr[i].id === value) {
+                return true
+            }
+        }
+        return false
+    }
+    handleAddOne(e) {
+        let newOrder = []
+        this.state.order.forEach((item, index) => {
+            if (item.id === e.id)
+                item = {
+                    ...item,
+                    count: item.count + 1
+                }
+            newOrder.push(item)
+        })
+
+        this.setState({
+            order: newOrder,
+            subTotal: this.calculateSubTotal(newOrder)
+        })
+    }
+    handleRemoveOne(e) {
+        let newOrder = []
+        this.state.order.forEach((item, index) => {
+            if (item.id === e.id)
+                item = {
+                    ...item,
+                    count: item.count - 1
+                }
+            newOrder.push(item)
+        })
+
+        this.setState({
+            order: newOrder,
+            subTotal: this.calculateSubTotal(newOrder)
+        })
+    }
+    handleRemoveMenuItem(e) {
+
+        let newOrder = this.state.order
+
+        this.state.order.forEach((item, index) => {
+            if (item.id === e.id)
+                newOrder.splice(index, 1)
+        })
+
+        this.setState({
+            order: newOrder,
+            subTotal: this.calculateSubTotal(newOrder)
+        })
+
+    }
+
+    handleClickMenuItem(e) {
+        let newOrder = []
+        let checkExist = this.checkExistOrder(e.id, this.state.order);
+        if (checkExist) {
+            this.state.order.forEach((item, index) => {
+
+                if (item.id === e.id)
+                    item = {
+                        ...item,
+                        count: item.count + 1
+                    }
+                newOrder.push(item)
+            })
+
+            this.setState({
+                order: newOrder,
+                subTotal: this.calculateSubTotal(newOrder)
+            })
+        }
+        else {
+            newOrder = this.state.order.concat({
+                ...e,
+                count: 1
+            })
+            this.setState({
+                order: newOrder,
+                subTotal: this.calculateSubTotal(newOrder)
+            })
+        }
+    }
+    calculateSubTotal(order) {
+        let subTotal = 0;
+        order.map((item, index) => {
+            return subTotal = subTotal + item.count * item.price
+        })
+        return subTotal
+    }
+
+    handleClickMenu(e) {
+        this.setState({
+            current: e.key,
+        });
+    }
+    handleEditReview(e) {
+        this.props.editReview({
+            truckId: this.props.match.params.id,
+            ...e
+        })
+    }
+
+    handlePostReview(e) {
+        this.props.postReview({
+            truckId: this.props.match.params.id,
+            ...e
+        })
+    }
+
+
+    onFavoriteChange(e) {
+        if (e === 1) {
+            this.props.markFavorite(this.props.match.params.id)
+        }
+        else {
+            this.props.unmarkFavorite(this.props.match.params.id)
+        }
+        this.setState({
+            favorite: e
+        })
+    }
+    handleClickEvent(e) {
+        if (moment(e.timeDisplay, "YYYY-MM-DD hh:mm a") > moment()) {
+            let icon = ""
+            if (e && e.brewery === null) {
+                icon = "truck"
+            }
+            else {
+                icon = "pairing"
+            }
+
+            this.setState({
+                mode: "upcoming",
+                selectedKey: String(e.key),
+                locationArr: [e],
+                iconMarker: icon
+            })
+        }
+    }
+    handleClickSchedule(e) {
+
+        let icon = "",
+            item = this.state.locations[e.key]
+
+        if (item && item.brewery === null) {
+            icon = "truck"
+        }
+        else {
+            icon = "pairing"
+        }
+
+        this.setState({
+            selectedKey: String(e.key),
+            locationArr: [item],
+            iconMarker: icon
+        })
+    }
+    render() {
+        const { error, status } = this.props
+
+        return (
+            <Fade>
+                {
+                    error ?
+                        <ErrorPage status={status} />
+                        : <div>
+                            <TruckDetail
+                                {...this.state}
+                                {...this.props}
+                                handleCancel={(e) => this.handleCancel(e)}
+                                handleCheckOut={(e) => this.handleCheckOut(e)}
+                                handleAddOne={(e) => this.handleAddOne(e)}
+                                handleRemoveOne={(e) => this.handleRemoveOne(e)}
+                                handleRemoveMenuItem={(e) => this.handleRemoveMenuItem(e)}
+                                calculateSubTotal={(e) => this.calculateSubTotal(e)}
+                                handleClickMenuItem={(e) => this.handleClickMenuItem(e)}
+                                handleClickSchedule={(e) => this.handleClickSchedule(e)}                         
+                                onFavoriteChange={(e) => this.onFavoriteChange(e)}
+                                handlePostReview={(e) => this.handlePostReview(e)}              
+                                handleClickMenu={(e) => this.handleClickMenu(e)}                                                 
+                                handleEditReview={(e) => this.handleEditReview(e)}
+                                handleModeChange={(e) => this.handleModeChange(e)}
+                                handleClickEvent={(e) => this.handleClickEvent(e)}
+                            />
+                            <AnnounceModal
+                                message={`This feature will be available soon.                               
+                                We are currently hard at work on selected feature. It will be available as soon as possible.`}
+                                visible={this.state.visibleAnnounce}
+                                handleCancel={(e) => this.handleCancel(e)} />
+                        </div>
+
+
+
+                }
+
+            </Fade>
+        )
+    }
+}
+export function mapStateToProps(state) {
+    return {
+        isLoadingTruckDetail: state.truckReducer.isLoadingTruckDetail,
+        truckDetail: state.truckReducer.truckDetail,
+        error: state.truckReducer.error,
+        status: state.truckReducer.status,
+        truckMenu: state.truckReducer.truckMenu,
+        isLoadingPostReview: state.reviewReducer.isLoadingPostReview,
+        isLoadingEditReview: state.reviewReducer.isLoadingEditReview,
+
+        reviews: state.reviewReducer.reviews,
+
+    };
+}
+export function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        toggleShareModal,
+        markFavorite, unmarkFavorite,
+        getTruckDetail,
+        getTruckReview,
+        postReview,
+        editReview
+    }, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TruckDetailContainer);

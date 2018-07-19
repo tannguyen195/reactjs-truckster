@@ -1,0 +1,121 @@
+.home {
+    width: 100%;
+    .home-main-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        background-position: 50%;
+        .content-city {
+            @media only screen and (max-width: 768px) {
+                right: -20px;
+            }
+            margin: 0 20px;
+            max-width: 730px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+            position: absolute;
+            .title {
+                line-height: 40px;
+                text-align: center;
+                color: #fff;
+            }
+            .search {
+                margin: 20px;
+                height: 56px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #fff;
+                border-radius: 5px;
+                .ant-select-selection {
+                    input {
+                        border: 0;
+                        box-shadow: none !important;
+                    }
+                    &:focus {
+                        box-shadow: none !important;
+                        border-color: none !important;
+                    }
+                }
+                .button-find {
+                    height: 100%;
+                    button {
+                        border-top-left-radius: 0;
+                        height: 100%;
+                        border-bottom-left-radius: 0;
+                    }
+                }
+                @media only screen and (max-width: 768px) {
+                    .button-find {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .cover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+            height: 384px;
+            .cover-mask {
+                height: 384px;
+                position: absolute;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+    .offer-card {
+        padding: 0 20px;
+        text-align: center;
+        .article {
+            margin: 0 20px;
+            border-radius: 8px;
+            width: 100%;
+            height: 160px;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px;
+            position: relative;
+            color: white;
+        }
+        .bref {
+            z-index: 10;
+            position: absolute;
+        }
+        .offer-name {}
+        .offer-learn {}
+        .content {
+            text-align: left;
+            bottom: 0;
+            padding: 20px;
+            z-index: 10;
+            position: absolute;
+        }
+        .image {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .overlay:before {
+            border-radius: 8px;
+            position: absolute;
+            content: " ";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0;
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+    }
+}

@@ -1,0 +1,86 @@
+.edit-container {
+    background: #fff;
+    padding-top: 68px;
+    .edit-header {
+        max-width: 540px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    .edit-body {
+        background-color: #ffffff;
+        .ant-tabs-bar {
+            max-width: 540px;
+            margin: 0 auto;
+            .ant-tabs-tab {
+                width: 30%;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .ant-tabs-nav {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .max-width {
+            margin: 0 auto;
+            max-width: 540px;
+            ;
+        }
+        .edit-content {
+            min-height: 600px;
+            background-color: #fafafa;
+            padding: 40px;
+            .edit-general {
+                display: flex;
+                flex-direction: column;
+                .change-avatar {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        height: 80px;
+                        margin-right: 24px;
+                        width: 80px;
+                        border-radius: 50%
+                    }
+                }
+                .change-info {
+                    .form-login {
+                        .ant-calendar-picker {
+                            width: 100%;
+                            input {
+                                background-color: #fcfcfc;
+                            }
+                            ;
+                            .ant-calendar-picker-icon {
+                                right: 22px;
+                                margin-top: -12px;
+                                &::after {
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        .title-info {
+                            padding-bottom: 8px;
+                        }
+                        margin-top: 30px;
+                        .img-icon {
+                            width: 24px
+                        }
+                        input {
+                            border-radius: 6px;
+                            height: 45px;
+                        }
+                    }
+                }
+                .save-button {
+                    button {
+                        width: 200px;
+                        height: 48px;
+                    }
+                }
+            }
+        }
+    }
+}

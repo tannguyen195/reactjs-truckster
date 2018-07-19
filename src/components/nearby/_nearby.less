@@ -1,0 +1,396 @@
+.nearby-container {
+    background: #fff;
+    .nearby-event-list-container {
+        padding-top: 68px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        overflow-y: scroll;
+        position: fixed;
+        height: 100%;
+        .nearby-event-list-detail {
+            padding: 30px;
+            padding-top: 0;
+            .name {
+                padding-top: 24px;
+                color: #212121;
+            }
+            hr {
+                background: #efefef;
+                height: 1px;
+                border: 0;
+            }
+            .event-section {
+                .nearby-loadmore {
+                    text-align: center;
+                }
+            }
+        }
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    }
+    .nearby-event-detail-container {
+        .nearby-event-detail-food-truck {
+            .image-container {
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 250px;
+                }
+            }
+            .mask-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                position: relative;
+                height: 250px;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                img {
+                    width: 24px;
+                    margin: 8px;
+                    cursor: pointer;
+                }
+                .nearby-bref {
+                    padding: 8px;
+                    .detail-rate {
+                        padding-top: 8px;
+                        display: flex;
+                        align-items: center;
+                        padding-bottom: 20px;
+                        .rate-number {
+                            border-radius: 4px;
+                            background-color: #ffd35e;
+                            padding: 2px 5px;
+                        }
+                        .rate-star {
+                            padding: 0 8px;
+                            line-height: 15px;
+                            i::before {
+                                font-size: 16px !important;
+                            }
+                        }
+                    }
+                    .tag {
+                        justify-content: flex-start !important;
+                    }
+                }
+            }
+            .nearby-event-body {
+                padding: 8px;
+                .contact {
+                    padding-bottom: 16px;
+                    p {}
+                    .location {
+                        display: flex;
+                        align-items: center;
+                        img {
+                            width: 24px;
+                            padding-right: 8px;
+                        }
+                        span {
+                            color: #757575
+                        }
+                    }
+                    .social {
+                        display: flex;
+                        .image-holder {
+                            margin-top: 16px;
+                            background: #bdbdbd;
+                            border-radius: 50%;
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-right: 16px;
+                            img {
+                                width: 16px;
+                            }
+                        }
+                    }
+                    .intro {
+                        white-space: pre-line;
+                    }
+                }
+            }
+        }
+        .nearby-event-detail-activity {
+            .image-activity-container {
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 250px;
+                }
+            }
+            .mask-activity-container {
+                height: 250px;
+                position: relative;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .activity-info-container {
+                    display: flex;
+                    padding: 8px;
+                    .back-button {
+                        width: 24px;
+                        height: 24px;
+                        position: absolute;
+                        cursor: pointer;
+                    }
+                    .activity-info {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        .info-item {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding-bottom: 8px;
+                            img {
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 8px;
+                            }
+                        }
+                    }
+                }
+                .nearby-bref {
+                    padding-bottom: 16px;
+                    padding-left: 8px;
+                }
+            }
+            .nearby-event-body {
+                padding: 8px;
+                .contact {
+                    padding-bottom: 24px;
+                }
+            }
+        }
+    }
+    .nearby-filter {
+        .filter-content {
+            .filter-item {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 8px;
+                align-items: center;
+                img {
+                    width: 36px;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+    .pairing-item-container {
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 16px;
+        display: flex;
+        vertical-align: middle;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        transition-duration: 0.3s;
+        transition-property: transform;
+        &:hover,
+        &:focus,
+        &:active {
+            transform: translateX(8px);
+        }
+        .pairing-image {
+            img {
+                height: 100px;
+                width: 100px;
+                border-radius: 6px;
+            }
+        }
+        .pairing-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 8px;
+            .pairing-icon {
+                display: flex;
+                img {
+                    height: 40px;
+                    width: 32px;
+                    margin-right: 8px;
+                }
+            }
+            img {
+                width: 16px;
+                height: 16px;
+            }
+            .pairing-item-bref {
+                display: flex;
+                align-items: center;
+                img {
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+    .marker-container {
+        .popover__content {
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: -64px;
+            transform: translate(0, 10px);
+            background-color: #fff;
+            padding: 8px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            width: auto;
+            .popover-info {
+                display: flex;
+                align-items: center;
+                margin-top: 4px;
+                img {
+                    margin-right: 8px;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%
+                }
+                .popover-text {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        &:hover .popover__content {
+            z-index: 10;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translate(0, -20px);
+            transition: all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+        }
+    }
+    .map {
+        top: 0;
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        @media only screen and (max-width: 768px) {
+            position: relative;
+        }
+        .lottie-container {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            .lottie-marker {
+                z-index: 10;
+                border-radius: 50%;
+                background: rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .img-hover {
+        transform: scale(1.5);
+        animation: 0.5s ease-in-out;
+    }
+    .img-leave {
+        transform: scale(1.0);
+        animation: 0.5s ease-in-out;
+    }
+    @keyframes leaves {
+        0% {
+            transform: scale(1.0);
+        }
+        100% {
+            transform: scale(1.5);
+        }
+    }
+}
+
+.spin-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+}
+
+.truck-event-card-container {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 0;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    &:hover,
+    &:focus,
+    &:active {
+        transform: translateX(8px);
+    }
+    .truck-image-container {
+        img {
+            height: 100px;
+            width: 100px;
+            border-radius: 6px;
+        }
+    }
+    .truck-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 16px;
+        .truck-logo {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+        }
+        .cuisine-tag {
+            padding: 2px 8px 8px 0;
+            display: flex;
+            .cuisine-tag-item {
+                padding-right: 3px;
+                text-transform: uppercase;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .ant-rate {
+            line-height: 0;
+            li {
+                margin: 0 2px;
+                i {
+                    &::before {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+

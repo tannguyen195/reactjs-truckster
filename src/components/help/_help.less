@@ -1,0 +1,132 @@
+.help-container {
+    padding-top: 69px;
+    background: #fff;
+    .help-main-header {
+        text-align: center;
+        max-width: 540px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        .title-help {
+            padding-top: 40px;
+            padding-bottom: 20px;
+            color: #212121;
+        }
+        .search-help {
+            width: 100%;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 5px;
+            .ant-select-selection {
+                .ant-select-selection__placeholder {
+                    top: 70%
+                }
+                li {
+                    height: 56px;
+                    input {
+                        box-shadow: none !important;
+                        height: 100%;
+                        border-top-right-radius: 0;
+                        border-bottom-right-radius: 0;
+                    }
+                    &:focus {
+                        box-shadow: none !important;
+                        border-color: none !important;
+                    }
+                }
+            }
+            .button-find {
+                height: 100%;
+                button {
+                    width: 56px;
+                    border-top-left-radius: 0;
+                    height: 100%;
+                    border-bottom-left-radius: 0;
+                }
+            }
+        }
+    }
+    .help-body {
+        box-shadow: inset 0 -1px 0 0 #efefef;
+        margin: 0 auto;
+        box-shadow: inset 0 -1px 0 0 #efefef;
+        background: #fafafa;
+        padding: 32px;
+        background: #fafafa;
+        .content-help {
+            margin: 0 auto !important;
+            max-width: 1140px;
+            margin: 0 auto;
+            background: #fafafa;
+            .answer {
+                white-space: pre-line;
+            }
+        }
+        .help-card {
+            padding: 32px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px 0 rgba(33, 33, 33, 0.1);
+            .title {
+                padding-bottom: 40px;
+            }
+            .content {
+                .ant-collapse {
+                    border: none;
+                    background-color: #fff;
+                    .ant-collapse-item {
+                        border-radius: 0;
+                        .ant-collapse-header {
+                            padding-bottom: 25px;
+                            padding-left: 0;
+                            .collapse-header {
+                                display: flex;
+                                justify-content: space-between;
+                                img {
+                                    width: 24px
+                                }
+                            }
+                        }
+                        .ant-collapse-content {
+                            padding: 0
+                        }
+                    }
+                }
+                .question-container {
+                    padding: 16px 0;
+                    box-shadow: inset 0 -1px 0 0 #efefef;
+                    .header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .question {
+                            color: #212121
+                        }
+                        .icon {
+                            img {
+                                width: 24px
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .not-find {
+        text-align: center;
+        .title {
+            color: #212121;
+            padding-top: 56px;
+        }
+        .button-contact {
+            padding-top: 24px;
+            padding-bottom: 56px;
+            button {
+                height: 48px;
+                width: 217px;
+            }
+        }
+    }
+}
