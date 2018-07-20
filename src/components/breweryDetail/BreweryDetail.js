@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Rate, Anchor, Spin, Card, Icon } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 import Fade from 'react-reveal/Fade'
 
 import Map from '../common/map/Map'
@@ -9,19 +9,19 @@ import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
 import Calendar from '../common/calendar/Calendar'
 
-import './_breweryDetail.less'
+import stylesheet from './_breweryDetail.less'
 
 import { getSchedule } from '../../../global'
 const LinkAnchor = Anchor.Link;
-const shareIcon = require('/static/images/share-icon.png')
-const websiteIcon = require('/static/images/website-icon.svg')
-const locationIcon = require('/static/images/location-icon.png')
-const homeImage = require("/static/images/home-image.jpg")
-const mailIcon = require('/static/images/mail-icon.png')
-const phoneIcon = require('/static/images/phone-icon.png')
-const facebookIconWhite = require('/static/images/facebook-icon-white.svg')
-const instagramIconWhite = require('/static/images/instagram-icon-white.svg')
-const twitterIconWhite = require('/static/images/twitter-icon-white.svg')
+const shareIcon = ('/static/images/share-icon.png')
+const websiteIcon = ('/static/images/website-icon.svg')
+const locationIcon = ('/static/images/location-icon.png')
+const homeImage = ("/static/images/home-image.jpg")
+const mailIcon = ('/static/images/mail-icon.png')
+const phoneIcon = ('/static/images/phone-icon.png')
+const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
+const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
+const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 class BreweryDetail extends Component {
 
@@ -168,8 +168,8 @@ class BreweryDetail extends Component {
                                     <div className="tag">
 
                                         <Link to={`/brewery/type/${breweryDetail.breweries_type && breweryDetail.breweries_type.name}`}>
-                                            <div className="tag-item Body-1MediumBlackCenter">
-                                                {breweryDetail.breweries_type && breweryDetail.breweries_type.name} </div>
+                                            <a className="tag-item Body-1MediumBlackCenter">
+                                                {breweryDetail.breweries_type && breweryDetail.breweries_type.name} </a>
 
                                         </Link>
 
@@ -229,6 +229,7 @@ class BreweryDetail extends Component {
         const { breweryDetail, isPairing } = this.props
         return (
             <div style={{ padding: isPairing && 0 }} className="brewery-detail">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     breweryDetail
                         ?

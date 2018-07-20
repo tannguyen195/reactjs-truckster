@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Nearby from './Nearby'
-import { getNearby } from '../../../api/nearbyApi'
-import { mountNearby } from '../../../actions/nearbyAction'
-import { getEventTime } from '../../../global'
+import { getNearby } from '../../api/nearbyApi'
+import { mountNearby } from '../../actions/nearbyAction'
+import { getEventTime } from 'global'
 import moment from 'moment'
-const eventMarkerIcon = require('/static/images/event-marker-icon.png')
-const pairingMarkerIcon = require('/static/images/pairing-marker-icon.png')
-const breweryMarkerIcon = require('/static/images/brewery-marker-icon.png')
-const truckMarkerIcon = require('/static/images/truck-marker-icon.png')
+const eventMarkerIcon = ('/static/images/event-marker-icon.png')
+const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
+const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
+const truckMarkerIcon = ('/static/images/truck-marker-icon.png')
 let cityCircle = null
 let googleGlobal = null
 class NearbyContainer extends Component {
@@ -173,10 +173,7 @@ class NearbyContainer extends Component {
                 })
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+
     componentDidMount() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(((e) => {

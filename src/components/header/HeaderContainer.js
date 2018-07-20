@@ -20,7 +20,9 @@ import { searchBrewery } from '../../api/breweryApi'
 import { signIn, logOut, signUp, loginSocial } from '../../api/authApi'
 import { categories } from '../data'
 import { getSearchResult } from '../../actions/truckAction'
+import { notification } from 'antd';
 
+import { checkLogin } from '../../actions/authAction'
 class HeaderContainer extends Component {
 
     constructor(props) {
@@ -35,6 +37,13 @@ class HeaderContainer extends Component {
             typingTimeout: 0
         }
 
+    }
+    componentDidMount() {
+        this.props.checkLogin()
+        notification.config({
+            placement: 'bottomRight',
+            duration: 3,
+        })
     }
     handleOpenMenu() {
         this.setState({
@@ -208,7 +217,8 @@ export function mapDispatchToProps(dispatch) {
         logOut,
         loginSocial,
         searchTruck,
-        searchBrewery
+        searchBrewery,
+        checkLogin
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

@@ -5,19 +5,27 @@ import Footer from './Footer'
 import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
+import { withRouter } from "next/router"
 class FooterContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {}
 
     }
-
     render() {
 
-        const { location } = this.props
-        return (
+        const { router } = this.props
 
-                <Footer {...this.state} {...this.props}/>
+        return (
+            router.pathname.includes("/activity")
+                || router.pathname.includes("/profile")
+                || router.pathname.includes("/pairing")
+                || router.pathname.includes("/food-truck")
+                || router.pathname.includes("/nearby")
+                || router.pathname.includes("/brewery") ?
+                <div />
+                :
+                <Footer {...this.state} {...this.props} />
         )
     }
 }
@@ -31,4 +39,4 @@ export function mapDispatchToProps(dispatch) {
         toggleAnnounceModal
     }, dispatch)
 }
-export default (connect(mapStateToProps, mapDispatchToProps)(FooterContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterContainer));

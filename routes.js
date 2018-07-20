@@ -9,14 +9,15 @@ module.exports = routes()
     .add('edit')
     .add('nearby')
 
-    .add('cuisines', '/truck/cuisine', 'cuisines')
-    .add('cuisine', '/truck/cuisine/:value', 'cuisine')
+    .add('cuisines', '/cuisine', 'cuisines')
+    .add('cuisine', '/cuisine/:value', 'cuisine')
 
     .add('activites', '/activity', 'activites')
     .add('activity', '/activity/:name--:id', 'activity')
 
     .add('breweries', '/brewery', 'breweries')
     .add('brewery', '/brewery/:name--:id', 'brewery')
+    .add('breweryType', '/brewery-type/:value', 'breweryType')
 
     .add('trucks', '/food-truck', 'trucks')
     .add('truck', '/food-truck/:name--:id', 'truck')

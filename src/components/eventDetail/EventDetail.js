@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Row, Col, Spin, Icon } from 'antd';
 import Map from '../common/map/Map'
-import './_eventDetail.less'
+import stylesheet from './_eventDetail.less'
 import Fade from 'react-reveal/Fade'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import moment from 'moment'
 import { getEventTime } from '../../../global'
-const defaultImage = require("/static/images/default-image.png")
-const shareIcon = require('/static/images/share-icon.png')
-const timeIcon = require('/static/images/time-icon.png')
-const locationIcon = require('/static/images/location-icon.png')
+const defaultImage = ("/static/images/default-image.png")
+const shareIcon = ('/static/images/share-icon.png')
+const timeIcon = ('/static/images/time-icon.png')
+const locationIcon = ('/static/images/location-icon.png')
 
 class EventDetail extends Component {
 
@@ -79,7 +79,7 @@ class EventDetail extends Component {
         const { activity } = this.props
         return (
             <div className="event-detail">
-
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     activity
                         ?

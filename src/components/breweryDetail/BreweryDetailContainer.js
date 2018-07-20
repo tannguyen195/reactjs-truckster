@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BreweryDetail from './BreweryDetail'
 import Fade from 'react-reveal/Fade';
-import { getBreweryDetail } from '../../../api/breweryApi'
+import { getBreweryDetail } from '../../api/breweryApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import axios from 'axios';
-import { toggleShareModal } from '../../../actions/toggleAction'
-import { googleApi } from '../../../config'
-import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../../api/reviewApi'
+import { getDataInitial } from 'global'
+import { toggleShareModal } from '../../actions/toggleAction'
+import { googleApi } from 'config'
+import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
 class BreweryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -18,10 +19,7 @@ class BreweryDetailContainer extends Component {
             favorite: false,
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+
     componentWillReceiveProps(nextProps) {
         let self = this
         if (nextProps.breweryDetail) {
@@ -42,15 +40,21 @@ class BreweryDetailContainer extends Component {
                 });
 
         }
-        if (nextProps.match.params.id !== this.props.match.params.id) {
-            this.props.getBreweryDetail(nextProps.match.params.id)
+        if (nextProps.id !== this.props.id) {
+            this.props.getBreweryDetail(nextProps.id)
         }
 
     }
-    componentDidMount() {
-        this.props.getBreweryDetail(this.props.match.params.id)
 
-        this.props.getBreweryReview(this.props.match.params.id)
+    static async getInitialProps({ reduxStore, req, query }) {
+
+        return {
+            breweryDetail: await getDataInitial(`consumer/v1/breweries/${query.id}`),
+            id: query.id
+        }
+    }
+    componentDidMount() {
+        this.props.getBreweryReview(this.props.id)
     }
     handleEditReview(e) {
         this.props.editBreweryReview({
@@ -93,7 +97,6 @@ export function mapStateToProps(state) {
         isLoadingPostBreweryReview: state.reviewReducer.isLoadingPostBreweryReview,
         isLoadingEditBreweryReview: state.reviewReducer.isLoadingEditBreweryReview,
         isLoadingBreweryDetail: state.breweryReducer.isLoadingBreweryDetail,
-        breweryDetail: state.breweryReducer.breweryDetail,
         error: state.breweryReducer.error,
         status: state.breweryReducer.status,
 

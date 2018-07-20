@@ -171,7 +171,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags2.map((item, index) => {
-                                                    return <Link key={index} params={{ value: item }} to={`/truck/cuisine/${item}`}>
+                                                    return <Link key={index} params={{ value: item }} to={`/cuisine/${item}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -182,7 +182,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags3.map((item, index) => {
-                                                    return <Link key={index} to={`/truck/cuisine/${item}`}>
+                                                    return <Link key={index} to={`/cuisine/${item}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -196,7 +196,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags.map((item, index) => {
-                                                    return <Link key={index} to={`/truck/cuisine/${item}`}>
+                                                    return <Link key={index} to={`/cuisine/${item}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -221,7 +221,7 @@ class CityDetail extends Component {
 
                 {/* home body  */}
                 <div className="body-content">
-                    <Section url="/event" seeall={true} title="What's happening in Denver?" >
+                    <Section url="/activities" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
                             <Fade>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import Map from '../common/map/Map'
-import './_event.less'
+import stylesheet from './_event.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import Section from '../common/section/Section'
 import EventCard from '../common/eventCard/EventCard'
@@ -14,13 +14,13 @@ class Event extends Component {
 
     renderEventCarousel(events, imageWidth) {
         return events.map((item, index) => {
-            
+
             return <div className="carousel-item" key={index} >
                 <EventCard
-                    data = {item}
+                    data={item}
                     carousel={true}
                     imageWidth={imageWidth}
-                  
+
                 >
                 </EventCard>
             </div>
@@ -30,9 +30,9 @@ class Event extends Component {
         return events.map((item, index) => {
             return <Col style={{ marginBottom: "16px" }} key={index} xs={24} sm={12} lg={12} md={12}>
                 <EventCard
-                   data = {item}
-                   carousel={true}
-                   imageWidth={imageWidth}
+                    data={item}
+                    carousel={true}
+                    imageWidth={imageWidth}
                 >
                 </EventCard>
 
@@ -44,6 +44,7 @@ class Event extends Component {
         const { activitiesWeek, error, activities, loadMore, hasMore } = this.props
         return (
             <div className="event-container">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Row >
                     <Col style={{ padding: "30px" }}
                         className="event-detail"

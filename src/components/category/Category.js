@@ -213,13 +213,13 @@ class Category extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
-                <Link to={`/truck/cuisine/${item.name}`}>
-
-                    <CategoryCard
-                        image={item.image}
-                        name={item.name}  >
-                    </CategoryCard>
-
+                <Link to={`/cuisine/${item.name}`}>
+                    <a>
+                        <CategoryCard
+                            image={item.image}
+                            name={item.name}  >
+                        </CategoryCard>
+                    </a>
                 </Link>
             </Col>
         })

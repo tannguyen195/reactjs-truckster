@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { mountBrewery } from '../../../actions/breweryAction'
+import { mountBrewery } from '../../actions/breweryAction'
 import Brewery from './Brewery'
 import Fade from 'react-reveal/Fade';
-import { searchBrewery } from '../../../api/breweryApi'
+import { searchBrewery } from '../../api/breweryApi'
 let renderPageFlag = false
 class BreweryContainer extends Component {
     constructor(props) {
@@ -13,11 +13,7 @@ class BreweryContainer extends Component {
             hasMore: true
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-        renderPageFlag = false
-    }
+
     componentDidMount() {
         this.props.mountBrewery()
     }

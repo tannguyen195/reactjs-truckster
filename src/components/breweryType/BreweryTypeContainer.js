@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { searchBrewery } from '../../../api/breweryApi'
+import { searchBrewery } from '../../api/breweryApi'
 import BreweryType from './BreweryType'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import Fade from 'react-reveal/Fade';
-import { mountBrewery } from '../../../actions/breweryAction'
+import { mountBrewery } from '../../actions/breweryAction'
 let renderPageFlag = false
 class BreweryTypeContainer extends Component {
     constructor(props) {
@@ -14,11 +14,8 @@ class BreweryTypeContainer extends Component {
             hasMore: true
         }
     }
-
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-        renderPageFlag = false
+    static async getInitialProps({ reduxStore, req, query }) {
+        return { value: query.value }
     }
 
     componentDidMount() {
@@ -26,16 +23,16 @@ class BreweryTypeContainer extends Component {
     }
 
     loadMoreBrewery() {
-        const { searchBrewery, currentPage, lastPage, match } = this.props
+        const { searchBrewery, currentPage, lastPage, value } = this.props
 
 
         if (!currentPage && !renderPageFlag) {
             renderPageFlag = true
-            searchBrewery("breweries_type", match.params.value, 1)
+            searchBrewery("breweries_type", value, 1)
         }
 
         else if (currentPage < lastPage)
-            searchBrewery("breweries_type", match.params.value, currentPage + 1)
+            searchBrewery("breweries_type", value, currentPage + 1)
 
         else if (currentPage === lastPage && currentPage) {
             this.setState({

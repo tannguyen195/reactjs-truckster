@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 
 import CategoryCard from '../common/categoryCard/CategoryCard'
 import BreweryCard from '../common/breweryCard/BreweryCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
-import './_brewery.less'
+import stylesheet from './_brewery.less'
 
 
 const categories =
     [
         {
             name: 'Large',
-            image: require('/static/images/breweryTypes/Large.jpg')
+            image: ('/static/images/breweryTypes/Large.jpg')
         },
         {
             name: 'Micro',
-            image: require('/static/images/breweryTypes/Micro.jpg')
+            image: ('/static/images/breweryTypes/Micro.jpg')
         },
         {
             name: 'Contract',
-            image: require('/static/images/breweryTypes/Contract.jpg')
+            image: ('/static/images/breweryTypes/Contract.jpg')
         },
         {
             name: 'Regional',
-            image: require('/static/images/breweryTypes/Regional.jpg')
+            image: ('/static/images/breweryTypes/Regional.jpg')
         },
 
     ];
@@ -38,12 +38,13 @@ class Brewery extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
-                <Link to={`/brewery/type/${item.name}`}>
-
-                    <CategoryCard
-                        image={item.image}
-                        name={item.name}  >
-                    </CategoryCard>
+                <Link to={`/brewery-type/${item.name}`}>
+                    <a>
+                        <CategoryCard
+                            image={item.image}
+                            name={item.name}  >
+                        </CategoryCard>
+                    </a>
                 </Link>
             </Col>
         })
@@ -61,6 +62,7 @@ class Brewery extends Component {
         const { breweries, error, loadMoreBrewery, hasMore } = this.props
         return (
             <div className="brewery main-wrapper body-content">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="body-title DisplayBlackLeft">
                     Brewery types
                 </div>

@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
 import { Row, Col, Switch, Icon, Rate } from 'antd';
-import './_nearby.less'
+import stylesheet from './_nearby.less'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import moment from 'moment'
 import GoogleMapReact from 'google-map-react';
-import * as animationData from './marker.json'
-import Lottie from 'react-lottie';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 import Fade from 'react-reveal/Fade';
 import AnnounceNearbyModal from './AnnounceNearbyModal'
 import TitleLink from '../common/titleLink'
-const truckGreyIcon = require('/static/images/truck-grey-icon.svg')
-const websiteIcon = require('/static/images/website-icon.svg')
-const backIcon = require("/static/images/back-icon.png")
-const defaultImage = require("/static/images/default-image.png")
-const eventMarkerIcon = require('/static/images/event-marker-icon.png')
-const pairingMarkerIcon = require('/static/images/pairing-marker-icon.png')
-const truckMarkerIcon = require('/static/images/truck-marker-icon.png')
-const locationIcon = require('/static/images/location-icon.png')
-const timeIcon = require('/static/images/time-icon.png')
-const mailIcon = require('/static/images/mail-icon.png')
-const phoneIcon = require('/static/images/phone-icon.png')
-const facebookIconWhite = require('/static/images/facebook-icon-white.svg')
-const instagramIconWhite = require('/static/images/instagram-icon-white.svg')
-const twitterIconWhite = require('/static/images/twitter-icon-white.svg')
+const truckGreyIcon = ('/static/images/truck-grey-icon.svg')
+const websiteIcon = ('/static/images/website-icon.svg')
+const backIcon = ("/static/images/back-icon.png")
+const defaultImage = ("/static/images/default-image.png")
+const eventMarkerIcon = ('/static/images/event-marker-icon.png')
+const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
+const truckMarkerIcon = ('/static/images/truck-marker-icon.png')
+const locationIcon = ('/static/images/location-icon.png')
+const timeIcon = ('/static/images/time-icon.png')
+const mailIcon = ('/static/images/mail-icon.png')
+const phoneIcon = ('/static/images/phone-icon.png')
+const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
+const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
+const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 
 const MarkerCustom = ({ info, icon, visible, onVisibleChange }) => {
@@ -116,7 +114,7 @@ class Nearby extends Component {
 
                                 <div id={item.id} className="pairing-item-bref CaptionGreyLeft">
                                     <img id={item.id} src={item.type === "pairing-brewery" ? truckGreyIcon : locationIcon} alt="icon" />
-                                    {item.type === "pairing-brewery" ? item.food_truck.name : item.addressDisplay }
+                                    {item.type === "pairing-brewery" ? item.food_truck.name : item.addressDisplay}
                                 </div>
                                 <div id={item.id} className="pairing-item-bref CaptionGreyLeft">
                                     <img src={timeIcon} alt="icon" />
@@ -657,6 +655,7 @@ class Nearby extends Component {
 
         return (
             <div className="nearby-container">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <AnnounceNearbyModal handleExploreInRightPosition={handleExploreInRightPosition} handleCancel={handleCloseModal} visible={!isInRightPosition} />
                 <Row >
                     <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
@@ -670,7 +669,7 @@ class Nearby extends Component {
 
                     <Col className="map" lg={16} md={16}>
                         <div className="lottie-container">
-                            <Lottie options={{
+                            {/* <Lottie options={{
                                 loop: true,
                                 autoplay: true,
                                 animationData: animationData,
@@ -678,7 +677,7 @@ class Nearby extends Component {
                                 style={{ zIndex: '9' }}
                                 height={50}
                                 width={50}
-                            />
+                            /> */}
                         </div>
 
 

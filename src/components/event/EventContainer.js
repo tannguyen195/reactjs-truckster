@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Event from './Event'
-import { searchActivity } from '../../../api/activityApi'
+import { searchActivity } from '../../api/activityApi'
 let renderPageFlag = false
 class EventContainer extends Component {
     constructor(props) {
@@ -12,15 +12,9 @@ class EventContainer extends Component {
 
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
 
-    }
     componentDidMount() {
-
         this.props.searchActivity(true)
-
     }
 
     loadMore() {

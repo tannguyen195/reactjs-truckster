@@ -103,7 +103,7 @@ class Header extends Component {
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Brewery  </a>
                                 </Link>
-                                <Link to="/truck/cuisine">
+                                <Link to="/cuisine">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Cuisine  </a>
                                 </Link>
@@ -190,7 +190,7 @@ class Header extends Component {
                             <a className="item Body-1MediumGreyCenter">Brewery</a>
 
                         </Link>
-                        <Link to="/truck/cuisine">
+                        <Link to="/cuisine">
                             <a className="item Body-1MediumGreyCenter">Cuisine</a>
                         </Link>
 

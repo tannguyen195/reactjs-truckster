@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import './_breweryType.less'
+import stylesheet from './_breweryType.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import BreweryCard from '../common/breweryCard/BreweryCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
@@ -21,13 +21,14 @@ class BreweryType extends Component {
         })
     }
     render() {
-        const { match, brewerySearch, loadMoreBrewery, hasMore, error } = this.props
+        const { value, brewerySearch, loadMoreBrewery, hasMore, error } = this.props
         return (
             <div className="search-detail main-wrapper body-content">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div style={{ padding: "30px" }}
                     className="search-detail-container "   >
                     <div className="detail-header">
-                        <div className="name DisplayBlackLeft">{match.params.value} </div>
+                        <div className="name DisplayBlackLeft">{value} </div>
                     </div>
 
                     <hr />

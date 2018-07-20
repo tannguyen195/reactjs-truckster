@@ -11,7 +11,7 @@ class EventCard extends Component {
         const { data, imageWidth, carousel, } = this.props
 
         return (
-            <TitleLink url="/event/" title={data.name} id={data.id}>
+            <TitleLink url="/activity/" title={data.name} id={data.id}>
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Card style={{ margin: carousel && "8px" }} className="event-card-container" hoverable
                     cover={

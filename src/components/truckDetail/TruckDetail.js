@@ -73,7 +73,7 @@ class TruckDetail extends Component {
                             </Col>
                             <Col className="schedule" xs={24} sm={24} lg={18} md={18}>
                                 <div className="map" >
-                                    {/* <Map icon={iconMarker} location={locationArr} /> */}
+                                    <Map icon={iconMarker} location={locationArr} />
                                 </div>
                             </Col>
                         </Row> : <div className="no-schedule">There are no upcoming schedules for this truck </div>
@@ -297,7 +297,7 @@ class TruckDetail extends Component {
 
     render() {
         const { truckDetail, isPairing } = this.props
-   
+
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
