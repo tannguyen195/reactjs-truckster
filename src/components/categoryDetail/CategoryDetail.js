@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Spin, Icon } from 'antd';
-import './_categoryDetail.less'
+import stylesheet from './_categoryDetail.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import TruckCard from '../common/truckCard/TruckCard'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
@@ -18,15 +18,17 @@ class CategoryDetail extends Component {
         })
     }
     render() {
-        const { match, truckSearch, loadMoreTruck, hasMore } = this.props
+        const { value, truckSearch, loadMoreTruck, hasMore } = this.props
+
         return (
             <div className="search-detail main-wrapper body-content">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     truckSearch ?
                         <div style={{ padding: "30px" }}
                             className="search-detail-container "   >
                             <div className="detail-header">
-                                <div className="name DisplayBlackLeft">{match.params.value} </div>
+                                <div className="name DisplayBlackLeft"> {value}</div>
                             </div>
 
                             <hr />

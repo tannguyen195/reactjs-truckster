@@ -14,14 +14,15 @@ const logoDevice = ('/static/images/logo.png')
 const menu = ({ logOut }) => (
     <Menu>
         <Menu.Item>
-            <Link to="/user/profile" className=" Body-1MediumBlackLeft" >
-                My profile
+            <Link to="/user/profile">
+                <a className=" Body-1MediumBlackLeft">My profile</a>
+
             </Link>
         </Menu.Item>
         <Menu.Item>
-            <Link to="/user/edit" className=" Body-1MediumBlackLeft" >
-                Account Settings
-        </Link>
+            <Link to="/user/edit"  >
+                <a className=" Body-1MediumBlackLeft">Account Settings   </a>
+            </Link>
         </Menu.Item>
         <Menu.Item>
             <a onClick={logOut} className=" Body-1MediumBlackLeft" >
@@ -60,15 +61,18 @@ class Header extends Component {
                             {
                                 isLoggedIn ?
                                     !isLoadingGetUser && userData ?
-                                        <Link to="/user/profile" onClick={handleOpenMenu} className="item Body-1MediumBlackLeft" >
-                                            <img alt="avatar"
-                                                src={userData.avatar ? userData.avatar : unknownUserIcon} />
-                                            <div className="user-info">
-                                                <div className="Display-3BlackLeft">
-                                                    {userData.name}</div>
-                                                <div className='Body-1RegularGrayLeft'>
-                                                    Member Since: {moment(userData.create_at).format("MMMM DD,YYYY")}</div>
-                                            </div>
+                                        <Link to="/user/profile"  >
+                                            <a onClick={handleOpenMenu} className="item Body-1MediumBlackLeft">
+                                                <img alt="avatar"
+                                                    src={userData.avatar ? userData.avatar : unknownUserIcon} />
+                                                <div className="user-info">
+                                                    <div className="Display-3BlackLeft">
+                                                        {userData.name}</div>
+                                                    <div className='Body-1RegularGrayLeft'>
+                                                        Member Since: {moment(userData.create_at).format("MMMM DD,YYYY")}</div>
+                                                </div>
+                                            </a>
+
 
                                         </Link> :
                                         <a className="item Body-1MediumBlackLeft" >
@@ -82,29 +86,42 @@ class Header extends Component {
                             }
                         </div>
                         <hr />
-                        <Link to="/" className="menu-drawer-city">
-                            <div >
+                        <Link to="/" >
+                            <a className="menu-drawer-city">
                                 <img src={locationIcon} alt="city" />
                                 <span className="city-name">Denver</span>
-                            </div>
+                            </a>
                         </Link>
                         <hr />
                         <div className="menu-drawer-body">
                             <div className="menu-drawer-item-group">
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to="/nearby">
-                                    Explore </Link>
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to="/brewery">
-                                    Brewery </Link>
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to="/truck/cuisine">
-                                    Cuisine </Link>
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to="/help">
-                                    Help    </Link>
+                                <Link to="/nearby">
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        Explore  </a>
+                                </Link>
+                                <Link to="/brewery">
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        Brewery  </a>
+                                </Link>
+                                <Link to="/truck/cuisine">
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        Cuisine  </a>
+                                </Link>
+                                <Link to="/help">
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        Help  </a>
+                                </Link>
 
                             </div>
                             <div className="menu-drawer-item-group">
 
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to='/about'>About us</Link>
-                                <Link onClick={handleOpenMenu} className="item Body-2LeftGrey" to='/privacy'>Privacy & Terms</Link>
+                                <Link to='/about'>
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        About us </a>
+                                </Link>
+                                <Link to='/privacy'>
+                                    <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
+                                        Privacy & Terms </a></Link>
                             </div>
                             {
                                 isLoggedIn && <div className="menu-drawer-item-group">
@@ -122,7 +139,7 @@ class Header extends Component {
                 </div>
 
                 <Link to="/">
-                    <div className="logo">
+                    <a className="logo">
                         <MediaQuery maxWidth={768}>
                             {(matches) => {
                                 if (matches) {
@@ -133,13 +150,13 @@ class Header extends Component {
                             }}
                         </MediaQuery>
 
-                    </div>
+                    </a>
                 </Link>
                 <Link to="/city">
-                    <span className="city">
+                    <a className="city">
                         <img src={locationIcon} alt="city" />
                         <span className="Body-1MediumBlackLeft city-name">Denver</span>
-                    </span>
+                    </a>
                 </Link>
                 <div className="left">
                     <SearchBar
@@ -167,14 +184,14 @@ class Header extends Component {
 
                     <div className="option">
                         <Link to="/nearby">
-                            <div className="item Body-1MediumGreyCenter">Explore</div>
+                            <a className="item Body-1MediumGreyCenter">Explore</a>
                         </Link>
                         <Link to="/brewery">
-                            <div className="item Body-1MediumGreyCenter">Brewery</div>
+                            <a className="item Body-1MediumGreyCenter">Brewery</a>
 
                         </Link>
                         <Link to="/truck/cuisine">
-                            <div className="item Body-1MediumGreyCenter">Cuisine</div>
+                            <a className="item Body-1MediumGreyCenter">Cuisine</a>
                         </Link>
 
                         {

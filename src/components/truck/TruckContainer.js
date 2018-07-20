@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Truck from './Truck'
 import Fade from 'react-reveal/Fade';
-import { mountTruck } from '../../../actions/truckAction'
-import { searchTruck } from '../../../api/truckApi'
+import { mountTruck } from '../../actions/truckAction'
+import { searchTruck } from '../../api/truckApi'
 let renderPageFlag = false
 class TruckContainer extends Component {
     constructor(props) {
@@ -14,14 +14,9 @@ class TruckContainer extends Component {
         }
     }
 
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-        renderPageFlag = false
-    }
+
     componentDidMount() {
-        this.props.mountTruck()
-      
+        this.props.mountTruck()    
     }
     loadMoreTruck() {
         const { currentPage, lastPage, searchTruck } = this.props

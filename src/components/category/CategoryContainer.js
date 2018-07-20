@@ -11,10 +11,6 @@ class CategoryContainer extends Component {
             hasMore: true
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
   
     render() {
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { searchTruck } from '../../../api/truckApi'
+import { searchTruck } from '../../api/truckApi'
 import CategoryDetail from './CategoryDetail'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import Fade from 'react-reveal/Fade';
-import { mountTruck } from '../../../actions/truckAction'
+import { mountTruck } from '../../actions/truckAction'
 class CategoryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -14,41 +14,44 @@ class CategoryDetailContainer extends Component {
         }
     }
 
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
+    // componentWillReceiveProps(nextProps) {
 
+    //     if (nextProps.match.params.value !== this.props.match.params.value) {
+    //         this.props.mountTruck()
+    //         this.setState({
+    //             hasMore: true
+    //         })
+    //         this.props.searchTruck("cuisine", nextProps.match.params.value, 1)
+
+    //     }
+    // }
+    static async getInitialProps({ reduxStore, req, query }) {
+        // const isServer = !!req
+        // console.log(" query.value", query.value)
+        // await reduxStore.dispatch(searchTruck("cuisine", query.value, 1))
+        return { value: query.value }
     }
-    componentWillReceiveProps(nextProps) {
-    
-        if (nextProps.match.params.value !== this.props.match.params.value) {
-            this.props.mountTruck()
-            this.setState({
-                hasMore: true
-            })
-            this.props.searchTruck("cuisine", nextProps.match.params.value, 1)
-         
-        }
-    }
+
+
     componentDidMount() {
         this.props.mountTruck()
-        this.props.searchTruck("cuisine", this.props.match.params.value, 1)
+        this.props.searchTruck("cuisine", this.props.value, 1)
     }
     loadMoreTruck() {
-        const { searchTruck, currentPage, lastPage, match, truckSearch, total } = this.props
+        const { searchTruck, currentPage, lastPage, truckSearch, total, value } = this.props
 
         if (currentPage === 1 && lastPage === 1 && truckSearch.length !== 0) {
-          
+
             this.setState({
                 hasMore: false
             })
         }
         else if (currentPage < lastPage) {
-       
-            searchTruck("cuisine", match.params.value, currentPage + 1)
+
+            searchTruck("cuisine", value, currentPage + 1)
         }
         else if (currentPage + 1 > lastPage && truckSearch.length !== 0) {
-            
+
             this.setState({
                 hasMore: false
             })

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './_reviewModify.less'
-import { Row, Col, Rate,  Button, Modal, Input, Tooltip  } from 'antd';
-const unknownUserIcon = require("/static/images/unknown-user-icon.png")
-const homeImage = require("/static/images/home-image.jpg")
+import stylesheet from './_reviewModify.less'
+import { Row, Col, Rate, Button, Modal, Input, Tooltip } from 'antd';
+const unknownUserIcon = ("/static/images/unknown-user-icon.png")
+const homeImage = ("/static/images/home-image.jpg")
 const { TextArea } = Input;
 
 class ReviewModify extends Component {
 
     render() {
-        const { 
+        const {
             detail,
             userData,
             isLoggedIn,
@@ -31,6 +31,7 @@ class ReviewModify extends Component {
 
         return (
             <div className='review-modify-container'>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <hr />
                 {
                     !detail.has_review ?

@@ -6,6 +6,7 @@ import stylesheet from '../src/styles/index.less'
 import Head from '../src/components/head'
 import HeaderContainer from '../src/components/header/HeaderContainer'
 import FooterContainer from '../src/components/footer/FooterContainer'
+import * as jquery from 'jquery'
 class MyApp extends App {
   render() {
     const { Component, pageProps, reduxStore } = this.props

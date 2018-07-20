@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Rate, Modal, Col, Row } from 'antd'
 
 import TitleLink from '../titleLink'
-import './_pairingCard.less'
+import stylesheet from './_pairingCard.less'
 import moment from 'moment'
 import { getSchedule } from '../../../../global'
 const homeImage = require("/static/images/home-image.jpg")
@@ -128,6 +128,7 @@ class PairingCard extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Card onClick={() => this.togglePairing()} className="pairing-card-container" hoverable cover={
                     <div className="pairing-image"
                         style={{

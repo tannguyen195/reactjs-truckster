@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './_announceModal.less'
+import stylesheet from './_announceModal.less'
 import { Modal } from 'antd'
 const logo = require("/static/images/logo-vertical.png")
 class AnnounceModal extends Component {
@@ -22,9 +22,10 @@ class AnnounceModal extends Component {
                 visible={visible}
                 onCancel={handleCancel}
             ><div className="announce-modal-container">
+                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                     <div className='logo-container'><img alt='logo' src={logo} /></div>
                     <div className='Regular-24px-Style message'>
-                    {`Thanks for your interest! 
+                        {`Thanks for your interest! 
                     This will be available soon!`}</div>
                 </div>
             </Modal>

@@ -3,13 +3,16 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
 import Fade from 'react-reveal/Fade';
-import { getTruckDetail } from '../../../api/truckApi'
-import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../../api/reviewApi'
+import { getTruckDetail } from '../../api/truckApi'
+import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
+import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
 import ErrorPage from '../common/errorPage/ErrorPage'
-import { toggleShareModal } from '../../../actions/toggleAction'
+import { toggleShareModal } from '../../actions/toggleAction'
 import { getSchedule } from '../../../global'
+import Head from '../head'
 import moment from 'moment'
+import axios from 'axios'
 class TruckDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -29,14 +32,15 @@ class TruckDetailContainer extends Component {
         }
     }
 
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+    static async getInitialProps({ reduxStore, req, query }) {
 
+        return {
+            truckDetail: await getDataInitial(`consumer/v1/foodtrucks/${query.id}`),
+            id: query.id
+        }
+    }
     componentDidMount() {
-        this.props.getTruckDetail(this.props.match.params.id)
-        this.props.getTruckReview(this.props.match.params.id)
+        this.props.getTruckReview(this.props.id)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -93,10 +97,10 @@ class TruckDetailContainer extends Component {
                 selectedKey: sortedLocations[0] && sortedLocations[0].index
             })
 
-           
+
         }
-        if (nextProps.match.params.id !== this.props.match.params.id) {
-            this.props.getTruckDetail(nextProps.match.params.id)
+        if (nextProps.id !== this.props.id) {
+            this.props.getTruckDetail(nextProps.id)
         }
     }
     handleModeChange(e) {
@@ -215,14 +219,14 @@ class TruckDetailContainer extends Component {
     }
     handleEditReview(e) {
         this.props.editReview({
-            truckId: this.props.match.params.id,
+            truckId: this.props.id,
             ...e
         })
     }
 
     handlePostReview(e) {
         this.props.postReview({
-            truckId: this.props.match.params.id,
+            truckId: this.props.id,
             ...e
         })
     }
@@ -230,10 +234,10 @@ class TruckDetailContainer extends Component {
 
     onFavoriteChange(e) {
         if (e === 1) {
-            this.props.markFavorite(this.props.match.params.id)
+            this.props.markFavorite(this.props.id)
         }
         else {
-            this.props.unmarkFavorite(this.props.match.params.id)
+            this.props.unmarkFavorite(this.props.id)
         }
         this.setState({
             favorite: e
@@ -276,10 +280,14 @@ class TruckDetailContainer extends Component {
         })
     }
     render() {
-        const { error, status } = this.props
-
+        const { error, status, truckDetail } = this.props
         return (
             <Fade>
+                <Head
+                    url="https://gotruckster.com/"
+                    title={truckDetail.name}
+                    description={truckDetail.company_description}
+                />
                 {
                     error ?
                         <ErrorPage status={status} />
@@ -294,10 +302,10 @@ class TruckDetailContainer extends Component {
                                 handleRemoveMenuItem={(e) => this.handleRemoveMenuItem(e)}
                                 calculateSubTotal={(e) => this.calculateSubTotal(e)}
                                 handleClickMenuItem={(e) => this.handleClickMenuItem(e)}
-                                handleClickSchedule={(e) => this.handleClickSchedule(e)}                         
+                                handleClickSchedule={(e) => this.handleClickSchedule(e)}
                                 onFavoriteChange={(e) => this.onFavoriteChange(e)}
-                                handlePostReview={(e) => this.handlePostReview(e)}              
-                                handleClickMenu={(e) => this.handleClickMenu(e)}                                                 
+                                handlePostReview={(e) => this.handlePostReview(e)}
+                                handleClickMenu={(e) => this.handleClickMenu(e)}
                                 handleEditReview={(e) => this.handleEditReview(e)}
                                 handleModeChange={(e) => this.handleModeChange(e)}
                                 handleClickEvent={(e) => this.handleClickEvent(e)}
@@ -320,7 +328,7 @@ class TruckDetailContainer extends Component {
 export function mapStateToProps(state) {
     return {
         isLoadingTruckDetail: state.truckReducer.isLoadingTruckDetail,
-        truckDetail: state.truckReducer.truckDetail,
+
         error: state.truckReducer.error,
         status: state.truckReducer.status,
         truckMenu: state.truckReducer.truckMenu,

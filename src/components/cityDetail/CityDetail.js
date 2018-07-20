@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import BreweryCard from '../common/breweryCard/BreweryCard'
@@ -11,9 +11,9 @@ import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import Fade from 'react-reveal/Fade'
 import SearchBar from '../common/searchBar/SearchBar'
 import MediaQuery from 'react-responsive';
-import './_cityDetail.less'
+import stylesheet from './_cityDetail.less'
 import Placeholder from '../common/placeholder/Placeholder'
-const homeImage = require("/static/images/denver-city.jpg")
+const homeImage = ("/static/images/denver-city.jpg")
 const tags = [
     "American", "Mexican", "Thai", "Pizza", "Dessert", "Coffee"
 ]
@@ -141,6 +141,7 @@ class CityDetail extends Component {
 
         return (
             <div className="home main-wrapper">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {/* main header  */}
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
                     <div className="content-city">
@@ -170,7 +171,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags2.map((item, index) => {
-                                                    return <Link key={index} to={`/truck/cuisine/${item}`}>
+                                                    return <Link key={index} params={{ value: item }} to={`/truck/cuisine/${item}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -235,7 +236,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
 
-                    <Section url="/truck" seeall={true} title="Featured Trucks" >
+                    <Section url="/food-truck" seeall={true} title="Featured Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
                             <Fade>

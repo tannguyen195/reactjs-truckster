@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { searchTruck } from '../../../api/truckApi'
-import { getPairing } from '../../../api/pairingApi'
-import { searchActivity } from '../../../api/activityApi'
-import { searchBrewery } from '../../../api/breweryApi'
-import { getSearchResult } from '../../../actions/truckAction'
+import { searchTruck } from '../../api/truckApi'
+import { getPairing } from '../../api/pairingApi'
+import { searchActivity } from '../../api/activityApi'
+import { searchBrewery } from '../../api/breweryApi'
+import { getSearchResult } from '../../actions/truckAction'
 import {
     toggleAnnounceModal,
 
-} from '../../../actions/toggleAction'
+} from '../../actions/toggleAction'
 import CityDetail from './CityDetail'
-import { categories } from '../../data'
+import { categories } from '../data'
 
 class CityContainer extends Component {
     constructor(props) {
@@ -26,10 +26,7 @@ class CityContainer extends Component {
             typingTimeout: 0
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+
     componentDidMount() {
         this.props.searchActivity(true)
         this.props.searchTruck("is_featured=true&city", "denver")

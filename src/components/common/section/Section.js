@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './_section.less'
-import { Link } from 'react-router-dom'
+import stylesheet from './_section.less'
+import { Link } from 'routes'
 
 
 class Section extends Component {
@@ -18,14 +18,17 @@ class Section extends Component {
 
         return (
             <section>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="header">
                     <div className="section-title Display-2BlackLeft">
                         {title}
                     </div>
                     {
-                        url && seeall && <div to={url} className="see-all ButtonRedCenter">
-                            SEE ALL
-                    </div>
+                        url && seeall && <Link to={url} >
+                            <a className="see-all ButtonRedCenter">
+                                SEE ALL
+                    </a>
+                        </Link>
                     }
 
                 </div>

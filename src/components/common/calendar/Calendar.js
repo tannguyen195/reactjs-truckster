@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './_calendar.less'
+import stylesheet from './_calendar.less'
 import BigCalendar from 'react-big-calendar'
 import { Button, Popover, Tooltip } from 'antd'
 import moment from 'moment'
 import TitleLink from '../../common/titleLink'
-const truckIcon = require("/static/images/truck.svg")
-const breweryIcon = require("/static/images/brewery.svg")
+const truckIcon = ("/static/images/truck.svg")
+const breweryIcon = ("/static/images/brewery.svg")
 BigCalendar.momentLocalizer(moment);
 
 const Content = ({ info }) => (
@@ -14,7 +14,7 @@ const Content = ({ info }) => (
             {info.address || info.name}
         </div>
         <div className="time CaptionGreyLeft">
-            {moment(info.timeDisplay,"YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
+            {moment(info.timeDisplay, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
         </div>
 
     </div>
@@ -78,7 +78,7 @@ class Calendar extends Component {
     }
     getCustomToolbar = (toolbar) => {
         this.toolbarDate = toolbar.date;
-  
+
         const goToMonthView = () => {
             toolbar.onViewChange('month');
         }
@@ -111,7 +111,7 @@ class Calendar extends Component {
                 <div className="filter-container">
                     <Button shape="circle" onClick={goToBack} icon="left" />
                     <Button shape="circle" onClick={goToNext} icon="right" />
-       
+
 
                     <Tooltip title="Month View">
                         <Button shape="circle" onClick={goToMonthView} icon="table" />
@@ -125,20 +125,22 @@ class Calendar extends Component {
         const { events, handleClickEvent } = this.props
 
         return (
-            <div > <BigCalendar
-                selectable
-                events={events}
-                defaultView="month"
-                scrollToTime={new Date(1970, 1, 1, 6)}
-                defaultDate={new Date()}
+            <div >
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+                <BigCalendar
+                    selectable
+                    events={events}
+                    defaultView="month"
+                    scrollToTime={new Date(1970, 1, 1, 6)}
+                    defaultDate={new Date()}
 
-                onSelectEvent={handleClickEvent}
+                    onSelectEvent={handleClickEvent}
 
-                components={{
-                    toolbar: this.getCustomToolbar,
-                    event: this.getCustomEvent
-                }}
-            /></div >
+                    components={{
+                        toolbar: this.getCustomToolbar,
+                        event: this.getCustomEvent
+                    }}
+                /></div >
         )
     }
 }

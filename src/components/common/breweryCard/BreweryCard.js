@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Card, Rate, Tag } from 'antd'
 
 import TitleLink from '../titleLink'
-import './_breweryCard.less'
+import stylesheet from './_breweryCard.less'
 const breweryIcon = require('/static/images/brewery-marker-icon.png')
 const imageBreweryPlaceholder = require("/static/images/image_brewery_placeholder.png")
-class TruckCard extends Component {
+class BreweryCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,6 +17,7 @@ class TruckCard extends Component {
         const { data } = this.props
         return (
             <TitleLink url="/brewery/" title={data.name} id={data.id}>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Card className="brewery-card-container" hoverable cover={
                     <div className="brewery-image"
                         style={{
@@ -55,4 +56,4 @@ class TruckCard extends Component {
     }
 }
 
-export default TruckCard;
+export default BreweryCard;

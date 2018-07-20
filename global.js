@@ -1,5 +1,6 @@
 import moment from 'moment'
-
+import axios from 'axios';
+var https = require("https");
 export function getSchedule(data) {
     let schudeles = []
 
@@ -130,4 +131,23 @@ export function getEventTime(data) {
     }
 
     return schudeles
+}
+
+
+export const getDataInitial = (url) => {
+     return axios({
+        method: 'get',
+        url: "https://dev.gotruckster.com/api/" + url,
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+        headers: {
+            "Accept": "application/json",
+        }
+
+    })
+        .then(function (response) {
+            return response.data
+        })
+        .catch(function (response) {
+            return null
+        });
 }

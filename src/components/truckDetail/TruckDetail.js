@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 import { Row, Col, Rate, Anchor, Spin, Button, Tooltip, Icon, Card, Menu, Radio } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
-import './_truckDetail.less'
+import stylesheet from './_truckDetail.less'
 import Fade from 'react-reveal/Fade'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
+import Head from '../head'
 const LinkAnchor = Anchor.Link;
 
-const closeIcon = require("/static/images/close-icon.svg")
-const homeImage = require("/static/images/home-image.jpg")
-const shareIcon = require('/static/images/share-icon.png')
-const timeIcon = require('/static/images/time-icon.png')
-const mailIcon = require('/static/images/mail-icon.png')
-const phoneIcon = require('/static/images/phone-icon.png')
-const facebookIconWhite = require('/static/images/facebook-icon-white.svg')
-const instagramIconWhite = require('/static/images/instagram-icon-white.svg')
-const twitterIconWhite = require('/static/images/twitter-icon-white.svg')
+const closeIcon = ("/static/images/close-icon.svg")
+const homeImage = ("/static/images/home-image.jpg")
+const shareIcon = ('/static/images/share-icon.png')
+const timeIcon = ('/static/images/time-icon.png')
+const mailIcon = ('/static/images/mail-icon.png')
+const phoneIcon = ('/static/images/phone-icon.png')
+const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
+const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
+const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 class TruckDetail extends Component {
 
@@ -72,7 +73,7 @@ class TruckDetail extends Component {
                             </Col>
                             <Col className="schedule" xs={24} sm={24} lg={18} md={18}>
                                 <div className="map" >
-                                    <Map icon={iconMarker} location={locationArr} />
+                                    {/* <Map icon={iconMarker} location={locationArr} /> */}
                                 </div>
                             </Col>
                         </Row> : <div className="no-schedule">There are no upcoming schedules for this truck </div>
@@ -225,8 +226,9 @@ class TruckDetail extends Component {
                                     <div className="tag">
                                         {
                                             truckDetail.cuisine.map((item, index) => {
-                                                return <Link key={index} to={`/truck/cuisine/${item.name}`}> <div className="tag-item Body-1MediumBlackCenter">
-                                                    {item.name} </div>
+                                                return <Link key={index} to={`/truck/cuisine/${item.name}`}>
+                                                    <a className="tag-item Body-1MediumBlackCenter">
+                                                        {item.name} </a>
                                                 </Link>
                                             })
                                         }
@@ -295,20 +297,19 @@ class TruckDetail extends Component {
 
     render() {
         const { truckDetail, isPairing } = this.props
+   
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     truckDetail
                         ?
                         <Fade>
-
                             <div id="info" className="detail-container" >
                                 {
                                     this.renderTruckDetail(truckDetail)
                                 }
                             </div>
-
-
                         </Fade>
                         :
                         <div className="loading-container">

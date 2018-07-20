@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 
 function changeTitleAddress(title) {
     title = title.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
@@ -26,13 +26,15 @@ class TitleLink extends Component {
     render() {
 
         const { title, url, id, children } = this.props
-    
+
         return (
             <div>
                 {
-                    title && <div to={url + changeTitleAddress(title) + "--" + id}>
-                        {children}
-                    </div>
+                    title && <Link to={url + changeTitleAddress(title) + "--" + id}>
+                        <a>
+                            {children}
+                        </a>
+                    </Link>
                 }
 
 

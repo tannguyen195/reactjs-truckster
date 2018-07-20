@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Card, Rate } from 'antd'
 
 import TitleLink from '../titleLink'
-import './_truckCard.less'
+import stylesheet from './_truckCard.less'
 import moment from 'moment'
 
-const truckIcon = require('/static/images/truck-marker-icon.png')
+const truckIcon = ('/static/images/truck-marker-icon.png')
 class TruckCard extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +19,8 @@ class TruckCard extends Component {
 
         const { data } = this.props
         return (
-            <TitleLink url="/truck/" title={data.name} id={data.id}>
+            <TitleLink url="/food-truck/" title={data.name} id={data.id}>
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Card className="truck-card-container" hoverable cover={
                     <div className="truck-image"
                         style={{

@@ -49,16 +49,16 @@ class Footer extends Component {
                 <Row type="flex" justify="space-between" className="info">
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">About</h3>
-                        <Link to='/about'>About us</Link>
-                        <Link to='/privacy'>Privacy & Terms</Link>
-                        <Link to='/help'>Help</Link>
+                        <Link to='/about'><a>About us</a></Link>
+                        <Link to='/privacy'><a>Privacy & Terms</a></Link>
+                        <Link to='/help'><a>Help</a></Link>
                         <a>Press</a>
                     </Col>
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">Food trucks</h3>
-                        <Link to='/truck'>Find trucks</Link>
-                        <Link to='/truck/cuisine'>Cuisine</Link>
-                        <Link to='/event'>Events</Link>
+                        <Link to='/truck'><a>Find trucks</a></Link>
+                        <Link to='/truck/cuisine'><a>Cuisine</a></Link>
+                        <Link to='/event'><a>Events</a></Link>
 
                     </Col>
                     <Col md={4} className="column">

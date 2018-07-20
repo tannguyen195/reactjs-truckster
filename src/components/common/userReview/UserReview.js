@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Rate} from 'antd';
+import { Rate } from 'antd';
 
 import moment from 'moment'
-import './_userReview.less'
+import stylesheet from './_userReview.less'
 const unknownUserIcon = require("/static/images/unknown-user-icon.png")
 
 
@@ -40,11 +40,11 @@ class UserReview extends Component {
     render() {
 
         const { reviews } = this.props
-
         return (
             <div className="review-user-container">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
-                    this.renderReview(reviews)
+                   reviews && this.renderReview(reviews)
                 }
             </div>
         )

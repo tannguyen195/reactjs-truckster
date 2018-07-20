@@ -41,7 +41,10 @@ module.exports = {
         test: /\.svg$/,
         loader: 'svg-loader?pngScale=2'
       },
-
+      {
+        test: /[\/\\]node_modules[\/\\]some-module[\/\\]index\.js$/,
+        loader: "imports-loader?this=>window"
+      }
 
     );
     return config;

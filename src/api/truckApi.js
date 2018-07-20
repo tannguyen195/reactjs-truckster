@@ -3,7 +3,8 @@ import {
     requestGetTruckDetail, getTruckDetailError, getTruckDetailSuccess,
     requestGetTruckMenu, getTruckMenuError, getTruckMenuSuccess,
 } from '../actions/truckAction.js'
-
+import axios from 'axios'
+var https = require("https");
 // import { notification, Icon } from 'antd'
 
 import $ from 'jquery'
@@ -13,6 +14,7 @@ const cookies = new Cookies()
 
 // Search truck api
 export const searchTruck = (params, value, page) => {
+
     return (dispatch) => {
         dispatch(requestSearchTruck(true))
         $.ajax({
@@ -37,24 +39,45 @@ export const searchTruck = (params, value, page) => {
 export const getTruckDetail = (truckId) => {
     return (dispatch) => {
         dispatch(requestGetTruckDetail(true))
-        $.ajax({
-            type: 'GET',
+
+        axios({
+            method: 'get',
             url: apiUrl + `api/consumer/v1/foodtrucks/` + truckId,
+            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
             headers: {
                 "Accept": "application/json",
-            },
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
-            },
-            success: function (response, status, xhr) {
-                dispatch(getTruckDetailSuccess(
-                    response
-                ));
-            },
-            error: function (error) {
-                dispatch(getTruckDetailError(error))
             }
+
         })
+            .then(function (response) {
+
+                dispatch(getTruckDetailSuccess(
+                    response.data
+                ));
+            })
+            .catch(function (error) {
+                dispatch(getTruckDetailError(error))
+
+            });
+
+        // $.ajax({
+        //     type: 'GET',
+        //     url: apiUrl + `api/consumer/v1/foodtrucks/` + truckId,
+        //     headers: {
+        //         "Accept": "application/json",
+        //     },
+        //     beforeSend: function (xhr) {
+        //         xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
+        //     },
+        //     success: function (response, status, xhr) {
+        //         dispatch(getTruckDetailSuccess(
+        //             response
+        //         ));
+        //     },
+        //     error: function (error) {
+        //         dispatch(getTruckDetailError(error))
+        //     }
+        // })
     }
 }
 

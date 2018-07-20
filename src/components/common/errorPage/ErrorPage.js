@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, } from 'react-router-dom'
+import { Link } from 'routes'
 import { Button } from 'antd'
 import './_errorPage.less'
 const error404 = require('/static/images/error-404.svg')
@@ -42,9 +42,9 @@ class ErrorPage extends Component {
                     <div className="error-status">{status}</div>
                     <div className="error-message">{message}</div>
                     <div className="return-button">
-                        <div to="/">
-                            <Button type="primary ButtonWhiteCenter">Return Home </Button>
-                        </div>
+                        <Link to="/">
+                            <a> <Button type="primary ButtonWhiteCenter">Return Home </Button></a>
+                        </Link>
                     </div>
                 </div>
 

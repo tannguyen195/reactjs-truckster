@@ -119,8 +119,13 @@ class AboutTruckster extends Component {
     render() {
         return (
             <div>
+
+                <Head
+                    url="https://gotruckster.com/"
+                    title="Truckster - Denver Food Trucks"
+                    description="After running a food truck for four years in Denver, it became apparent to Connor that food trucks and consumers need a better way to connect. Few consumers are willing to follow multiple food trucks to find their locations, while food trucks are continuously on the move, creating a difficult environment for the love affair to work. Throw breweries into the mix and it becomes increasingly hard to plan a day that includes one of your favorite breweries and trucks."  
+                    />
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                <Head title="Home" />
                 <div className="about-truckster-container  main-wrapper">
                     <div className="home-main-header" style={{ backgroundImage: `url(${aboutTrucksterImage})` }} >
                         <div className="content-city">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Card } from 'antd'
-import './_placeholder.less'
+import stylesheet from  './_placeholder.less'
 
 class Placeholder extends Component {
 
@@ -9,6 +9,7 @@ class Placeholder extends Component {
 
         return (
             <div className="timeline-wrapper">
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Card hoverable>
                     <div className="timeline-item">
                         <div className="animated-background">

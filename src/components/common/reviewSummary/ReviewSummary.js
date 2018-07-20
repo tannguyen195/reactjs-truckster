@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './_reviewSummary.less'
+import stylesheet from './_reviewSummary.less'
 import { Row, Col, Icon, Progress } from 'antd'
 
 class ReviewSummary extends Component {
@@ -10,6 +10,7 @@ class ReviewSummary extends Component {
 
         return (
             <Row gutter={30} type='flex' justify='center' className="row-review">
+                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <Col md={4} lg={4}>
                     <div className="feedback-container">
                         <div className="avarage-rating">
