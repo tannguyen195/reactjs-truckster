@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import { searchTruck } from '../../api/truckApi'
 import CategoryDetail from './CategoryDetail'
 import ErrorPage from '../common/errorPage/ErrorPage'
-import Fade from 'react-reveal/Fade';
 import { mountTruck } from '../../actions/truckAction'
 class CategoryDetailContainer extends Component {
     constructor(props) {
@@ -14,21 +13,8 @@ class CategoryDetailContainer extends Component {
         }
     }
 
-    // componentWillReceiveProps(nextProps) {
-
-    //     if (nextProps.match.params.value !== this.props.match.params.value) {
-    //         this.props.mountTruck()
-    //         this.setState({
-    //             hasMore: true
-    //         })
-    //         this.props.searchTruck("cuisine", nextProps.match.params.value, 1)
-
-    //     }
-    // }
     static async getInitialProps({ reduxStore, req, query }) {
-        // const isServer = !!req
-        // console.log(" query.value", query.value)
-        // await reduxStore.dispatch(searchTruck("cuisine", query.value, 1))
+
         return { value: query.value }
     }
 
@@ -67,7 +53,7 @@ class CategoryDetailContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <Fade>
+            <div>
                 {
                     error ?
                         <ErrorPage status={status} />
@@ -78,7 +64,7 @@ class CategoryDetailContainer extends Component {
                             loadMoreTruck={() => this.loadMoreTruck()}
                         />
                 }
-            </Fade>
+            </div>
 
         )
     }

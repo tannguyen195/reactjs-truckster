@@ -54,7 +54,7 @@ class Calendar extends Component {
                     }
 
                     <TitleLink
-                        url="/truck/"
+                        url="/food-truck/"
                         title={event.event.food_truck.name}
                         id={event.event.food_truck.id} >
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Contact from './Contact'
-import Fade from 'react-reveal/Fade'
 class ContactContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,11 +14,8 @@ class ContactContainer extends Component {
     }
     render() {
 
-        return (
-            <Fade >
+        return (       
                 <Contact />
-
-            </Fade>
         )
     }
 }

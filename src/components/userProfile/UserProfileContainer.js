@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import UserProfile from './UserProfile'
-import Fade from 'react-reveal/Fade'
-import { getUserReview, getUserFavorite, getUserBreweryReview } from '../../../api/reviewApi'
+import { getUserReview, getUserFavorite, getUserBreweryReview } from '../../api/reviewApi'
 class UserProfileContainer extends Component {
     constructor(props) {
         super(props)
@@ -11,10 +10,7 @@ class UserProfileContainer extends Component {
 
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+
     componentDidMount() {
         this.props.getUserReview()
         this.props.getUserFavorite()
@@ -23,7 +19,7 @@ class UserProfileContainer extends Component {
     render() {
 
         return (
-            <Fade>  <UserProfile {...this.props} /></Fade>
+           <UserProfile {...this.props} />
 
         )
     }

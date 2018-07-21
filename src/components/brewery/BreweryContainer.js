@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { mountBrewery } from '../../actions/breweryAction'
 import Brewery from './Brewery'
-import Fade from 'react-reveal/Fade';
 import { searchBrewery } from '../../api/breweryApi'
 let renderPageFlag = false
 class BreweryContainer extends Component {
@@ -36,14 +35,12 @@ class BreweryContainer extends Component {
     }
     render() {
 
-        return (
-            <Fade>
+        return ( 
                 <Brewery
                     {...this.state}
                     {...this.props}
                     loadMoreBrewery={() => this.loadMoreBrewery()}
                 />
-            </Fade>
         )
     }
 }

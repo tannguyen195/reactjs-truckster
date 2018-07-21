@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Rate, Anchor, Spin, Card, Icon } from 'antd';
 import { Link } from 'routes'
-import Fade from 'react-reveal/Fade'
 
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
@@ -233,16 +232,11 @@ class BreweryDetail extends Component {
                 {
                     breweryDetail
                         ?
-                        <Fade>
-
-                            <div id="info" className="detail-container" >
-                                {
-                                    this.renderBreweryDetail(breweryDetail)
-                                }
-                            </div>
-
-
-                        </Fade>
+                        <div id="info" className="detail-container" >
+                            {
+                                this.renderBreweryDetail(breweryDetail)
+                            }
+                        </div>
                         :
                         <div className="loading-container">
                             <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} />} />

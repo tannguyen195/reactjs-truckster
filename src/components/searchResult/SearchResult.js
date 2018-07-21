@@ -27,7 +27,7 @@ class SearchResult extends Component {
         return categories.map((item, index) => {
             if (item.type === "cuisine")
                 return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
-                    <Link to={`/truck/cuisine/${item.name}`}>
+                    <Link to={`/cuisine/${item.name}`}>
                         <CategoryCard
                             image={item.image}
                             name={item.name}  >

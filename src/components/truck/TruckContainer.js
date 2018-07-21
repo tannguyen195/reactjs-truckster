@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Truck from './Truck'
-import Fade from 'react-reveal/Fade';
 import { mountTruck } from '../../actions/truckAction'
 import { searchTruck } from '../../api/truckApi'
 let renderPageFlag = false
@@ -39,13 +38,11 @@ class TruckContainer extends Component {
     render() {
 
         return (
-            <Fade>
                 <Truck
                     {...this.state}
                     {...this.props}
                     loadMoreTruck={() => this.loadMoreTruck()}
                 />
-            </Fade>
         )
     }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import EventDetail from './EventDetail'
-import Fade from 'react-reveal/Fade';
 import { getActivityDetail } from '../../api/activityApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { toggleShareModal } from '../../actions/toggleAction'
@@ -37,7 +36,7 @@ class EventDetailContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <Fade>
+            <div>
                 {
                     error ?
                         <ErrorPage status={status} />
@@ -49,7 +48,7 @@ class EventDetailContainer extends Component {
                         />
                 }
 
-            </Fade>
+            </div>
         )
     }
 }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import SearchResult from './SearchResult'
-import Fade from 'react-reveal/Fade';
 
 class SearchResultContainer extends Component {
     constructor(props) {
@@ -24,12 +23,12 @@ class SearchResultContainer extends Component {
     render() {
 
         return (
-            <Fade>
+       
                 <SearchResult
                     {...this.state}
                     {...this.props}
                 />
-            </Fade>
+       
 
         )
     }

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, Tabs, Rate } from 'antd';
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 import moment from 'moment'
 import TitleLink from '../common/titleLink'
-import './_userProfile.less'
-const homeImage = require('/static/images/home-image.jpg')
-const unknownUserIcon = require('/static/images/unknown-user-icon.png')
+import stylesheet from './_userProfile.less'
+const homeImage = ('/static/images/home-image.jpg')
+const unknownUserIcon = ('/static/images/unknown-user-icon.png')
 const TabPane = Tabs.TabPane;
-const locationIcon = require('/static/images/location-icon.png')
+const locationIcon = ('/static/images/location-icon.png')
 
 class UserProfile extends Component {
 
@@ -16,7 +16,7 @@ class UserProfile extends Component {
 
         return userReview.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
-                <TitleLink url="/truck/" title={item.food_trucks.name} id={item.food_trucks.id}>
+                <TitleLink url="/food-truck/" title={item.food_trucks.name} id={item.food_trucks.id}>
                     <div className="review-card">
                         <div className="card-header">
                             <Rate disabled value={item.rating ||
@@ -47,6 +47,7 @@ class UserProfile extends Component {
         return (
 
             <div className="profile-container">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     userData && <div className="profile-header">
                         <div className="profile-picture">
@@ -59,11 +60,12 @@ class UserProfile extends Component {
                             <div className="create-at Body-2GreyLeft">
                                 Member Since: {moment(userData.created_at).format("MMMM DD, YYYY")}
                             </div>
-                            <Link to="/user/edit" className="edit-button">
-                                <Button type="danger">
+                            <Link to="/edit">
+                                <a className="edit-button">
+                                    <Button type="danger">
+                                        EDIT PROFILE</Button>
+                                </a>
 
-                                    EDIT PROFILE
-                                </Button>
                             </Link>
                         </div>
                     </div>

@@ -14,13 +14,13 @@ const logoDevice = ('/static/images/logo.png')
 const menu = ({ logOut }) => (
     <Menu>
         <Menu.Item>
-            <Link to="/user/profile">
+            <Link to="/user">
                 <a className=" Body-1MediumBlackLeft">My profile</a>
 
             </Link>
         </Menu.Item>
         <Menu.Item>
-            <Link to="/user/edit"  >
+            <Link to="/edit"  >
                 <a className=" Body-1MediumBlackLeft">Account Settings   </a>
             </Link>
         </Menu.Item>
@@ -61,7 +61,7 @@ class Header extends Component {
                             {
                                 isLoggedIn ?
                                     !isLoadingGetUser && userData ?
-                                        <Link to="/user/profile"  >
+                                        <Link to="/user"  >
                                             <a onClick={handleOpenMenu} className="item Body-1MediumBlackLeft">
                                                 <img alt="avatar"
                                                     src={userData.avatar ? userData.avatar : unknownUserIcon} />

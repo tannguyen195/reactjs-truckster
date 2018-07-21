@@ -6,7 +6,6 @@ import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
 import stylesheet from './_truckDetail.less'
-import Fade from 'react-reveal/Fade'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
 import Head from '../head'
@@ -135,30 +134,30 @@ class TruckDetail extends Component {
         const { order, handleRemoveMenuItem, handleRemoveOne, handleAddOne } = this.props
         return order.map((item, index) => {
             return <div key={item.id} className="order-item-container">
-                <Fade collapse bottom>
-                    <div className="order-item-header">
-                        <div className="Body-1RegularGrayLeft">
-                            {item.name}
-                        </div>
-                        <img onClick={() => handleRemoveMenuItem(item)} alt="close" src={closeIcon} />
-                    </div>
 
-                    <div className="order-item-header">
-                        <Button.Group className="order-item-count" size="small">
-                            <Button disabled={item.count === 1} onClick={() => handleRemoveOne(item)} >
-                                <Icon type="minus" />    </Button>
-                            <Button >
-                                {item.count}</Button>
-                            <Button onClick={() => handleAddOne(item)}>
-                                <Icon type="plus" />
-                            </Button>
-                        </Button.Group>
-                        <div className="Body-1RegularBlackLeft">
-                            ${item.price}
-                        </div>
+                <div className="order-item-header">
+                    <div className="Body-1RegularGrayLeft">
+                        {item.name}
                     </div>
-                    <hr />
-                </Fade>
+                    <img onClick={() => handleRemoveMenuItem(item)} alt="close" src={closeIcon} />
+                </div>
+
+                <div className="order-item-header">
+                    <Button.Group className="order-item-count" size="small">
+                        <Button disabled={item.count === 1} onClick={() => handleRemoveOne(item)} >
+                            <Icon type="minus" />    </Button>
+                        <Button >
+                            {item.count}</Button>
+                        <Button onClick={() => handleAddOne(item)}>
+                            <Icon type="plus" />
+                        </Button>
+                    </Button.Group>
+                    <div className="Body-1RegularBlackLeft">
+                        ${item.price}
+                    </div>
+                </div>
+                <hr />
+
             </div>
 
         })
@@ -226,7 +225,7 @@ class TruckDetail extends Component {
                                     <div className="tag">
                                         {
                                             truckDetail.cuisine.map((item, index) => {
-                                                return <Link key={index} to={`/truck/cuisine/${item.name}`}>
+                                                return <Link key={index} to={`/cuisine/${item.name}`}>
                                                     <a className="tag-item Body-1MediumBlackCenter">
                                                         {item.name} </a>
                                                 </Link>
@@ -304,13 +303,13 @@ class TruckDetail extends Component {
                 {
                     truckDetail
                         ?
-                        <Fade>
-                            <div id="info" className="detail-container" >
-                                {
-                                    this.renderTruckDetail(truckDetail)
-                                }
-                            </div>
-                        </Fade>
+
+                        <div id="info" className="detail-container" >
+                            {
+                                this.renderTruckDetail(truckDetail)
+                            }
+                        </div>
+
                         :
                         <div className="loading-container">
                             <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} />} />

@@ -5,7 +5,6 @@ import stylesheet from './_event.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import Section from '../common/section/Section'
 import EventCard from '../common/eventCard/EventCard'
-import Fade from 'react-reveal/Fade'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
@@ -57,14 +56,10 @@ class Event extends Component {
                                 <RenderContainer message="Something went wrong, please try another time!"
                                     isLoading={activitiesWeek ? false : true} error={error}  >
                                     {
-                                        activitiesWeek &&
-                                        <Fade>
+                                        activitiesWeek &&                                
                                             <CustomCarousel slideToShow={2}>
                                                 {this.renderEventCarousel(activitiesWeek)}
                                             </CustomCarousel>
-
-                                        </Fade>
-
                                     }
                                 </RenderContainer>
                             </Section>

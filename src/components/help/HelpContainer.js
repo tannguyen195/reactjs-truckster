@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Help from './Help'
-import Fade from 'react-reveal/Fade'
 class HelpContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,10 +14,8 @@ class HelpContainer extends Component {
     render() {
 
         return (
-            <Fade >
-                <Help callback={(e) => this.callback(e)} />
+            <Help callback={(e) => this.callback(e)} />
 
-            </Fade>
         )
     }
 }

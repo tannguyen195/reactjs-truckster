@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Spin, Icon } from 'antd';
 import Map from '../common/map/Map'
 import stylesheet from './_eventDetail.less'
-import Fade from 'react-reveal/Fade'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import moment from 'moment'
 import { getEventTime } from '../../../global'
@@ -83,7 +82,6 @@ class EventDetail extends Component {
                 {
                     activity
                         ?
-                        <Fade>
                             <Row >
                                 <Col id="introduction" style={{ padding: "30px" }} className="detail-container" sm={24} xs={24} lg={13} md={13}>
                                     {
@@ -94,7 +92,6 @@ class EventDetail extends Component {
                                     <Map icon="event" location={[activity]} />
                                 </Col>
                             </Row>
-                        </Fade>
                         :
                         <div className="loading-container">
                             <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} />} />

@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import { searchBrewery } from '../../api/breweryApi'
 import BreweryType from './BreweryType'
 import ErrorPage from '../common/errorPage/ErrorPage'
-import Fade from 'react-reveal/Fade';
 import { mountBrewery } from '../../actions/breweryAction'
 let renderPageFlag = false
 class BreweryTypeContainer extends Component {
@@ -45,7 +44,7 @@ class BreweryTypeContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <Fade>
+            <div>
                 {
                     error ?
                         <ErrorPage status={status} />
@@ -56,7 +55,7 @@ class BreweryTypeContainer extends Component {
                             loadMoreBrewery={() => this.loadMoreBrewery()}
                         />
                 }
-            </Fade>
+            </div>
 
         )
     }

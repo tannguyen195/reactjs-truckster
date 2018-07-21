@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Form } from 'antd'
-import { updateProfile, changePassword } from '../../../api/profileApi'
+import { updateProfile, changePassword } from '../../api/profileApi'
 import EditProfile from './EditProfile'
-import Fade from 'react-reveal/Fade'
 import moment from 'moment'
 class EditProfileContainer extends Component {
     constructor(props) {
@@ -117,7 +116,6 @@ class EditProfileContainer extends Component {
     render() {
 
         return (
-            <Fade>
                 <EditProfile
                     onAvatarChange={(e) => this.onAvatarChange(e)}
                     handleChangePassword={(e) => this.handleChangePassword(e)}
@@ -130,8 +128,6 @@ class EditProfileContainer extends Component {
                     handleUpdateProfile={(e) => this.handleUpdateProfile(e)}
                     {...this.state}
                     {...this.props} />
-            </Fade>
-
         )
     }
 }

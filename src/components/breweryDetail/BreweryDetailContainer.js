@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BreweryDetail from './BreweryDetail'
-import Fade from 'react-reveal/Fade';
 import { getBreweryDetail } from '../../api/breweryApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import axios from 'axios';
@@ -74,7 +73,7 @@ class BreweryDetailContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <Fade>
+            <div>
                 {
                     error ?
                         <ErrorPage status={status} />
@@ -88,7 +87,7 @@ class BreweryDetailContainer extends Component {
                         />
                 }
 
-            </Fade>
+            </div>
         )
     }
 }

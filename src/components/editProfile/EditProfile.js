@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Tabs, Form, Input, Radio, DatePicker, } from 'antd';
 
-import './_editProfile.less'
+import stylesheet from './_editProfile.less'
 import Dropzone from 'react-dropzone'
 const RadioGroup = Radio.Group;
 const FormItem = Form.Item
@@ -16,7 +16,7 @@ const phoneIcon = require('/static/images/phone-icon.png')
 class EditProfile extends Component {
 
     renderAccountSetting() {
-        const {  checkPassword, handleChangePassword, isLoadingChangePassword } = this.props
+        const { checkPassword, handleChangePassword, isLoadingChangePassword } = this.props
         const { getFieldDecorator } = this.props.form
 
         return <div className="max-width">
@@ -178,6 +178,7 @@ class EditProfile extends Component {
         return (
 
             <div className="edit-container">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="edit-header">
                     <div className="title-edit DisplayBlackLeft">
                         Account Settings

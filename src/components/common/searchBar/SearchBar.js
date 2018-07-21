@@ -25,13 +25,13 @@ class SearchBar extends Component {
             icon = null
         switch (item.type) {
             case "cuisine": {
-                link = `/truck/cuisine/${item.name}`;
+                link = `/cuisine/${item.name}`;
                 icon = foodIconGrey;
                 break;
             }
             case "truck": {
-                link = `/truck/${item.name.toLowerCase().replace(/ /g, "-")}--${item.id}`;
-                link = `/truck/${item.name.toLowerCase().replace(/ - /g, "")}--${item.id}`;
+                link = `/food-truck/${item.name.toLowerCase().replace(/ /g, "-")}--${item.id}`;
+                link = `/food-truck/${item.name.toLowerCase().replace(/ - /g, "")}--${item.id}`;
                 icon = targetIcon;
                 break;
             }

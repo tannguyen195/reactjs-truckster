@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Category from './Category'
-import Fade from 'react-reveal/Fade';
 
 class CategoryContainer extends Component {
     constructor(props) {
@@ -14,14 +13,12 @@ class CategoryContainer extends Component {
   
     render() {
 
-        return (
-            <Fade>
+        return (      
                 <Category
                     {...this.state}
                     {...this.props}
                   
                 />
-            </Fade>
         )
     }
 }

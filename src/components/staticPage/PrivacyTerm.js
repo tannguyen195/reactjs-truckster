@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'antd'
-import Fade from 'react-reveal/Fade';
 import stylesheet from './_privacy.less'
 
 const data = {
@@ -60,7 +59,7 @@ class PrivacyTerm extends Component {
     render() {
 
         return (
-            <Fade>
+            <div>
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="privacy-wrapper">
 
@@ -222,7 +221,7 @@ class PrivacyTerm extends Component {
 
                     </div>
                 </div>
-            </Fade>
+            </div>
         )
     }
 }

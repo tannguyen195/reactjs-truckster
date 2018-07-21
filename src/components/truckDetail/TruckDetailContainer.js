@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
-import Fade from 'react-reveal/Fade';
+
 import { getTruckDetail } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
@@ -282,46 +282,41 @@ class TruckDetailContainer extends Component {
     render() {
         const { error, status, truckDetail } = this.props
         return (
-            <Fade>
-                <Head
-                    url="https://gotruckster.com/"
-                    title={truckDetail.name}
-                    description={truckDetail.company_description}
-                />
+            <div>
                 {
-                    error ?
-                        <ErrorPage status={status} />
-                        : <div>
-                            <TruckDetail
-                                {...this.state}
-                                {...this.props}
-                                handleCancel={(e) => this.handleCancel(e)}
-                                handleCheckOut={(e) => this.handleCheckOut(e)}
-                                handleAddOne={(e) => this.handleAddOne(e)}
-                                handleRemoveOne={(e) => this.handleRemoveOne(e)}
-                                handleRemoveMenuItem={(e) => this.handleRemoveMenuItem(e)}
-                                calculateSubTotal={(e) => this.calculateSubTotal(e)}
-                                handleClickMenuItem={(e) => this.handleClickMenuItem(e)}
-                                handleClickSchedule={(e) => this.handleClickSchedule(e)}
-                                onFavoriteChange={(e) => this.onFavoriteChange(e)}
-                                handlePostReview={(e) => this.handlePostReview(e)}
-                                handleClickMenu={(e) => this.handleClickMenu(e)}
-                                handleEditReview={(e) => this.handleEditReview(e)}
-                                handleModeChange={(e) => this.handleModeChange(e)}
-                                handleClickEvent={(e) => this.handleClickEvent(e)}
-                            />
-                            <AnnounceModal
-                                message={`This feature will be available soon.                               
-                                We are currently hard at work on selected feature. It will be available as soon as possible.`}
-                                visible={this.state.visibleAnnounce}
-                                handleCancel={(e) => this.handleCancel(e)} />
-                        </div>
-
-
-
+                    truckDetail ? <div>
+                        <Head
+                            url="https://gotruckster.com/"
+                            title={truckDetail.name + " - Food Truck Denver, CO - Go Truckster"}
+                            description={truckDetail.company_description}
+                            ogImage={truckDetail.cover_photo[0].url}
+                        />
+                        <TruckDetail
+                            {...this.state}
+                            {...this.props}
+                            handleCancel={(e) => this.handleCancel(e)}
+                            handleCheckOut={(e) => this.handleCheckOut(e)}
+                            handleAddOne={(e) => this.handleAddOne(e)}
+                            handleRemoveOne={(e) => this.handleRemoveOne(e)}
+                            handleRemoveMenuItem={(e) => this.handleRemoveMenuItem(e)}
+                            calculateSubTotal={(e) => this.calculateSubTotal(e)}
+                            handleClickMenuItem={(e) => this.handleClickMenuItem(e)}
+                            handleClickSchedule={(e) => this.handleClickSchedule(e)}
+                            onFavoriteChange={(e) => this.onFavoriteChange(e)}
+                            handlePostReview={(e) => this.handlePostReview(e)}
+                            handleClickMenu={(e) => this.handleClickMenu(e)}
+                            handleEditReview={(e) => this.handleEditReview(e)}
+                            handleModeChange={(e) => this.handleModeChange(e)}
+                            handleClickEvent={(e) => this.handleClickEvent(e)}
+                        />
+                        <AnnounceModal
+                            message={`This feature will be available soon.                               
+                        We are currently hard at work on selected feature. It will be available as soon as possible.`}
+                            visible={this.state.visibleAnnounce}
+                            handleCancel={(e) => this.handleCancel(e)} />
+                    </div> : <ErrorPage status={404} />
                 }
-
-            </Fade>
+            </div>
         )
     }
 }

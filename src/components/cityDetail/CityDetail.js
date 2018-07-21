@@ -8,7 +8,6 @@ import PairingCard from '../common/pairingCard/PairingCard'
 import EventCard from '../common/eventCard/EventCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
-import Fade from 'react-reveal/Fade'
 import SearchBar from '../common/searchBar/SearchBar'
 import MediaQuery from 'react-responsive';
 import stylesheet from './_cityDetail.less'
@@ -224,7 +223,7 @@ class CityDetail extends Component {
                     <Section url="/activities" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
-                            <Fade>
+                            <div>
                                 {
                                     activitiesWeek && activitiesWeek.length > 0 ?
                                         <Row gutter={16}>
@@ -232,21 +231,21 @@ class CityDetail extends Component {
                                         </Row> : this.renderPlaceHolder()
                                 }
 
-                            </Fade>
+                            </div>
                         </RenderContainer>
                     </Section>
 
                     <Section url="/food-truck" seeall={true} title="Featured Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
-                            <Fade>
+                            <div>
                                 {
                                     truckFeaturedCity ?
                                         <Row gutter={16}>
                                             {this.renderTruckCard(truckFeaturedCity)}
                                         </Row> : this.renderPlaceHolder()
                                 }
-                            </Fade>
+                            </div>
                         </RenderContainer>
 
                     </Section>
@@ -256,14 +255,14 @@ class CityDetail extends Component {
                             error={errorBrewery}  >
 
 
-                            <Fade>
+                            <div>
                                 {
                                     breweries && breweries.length > 0 ?
                                         <Row gutter={16}>
                                             {this.renderBreweryCard(breweries)}
                                         </Row> : this.renderPlaceHolder()
                                 }
-                            </Fade>
+                            </div>
 
                         </RenderContainer>
                     </Section>
@@ -274,11 +273,11 @@ class CityDetail extends Component {
                             error={errorPairing}  >
                             {
                                 pairings && pairings.length > 0 ?
-                                    <Fade>
+                                  
                                         <Row gutter={16}>
                                             {this.renderPairingCard(pairings)}
                                         </Row>
-                                    </Fade> : this.renderPlaceHolder()
+                                : this.renderPlaceHolder()
                             }
                         </RenderContainer>
 

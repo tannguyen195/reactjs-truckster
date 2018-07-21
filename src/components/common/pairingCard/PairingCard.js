@@ -175,7 +175,7 @@ class PairingCard extends Component {
                             <div className="title-pairing Display-2BlackLeft">
                                 <span> Pairing list of   </span>
                                 <span> <TitleLink
-                                    url="/truck/"
+                                    url="/food-truck/"
                                     title={data.name} id={data.id}>{data.name}
                                 </TitleLink></span>
                                 <span> in this week
@@ -199,7 +199,7 @@ class PairingCard extends Component {
                                 <div className='logo-container'><img alt='logo' src={logo} /></div>
                                 <div className='Regular-24px-Style message'>
                                     <span> <TitleLink
-                                        url="/truck/"
+                                        url="/food-truck/"
                                         title={data.name} id={data.id}>{data.name}
                                     </TitleLink> has no pairings in this week</span>
                                 </div>

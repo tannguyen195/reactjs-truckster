@@ -5,7 +5,6 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import moment from 'moment'
 import GoogleMapReact from 'google-map-react';
 import { Link } from 'routes'
-import Fade from 'react-reveal/Fade';
 import AnnounceNearbyModal from './AnnounceNearbyModal'
 import TitleLink from '../common/titleLink'
 const truckGreyIcon = ('/static/images/truck-grey-icon.svg')
@@ -133,7 +132,7 @@ class Nearby extends Component {
         })
     }
     renderTruckCard(data) {
-        return <TitleLink url="/truck/" title={data.name} key={data.key} id={data.id}>
+        return <TitleLink url="/food-truck/" title={data.name} key={data.key} id={data.id}>
             <div className="truck-event-card-container" >
                 <div className="truck-image-container">
                     <img src={data.image} alt="truck" />
@@ -154,7 +153,7 @@ class Nearby extends Component {
                     </div>
                     <Rate disabled value={parseInt(data.rating, 10)} />
                 </div>
-            </div>
+            </div> 
         </TitleLink>
     }
     renderFoodTruck(data) {
@@ -169,7 +168,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <TitleLink id={data.food_truck.id} url="/truck/" title={data.nameDisplay}>
+                        <TitleLink id={data.food_truck.id} url="food-truck/" title={data.nameDisplay}>
                             <div className="Display-2WhiteLeft">{data.nameDisplay}</div>
                         </TitleLink>
                         {
@@ -188,7 +187,7 @@ class Nearby extends Component {
                         <div className="tag">
                             {
                                 data.food_truck.cuisine.map((item, index) => {
-                                    return <Link key={index} to={`/truck/cuisine/${item.name}`}> <div className="tag-item Body-1MediumBlackCenter">
+                                    return <Link key={index} to={`/cuisine/${item.name}`}> <div className="tag-item Body-1MediumBlackCenter">
                                         {item.name} </div>
                                     </Link>
                                 })
@@ -661,7 +660,7 @@ class Nearby extends Component {
                     <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
                         {
                             visibleNearbyEventDetail ?
-                                <Fade> {this.renderNearbyEventDetail()}</Fade> : <Fade>{this.renderNearbyEventList()}</Fade>
+                               this.renderNearbyEventDetail() : this.renderNearbyEventList()
 
                         }
 
