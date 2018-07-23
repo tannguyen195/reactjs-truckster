@@ -141,6 +141,7 @@ export const getDataInitial = (url) => {
      return axios({
         method: 'get',
         url: "https://dev.gotruckster.com/api/" + url,
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: {
             'Authorization': "Bearer " + cookies.get('token', { doNotParse: true }),
             "Accept": "application/json",
