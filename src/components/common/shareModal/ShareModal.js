@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './_shareModal.less'
+import stylesheet from './_shareModal.less'
 import { Modal } from 'antd'
 import {
     FacebookShareButton,
@@ -7,14 +7,13 @@ import {
     FacebookIcon,
 
 } from 'react-share';
-const logo = require("/static/images/logo-vertical.png")
+const logo = ("/static/images/logo-vertical.png")
 class ShareModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
 
         };
-
     }
 
     render() {
@@ -27,7 +26,9 @@ class ShareModal extends Component {
                 footer={null}
                 visible={visible}
                 onCancel={handleCancel}
-            ><div className="share-modal-container">
+            >
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+                <div className="share-modal-container">
                     <div className='logo-container'><img alt='logo' src={logo} /></div>
                     <FacebookShareButton className="social-button-container"  >
                         <FacebookIcon TwitterIcon size={32} round={true} />

@@ -10,19 +10,18 @@ module.exports = routes()
     .add('nearby')
     .add('search')
 
-    
 
-    .add('cuisines', '/cuisine', 'cuisines')
-    .add('cuisine', '/cuisine/:value', 'cuisine')
 
-    .add('activites', '/activity', 'activites')
-    .add('activity', '/activity/:name--:id', 'activity')
+    .add('cuisines', '/cuisine')
+    .add('cuisine', '/cuisine/:value')
 
-    .add('breweries', '/brewery', 'breweries')
-    .add('brewery', '/brewery/:name--:id', 'brewery')
-    .add('breweryType', '/brewery-type/:value', 'breweryType')
+    .add('breweries', '/brewery')
+    .add('brewery', '/brewery/:slug')
+    .add('breweryType', '/brewery-type/:value')
 
-    .add('trucks', '/food-truck', 'trucks')
-    .add('truck', '/food-truck/:name--:id', 'truck')
+    .add('trucks', '/food-truck')
+    .add('truck', '/food-truck/:slug')
 
-    .add('city', '/:cityname', 'city')
+    .add('activites', '/activity')
+    .add('activity', '/activity/:name--:id')
+    .add('city', '/:cityname')

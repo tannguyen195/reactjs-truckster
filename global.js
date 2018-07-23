@@ -126,8 +126,6 @@ export function getEventTime(data) {
 
                 schudeles.push(tempDate.format("YYYY-MM-DD hh:mm a"))
             }
-
-
             break;
         }
         default: break;
@@ -152,6 +150,7 @@ export const getDataInitial = (url) => {
             return response.data
         })
         .catch(function (response) {
+            console.log("[ERROR]", response)
             return null
         });
 }

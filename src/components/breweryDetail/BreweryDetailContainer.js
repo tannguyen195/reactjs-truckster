@@ -49,7 +49,7 @@ class BreweryDetailContainer extends Component {
     static async getInitialProps({ reduxStore, req, query }) {
 
         return {
-            breweryDetail: await getDataInitial(`consumer/v1/breweries/${query.id}`),
+            breweryDetail: await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`),
             id: query.id
         }
     }

@@ -119,11 +119,11 @@ class AboutTruckster extends Component {
     render() {
         return (
             <div>
-
                 <Head
+                    ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"
-                    title="Truckster - Denver Food Trucks"
-                    description="After running a food truck for four years in Denver, it became apparent to Connor that food trucks and consumers need a better way to connect. Few consumers are willing to follow multiple food trucks to find their locations, while food trucks are continuously on the move, creating a difficult environment for the love affair to work. Throw breweries into the mix and it becomes increasingly hard to plan a day that includes one of your favorite breweries and trucks."
+                    title="Truckster - Your Source for Everything Food Trucks"
+                    description="Explore breweries, upcoming events, menus, and your favorite brewery & food truck pairings"
                 />
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="about-truckster-container  main-wrapper">

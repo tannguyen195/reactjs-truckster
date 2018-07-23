@@ -35,7 +35,7 @@ class TruckDetailContainer extends Component {
     static async getInitialProps({ reduxStore, req, query }) {
 
         return {
-            truckDetail: await getDataInitial(`consumer/v1/foodtrucks/${query.id}`),
+            truckDetail: await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`),
             id: query.id
         }
     }
