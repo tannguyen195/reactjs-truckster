@@ -35,7 +35,7 @@ class CityContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.history &&
+        if (
             nextProps.truckSearchResult &&
             nextProps.brewerySearchResult) {
 

@@ -137,7 +137,7 @@ Everything Food Trucks`}
                             <div className="button-explore">
 
                                 <Button type="primary">
-                                    <Link to="/city">
+                                    <Link to="/denver">
                                         <a className="ButtonWhiteCenter">
                                             GO EXPLORE
                                 </a>

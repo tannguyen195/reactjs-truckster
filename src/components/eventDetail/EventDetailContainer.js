@@ -5,8 +5,8 @@ import EventDetail from './EventDetail'
 import { getActivityDetail } from '../../api/activityApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { toggleShareModal } from '../../actions/toggleAction'
-
 import { getDataInitial } from 'global'
+import Head from '../head'
 class EventDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -33,19 +33,27 @@ class EventDetailContainer extends Component {
 
 
     render() {
-        const { error, status } = this.props
+        const { activity, status } = this.props
 
         return (
             <div>
                 {
-                    error ?
-                        <ErrorPage status={status} />
-                        :
-                        <EventDetail
-                            {...this.state}
-                            {...this.props}
+                    activity ?
+                        <div>
+                            <Head
+                                url="https://gotruckster.com/"
+                                title={activity.name + " - Event in Denver, CO - Go Truckster"}
+                                description={activity.information}
+                                ogImage={activity.pictures[0].url}
+                            />
+                            <EventDetail
+                                {...this.state}
+                                {...this.props}
 
-                        />
+                            />
+                        </div>
+                        :
+                        <ErrorPage status={status} />
                 }
 
             </div>

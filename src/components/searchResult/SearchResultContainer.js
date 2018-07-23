@@ -4,21 +4,6 @@ import { bindActionCreators } from 'redux'
 import SearchResult from './SearchResult'
 
 class SearchResultContainer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-       
-    }
-    componentWillReceiveProps(nextProps) {
-        
-    }
 
     render() {
 

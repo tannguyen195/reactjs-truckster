@@ -24,6 +24,7 @@ const initial = {
     params: "",
 }
 const truckReducer = (state = initial, action) => {
+
     switch (action.type) {
 
         // Search truck reducer
@@ -52,7 +53,6 @@ const truckReducer = (state = initial, action) => {
                     foodSearchResult: action.response.data,
                 }
             else if (action.response.params === "keyword") {
-
                 return {
                     ...state,
                     isLoadingSearchTruck: false,
@@ -164,7 +164,7 @@ const truckReducer = (state = initial, action) => {
                 truckSearch: [],
                 currentPageType: null,
                 lastPageType: null,
-        
+
             }
         case types.GET_SEARCH_RESULT:
 

@@ -1,5 +1,8 @@
 import moment from 'moment'
 import axios from 'axios';
+import { Cookies } from 'react-cookie'
+
+const cookies = new Cookies()
 var https = require("https");
 export function getSchedule(data) {
     let schudeles = []
@@ -138,8 +141,8 @@ export const getDataInitial = (url) => {
      return axios({
         method: 'get',
         url: "https://dev.gotruckster.com/api/" + url,
-        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: {
+            'Authorization': "Bearer " + cookies.get('token', { doNotParse: true }),
             "Accept": "application/json",
         }
 

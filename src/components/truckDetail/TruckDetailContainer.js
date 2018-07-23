@@ -12,7 +12,7 @@ import { toggleShareModal } from '../../actions/toggleAction'
 import { getSchedule } from '../../../global'
 import Head from '../head'
 import moment from 'moment'
-import axios from 'axios'
+
 class TruckDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -44,7 +44,6 @@ class TruckDetailContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-
         if (nextProps.truckDetail) {
             // Set location
             let locations = [], icon = "", events = []

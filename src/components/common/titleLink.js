@@ -15,6 +15,7 @@ function changeTitleAddress(title) {
     title = title.replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ/g, "O");
     title = title.replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g, "U");
     title = title.replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g, "Y");
+    title = title.replace(/'/g, "");
     title = title.replace(/Đ/g, "D");
     title = title.replace(/-/g, "");
     title = title.replace(/ {2}/g, "");

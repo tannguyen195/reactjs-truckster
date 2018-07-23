@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import './_searchResult.less'
+import stylesheet from './_searchResult.less'
 import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import CategoryCard from '../common/categoryCard/CategoryCard'
 import BreweryCard from '../common/breweryCard/BreweryCard'
-import { Link } from 'react-router-dom'
+import { Link } from 'routes'
 
 class SearchResult extends Component {
     // render brewery card 
@@ -28,10 +28,12 @@ class SearchResult extends Component {
             if (item.type === "cuisine")
                 return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
                     <Link to={`/cuisine/${item.name}`}>
-                        <CategoryCard
-                            image={item.image}
-                            name={item.name}  >
-                        </CategoryCard>
+                        <a>
+                            <CategoryCard
+                                image={item.image}
+                                name={item.name}  >
+                            </CategoryCard>
+                        </a>
 
                     </Link>
                 </Col>
@@ -55,6 +57,7 @@ class SearchResult extends Component {
         const { searchResult, params } = this.props
         return (
             <div className="search-result main-wrapper body-content">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     searchResult &&
                         searchResult.length === 0 ?

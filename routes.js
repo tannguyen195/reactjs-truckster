@@ -8,6 +8,9 @@ module.exports = routes()
     .add('user')
     .add('edit')
     .add('nearby')
+    .add('search')
+
+    
 
     .add('cuisines', '/cuisine', 'cuisines')
     .add('cuisine', '/cuisine/:value', 'cuisine')
@@ -21,3 +24,5 @@ module.exports = routes()
 
     .add('trucks', '/food-truck', 'trucks')
     .add('truck', '/food-truck/:name--:id', 'truck')
+
+    .add('city', '/:cityname', 'city')

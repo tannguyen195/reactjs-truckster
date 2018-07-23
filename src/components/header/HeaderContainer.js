@@ -58,7 +58,6 @@ class HeaderContainer extends Component {
         this.props.searchBrewery("name", value)
     }
 
-
     componentWillReceiveProps(nextProps) {
         if (
             nextProps.truckSearchResult &&
@@ -102,6 +101,7 @@ class HeaderContainer extends Component {
             });
 
             if (this.state.flagSearch) {
+               
                 setTimeout(() => {
                     this.props.getSearchResult({
                         params: this.state.searchValue,
@@ -200,7 +200,8 @@ export function mapStateToProps(state) {
         isLoadingGetUser: state.profileReducer.isLoadingGetUser,
         userData: state.profileReducer.userData,
 
-
+        truckSearchResult: state.truckReducer.truckSearchResult,
+        brewerySearchResult: state.breweryReducer.brewerySearchResult,
     };
 }
 export function mapDispatchToProps(dispatch) {

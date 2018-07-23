@@ -8,7 +8,7 @@ import HeaderContainer from '../src/components/header/HeaderContainer'
 import FooterContainer from '../src/components/footer/FooterContainer'
 
 class MyApp extends App {
-
+  
   render() {
     const { Component, pageProps, reduxStore } = this.props
 
@@ -17,7 +17,7 @@ class MyApp extends App {
         <Provider store={reduxStore}>
           <div>
             <Head />
-            <HeaderContainer />
+            <HeaderContainer {...pageProps} />
             <Component {...pageProps} />
             <FooterContainer {...pageProps} />
             <style dangerouslySetInnerHTML={{ __html: stylesheet }} />

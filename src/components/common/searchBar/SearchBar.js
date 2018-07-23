@@ -5,10 +5,12 @@ import stylesheet from './_searchBar.less'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-const targetIcon = require("/static/images/target-icon.png")
-const drinkIconGrey = require("/static/images/drink-icon-grey.svg")
-const foodIconGrey = require("/static/images/food-icon-grey.svg")
-const arrowRightIcon = require("/static/images/arrow-right-icon.png")
+
+import { Router } from 'routes'
+const targetIcon = ("/static/images/target-icon.png")
+const drinkIconGrey = ("/static/images/drink-icon-grey.svg")
+const foodIconGrey = ("/static/images/food-icon-grey.svg")
+const arrowRightIcon = ("/static/images/arrow-right-icon.png")
 const Option = Select.Option;
 
 class SearchBar extends Component {
@@ -71,10 +73,10 @@ class SearchBar extends Component {
     }
 
     onSelect(value, e) {
-        this.props.history.push(e.props.children.props.to)
+        Router.pushRoute(e.props.children.props.to)
     }
     onEnter() {
-        this.props.history.push("/search/")
+        Router.pushRoute('/search')
     }
     render() {
 

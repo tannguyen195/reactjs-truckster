@@ -22,6 +22,7 @@ class FooterContainer extends Component {
                 || router.pathname.includes("/pairing")
                 || router.pathname.includes("/food-truck")
                 || router.pathname.includes("/nearby")
+                || router.pathname.includes("/user")
                 || router.pathname.includes("/brewery") ?
                 <div />
                 :

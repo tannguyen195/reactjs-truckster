@@ -153,7 +153,7 @@ class Nearby extends Component {
                     </div>
                     <Rate disabled value={parseInt(data.rating, 10)} />
                 </div>
-            </div> 
+            </div>
         </TitleLink>
     }
     renderFoodTruck(data) {
@@ -187,8 +187,9 @@ class Nearby extends Component {
                         <div className="tag">
                             {
                                 data.food_truck.cuisine.map((item, index) => {
-                                    return <Link key={index} to={`/cuisine/${item.name}`}> <div className="tag-item Body-1MediumBlackCenter">
-                                        {item.name} </div>
+                                    return <Link key={index} to={`/cuisine/${item.name}`}>
+                                        <a className="tag-item Body-1MediumBlackCenter">
+                                            {item.name} </a>
                                     </Link>
                                 })
                             }
@@ -287,9 +288,9 @@ class Nearby extends Component {
 
                         <div className="tag">
 
-                            <Link to={`/brewery/type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
-                                <div className="tag-item Body-1MediumBlackCenter">
-                                    {data.brewery.breweries_type && data.brewery.breweries_type.name} </div>
+                            <Link to={`/brewery-type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
+                                <a className="tag-item Body-1MediumBlackCenter">
+                                    {data.brewery.breweries_type && data.brewery.breweries_type.name} </a>
 
                             </Link>
 
@@ -660,7 +661,7 @@ class Nearby extends Component {
                     <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
                         {
                             visibleNearbyEventDetail ?
-                               this.renderNearbyEventDetail() : this.renderNearbyEventList()
+                                this.renderNearbyEventDetail() : this.renderNearbyEventList()
 
                         }
 

@@ -229,19 +229,14 @@ class BreweryDetail extends Component {
         return (
             <div style={{ padding: isPairing && 0 }} className="brewery-detail">
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                {
-                    breweryDetail
-                        ?
-                        <div id="info" className="detail-container" >
-                            {
-                                this.renderBreweryDetail(breweryDetail)
-                            }
-                        </div>
-                        :
-                        <div className="loading-container">
-                            <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} />} />
-                        </div>
-                }
+
+                <div id="info" className="detail-container" >
+                    {
+                        this.renderBreweryDetail(breweryDetail)
+                    }
+                </div>
+
+
 
             </div>
         )

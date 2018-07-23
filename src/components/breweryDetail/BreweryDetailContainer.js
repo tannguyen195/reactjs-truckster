@@ -9,6 +9,7 @@ import { getDataInitial } from 'global'
 import { toggleShareModal } from '../../actions/toggleAction'
 import { googleApi } from 'config'
 import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
+import Head from '../head'
 class BreweryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -70,21 +71,30 @@ class BreweryDetailContainer extends Component {
     }
 
     render() {
-        const { error, status } = this.props
+        const { error, status, breweryDetail } = this.props
 
         return (
             <div>
                 {
-                    error ?
-                        <ErrorPage status={status} />
-                        :
-                        <BreweryDetail
-                            {...this.state}
-                            {...this.props}
-                            handlePostReview={(e) => this.handlePostReview(e)}
-                            handleEditReview={(e) => this.handleEditReview(e)}
+                    breweryDetail ?
+                        <div>
+                            <Head
+                                url="https://gotruckster.com/"
+                                title={breweryDetail.name + " - Brewery Denver, CO - Go Truckster"}
+                                description={breweryDetail.company_description}
+                                ogImage={breweryDetail.cover_photo[0].url}
+                            />
+                            <BreweryDetail
+                                {...this.state}
+                                {...this.props}
+                                handlePostReview={(e) => this.handlePostReview(e)}
+                                handleEditReview={(e) => this.handleEditReview(e)}
 
-                        />
+                            />
+                        </div>
+
+                        :
+                        <ErrorPage status={status} />
                 }
 
             </div>

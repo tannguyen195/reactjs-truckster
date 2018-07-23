@@ -8,7 +8,7 @@ import UserReview from '../common/userReview/UserReview'
 import stylesheet from './_truckDetail.less'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
-import Head from '../head'
+
 const LinkAnchor = Anchor.Link;
 
 const closeIcon = ("/static/images/close-icon.svg")

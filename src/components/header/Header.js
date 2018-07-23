@@ -152,7 +152,7 @@ class Header extends Component {
 
                     </a>
                 </Link>
-                <Link to="/city">
+                <Link to="/denver">
                     <a className="city">
                         <img src={locationIcon} alt="city" />
                         <span className="Body-1MediumBlackLeft city-name">Denver</span>
