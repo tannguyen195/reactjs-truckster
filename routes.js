@@ -9,8 +9,10 @@ module.exports = routes()
     .add('edit')
     .add('nearby')
     .add('search')
+    .add('pairing')
 
-
+    .add('activities', '/activity')
+    .add('activity', '/activity/:name--:id')
 
     .add('cuisines', '/cuisine')
     .add('cuisine', '/cuisine/:value')
@@ -22,6 +24,6 @@ module.exports = routes()
     .add('trucks', '/food-truck')
     .add('truck', '/food-truck/:slug')
 
-    .add('activites', '/activity')
-    .add('activity', '/activity/:name--:id')
+
+
     .add('city', '/:cityname')

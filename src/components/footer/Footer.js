@@ -15,7 +15,7 @@ const logoApp = ("/static/images/logo-app.png")
 const logo = ("/static/images/logo-vertical.png")
 class Footer extends Component {
     render() {
-        const { toggleAnnounceModal, location } = this.props
+        const { toggleAnnounceModal, router } = this.props
         return (
 
             <footer className="footer-container" >

@@ -13,17 +13,16 @@ class FooterContainer extends Component {
 
     }
     render() {
-
+        console.log("this.props", this.props)
         const { router } = this.props
 
         return (
             router.pathname.includes("/activity")
                 || router.pathname.includes("/profile")
                 || router.pathname.includes("/pairing")
-                || router.pathname.includes("/food-truck")
                 || router.pathname.includes("/nearby")
                 || router.pathname.includes("/user")
-                || router.pathname.includes("/brewery") ?
+                || router.pathname.includes("/activities") ?
                 <div />
                 :
                 <Footer {...this.state} {...this.props} />

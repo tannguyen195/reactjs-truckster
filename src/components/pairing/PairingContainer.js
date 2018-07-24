@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Pairing from './Pairing'
-import { getPairing,  } from '../../../api/pairingApi'
-import { mountPairing,  } from '../../../actions/pairingAction'
+import { getPairing,  } from '../../api/pairingApi'
+import { mountPairing,  } from '../../actions/pairingAction'
 let flag = false
 class PairingContainer extends Component {
     constructor(props) {
@@ -12,10 +12,7 @@ class PairingContainer extends Component {
             hasMore: true
         }
     }
-    componentWillMount() {
-        
-        sessionStorage.setItem("reloadUrl", window.location.href)
-    }
+
     componentDidMount() {
         this.props.mountPairing()
     }

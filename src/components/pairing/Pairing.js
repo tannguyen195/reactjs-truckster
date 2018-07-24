@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import './_pairing.less'
+import stylesheet from './_pairing.less'
 import PairingCard from '../common/pairingCard/PairingCard'
 import InfiniteScroll from 'react-infinite-scroller';
 import RenderContainer from '../common/renderContainer/RenderContainer'
@@ -18,10 +18,11 @@ class Pairing extends Component {
     render() {
 
         const { pairings, errorPairing, hasMore, loadMorePairing } = this.props
-      
+
         return (
 
             <div className="search-detail main-wrapper body-content">
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div style={{ padding: "30px" }}
                     className="search-detail-container "   >
                     <div className="detail-header">
