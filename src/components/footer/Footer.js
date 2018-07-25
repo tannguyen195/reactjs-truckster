@@ -21,7 +21,7 @@ class Footer extends Component {
             <footer className="footer-container" >
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
-                  <Row className="download" style={{ backgroundImage: `url(${cover})` }}>
+                    <Row className="download" style={{ backgroundImage: `url(${cover})` }}>
                         <Col lg={12} md={12} className="store">
                             <div className="logo">
                                 <img alt="logo" src={logoApp} /></div>
@@ -76,9 +76,13 @@ class Footer extends Component {
                             }} >  <img alt="Alternative text" src={facebook} />
                             </a>
 
-                            <img alt="Alternative text" src={google} />
-                            <img alt="Alternative text" src={instagram} />
-                            <img alt="Alternative text" src={youtube} />
+                            <a onClick={() => {
+                                window.open("https://www.instagram.com/gotruckster/");
+                            }} >   <img alt="Alternative text" src={instagram} />
+                            </a>
+                            {/* <img alt="Alternative text" src={google} />
+
+                            <img alt="Alternative text" src={youtube} /> */}
                         </div>
 
                     </Col>

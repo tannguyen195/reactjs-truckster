@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import Truck from './Truck'
 import { mountTruck } from '../../actions/truckAction'
 import { searchTruck } from '../../api/truckApi'
+import Head from '../head'
 let renderPageFlag = false
 class TruckContainer extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class TruckContainer extends Component {
 
 
     componentDidMount() {
-        this.props.mountTruck()    
+        this.props.mountTruck()
     }
     loadMoreTruck() {
         const { currentPage, lastPage, searchTruck } = this.props
@@ -38,11 +39,20 @@ class TruckContainer extends Component {
     render() {
 
         return (
+            <div>
+                <Head
+                    ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
+                    url="https://gotruckster.com/"
+                    title="Denver Food Trucks Near Me – Locations, Schedules & Catering"
+                    description="Find the best food trucks in Denver, CO featuring gourmet street food. View food truck schedules, pairings, menus, reviews, discounts and catering information!"
+                />
                 <Truck
                     {...this.state}
                     {...this.props}
                     loadMoreTruck={() => this.loadMoreTruck()}
                 />
+            </div>
+
         )
     }
 }

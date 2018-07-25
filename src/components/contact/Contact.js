@@ -55,10 +55,20 @@ class Contact extends Component {
                             <div className="social-container">
                                 <div className="title">SOCIAL MEDIA</div>
                                 <div className="social-icon">
-                                    <img src={facebook} alt="icon" />
-                                    <img src={google} alt="icon" />
-                                    <img src={twitter} alt="icon" />
-                                    <img src={instagram} alt="icon" />
+
+
+
+                                    <a onClick={() => {
+                                        window.open("https://www.facebook.com/GoTruckster/");
+                                    }} >  <img alt="Alternative text" src={facebook} />
+                                    </a>
+                                    {/* <img src={google} alt="icon" />
+                                    <img src={twitter} alt="icon" /> */}
+                                    <a onClick={() => {
+                                        window.open("https://www.instagram.com/gotruckster/");
+                                    }} >   <img alt="Alternative text" src={instagram} />
+                                    </a>
+
                                 </div>
                             </div>
                             {/* <Row gutter={10} className="form-contact">

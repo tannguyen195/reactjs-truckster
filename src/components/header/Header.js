@@ -30,6 +30,17 @@ const menu = ({ logOut }) => (
         </Menu.Item>
     </Menu>
 );
+const menuCity = () => (
+    <Menu>
+
+        <Menu.Item>
+            <Link to="/co/denver"  >
+                <a className=" Body-1MediumBlackLeft">Denver </a>
+            </Link>
+        </Menu.Item>
+
+    </Menu>
+);
 class Header extends Component {
 
     render() {
@@ -86,12 +97,22 @@ class Header extends Component {
                             }
                         </div>
                         <hr />
-                        <Link to="/" >
-                            <a className="menu-drawer-city">
-                                <img src={locationIcon} alt="city" />
-                                <span className="city-name">Denver</span>
-                            </a>
-                        </Link>
+
+                        <Dropdown
+                            getPopupContainer={() => document.getElementById('area1')}
+                            overlay={menuCity()}>
+                            <span className="dropdown-container">
+                                <Link to="/co" >
+                                    <a id="area1" className="menu-drawer-city">
+                                        <img src={locationIcon} alt="city" />
+                                        <span className="city-name">All cities</span>
+                                    </a>
+                                </Link>
+                            </span>
+                        </Dropdown>
+
+
+
                         <hr />
                         <div className="menu-drawer-body">
                             <div className="menu-drawer-item-group">
@@ -99,7 +120,7 @@ class Header extends Component {
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Explore  </a>
                                 </Link>
-                                <Link to="/brewery">
+                                <Link to="/brewery/co/denver">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Brewery  </a>
                                 </Link>
@@ -152,12 +173,20 @@ class Header extends Component {
 
                     </a>
                 </Link>
-                <Link to="/denver">
-                    <a className="city">
-                        <img src={locationIcon} alt="city" />
-                        <span className="Body-1MediumBlackLeft city-name">Denver</span>
-                    </a>
-                </Link>
+                <Dropdown
+                    getPopupContainer={() => document.getElementById('area2')}
+                    overlay={menuCity()}>
+                    <span className="dropdown-container">
+                        <Link to="/co" >
+                            <a id="area2" className="city">
+                                <img src={locationIcon} alt="city" />
+                                <span className="Body-1MediumBlackLeft city-name">All cities</span>
+                            </a>
+                        </Link>
+                    </span>
+                </Dropdown>
+
+             
                 <div className="left">
                     <SearchBar
                         match={match}
@@ -186,7 +215,7 @@ class Header extends Component {
                         <Link to="/nearby">
                             <a className="item Body-1MediumGreyCenter">Explore</a>
                         </Link>
-                        <Link to="/brewery">
+                        <Link to="/brewery/co/denver">
                             <a className="item Body-1MediumGreyCenter">Brewery</a>
 
                         </Link>

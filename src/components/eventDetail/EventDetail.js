@@ -76,22 +76,32 @@ class EventDetail extends Component {
 
     render() {
         const { activity } = this.props
+        let time = ""
+
+        let events = getEventTime(activity)
+
+        for (var i = 0; i < events.length; ++i) {
+            if (moment(events[i], "YYYY-MM-DD hh:mm a") > moment()) {
+                time = events[i];
+                break;
+            }
+        }
         return (
             <div className="event-detail">
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 {
                     activity
                         ?
-                            <Row >
-                                <Col id="introduction" style={{ padding: "30px" }} className="detail-container" sm={24} xs={24} lg={13} md={13}>
-                                    {
-                                        this.renderEventDetail(activity)
-                                    }
-                                </Col>
-                                <Col className="map" sm={24} xs={24} lg={11} md={11}>
-                                    <Map icon="event" location={[activity]} />
-                                </Col>
-                            </Row>
+                        <Row >
+                            <Col id="introduction" style={{ padding: "30px" }} className="detail-container" sm={24} xs={24} lg={13} md={13}>
+                                {
+                                    this.renderEventDetail(activity)
+                                }
+                            </Col>
+                            <Col className="map" sm={24} xs={24} lg={11} md={11}>
+                                <Map icon="event" location={[{ ...activity, timeDisplay: time }]} />
+                            </Col>
+                        </Row>
                         :
                         <div className="loading-container">
                             <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} />} />

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Pairing from './Pairing'
-import { getPairing,  } from '../../api/pairingApi'
-import { mountPairing,  } from '../../actions/pairingAction'
+import { getPairing, } from '../../api/pairingApi'
+import { mountPairing, } from '../../actions/pairingAction'
+import Head from '../head'
 let flag = false
 class PairingContainer extends Component {
     constructor(props) {
@@ -39,11 +40,19 @@ class PairingContainer extends Component {
 
     render() {
         return (
-            <Pairing
-                {...this.state}
-                {...this.props}
-                loadMorePairing={() => this.loadMorePairing()}
-            />
+            <div>
+                <Head
+                    url="https://gotruckster.com/"
+                    title="Find Denver Food Truck & Brewery Pairings - Truckster"
+                >
+                    <link rel="canonical" href="https://truckster.herokuapp.com/food-truck/co/denver" />
+                </Head>
+                <Pairing
+                    {...this.state}
+                    {...this.props}
+                    loadMorePairing={() => this.loadMorePairing()}
+                />
+            </div>
         )
     }
 }

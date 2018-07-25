@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { mountBrewery } from '../../actions/breweryAction'
 import Brewery from './Brewery'
 import { searchBrewery } from '../../api/breweryApi'
+import Head from '../head'
 let renderPageFlag = false
 class BreweryContainer extends Component {
     constructor(props) {
@@ -35,12 +36,21 @@ class BreweryContainer extends Component {
     }
     render() {
 
-        return ( 
+        return (
+            <div>
+                <Head
+                    ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
+                    url="https://gotruckster.com/"
+                    title="Denver Breweries Near Me – Menus, Reviews Catering & More"
+                    description="Check out the best breweries in Denver, CO featuring locally made craft beer, gourmet food and amazing happy hour deals! View directions, menus and reviews!"
+                />
                 <Brewery
                     {...this.state}
                     {...this.props}
                     loadMoreBrewery={() => this.loadMoreBrewery()}
                 />
+            </div>
+
         )
     }
 }

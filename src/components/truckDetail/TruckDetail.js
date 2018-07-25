@@ -20,6 +20,7 @@ const phoneIcon = ('/static/images/phone-icon.png')
 const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
 const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
+const websiteIcon = ('/static/images/website-icon.svg')
 
 class TruckDetail extends Component {
 
@@ -103,7 +104,20 @@ class TruckDetail extends Component {
                         <a href={`tel:${truckDetail.phone}`} className="Body-2GreyLeft">{truckDetail.phone}</a>
                     </div>
                 }
+                {
+                    truckDetail.website_url && <div className="location">
 
+                        <img alt="back" src={websiteIcon} />
+                        <a onClick={() => {
+                            window.open(truckDetail.website_url.includes("http") ?
+                                truckDetail.website_url : "http://" + truckDetail.website_url)
+                        }}
+                            className="Body-1RegularGrayLeft" >{truckDetail.website_url}</a>
+
+
+                    </div>
+
+                }
                 <div className="social">
                     {
                         truckDetail.facebook_url && <a target="_blank" href={truckDetail.facebook_url} className='image-holder'>

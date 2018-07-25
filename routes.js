@@ -9,21 +9,23 @@ module.exports = routes()
     .add('edit')
     .add('nearby')
     .add('search')
-    .add('pairing')
 
-    .add('activities', '/activity')
+    .add('pairing', '/pairing/:state/:city')
+
+    .add('activities', '/activity/:state/:city')
     .add('activity', '/activity/:name--:id')
 
     .add('cuisines', '/cuisine')
     .add('cuisine', '/cuisine/:value')
 
-    .add('breweries', '/brewery')
+    .add('breweries', '/brewery/:state/:city')
     .add('brewery', '/brewery/:slug')
+
     .add('breweryType', '/brewery-type/:value')
 
-    .add('trucks', '/food-truck')
+    .add('trucks', '/food-truck/:state/:city')
     .add('truck', '/food-truck/:slug')
 
 
-
-    .add('city', '/:cityname')
+    .add('cities', '/:state')
+    .add('city', '/:state/:city')

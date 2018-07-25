@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Rate, Modal, Col, Row } from 'antd'
-
+import { Link } from 'routes'
 import TitleLink from '../titleLink'
 import stylesheet from './_pairingCard.less'
 import moment from 'moment'
@@ -35,7 +35,7 @@ class PairingCard extends Component {
     isThisWeek(data) {
         let schedules = []
         getSchedule(data).forEach(item => {
-            if (moment(item.timeDisplay,"YYYY-MM-DD hh:mm a").isSame(new Date(), "week"))
+            if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").isSame(new Date(), "week"))
                 schedules.push(item)
         })
 
@@ -86,7 +86,7 @@ class PairingCard extends Component {
             }
             else {
                 return <Col key={index} md={12} lg={12}>
-                    <TitleLink url="/brewery/" title={item.brewery.name} id={item.brewery.id}>
+                    <Link to={"/brewery/" + item.brewery.slug} >
                         <div className="pairing-item-container">
                             <div className="pairing-image">
                                 <img alt="pairing-icon" src={item.brewery.cover_photo ? item.brewery.cover_photo[0].url : defaultImage} />
@@ -111,7 +111,7 @@ class PairingCard extends Component {
 
                             </div>
                         </div>
-                    </TitleLink>
+                    </Link>
                 </Col>
             }
 
@@ -174,10 +174,10 @@ class PairingCard extends Component {
                         >
                             <div className="title-pairing Display-2BlackLeft">
                                 <span> Pairing list of   </span>
-                                <span> <TitleLink
-                                    url="/food-truck/"
-                                    title={data.name} id={data.id}>{data.name}
-                                </TitleLink></span>
+                                <span> <Link
+                                    to={"/food-truck/" + data.slug}
+                                ><a>{data.name}</a>
+                                </Link></span>
                                 <span> in this week
                             </span>
                             </div>
@@ -198,10 +198,10 @@ class PairingCard extends Component {
                             <div className="announce-modal-container">
                                 <div className='logo-container'><img alt='logo' src={logo} /></div>
                                 <div className='Regular-24px-Style message'>
-                                    <span> <TitleLink
-                                        url="/food-truck/"
-                                        title={data.name} id={data.id}>{data.name}
-                                    </TitleLink> has no pairings in this week</span>
+                                    <span> <Link
+                                        to={"/food-truck/" + data.slug}
+                                    ><a>{data.name}</a>
+                                    </Link> has no pairings in this week</span>
                                 </div>
                             </div>
                         </Modal >

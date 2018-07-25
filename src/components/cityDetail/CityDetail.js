@@ -220,7 +220,7 @@ class CityDetail extends Component {
 
                 {/* home body  */}
                 <div className="body-content">
-                    <Section url="/activity" seeall={true} title="What's happening in Denver?" >
+                    <Section url="/activity/co/denver" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
                             <div>
@@ -235,7 +235,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
 
-                    <Section url="/food-truck" seeall={true} title="Featured Trucks" >
+                    <Section url="/food-truck/co/denver" seeall={true} title="Featured Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
                             <div>
@@ -250,7 +250,7 @@ class CityDetail extends Component {
 
                     </Section>
 
-                    <Section url="/brewery" seeall={true} title="Featured Breweries" >
+                    <Section url="/brewery/co/denver" seeall={true} title="Featured Breweries" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorBrewery}  >
 
@@ -267,7 +267,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
 
-                    <Section url="/pairing" seeall={true} title="Truck and Brewery Pairings of the Week" >
+                    <Section url="/pairing/co/denver" seeall={true} title="Truck and Brewery Pairings of the Week" >
                         <RenderContainer
                             message="Something went wrong, please try another time!"
                             error={errorPairing}  >

@@ -61,44 +61,46 @@ class Brewery extends Component {
     render() {
         const { breweries, error, loadMoreBrewery, hasMore } = this.props
         return (
-            <div className="brewery main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                <div className="body-title DisplayBlackLeft">
-                    Brewery types
+            <div className="brewery">
+
+
+                <div className="brewery main-wrapper body-content">
+                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+                    <div className="body-title DisplayBlackLeft">
+                        Brewery types
                 </div>
-                <div className="divider"> </div>
-                <Row style={{ paddingTop: "30px" }} gutter={16}>
-                    {this.renderCategoryCard(categories)}
+                    <div className="divider"> </div>
+                    <Row style={{ paddingTop: "30px" }} gutter={16}>
+                        {this.renderCategoryCard(categories)}
 
-                </Row>
+                    </Row>
 
-                <div className="body-title DisplayBlackLeft">
-                    Breweries
+                    <div className="body-title DisplayBlackLeft">
+                        Breweries
                 </div>
-                <div className="divider"> </div>
+                    <div className="divider"> </div>
 
-                <RenderContainer message="Something went wrong, please try another time!"
-                    isLoading={breweries ? false : true} error={error}  >
-                    {
-                        breweries &&
+                    <RenderContainer message="Something went wrong, please try another time!"
+                        isLoading={breweries ? false : true} error={error}  >
+                        {
+                            breweries &&
 
-                        <InfiniteScroll
-                            pageStart={0}
-                            loadMore={loadMoreBrewery}
-                            hasMore={hasMore}
-                            loader={<LoadingPlaceHolder key='loader' />}
-                        >
-                            <Row style={{ paddingTop: "30px" }} gutter={16}>
+                            <InfiniteScroll
+                                pageStart={0}
+                                loadMore={loadMoreBrewery}
+                                hasMore={hasMore}
+                                loader={<LoadingPlaceHolder key='loader' />}
+                            >
+                                <Row style={{ paddingTop: "30px" }} gutter={16}>
 
-                                {this.renderBreweryCard(breweries)}
+                                    {this.renderBreweryCard(breweries)}
 
-                            </Row>
-                        </InfiniteScroll>
+                                </Row>
+                            </InfiniteScroll>
 
-                    }
-                </RenderContainer>
-
-
+                        }
+                    </RenderContainer>
+                </div>
             </div>
         )
 

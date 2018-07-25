@@ -6,6 +6,7 @@ import { getNearby } from '../../api/nearbyApi'
 import { mountNearby } from '../../actions/nearbyAction'
 import { getEventTime } from 'global'
 import moment from 'moment'
+import Head from '../head'
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
 const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
 const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
@@ -337,22 +338,30 @@ class NearbyContainer extends Component {
     render() {
 
         return (
-            <Nearby
-                {...this.state}
-                {...this.props}
-                handleExploreInRightPosition={(e) => this.handleExploreInRightPosition(e)}
-                handleCloseModal={(e) => this.handleCloseModal(e)}
-                handleClickBack={(e) => this.handleClickBack(e)}
-                handleClickNearbyEvent={(e) => this.handleClickNearbyEvent(e)}
-                loadMoreNearby={(e) => this.loadMoreNearby(e)}
-                onChangeFilterItem={(e, key) => this.onChangeFilterItem(e, key)}
-                handleGoogleMapApi={(e) => this.handleGoogleMapApi(e)}
-                onChangeMapPosition={(e) => this.onChangeMapPosition(e)}
-                onVisibleChange={(e) => this.onVisibleChange(e)}
-                onEventLeave={(e) => this.onEventLeave(e)}
-                onEventEnter={(e) => this.onEventEnter(e)}
-                loadMore={() => this.loadMore()}
-            />
+            <div>
+                <Head
+                    ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
+                    url="https://gotruckster.com/"
+                    title="Food Trucks Nearby – View Schedules & Details - Truckster"
+                    description="Find food trucks, breweries and pairings in real time. Search by location, name or cuisine type! Satisfy your hunger now. Download the Truckster App for faster access!"
+                />
+                <Nearby
+                    {...this.state}
+                    {...this.props}
+                    handleExploreInRightPosition={(e) => this.handleExploreInRightPosition(e)}
+                    handleCloseModal={(e) => this.handleCloseModal(e)}
+                    handleClickBack={(e) => this.handleClickBack(e)}
+                    handleClickNearbyEvent={(e) => this.handleClickNearbyEvent(e)}
+                    loadMoreNearby={(e) => this.loadMoreNearby(e)}
+                    onChangeFilterItem={(e, key) => this.onChangeFilterItem(e, key)}
+                    handleGoogleMapApi={(e) => this.handleGoogleMapApi(e)}
+                    onChangeMapPosition={(e) => this.onChangeMapPosition(e)}
+                    onVisibleChange={(e) => this.onVisibleChange(e)}
+                    onEventLeave={(e) => this.onEventLeave(e)}
+                    onEventEnter={(e) => this.onEventEnter(e)}
+                    loadMore={() => this.loadMore()}
+                />
+            </div>
         )
     }
 }

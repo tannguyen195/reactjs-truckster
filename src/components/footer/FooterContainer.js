@@ -13,7 +13,6 @@ class FooterContainer extends Component {
 
     }
     render() {
-        console.log("this.props", this.props)
         const { router } = this.props
 
         return (
