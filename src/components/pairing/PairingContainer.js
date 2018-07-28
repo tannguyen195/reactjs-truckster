@@ -45,7 +45,7 @@ class PairingContainer extends Component {
                     url="https://gotruckster.com/"
                     title="Find Denver Food Truck & Brewery Pairings - Truckster"
                 >
-                    <link rel="canonical" href="https://truckster.herokuapp.com/food-truck/co/denver" />
+                    <link rel="canonical" href="https://gotruckster.com/food-truck/co/denver" />
                 </Head>
                 <Pairing
                     {...this.state}
