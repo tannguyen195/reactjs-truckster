@@ -68,6 +68,7 @@ class HeaderContainer extends Component {
 
             nextProps.brewerySearchResult.forEach(item => {
                 brewerySearch.push({
+                    ...item,
                     id: item.id,
                     type: "brewery",
                     name: item.name,
@@ -81,6 +82,7 @@ class HeaderContainer extends Component {
 
             nextProps.truckSearchResult.forEach(item => {
                 truckSearch.push({
+                    ...item,
                     id: item.id,
                     type: "truck",
                     name: item.name,

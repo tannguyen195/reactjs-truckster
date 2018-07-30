@@ -44,6 +44,7 @@ class SearchResult extends Component {
     // render truck card 
     renderTruckCard(truckSearch) {
         return truckSearch.map((item, index) => {
+            
             if (item.type === "truck")
                 return <Col xs={24} sm={12} md={8} lg={8} style={{ marginBottom: "16px" }} key={index} >
                     <TruckCard

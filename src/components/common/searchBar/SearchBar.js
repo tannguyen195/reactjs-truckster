@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { AutoComplete, Input, Select, Icon } from 'antd'
 import { getSearchResult } from '../../../actions/truckAction'
 import stylesheet from './_searchBar.less'
-
+import { Link } from 'routes'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
@@ -32,15 +32,12 @@ class SearchBar extends Component {
                 break;
             }
             case "truck": {
-                link = `/food-truck/${item.name.toLowerCase().replace(/ /g, "-")}--${item.id}`;
-                link = `/food-truck/${item.name.toLowerCase().replace(/ - /g, "")}--${item.id}`;
+                link = `/food-truck/${item.slug}`;
                 icon = targetIcon;
                 break;
             }
             case "brewery": {
-
-                link = `/brewery/${item.name.toLowerCase().replace(/ /g, "-")}--${item.id}`;
-                link = `/brewery/${item.name.toLowerCase().replace(/ - /g, "")}--${item.id}`;
+                link = `/brewery/${item.slug}`;
                 icon = drinkIconGrey;
                 break;
             }
@@ -48,7 +45,7 @@ class SearchBar extends Component {
         }
         return (
             <Option className="option-container" key={item.name} text={item.name}>
-                <div to={link} >
+                <Link to={link} >
                     <div className="search-container ">
                         <div className="left">
                             <img alt="icon-type" src={icon} />
@@ -60,7 +57,7 @@ class SearchBar extends Component {
                             <img alt="right" src={arrowRightIcon} />
                         </div>
                     </div>
-                </div>
+                </Link>
             </Option>
 
         )
