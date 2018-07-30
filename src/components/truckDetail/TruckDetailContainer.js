@@ -41,13 +41,11 @@ class TruckDetailContainer extends Component {
     }
     componentDidMount() {
         this.props.getTruckReview(this.props.id)
-    }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.truckDetail) {
+        if (this.props.truckDetail) {
             // Set location
             let locations = [], icon = "", events = []
-            getSchedule(nextProps.truckDetail.calendar).forEach((item, index) => {
+            getSchedule(this.props.truckDetail.calendar).forEach((item, index) => {
                 if (item && item.brewery === null) {
                     icon = "truck"
                 }
@@ -98,9 +96,13 @@ class TruckDetailContainer extends Component {
 
 
         }
-        if (nextProps.id !== this.props.id) {
-            this.props.getTruckDetail(nextProps.id)
+        if (this.props.id !== this.props.id) {
+            this.props.getTruckDetail(this.props.id)
         }
+    }
+
+    componentWillReceiveProps(nextProps) {
+    
     }
     handleModeChange(e) {
         const mode = e.target.value;
