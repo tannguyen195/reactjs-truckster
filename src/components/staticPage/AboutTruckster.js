@@ -163,23 +163,31 @@ Everything Food Trucks`}
                                 {` Follow your Favorite Food Trucks and Breweries 
     all on one Platform.`}</div>
                             <div className=" get-the-app-store">
+                                <Row>
 
-                                <a onClick={() => {
-                                    window.open("https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8");
-                                }} >
-                                    <div className="store-container" >
-                                        <img src={appStore} alt="appple" />
-                                    </div>
+                                    <Col lg={12} md={12} sm={24} xs={24}>
+                                        <a onClick={() => {
+                                            window.open("https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8");
+                                        }} >
+                                            <div className="store-container" >
+                                                <img src={appStore} alt="appple" />
+                                            </div>
 
-                                </a>
-                                <a onClick={() => {
-                                    window.open("https://play.google.com/store/apps/details?id=com.truckster");
-                                }} >
-                                    <div className="store-container" >
-                                        <img className="store-container" src={googlePlay} alt="google" />
-                                    </div>
+                                        </a></Col>
+                                    <Col lg={12} md={12} sm={24} xs={24}>
+                                        <a onClick={() => {
+                                            window.open("https://play.google.com/store/apps/details?id=com.truckster");
+                                        }} >
+                                            <div className="store-container" >
+                                                <img className="store-container" src={googlePlay} alt="google" />
+                                            </div>
 
-                                </a>
+                                        </a>
+                                    </Col>
+
+
+
+                                </Row>
                             </div>
                         </div>
                     </div>

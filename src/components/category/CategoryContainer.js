@@ -14,7 +14,7 @@ class CategoryContainer extends Component {
     render() {
 
         return (
-            <div>
+            <div style={{background:"#fafafa"}}>
                 <Head
                     url="https://gotruckster.com/"
                     title={"Search Denver Food Trucks By Cuisine – Truckster"}

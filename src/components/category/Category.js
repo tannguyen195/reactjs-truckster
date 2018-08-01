@@ -212,7 +212,7 @@ class Category extends Component {
     // render category card 
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
-            return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
+            return <Col lg={6} md={12} sm={12} xs={12} key={index} style={{ marginBottom: "16px" }}>
                 <Link to={`/cuisine/${item.name}`}>
                     <a>
                         <CategoryCard

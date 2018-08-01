@@ -16,9 +16,7 @@ class TruckCard extends Component {
     }
 
     render() {
-
         const { data } = this.props
-        console.log("data", data)
         return (
             <Link to={`/food-truck/${data.slug}`} >
                 <a>

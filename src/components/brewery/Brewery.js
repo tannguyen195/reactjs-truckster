@@ -37,7 +37,7 @@ class Brewery extends Component {
     // render category card 
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
-            return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
+            return <Col lg={6} md={6} sm={12} xs={24} key={index} style={{ marginBottom: "16px" }} >
                 <Link to={`/brewery-type/${item.name}`}>
                     <a>
                         <CategoryCard

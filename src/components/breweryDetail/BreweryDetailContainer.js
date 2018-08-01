@@ -71,8 +71,7 @@ class BreweryDetailContainer extends Component {
     }
 
     render() {
-        const { error, status, breweryDetail } = this.props
-
+        const {  status, breweryDetail } = this.props
         return (
             <div>
                 {

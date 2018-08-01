@@ -162,12 +162,20 @@ class Header extends Component {
                 <Link to="/">
                     <a className="logo">
                         <MediaQuery maxWidth={768}>
+                            <img className="logo-device" alt="truckster logo" src={logoDevice} />
+                        </MediaQuery>
+
+                    </a>
+                </Link>
+
+                <Link to="/">
+                    <a className="logo">
+                        <MediaQuery maxWidth={768}>
                             {(matches) => {
-                                if (matches) {
-                                    return <img className="logo-device" alt="truckster logo" src={logoDevice} />
-                                } else {
+                                if (!matches) {
                                     return <img alt="truckster logo" src={logo} />
                                 }
+                                return null
                             }}
                         </MediaQuery>
 
@@ -186,7 +194,7 @@ class Header extends Component {
                     </span>
                 </Dropdown>
 
-             
+
                 <div className="left">
                     <SearchBar
                         match={match}
@@ -197,21 +205,21 @@ class Header extends Component {
                         result={result}
                     />
 
-                    <MediaQuery maxWidth={768}>
-                        <div id="media" className="media-header">
-                            <div onClick={handleOpenMenu} id={visibleDrawer ? "burger-container-open" : "burger-container"}>
-                                <div id="burger">
-                                    <span> &nbsp;</span>
-                                    <span> &nbsp;</span>
-                                    <span> &nbsp;</span>
-                                    <span> &nbsp;</span>
-                                </div>
+
+                    <div className="media-header">
+                        <div onClick={handleOpenMenu} id={visibleDrawer ? "burger-container-open" : "burger-container"}>
+                            <div id="burger">
+                                <span> &nbsp;</span>
+                                <span> &nbsp;</span>
+                                <span> &nbsp;</span>
+                                <span> &nbsp;</span>
                             </div>
-
                         </div>
-                    </MediaQuery>
+                    </div>
 
-                    <div className="option">
+
+
+                    <div className="option-header">
                         <Link to="/nearby">
                             <a className="item Body-1MediumGreyCenter">Explore</a>
                         </Link>

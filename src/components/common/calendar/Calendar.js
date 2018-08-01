@@ -3,6 +3,7 @@ import stylesheet from './_calendar.less'
 import BigCalendar from 'react-big-calendar'
 import { Button, Popover, Tooltip } from 'antd'
 import moment from 'moment'
+import { Link } from 'routes'
 import TitleLink from '../../common/titleLink'
 const truckIcon = ("/static/images/truck.svg")
 const breweryIcon = ("/static/images/brewery.svg")
@@ -53,13 +54,11 @@ class Calendar extends Component {
                             <img className="truck-icon-holder" alt="truck-icon-holder" src={truckIcon} />
                     }
 
-                    <TitleLink
-                        url="/food-truck/"
-                        title={event.event.food_truck.name}
-                        id={event.event.food_truck.id} >
+                    <Link
+                        to={"/food-truck/" + event.event.food_truck.slug}>
 
                         {event.event.food_truck.name}
-                    </TitleLink>
+                    </Link>
                 </div>
                 :
                 event.event.location_name}>

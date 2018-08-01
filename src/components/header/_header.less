@@ -71,7 +71,7 @@
         justify-content: space-between;
         width: 100%;
     }
-    .option {
+    .option-header {
         border-left: solid 1px #efefef;
         display: flex;
         justify-content: center;
@@ -95,10 +95,13 @@
                 }
             }
         }
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
     }
     .dropdown-container {}
     .media-header {
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -110,6 +113,9 @@
             align-items: center;
         }
         .menu-drawer {}
+        @media only screen and (max-width: 768px) {
+            display: flex;
+        }
     }
     @media only screen and (max-width: 768px) {
         .option {
