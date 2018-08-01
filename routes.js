@@ -9,7 +9,6 @@ module.exports = routes()
     .add('edit')
     .add('nearby')
     .add('search')
-    .add('info')
     .add('pairing', '/pairing/:state/:city')
 
     .add('activities', '/activity/:state/:city')
