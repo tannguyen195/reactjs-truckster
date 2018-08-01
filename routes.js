@@ -16,9 +16,6 @@ module.exports = routes()
 
     .add('cuisines', '/cuisine')
     .add('cuisine', '/cuisine/:value')
-    
-    .add('cities', '/co')
-    .add('city', '/:state/:city')
 
     .add('breweries', '/brewery/:state/:city')
     .add('brewery', '/brewery/:slug')
@@ -28,4 +25,5 @@ module.exports = routes()
     .add('trucks', '/food-truck/:state/:city')
     .add('truck', '/food-truck/:slug')
 
-
+    .add('cities', '/co')
+    .add('city', '/:state/:city')
