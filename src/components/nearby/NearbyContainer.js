@@ -58,6 +58,7 @@ class NearbyContainer extends Component {
                         if (nextProps.nearby[i].brewery &&
                             !nextProps.nearby[i].food_truck) {
                             tempItem = {
+                                ...nextProps.nearby[i],
                                 type: "brewery",
                                 nameDisplay: nextProps.nearby[i].brewery.name,
                                 image: nextProps.nearby[i].brewery.cover_photo && nextProps.nearby[i].brewery.cover_photo[0].url,
@@ -70,6 +71,7 @@ class NearbyContainer extends Component {
                             !nextProps.nearby[i].food_truck &&
                             !nextProps.nearby[i].brewery) {
                             tempItem = {
+                                ...nextProps.nearby[i],
                                 type: "activity",
                                 nameDisplay: nextProps.nearby[i].activity.name,
                                 image: nextProps.nearby[i].activity.pictures && nextProps.nearby[i].activity.pictures[0].url,
@@ -82,6 +84,7 @@ class NearbyContainer extends Component {
                             !nextProps.nearby[i].activity &&
                             !nextProps.nearby[i].brewery) {
                             tempItem = {
+                                ...nextProps.nearby[i],
                                 type: "food_truck",
                                 image: nextProps.nearby[i].food_truck.cover_photo && nextProps.nearby[i].food_truck.cover_photo[0].url,
                                 marker: truckMarkerIcon,
@@ -94,6 +97,7 @@ class NearbyContainer extends Component {
                             nextProps.nearby[i].food_truck) {
 
                             tempItem = {
+                                ...nextProps.nearby[i],
                                 type: "pairing-activity",
                                 nameDisplay: nextProps.nearby[i].activity.name,
                                 image: nextProps.nearby[i].activity.pictures && nextProps.nearby[i].activity.pictures[0].url,
@@ -105,6 +109,7 @@ class NearbyContainer extends Component {
                         else if (nextProps.nearby[i].brewery &&
                             nextProps.nearby[i].food_truck) {
                             tempItem = {
+                                ...nextProps.nearby[i],
                                 type: "pairing-brewery",
                                 nameDisplay: nextProps.nearby[i].brewery.name,
                                 image: nextProps.nearby[i].brewery.cover_photo && nextProps.nearby[i].brewery.cover_photo[0].url,

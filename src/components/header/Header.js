@@ -160,12 +160,12 @@ class Header extends Component {
                 </div>
 
                 <Link to="/">
-                    <a className="logo">
-                        <MediaQuery maxWidth={768}>
-                            <img className="logo-device" alt="truckster logo" src={logoDevice} />
-                        </MediaQuery>
 
-                    </a>
+                    <MediaQuery maxWidth={768}>
+                        <img width={50} className="logo-device" alt="truckster logo" src={logoDevice} />
+                    </MediaQuery>
+
+
                 </Link>
 
                 <Link to="/">

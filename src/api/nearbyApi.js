@@ -14,7 +14,7 @@ export const getNearby = (data, page) => {
         dispatch(requestGetNearby(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/nearme?latitude=${data.lat}&longtitude=${data.lng}&radius=8046.72&page=${page}&show_all=true`,
+            url: apiUrl + `api/consumer/v1/nearme?latitude=${data.lat}&longtitude=${data.lng}&radius=8046.72&page=${page}`,
             headers: {
                 "Accept": "application/json",
             },
