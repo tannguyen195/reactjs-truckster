@@ -20,7 +20,7 @@ const cities =
         },
         {
             isComing: true,
-            name: 'ColoradoSprings',
+            name: 'Colorado Springs',
             image: ('/static/images/cities/ColoradoSprings.jpg')
         },
         {
@@ -31,7 +31,7 @@ const cities =
         },
         {
             isComing: true,
-            name: 'FortCollins',
+            name: 'Fort Collins',
             image: ('/static/images/cities/FortCollins.jpg')
         },
 

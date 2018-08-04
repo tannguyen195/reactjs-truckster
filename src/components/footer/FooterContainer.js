@@ -16,7 +16,7 @@ class FooterContainer extends Component {
         const { router } = this.props
 
         return (
-            router.pathname.includes("/activity")
+            router.pathname.includes("/event")
                 || router.pathname.includes("/profile")
                 || router.pathname.includes("/pairing")
                 || router.pathname.includes("/nearby")

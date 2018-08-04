@@ -39,9 +39,63 @@ class TruckDetailContainer extends Component {
             id: query.id
         }
     }
-    componentDidMount() {
-        this.props.getTruckReview(this.props.id)
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.truckDetail) {
+            // Set location
+            let locations = [], icon = "", events = []
+            getSchedule(nextProps.truckDetail.calendar).forEach((item, index) => {
+                if (item && item.brewery === null) {
+                    icon = "truck"
+                }
+                else {
+                    icon = "pairing"
+                }
+                events.push({
+                    ...item,
+                    key: index,
+                    icon: icon,
+                })
+                if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a") > moment())
+                    locations.push(item)
+            })
 
+            //Sort upcoming schedule
+            locations.sort((a, b) => {
+
+                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                    return -1
+                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                    return 1
+                return 0
+            })
+            let sortedLocations = []
+            locations.forEach((item, index) => {
+                sortedLocations.push({
+                    ...item,
+                    index: String(index)
+                })
+            })
+
+            //render first icon
+            if (sortedLocations[0] && sortedLocations[0].brewery === null) {
+                icon = "truck"
+            }
+            else {
+                icon = "pairing"
+            }
+
+            this.setState({
+                locationArr: [sortedLocations[0]],
+                locations: sortedLocations,
+                iconMarker: icon,
+                events: events,
+                selectedKey: sortedLocations[0] && sortedLocations[0].index
+            })
+
+
+        }
+    }
+    componentDidMount() {
         if (this.props.truckDetail) {
             // Set location
             let locations = [], icon = "", events = []
@@ -96,14 +150,9 @@ class TruckDetailContainer extends Component {
 
 
         }
-        if (this.props.id !== this.props.id) {
-            this.props.getTruckDetail(this.props.id)
-        }
+
     }
 
-    componentWillReceiveProps(nextProps) {
-    
-    }
     handleModeChange(e) {
         const mode = e.target.value;
         this.setState({ mode });

@@ -11,14 +11,4 @@ export default class Intro extends Component {
             Router.push(`/`)
         }
     }
-
-    render() {
-        const { } = this.props
-        return (
-            <div>
-
-
-            </div>
-        )
-    }
 }

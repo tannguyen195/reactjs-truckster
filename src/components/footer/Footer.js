@@ -58,7 +58,7 @@ class Footer extends Component {
                         <h3 className="SubheadingBlackLeft">Food trucks</h3>
                         <Link to='/food-truck'><a>Find trucks</a></Link>
                         <Link to='/cuisine'><a>Cuisine</a></Link>
-                        <Link to='/activity'><a>Events</a></Link>
+                        <Link to='/event'><a>Events</a></Link>
 
                     </Col>
                     <Col md={4} className="column">

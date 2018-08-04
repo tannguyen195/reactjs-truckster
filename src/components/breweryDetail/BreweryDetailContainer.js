@@ -53,9 +53,6 @@ class BreweryDetailContainer extends Component {
             id: query.id
         }
     }
-    componentDidMount() {
-        this.props.getBreweryReview(this.props.id)
-    }
     handleEditReview(e) {
         this.props.editBreweryReview({
             breweryId: this.props.match.params.id,

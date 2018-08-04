@@ -220,7 +220,7 @@ class CityDetail extends Component {
 
                 {/* home body  */}
                 <div className="body-content">
-                    <Section url="/activity/co/denver" seeall={true} title="What's happening in Denver?" >
+                    <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
                             <div>
