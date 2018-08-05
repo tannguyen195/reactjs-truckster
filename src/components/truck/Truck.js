@@ -8,37 +8,37 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import stylesheet from './_truck.less'
-
+import MediaQuery from 'react-responsive'
 
 const categories =
     [
         {
             name: 'American',
-            image: require('/static/images/cuisines/American.jpg')
+            image: ('/static/images/cuisines/American.jpg')
         },
         {
             name: 'Asian',
-            image: require('/static/images/cuisines/Asian.jpg')
+            image: ('/static/images/cuisines/Asian.jpg')
         },
         {
             name: 'BBQ',
-            image: require('/static/images/cuisines/BBQ.jpg')
+            image: ('/static/images/cuisines/BBQ.jpg')
         },
         {
             name: 'Burgers',
-            image: require('/static/images/cuisines/Burgers.jpg')
+            image: ('/static/images/cuisines/Burgers.jpg')
         },
         {
             name: 'Cajun Creole',
-            image: require('/static/images/cuisines/Cajun_Creole.jpg')
+            image: ('/static/images/cuisines/Cajun_Creole.jpg')
         },
         {
             name: 'Coffee',
-            image: require('/static/images/cuisines/Coffee.jpg')
+            image: ('/static/images/cuisines/Coffee.jpg')
         },
         {
             name: 'Columbian',
-            image: require('/static/images/cuisines/Columbian.jpg')
+            image: ('/static/images/cuisines/Columbian.jpg')
         },
 
     ];
@@ -49,7 +49,7 @@ class Truck extends Component {
     // render category card 
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
-            return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
+            return <Col key={index} style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
                 <Link to={`/cuisine/${item.name}`}>
                     <a>
                         <CategoryCard
@@ -82,12 +82,12 @@ class Truck extends Component {
                 <Row style={{ paddingTop: "30px" }} gutter={16}>
                     {this.renderCategoryCard(categories)}
 
-                    <Col style={{ marginBottom: "16px" }} span={6}>
+                    <Col style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
                         <Link to={`/cuisine`}>
                             <a>
 
                                 <CategoryCard
-                                    image={require('/static/images/cuisines/Farm_Fresh.jpg')}
+                                    image={('/static/images/cuisines/Farm_Fresh.jpg')}
                                     name={"SEE ALL"}  >
                                 </CategoryCard>
                             </a>
@@ -109,7 +109,15 @@ class Truck extends Component {
                             pageStart={0}
                             loadMore={loadMoreTruck}
                             hasMore={hasMore}
-                            loader={<LoadingPlaceHolder key='loader' />}
+                            loader={<MediaQuery key='loader' maxWidth={768}>
+                                {(matches) => {
+
+                                    if (matches) {
+                                        return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                    }
+                                    else return <LoadingPlaceHolder key='loader' />
+                                }}
+                            </MediaQuery>}
                         >
                             <Row style={{ paddingTop: "30px" }} gutter={16}>
 

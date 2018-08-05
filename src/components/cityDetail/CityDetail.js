@@ -30,7 +30,7 @@ const offers = [
     },
     {
         offerName: "Rate trucks and earn credit towards your next mobile order",
-        image: require("/static/images/offer-image.jpg")
+        image: ("/static/images/offer-image.jpg")
     }
 ]
 
@@ -220,20 +220,7 @@ class CityDetail extends Component {
 
                 {/* home body  */}
                 <div className="body-content">
-                    <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
-                        <RenderContainer message="Something went wrong, please try another time!"
-                            error={errorActivity}  >
-                            <div>
-                                {
-                                    activitiesWeek && activitiesWeek.length > 0 ?
-                                        <Row gutter={16}>
-                                            {this.renderEventCard(activitiesWeek)}
-                                        </Row> : this.renderPlaceHolder()
-                                }
 
-                            </div>
-                        </RenderContainer>
-                    </Section>
 
                     <Section url="/food-truck/co/denver" seeall={true} title="Featured Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
@@ -266,6 +253,21 @@ class CityDetail extends Component {
 
                         </RenderContainer>
                     </Section>
+                    
+                    <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
+                        <RenderContainer message="Something went wrong, please try another time!"
+                            error={errorActivity}  >
+                            <div>
+                                {
+                                    activitiesWeek && activitiesWeek.length > 0 ?
+                                        <Row gutter={16}>
+                                            {this.renderEventCard(activitiesWeek)}
+                                        </Row> : this.renderPlaceHolder()
+                                }
+
+                            </div>
+                        </RenderContainer>
+                    </Section>
 
                     <Section url="/pairing/co/denver" seeall={true} title="Truck and Brewery Pairings of the Week" >
                         <RenderContainer
@@ -273,11 +275,11 @@ class CityDetail extends Component {
                             error={errorPairing}  >
                             {
                                 pairings && pairings.length > 0 ?
-                                  
-                                        <Row gutter={16}>
-                                            {this.renderPairingCard(pairings)}
-                                        </Row>
-                                : this.renderPlaceHolder()
+
+                                    <Row gutter={16}>
+                                        {this.renderPairingCard(pairings)}
+                                    </Row>
+                                    : this.renderPlaceHolder()
                             }
                         </RenderContainer>
 

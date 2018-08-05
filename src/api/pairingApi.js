@@ -15,7 +15,7 @@ export const getPairing = (params, value, page) => {
         dispatch(requestGetPairing(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/pairings?${params}=${value}&sort_by=avg_rating&page=${page}`,
+            url: apiUrl + `api/consumer/v1/pairings?${params}=${value}&sort_by=avg_rating&page=${page}&per_page=12`,
             headers: {
                 "Accept": "application/json",
             },

@@ -8,7 +8,7 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import stylesheet from './_brewery.less'
-
+import MediaQuery from 'react-responsive'
 
 const categories =
     [
@@ -89,7 +89,17 @@ class Brewery extends Component {
                                 pageStart={0}
                                 loadMore={loadMoreBrewery}
                                 hasMore={hasMore}
-                                loader={<LoadingPlaceHolder key='loader' />}
+                                loader={
+                                    <MediaQuery key='loader' maxWidth={768}>
+                                        {(matches) => {
+
+                                            if (matches) {
+                                                return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                            }
+                                            else return <LoadingPlaceHolder key='loader' />
+                                        }}
+                                    </MediaQuery>
+                                }
                             >
                                 <Row style={{ paddingTop: "30px" }} gutter={16}>
 

@@ -7,8 +7,8 @@ const initial = {
     pairings: [],
     isLoadingGetPairingDetail: false,
     pairingDetail: null,
-    currentPage: 1,
-    lastPage: 1
+    currentPage: null,
+    lastPage: null
 }
 const pairingReducer = (state = initial, action) => {
     switch (action.type) {
@@ -65,8 +65,8 @@ const pairingReducer = (state = initial, action) => {
             return {
                 ...state,
                 pairings: [],
-                currentPage: 1,
-                lastPage: 1,
+                currentPage: null,
+                lastPage: null
             }
         default:
             return state;

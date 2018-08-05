@@ -5,6 +5,7 @@ import PairingCard from '../common/pairingCard/PairingCard'
 import InfiniteScroll from 'react-infinite-scroller';
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
+import MediaQuery from 'react-responsive'
 class Pairing extends Component {
     // render pairing card 
     renderPairingCard(pairings) {
@@ -39,7 +40,15 @@ class Pairing extends Component {
                                 pageStart={0}
                                 loadMore={loadMorePairing}
                                 hasMore={hasMore}
-                                loader={<LoadingPlaceHolder key='loader' />}
+                                loader={<MediaQuery key='loader' maxWidth={768}>
+                                    {(matches) => {
+
+                                        if (matches) {
+                                            return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                        }
+                                        else return <LoadingPlaceHolder key='loader' />
+                                    }}
+                                </MediaQuery>}
                             >
                                 <Row style={{ paddingTop: "30px" }} gutter={16}>
 

@@ -53,7 +53,7 @@ class CategoryDetailContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <div>
+            <div className="gray-background">
                 {
                     error ?
                         <ErrorPage status={status} />

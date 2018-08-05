@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import BreweryCard from '../common/breweryCard/BreweryCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
+import MediaQuery from 'react-responsive'
 class BreweryType extends Component {
 
     // render brewery card 
@@ -42,7 +43,15 @@ class BreweryType extends Component {
                                     pageStart={0}
                                     loadMore={loadMoreBrewery}
                                     hasMore={hasMore}
-                                    loader={<LoadingPlaceHolder key='loader' />}
+                                    loader={<MediaQuery key='loader' maxWidth={768}>
+                                        {(matches) => {
+
+                                            if (matches) {
+                                                return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                            }
+                                            else return <LoadingPlaceHolder key='loader' />
+                                        }}
+                                    </MediaQuery>}
                                 >
                                     <Row gutter={16}>
                                         {this.renderBreweryCard(brewerySearch)}

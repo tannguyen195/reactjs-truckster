@@ -5,7 +5,7 @@ import Pairing from './Pairing'
 import { getPairing, } from '../../api/pairingApi'
 import { mountPairing, } from '../../actions/pairingAction'
 import Head from '../head'
-let flag = false
+
 class PairingContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,32 +15,27 @@ class PairingContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.mountPairing()
+        const { mountPairing, getPairing } = this.props
+        mountPairing()
+        getPairing("this_week=true&city", "denver", 1)
     }
     loadMorePairing() {
-        const { getPairing, currentPage, lastPage, pairings } = this.props
+        const { getPairing, currentPage, lastPage } = this.props
+        if (currentPage && lastPage) {
+            if (currentPage < lastPage)
+                getPairing("this_week=true&city", "denver", currentPage + 1)
 
-        if (currentPage === 1 && pairings.length === 0 && !flag) {
-            getPairing("this_week=true&city", "denver", currentPage)
-            flag = true
-        }
-        else if (currentPage === 1 && lastPage === 1 && pairings.length !== 0) {
-            this.setState({
-                hasMore: false
-            })
-        }
-        else if (currentPage < lastPage)
-            getPairing("this_week=true&city", "denver", currentPage + 1)
-        else if (currentPage + 1 > lastPage && pairings.length !== 0) {
-            this.setState({
-                hasMore: false
-            })
+            else if (currentPage === lastPage && currentPage) {
+                this.setState({
+                    hasMore: false
+                })
+            }
         }
     }
 
     render() {
         return (
-            <div>
+            <div className="gray-background">
                 <Head
                     url="https://gotruckster.com/"
                     title="Find Denver Food Truck & Brewery Pairings - Truckster"

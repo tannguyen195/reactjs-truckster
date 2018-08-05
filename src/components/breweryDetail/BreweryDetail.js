@@ -214,7 +214,7 @@ class BreweryDetail extends Component {
                             <div id="reviews" className="review-truck">
                                 <ReviewSummary summary={breweryDetail.reviews_summary} />
                                 <ReviewModifyContainer detail={breweryDetail} {...this.props} />
-                                <UserReview reviews={reviews} />
+                                <UserReview reviews={breweryDetail.reviews_detail} />
                             </div>
                         </div>
 

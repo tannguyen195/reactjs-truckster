@@ -4,6 +4,7 @@ import stylesheet from './_categoryDetail.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import TruckCard from '../common/truckCard/TruckCard'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
+import MediaQuery from 'react-responsive'
 class CategoryDetail extends Component {
 
     // render truck card 
@@ -38,7 +39,15 @@ class CategoryDetail extends Component {
                                     pageStart={0}
                                     loadMore={loadMoreTruck}
                                     hasMore={hasMore}
-                                    loader={<LoadingPlaceHolder key='loader' />}
+                                    loader={<MediaQuery key='loader' maxWidth={768}>
+                                        {(matches) => {
+
+                                            if (matches) {
+                                                return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                            }
+                                            else return <LoadingPlaceHolder key='loader' />
+                                        }}
+                                    </MediaQuery>}
                                 >
                                     <Row gutter={16}>
                                         {this.renderTruckCard(truckSearch)}

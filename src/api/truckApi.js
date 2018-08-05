@@ -19,7 +19,7 @@ export const searchTruck = (params, value, page) => {
         dispatch(requestSearchTruck(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/foodtrucks?${params}=${value}&sort_by=avg_rating&sort_type=desc&page=${page}`,
+            url: apiUrl + `api/consumer/v1/foodtrucks?${params}=${value}&sort_by=avg_rating&sort_type=desc&per_page=12&page=${page}`,
             headers: {
                 "Accept": "application/json",
             },

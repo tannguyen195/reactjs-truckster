@@ -4,9 +4,12 @@ import stylesheet from './_nearby.less'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import moment from 'moment'
 import GoogleMapReact from 'google-map-react';
-import { Link } from 'routes'
+import { Link, Router } from 'routes'
 import AnnounceNearbyModal from './AnnounceNearbyModal'
 import TitleLink from '../common/titleLink'
+import MediaQuery from 'react-responsive'
+
+const mapMarker = ('/static/images/map-marker-icon.svg')
 const truckGreyIcon = ('/static/images/truck-grey-icon.svg')
 const websiteIcon = ('/static/images/website-icon.svg')
 const backIcon = ("/static/images/back-icon.png")
@@ -23,9 +26,27 @@ const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 
-const MarkerCustom = ({ info, icon, visible, onVisibleChange }) => {
-
-    return <div className="marker-container">
+const MarkerCustom = ({ info, icon, visible }) => {
+    let url = ""
+    switch (info.type) {
+        case "brewery":
+            url = "/brewery/" + info.brewery.slug
+            break;
+        case "activity":
+            url = "/event/" + info.activity.id
+            break;
+        case "food_truck":
+            url = "/food-truck/" + info.food_truck.slug
+            break;
+        case "pairing-brewery":
+            url = "/brewery/" + info.brewery.slug
+            break;
+        case "pairing-activity":
+            url = "/event/" + info.activity.name + "--" + info.activity.id
+            break;
+        default: break;
+    }
+    return <div onClick={() => { Router.pushRoute(url) }} className="marker-container">
         <div>
             <img width={36} alt="marker" src={icon} />
         </div>
@@ -36,7 +57,9 @@ const MarkerCustom = ({ info, icon, visible, onVisibleChange }) => {
             transform: visible && 'translate(0, -20px)',
             transition: visible && " all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97)"
         }} className="push popover__content">
-            <div className=" SubheadingBlackLeft">{info.nameDisplay}</div>
+            <Link>
+                <a className=" SubheadingBlackLeft">{info.nameDisplay}</a>
+            </Link>
             <div className="popover-info">
                 <img src={info.image} alt="popover-icon" />
                 <div className="popover-text">
@@ -78,6 +101,7 @@ class Nearby extends Component {
             if (event) {
                 return event.map((item, index) => {
                     return <MarkerCustom
+
                         onVisibleChange={() => onVisibleChange(item.id.toString())}
                         visible={item.id.toString() === currentHoverItem ? true : false}
                         info={item}
@@ -85,6 +109,7 @@ class Nearby extends Component {
                         icon={item.marker}
                         lat={parseFloat(item.latitude)}
                         lng={parseFloat(item.longtitude)} />
+
                 })
             }
             else return null
@@ -99,7 +124,7 @@ class Nearby extends Component {
             if (event)
                 return event.map((item, idx) => {
                     return <div onClick={(e) => handleClickNearbyEvent(item)} className="nearby-events" onMouseLeave={onEventLeave} onMouseEnter={onEventEnter}
-                        style={{ marginBottom: "16px" }}
+                      
                         id={item.id} key={idx} >
                         <div id={item.id} className="pairing-item-container">
                             <div id={item.id} className="pairing-image">
@@ -168,9 +193,9 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <TitleLink id={data.food_truck.id} url="food-truck/" title={data.nameDisplay}>
-                            <div className="Display-2WhiteLeft">{data.nameDisplay}</div>
-                        </TitleLink>
+                        <Link to={"/food-truck/" + data.slug} >
+                            <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
+                        </Link>
                         {
                             rateNum && <div className="detail-rate">
                                 <div className="rate-number Body-1SemiBlackCenter">
@@ -270,9 +295,9 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <TitleLink id={data.brewery.id} url="/brewery/" title={data.nameDisplay}>
-                            <div className="Display-2WhiteLeft">{data.nameDisplay}</div>
-                        </TitleLink>
+                        <Link to={"/brewery/" + data.slug} >
+                            <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
+                        </Link>
                         {
                             rateNum && <div className="detail-rate">
                                 <div className="rate-number Body-1SemiBlackCenter">
@@ -380,9 +405,9 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <TitleLink id={data.brewery.id} url="/brewery/" title={data.nameDisplay}>
-                            <div className="Display-2WhiteLeft">{data.nameDisplay}</div>
-                        </TitleLink>
+                        <Link to={"/brewery/" + data.slug} >
+                            <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
+                        </Link>
                         {
                             rateNum && <div className="detail-rate">
                                 <div className="rate-number Body-1SemiBlackCenter">
@@ -580,6 +605,34 @@ class Nearby extends Component {
                 default: break;
             }
     }
+    renderNearbyEventListMobile() {
+        const { error,
+            tempNearbyState, nearbyList } = this.props
+
+        return <div className="nearby-event-list-container-mobile">
+            <div className="event-section">
+
+                <RenderContainer
+                    message="Something went wrong, please try another time!"
+                    error={error}>
+                    <div className="nearby-events-list-mobile" >
+                        {
+                            nearbyList && nearbyList.length === 0 ?
+                                <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 24 hours was found near your chosen location</div>
+                                :
+                                this.renderEventCard(tempNearbyState)
+                        }
+                    </div>
+
+                </RenderContainer>
+
+
+            </div>
+
+
+
+        </div>
+    }
     renderNearbyEventList() {
         const { error,
             onChangeFilterItem,
@@ -600,12 +653,6 @@ class Nearby extends Component {
                 <hr />
             </div>
 
-            {/* {
-                isLoadingGetNearby &&
-                <div className="spin-overlay">
-                    <Spin indicator={<Icon type="loading" style={{ fontSize: 24 }} spin />} />
-                </div>
-            } */}
 
             <div className="event-section">
 
@@ -622,15 +669,6 @@ class Nearby extends Component {
                                 this.renderEventCard(tempNearbyState)
                         }
                     </div>
-
-                    {/* {
-                        currentPage < lastPage &&
-                        <div className="nearby-loadmore">
-                            <a onClick={loadMoreNearby} className="ButtonGreyLeft"> LOAD MORE</a>
-
-                        </div>
-                    } */}
-
 
                 </RenderContainer>
 
@@ -658,26 +696,28 @@ class Nearby extends Component {
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <AnnounceNearbyModal handleExploreInRightPosition={handleExploreInRightPosition} handleCancel={handleCloseModal} visible={!isInRightPosition} />
                 <Row >
-                    <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
-                        {
-                            visibleNearbyEventDetail ?
-                                this.renderNearbyEventDetail() : this.renderNearbyEventList()
 
-                        }
+                    <MediaQuery maxWidth={768}>
+                        {(matches) => {
 
-                    </Col>
-
+                            if (matches) {
+                                return <div  id="content">
+                                    {
+                                        this.renderNearbyEventListMobile()
+                                    }
+                                </div>
+                            }
+                            else return <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
+                                {
+                                    visibleNearbyEventDetail ?
+                                        this.renderNearbyEventDetail() : this.renderNearbyEventList()
+                                }
+                            </Col>
+                        }}
+                    </MediaQuery>
                     <Col className="map" lg={16} md={16}>
                         <div className="lottie-container">
-                            {/* <Lottie options={{
-                                loop: true,
-                                autoplay: true,
-                                animationData: animationData,
-                            }}
-                                style={{ zIndex: '9' }}
-                                height={50}
-                                width={50}
-                            /> */}
+                            <img src={mapMarker} alt="marker" />
                         </div>
 
 

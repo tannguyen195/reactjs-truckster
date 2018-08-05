@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import Event from './Event'
 import { searchActivity } from '../../api/activityApi'
 import Head from '../head'
-let renderPageFlag = false
+
 class EventContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,22 +15,23 @@ class EventContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.searchActivity(true)
+        const { searchActivity } = this.props
+        searchActivity(true)
+        searchActivity(false, 1)
     }
 
     loadMore() {
         const { searchActivity, currentPage, lastPage } = this.props
-        if (!currentPage && !renderPageFlag) {
-            renderPageFlag = true
-            searchActivity(false, 1)
+        if (currentPage && lastPage) {
+            if (currentPage < lastPage)
+                searchActivity(false, currentPage + 1)
+            else if (currentPage === lastPage && currentPage) {
+                this.setState({
+                    hasMore: false
+                })
+            }
         }
-        else if (currentPage < lastPage)
-            searchActivity(false, currentPage + 1)
-        else if (currentPage === lastPage && currentPage) {
-            this.setState({
-                hasMore: false
-            })
-        }
+
 
 
     }

@@ -40,6 +40,43 @@
             background: #555;
         }
     }
+    .nearby-event-list-container-mobile {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        overflow-x: scroll;
+        position: absolute;
+        z-index: 11;
+        width: 100%;
+        bottom: 0;
+        .nearby-events-list-mobile {
+            @media only screen and (max-width: 768px) {
+                display: flex
+            }
+        }
+        .nearby-events {
+            margin-right: 16px;
+            margin-bottom: 0;
+            .pairing-info {
+                width: 250px !important;
+                background: #fff
+            }
+        }
+        &::-webkit-scrollbar {
+            width: 2px;
+            height: 5px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    }
     .nearby-event-detail-container {
         .nearby-event-detail-food-truck {
             .image-container {
@@ -196,50 +233,53 @@
             }
         }
     }
-    .pairing-item-container {
-        border-radius: 6px;
-        cursor: pointer;
+    .nearby-events {
         margin-bottom: 16px;
-        display: flex;
-        vertical-align: middle;
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        transition-duration: 0.3s;
-        transition-property: transform;
-        &:hover,
-        &:focus,
-        &:active {
-            transform: translateX(8px);
-        }
-        .pairing-image {
-            img {
-                height: 100px;
-                width: 100px;
-                border-radius: 6px;
-            }
-        }
-        .pairing-info {
+        .pairing-item-container {
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 16px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding-left: 8px;
-            .pairing-icon {
-                display: flex;
+            vertical-align: middle;
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            transition-duration: 0.3s;
+            transition-property: transform;
+            &:hover,
+            &:focus,
+            &:active {
+                transform: translateX(8px);
+            }
+            .pairing-image {
                 img {
-                    height: 40px;
-                    width: 32px;
-                    margin-right: 8px;
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 6px;
                 }
             }
-            img {
-                width: 16px;
-                height: 16px;
-            }
-            .pairing-item-bref {
+            .pairing-info {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 8px;
+                .pairing-icon {
+                    display: flex;
+                    img {
+                        height: 40px;
+                        width: 32px;
+                        margin-right: 8px;
+                    }
+                }
                 img {
-                    margin-right: 4px;
+                    width: 16px;
+                    height: 16px;
+                }
+                .pairing-item-bref {
+                    display: flex;
+                    align-items: center;
+                    img {
+                        margin-right: 4px;
+                    }
                 }
             }
         }
@@ -296,14 +336,9 @@
             align-items: center;
             height: 100%;
             width: 100%;
-            .lottie-marker {
-                z-index: 10;
-                border-radius: 50%;
-                background: rgba(0, 0, 0, 0.5);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+            img {
+                z-index: 2;
+                width: 32px;
             }
         }
     }
@@ -393,4 +428,3 @@
         }
     }
 }
-

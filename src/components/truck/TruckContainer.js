@@ -5,7 +5,6 @@ import Truck from './Truck'
 import { mountTruck } from '../../actions/truckAction'
 import { searchTruck } from '../../api/truckApi'
 import Head from '../head'
-let renderPageFlag = false
 class TruckContainer extends Component {
     constructor(props) {
         super(props)
@@ -16,30 +15,31 @@ class TruckContainer extends Component {
 
 
     componentDidMount() {
-        this.props.mountTruck()
+        const { mountTruck, searchTruck } = this.props
+        mountTruck()
+        searchTruck("", "", 1)
     }
     loadMoreTruck() {
         const { currentPage, lastPage, searchTruck } = this.props
 
-        if (!currentPage && !renderPageFlag) {
-            renderPageFlag = true
-            searchTruck("", "", 1)
+        if (currentPage && lastPage) {
+            if (currentPage < lastPage)
+                searchTruck("", "", currentPage + 1)
+
+            else if (currentPage === lastPage && currentPage) {
+                this.setState({
+                    hasMore: false
+                })
+            }
         }
 
-        else if (currentPage < lastPage)
-            searchTruck("", "", currentPage + 1)
 
-        else if (currentPage === lastPage && currentPage) {
-            this.setState({
-                hasMore: false
-            })
-        }
 
     }
     render() {
 
         return (
-            <div>
+            <div className="gray-background">
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

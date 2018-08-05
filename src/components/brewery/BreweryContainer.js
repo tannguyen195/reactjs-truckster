@@ -5,7 +5,6 @@ import { mountBrewery } from '../../actions/breweryAction'
 import Brewery from './Brewery'
 import { searchBrewery } from '../../api/breweryApi'
 import Head from '../head'
-let renderPageFlag = false
 class BreweryContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,23 +14,23 @@ class BreweryContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.mountBrewery()
+        const { mountBrewery, searchBrewery } = this.props
+        mountBrewery()
+        searchBrewery("", "", 1)
     }
+
     loadMoreBrewery() {
         const { currentPage, lastPage, searchBrewery } = this.props
 
-        if (!currentPage && !renderPageFlag) {
-            renderPageFlag = true
-            searchBrewery("", "", 1)
-        }
+        if (currentPage && lastPage) {
+            if (currentPage < lastPage)
+                searchBrewery("", "", currentPage + 1)
 
-        else if (currentPage < lastPage)
-            searchBrewery("", "", currentPage + 1)
-
-        else if (currentPage === lastPage && currentPage) {
-            this.setState({
-                hasMore: false
-            })
+            else if (currentPage === lastPage && currentPage) {
+                this.setState({
+                    hasMore: false
+                })
+            }
         }
     }
     render() {

@@ -17,7 +17,7 @@ export const searchBrewery = (params, value, page) => {
         dispatch(requestSearchBrewery(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/breweries?${params}=${value}&sort_type=desc&page=${page}`,
+            url: apiUrl + `api/consumer/v1/breweries?${params}=${value}&per_page=12&page=${page}`,
             headers: {
                 "Accept": "application/json",
             },

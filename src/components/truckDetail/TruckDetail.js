@@ -214,7 +214,6 @@ class TruckDetail extends Component {
             isPairing,
             toggleShareModal
         } = this.props
-
         return (
             <div>
                 <div>
@@ -298,7 +297,7 @@ class TruckDetail extends Component {
                                 <div id="reviews" className="review-truck">
                                     <ReviewSummary summary={truckDetail.reviews_summary} />
                                     <ReviewModifyContainer detail={truckDetail} {...this.props} />
-                                    <UserReview reviews={reviews} />
+                                    <UserReview reviews={truckDetail.reviews_detail} />
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ import EventCard from '../common/eventCard/EventCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
-
+import MediaQuery from 'react-responsive'
 class Event extends Component {
 
     renderEventCarousel(events, imageWidth) {
@@ -56,10 +56,10 @@ class Event extends Component {
                                 <RenderContainer message="Something went wrong, please try another time!"
                                     isLoading={activitiesWeek ? false : true} error={error}  >
                                     {
-                                        activitiesWeek &&                                
-                                            <CustomCarousel slideToShow={2}>
-                                                {this.renderEventCarousel(activitiesWeek)}
-                                            </CustomCarousel>
+                                        activitiesWeek &&
+                                        <CustomCarousel slideToShow={2}>
+                                            {this.renderEventCarousel(activitiesWeek)}
+                                        </CustomCarousel>
                                     }
                                 </RenderContainer>
                             </Section>
@@ -73,7 +73,15 @@ class Event extends Component {
                                             pageStart={0}
                                             loadMore={loadMore}
                                             hasMore={hasMore}
-                                            loader={<LoadingPlaceHolder key='loader' />}
+                                            loader={<MediaQuery key='loader' maxWidth={768}>
+                                                {(matches) => {
+
+                                                    if (matches) {
+                                                        return <LoadingPlaceHolder itemNum={1} key='loader' />
+                                                    }
+                                                    else return <LoadingPlaceHolder itemNum={2} key='loader' />
+                                                }}
+                                            </MediaQuery>}
                                         >
                                             <Row style={{ paddingTop: "30px" }} gutter={16}>
 
@@ -83,6 +91,7 @@ class Event extends Component {
                                         </InfiniteScroll>
 
                                     }
+
                                 </RenderContainer>
 
 

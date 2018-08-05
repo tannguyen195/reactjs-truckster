@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import stylesheet from './_announceModal.less'
 import { Modal } from 'antd'
-const logo = require("/static/images/logo-vertical.png")
+const logo = ("/static/images/logo-vertical.png")
 class AnnounceModal extends Component {
     constructor(props) {
         super(props);

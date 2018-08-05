@@ -20,11 +20,11 @@ class UserReview extends Component {
                 return <div key={index} className="review">
                     <div className="review-header">
                         <div className="header-left">
-                            <img alt="avatar" src={item.avatar ? item.avatar : unknownUserIcon} />
+                            <img alt="avatar" src={item.user.avatar ? item.user.avatar : unknownUserIcon} />
                             <div className="info">
-                                <div className="user-name Body-1MediumBlackLeft">{item.user_name}</div>
+                                <div className="user-name Body-1MediumBlackLeft">{item.user.name}</div>
                                 <div className="date CaptionGreyLeft">
-                                    {moment(item.created_at, "YYYY-MM-DD hh:mm a").format("DD/MM/YYYY")}
+                                    {moment(item.created_at, "YYYY-MM-DD hh:mm a").format("DD/MM/YYYY hh:mm a")}
                                 </div></div>
                         </div>
                         <div className="header-right">
