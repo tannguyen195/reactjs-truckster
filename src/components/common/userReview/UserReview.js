@@ -3,7 +3,7 @@ import { Rate } from 'antd';
 
 import moment from 'moment'
 import stylesheet from './_userReview.less'
-const unknownUserIcon = require("/static/images/unknown-user-icon.png")
+const unknownUserIcon = ("/static/images/unknown-user-icon.png")
 
 
 class UserReview extends Component {

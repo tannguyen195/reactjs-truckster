@@ -3,10 +3,10 @@ import { Popover } from 'antd'
 import GoogleMapReact from 'google-map-react';
 import moment from 'moment'
 import stylesheet from './_map.less'
-const truckMarkerIcon = require('/static/images/truck-marker-icon.png')
-const eventMarkerIcon = require('/static/images/event-marker-icon.png')
-const breweryMarkerIcon = require('/static/images/brewery-marker-icon.png')
-const pairingMarkerIcon = require('/static/images/pairing-marker-icon.png')
+const truckMarkerIcon = ('/static/images/truck-marker-icon.png')
+const eventMarkerIcon = ('/static/images/event-marker-icon.png')
+const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
+const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
 const Content = ({ info }) => (
     <div>
         <div className="address Body-1RegularBlackLeft">

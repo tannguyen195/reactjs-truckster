@@ -8,10 +8,10 @@ const FormItem = Form.Item
 const TabPane = Tabs.TabPane;
 
 
-const unknownUserIcon = require('/static/images/unknown-user-icon.png')
-const userIcon = require('/static/images/user-icon.png')
-const lockIcon = require('/static/images/lock-icon.png')
-const phoneIcon = require('/static/images/phone-icon.png')
+const unknownUserIcon = ('/static/images/unknown-user-icon.png')
+const userIcon = ('/static/images/user-icon.png')
+const lockIcon = ('/static/images/lock-icon.png')
+const phoneIcon = ('/static/images/phone-icon.png')
 
 class EditProfile extends Component {
 

@@ -8,6 +8,7 @@ import UserReview from '../common/userReview/UserReview'
 import stylesheet from './_truckDetail.less'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
+import TruckCard from '../common/truckCard/TruckCard'
 
 const LinkAnchor = Anchor.Link;
 
@@ -203,107 +204,129 @@ class TruckDetail extends Component {
                 </div>)
     }
 
-
+    renderSuggestTruck(suggestTruck) {
+        return suggestTruck.map((item, index) => {
+            if (index < 3)
+                return <Col key={item.id} style={{ marginBottom: "16px" }} key={index} sm={12} xs={24}  md={8} lg={8}>
+                    <TruckCard data={item} />
+                </Col>
+            else return null
+        })
+    }
     renderTruckDetail(truckDetail) {
         let rateNum = parseFloat((Math.round(truckDetail.avg_rating * 2) / 2).toFixed(1), 10)
         const {
-            reviews,
             isLoggedIn,
             onFavoriteChange,
 
             isPairing,
-            toggleShareModal
+            toggleShareModal,
+
+            suggestTruck
         } = this.props
         return (
-            <div>
-                <div>
-                    <div className="detail-main-header" style={{ backgroundImage: `url(${truckDetail.cover_photo ? truckDetail.cover_photo[0].url : homeImage})` }} >
-                        <div className="content-detail">
-                            <div className="detail-wrapper">
-                                <div className="DisplayWhiteLeft name">  {truckDetail.name}</div>
-                                <div className="detail-rate">
-                                    <div className="rate-number Body-1SemiBlackCenter">
-                                        {isNaN(rateNum) ? 0 : rateNum}
-                                    </div>
 
-                                    <div className="rate-star">
-                                        <Rate disabled value={isNaN(rateNum) ? 0 : rateNum} />
-                                    </div>
-                                    {/* <div className=" ButtonWhiteCenter">
+            <div>
+                <div className="detail-main-header" style={{ backgroundImage: `url(${truckDetail.cover_photo ? truckDetail.cover_photo[0].url : homeImage})` }} >
+                    <div className="content-detail">
+                        <div className="detail-wrapper">
+                            <div className="DisplayWhiteLeft name">  {truckDetail.name}</div>
+                            <div className="detail-rate">
+                                <div className="rate-number Body-1SemiBlackCenter">
+                                    {isNaN(rateNum) ? 0 : rateNum}
+                                </div>
+
+                                <div className="rate-star">
+                                    <Rate disabled value={isNaN(rateNum) ? 0 : rateNum} />
+                                </div>
+                                {/* <div className=" ButtonWhiteCenter">
                                         {truckDetail.reviews_summary.total_reviews} reviews  </div> */}
 
 
-                                </div>
-                                <div className="flex-row">
-                                    <div className="tag">
-                                        {
-                                            truckDetail.cuisine.map((item, index) => {
-                                                return <Link key={index} to={`/cuisine/${item.name}`}>
-                                                    <a className="tag-item Body-1MediumBlackCenter">
-                                                        {item.name} </a>
-                                                </Link>
-                                            })
-                                        }
-                                    </div>
-                                    <span className="left-row">
-                                        {
-                                            !isLoggedIn ?
-                                                <Tooltip title="Login required">
-                                                    <span>
-                                                        <Rate disabled count={1} character={<Icon type="heart" />} />
-                                                    </span>
-                                                </Tooltip>
-                                                :
-                                                <Rate value={truckDetail.is_favourite ? 1 : 0} onChange={onFavoriteChange} count={1} character={<Icon type="heart" />} />
-                                        }
-                                        <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
-
-                                    </span>
-                                </div>
                             </div>
-                        </div>
-                        <div className="cover">
-                            <div className="cover-mask"></div>
-                        </div>
-                    </div>
-                    <div className="body-wrapper">
-                        <div className="detail-body">
-                            <div className="menu-anchor">
-                                <Anchor offsetTop={isPairing ? 0 : 68}>
-                                    <LinkAnchor href="#info" title="Info" />
-                                    <LinkAnchor href="#menu" title="Menu" />
-                                    <LinkAnchor href="#reviews" title="Reviews" />
-                                </Anchor>
-                            </div>
-
-                            <div className="menu-content">
-                                {
-                                    this.renderSchedule(truckDetail.calendar_detail)
-                                }
-                                {
-                                    this.renderInfo(truckDetail)
-                                }
-                                <hr />
-                                <div id="menu" className="menu-title Display-2BlackLeft">Menu</div>
-                                <div className="menu-truck">
-                                    {truckDetail.menus[0] &&
-                                        this.renderMenu(truckDetail.menus[0])
+                            <div className="flex-row">
+                                <div className="tag">
+                                    {
+                                        truckDetail.cuisine.map((item, index) => {
+                                            return <Link key={index} to={`/cuisine/${item.name}`}>
+                                                <a className="tag-item Body-1MediumBlackCenter">
+                                                    {item.name} </a>
+                                            </Link>
+                                        })
                                     }
                                 </div>
-                                <hr />
+                                <span className="left-row">
+                                    {
+                                        !isLoggedIn ?
+                                            <Tooltip title="Login required">
+                                                <span>
+                                                    <Rate disabled count={1} character={<Icon type="heart" />} />
+                                                </span>
+                                            </Tooltip>
+                                            :
+                                            <Rate value={truckDetail.is_favourite ? 1 : 0} onChange={onFavoriteChange} count={1} character={<Icon type="heart" />} />
+                                    }
+                                    <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
 
-                                <div className="menu-title Display-2BlackLeft">Reviews </div>
-
-                                <div id="reviews" className="review-truck">
-                                    <ReviewSummary summary={truckDetail.reviews_summary} />
-                                    <ReviewModifyContainer detail={truckDetail} {...this.props} />
-                                    <UserReview reviews={truckDetail.reviews_detail} />
-                                </div>
+                                </span>
                             </div>
+                        </div>
+                    </div>
+                    <div className="cover">
+                        <div className="cover-mask"></div>
+                    </div>
+                </div>
+                <div className="body-wrapper">
+                    <div className="detail-body">
+                        <div className="menu-anchor">
+                            <Anchor offsetTop={isPairing ? 0 : 68}>
+                                <LinkAnchor href="#info" title="Info" />
+                                <LinkAnchor href="#menu" title="Menu" />
+                                <LinkAnchor href="#reviews" title="Reviews" />
+                            </Anchor>
+                        </div>
+
+                        <div className="menu-content">
+                            {
+                                this.renderSchedule(truckDetail.calendar_detail)
+                            }
+                            {
+                                this.renderInfo(truckDetail)
+                            }
+
+                            <hr />
+                            {/* Menu Section */}
+                            <div id="menu" className="menu-title Display-2BlackLeft">Menu</div>
+                            <div className="menu-truck">
+                                {truckDetail.menus[0] &&
+                                    this.renderMenu(truckDetail.menus[0])
+                                }
+                            </div>
+
+                            <hr />
+                            {/* Review Section */}
+                            <div className="menu-title Display-2BlackLeft">Reviews </div>
+
+                            <div id="reviews" className="review-truck">
+                                <ReviewSummary summary={truckDetail.reviews_summary} />
+                                <ReviewModifyContainer detail={truckDetail} {...this.props} />
+                                <UserReview reviews={truckDetail.reviews_detail} />
+                            </div>
+
+                            <hr />
+
+                            {/* Suggest Section */}
+                            <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
+                            <Row gutter={16} className="suggest-truck">
+                                {suggestTruck &&suggestTruck.data &&
+                                    this.renderSuggestTruck(suggestTruck.data)
+                                }
+                            </Row>
                         </div>
                     </div>
                 </div>
             </div>
+
         )
     }
 

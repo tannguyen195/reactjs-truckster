@@ -34,7 +34,6 @@ class EventDetailContainer extends Component {
 
     render() {
         const { activity, status } = this.props
-
         return (
             <div>
                 {

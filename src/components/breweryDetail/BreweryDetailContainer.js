@@ -47,12 +47,18 @@ class BreweryDetailContainer extends Component {
     }
 
     static async getInitialProps({ reduxStore, req, query }) {
+        let breweryDetail = await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`)
+
+
+        let suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
+
 
         return {
-            breweryDetail: await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`),
-            id: query.id
+            breweryDetail, suggestBrewery
         }
     }
+
+
     handleEditReview(e) {
         this.props.editBreweryReview({
             breweryId: this.props.match.params.id,
@@ -68,7 +74,7 @@ class BreweryDetailContainer extends Component {
     }
 
     render() {
-        const {  status, breweryDetail } = this.props
+        const { status, breweryDetail } = this.props
         return (
             <div>
                 {

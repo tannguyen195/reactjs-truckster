@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
 
-import { getTruckDetail } from '../../api/truckApi'
+import { getTruckDetail, getSuggestTruck } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
@@ -33,17 +33,29 @@ class TruckDetailContainer extends Component {
     }
 
     static async getInitialProps({ reduxStore, req, query }) {
+        let truckDetail = await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`)
+
+        let cuisineStringArray = []
+
+        truckDetail.cuisine.forEach(item => {
+            cuisineStringArray.push(item.name)
+        })
+
+        let suggestTruck = await getDataInitial(`consumer/v1/foodtrucks?city=denver&cuisine=${cuisineStringArray.toString()}&sort_by=avg_rating&sort_type=desc`)
+
 
         return {
-            truckDetail: await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`),
-            id: query.id
+            truckDetail, suggestTruck
         }
     }
     componentWillReceiveProps(nextProps) {
-        if (nextProps.truckDetail) {
+        const { truckDetail } = nextProps
+
+        if (truckDetail) {
+
             // Set location
             let locations = [], icon = "", events = []
-            getSchedule(nextProps.truckDetail.calendar).forEach((item, index) => {
+            getSchedule(truckDetail.calendar).forEach((item, index) => {
                 if (item && item.brewery === null) {
                     icon = "truck"
                 }
@@ -96,10 +108,11 @@ class TruckDetailContainer extends Component {
         }
     }
     componentDidMount() {
-        if (this.props.truckDetail) {
+        const { truckDetail } = this.props
+        if (truckDetail) {
             // Set location
             let locations = [], icon = "", events = []
-            getSchedule(this.props.truckDetail.calendar).forEach((item, index) => {
+            getSchedule(truckDetail.calendar).forEach((item, index) => {
                 if (item && item.brewery === null) {
                     icon = "truck"
                 }
@@ -330,7 +343,7 @@ class TruckDetailContainer extends Component {
         })
     }
     render() {
-        const { error, status, truckDetail } = this.props
+        const { truckDetail } = this.props
         return (
             <div>
                 {
@@ -391,7 +404,8 @@ export function mapDispatchToProps(dispatch) {
         getTruckDetail,
         getTruckReview,
         postReview,
-        editReview
+        editReview,
+
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TruckDetailContainer);

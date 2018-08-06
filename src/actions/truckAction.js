@@ -90,8 +90,6 @@ export function getSearchResult(response) {
     }
 }
 
-
-
 export function mountTruck() {
     return (dispatch) => {
         dispatch({

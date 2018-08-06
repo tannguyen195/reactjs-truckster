@@ -3,8 +3,8 @@ import { Form, Input, Button, Row, Col, Modal } from 'antd';
 
 import stylesheet from './_forgot.less'
 const FormItem = Form.Item
-const backIcon = require('/static/images/back-icon.png')
-const mailIcon = require('/static/images/mail-icon.png')
+const backIcon = ('/static/images/back-icon.png')
+const mailIcon = ('/static/images/mail-icon.png')
 
 class ForgotModal extends React.Component {
 

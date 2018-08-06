@@ -2,10 +2,12 @@ import * as types from '../actions/types';
 
 
 const initial = {
+    isLoadingGetSuggestTruck: false,
     isLoadingSearchTruck: false,
     isLoadingGetTruckDetail: false,
     truckDetail: null,
     truckMenu: null,
+    suggestTruck: null,
     trucks: [],
     truckSearch: [],
     foodSearchResult: null,

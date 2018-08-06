@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Rate, Anchor, Spin, Card, Icon } from 'antd';
 import { Link } from 'routes'
-
+import BreweryCard from '../common/breweryCard/BreweryCard'
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
@@ -138,10 +138,18 @@ class BreweryDetail extends Component {
         }
         )
     }
-
+    renderSuggestBrewery(suggestBrewery){
+        return suggestBrewery.map((item, index) => {
+            if (index < 3)
+                return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
+                    <BreweryCard data={item} />
+                </Col>
+            else return null
+        })
+    }
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
-        const { isPairing, toggleShareModal, reviews } = this.props
+        const { isPairing, toggleShareModal, suggestBrewery } = this.props
         return (
             <div>
                 <div>
@@ -211,11 +219,20 @@ class BreweryDetail extends Component {
 
                             <div className="menu-title Display-2BlackLeft">Reviews </div>
 
-                            <div id="reviews" className="review-truck">
+                            <div id="reviews" className="review-brewery">
                                 <ReviewSummary summary={breweryDetail.reviews_summary} />
                                 <ReviewModifyContainer detail={breweryDetail} {...this.props} />
                                 <UserReview reviews={breweryDetail.reviews_detail} />
                             </div>
+
+
+                            {/* Suggest Section */}
+                            <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
+                            <Row gutter={16} className="suggest-brewery">
+                                {suggestBrewery && suggestBrewery.data &&
+                                    this.renderSuggestBrewery(suggestBrewery.data)
+                                }
+                            </Row>
                         </div>
 
                     </div>

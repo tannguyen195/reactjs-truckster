@@ -2,6 +2,7 @@ import {
     requestSearchTruck, searchTruckError, searchTruckSuccess,
     requestGetTruckDetail, getTruckDetailError, getTruckDetailSuccess,
     requestGetTruckMenu, getTruckMenuError, getTruckMenuSuccess,
+    requestGetSuggestTruck, getSuggestTruckError, getSuggestTruckSuccess
 } from '../actions/truckAction.js'
 import axios from 'axios'
 var https = require("https");
@@ -59,25 +60,6 @@ export const getTruckDetail = (truckId) => {
                 dispatch(getTruckDetailError(error))
 
             });
-
-        // $.ajax({
-        //     type: 'GET',
-        //     url: apiUrl + `api/consumer/v1/foodtrucks/` + truckId,
-        //     headers: {
-        //         "Accept": "application/json",
-        //     },
-        //     beforeSend: function (xhr) {
-        //         xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
-        //     },
-        //     success: function (response, status, xhr) {
-        //         dispatch(getTruckDetailSuccess(
-        //             response
-        //         ));
-        //     },
-        //     error: function (error) {
-        //         dispatch(getTruckDetailError(error))
-        //     }
-        // })
     }
 }
 

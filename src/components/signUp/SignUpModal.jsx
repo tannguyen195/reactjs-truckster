@@ -3,10 +3,10 @@ import { Form, Input, Button, Modal, Popover } from 'antd';
 
 import stylesheet from './_signUp.less'
 const FormItem = Form.Item
-const userIcon = require('/static/images/user-icon.png')
-const mailIcon = require('/static/images/mail-icon.png')
-const lockIcon = require('/static/images/lock-icon.png')
-const phoneIcon = require('/static/images/phone-icon.png')
+const userIcon = ('/static/images/user-icon.png')
+const mailIcon = ('/static/images/mail-icon.png')
+const lockIcon = ('/static/images/lock-icon.png')
+const phoneIcon = ('/static/images/phone-icon.png')
 
 const popOver = (messageArray) => {
     return messageArray.map((item, index) => {

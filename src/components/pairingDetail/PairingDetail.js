@@ -4,7 +4,7 @@ import './_pairingDetail.less'
 import TruckDetailContainer from '../truckDetail/TruckDetailContainer.js'
 import BreweryDetailContainer from '../breweryDetail/BreweryDetailContainer.js'
 import moment from 'moment'
-const breweryIcon = require('/static/images/brewery-marker-icon.png')
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
 
 class PairingDetail extends Component {
     renderPairingButton(image, startTime, endTime, name, e) {

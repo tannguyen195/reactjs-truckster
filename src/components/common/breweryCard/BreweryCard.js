@@ -3,8 +3,8 @@ import { Card, Rate, Tag } from 'antd'
 
 import { Link } from 'routes'
 import stylesheet from './_breweryCard.less'
-const breweryIcon = require('/static/images/brewery-marker-icon.png')
-const imageBreweryPlaceholder = require("/static/images/image_brewery_placeholder.png")
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
+const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 class BreweryCard extends Component {
     constructor(props) {
         super(props);

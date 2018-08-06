@@ -5,14 +5,14 @@ import TitleLink from '../titleLink'
 import stylesheet from './_pairingCard.less'
 import moment from 'moment'
 import { getSchedule } from '../../../../global'
-const homeImage = require("/static/images/home-image.jpg")
-const pairingMarkerIcon = require('/static/images/pairing-marker-icon.png')
-const defaultImage = require("/static/images/default-image.png")
-const eventMarkerIcon = require('/static/images/event-marker-icon.png')
-const breweryMarkerIcon = require('/static/images/brewery-marker-icon.png')
-const locationIcon = require('/static/images/location-icon.png')
-const timeIcon = require('/static/images/time-icon.png')
-const logo = require("/static/images/logo-vertical.png")
+const homeImage = ("/static/images/home-image.jpg")
+const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
+const defaultImage = ("/static/images/default-image.png")
+const eventMarkerIcon = ('/static/images/event-marker-icon.png')
+const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
+const locationIcon = ('/static/images/location-icon.png')
+const timeIcon = ('/static/images/time-icon.png')
+const logo = ("/static/images/logo-vertical.png")
 class PairingCard extends Component {
     constructor(props) {
         super(props);
