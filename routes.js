@@ -11,6 +11,9 @@ module.exports = routes()
     .add('search')
     .add('intro')
     .add('city')
+
+    .add('info')
+    .add('infoDetail', '/info/:slug')
     .add('pairing', '/pairing/:state/:city')
 
     .add('events', '/event/:state/:city')

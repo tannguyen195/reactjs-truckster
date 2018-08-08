@@ -1,7 +1,7 @@
 import moment from 'moment'
 import axios from 'axios';
 import { Cookies } from 'react-cookie'
-
+import CircularJSON from 'circular-json'
 const cookies = new Cookies()
 var https = require("https");
 export function getSchedule(data) {
@@ -136,7 +136,7 @@ export function getEventTime(data) {
 
 
 export const getDataInitial = (url) => {
-     return axios({
+    return axios({
         method: 'get',
         url: "https://dev.gotruckster.com/api/" + url,
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
@@ -152,5 +152,23 @@ export const getDataInitial = (url) => {
         .catch(function (response) {
             console.log("[ERROR]", response)
             return null
+        });
+}
+
+export const getPageData = () => {
+    return axios({
+        method: 'get',
+        url: `http://ec2-52-14-177-231.us-east-2.compute.amazonaws.com//wp-json/wp/v2/posts`,
+        headers: {
+
+            "Accept": "application/json",
+        }
+    })
+        .then(function (response) {
+            console.log("response", response)
+            return CircularJSON.stringify(response);
+        })
+        .catch(function (error) {
+            console.log("error", error)
         });
 }

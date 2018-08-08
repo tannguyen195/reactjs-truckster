@@ -27,13 +27,14 @@ const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 
 const MarkerCustom = ({ info, icon, visible }) => {
+
     let url = ""
     switch (info.type) {
         case "brewery":
             url = "/brewery/" + info.brewery.slug
             break;
         case "activity":
-            url = "/event/" + info.activity.id
+            url = "/event/" + info.activity.name + "--" + info.activity.id
             break;
         case "food_truck":
             url = "/food-truck/" + info.food_truck.slug
@@ -57,9 +58,9 @@ const MarkerCustom = ({ info, icon, visible }) => {
             transform: visible && 'translate(0, -20px)',
             transition: visible && " all 0.5s cubic-bezier(0.75, -0.02, 0.2, 0.97)"
         }} className="push popover__content">
-            <Link>
-                <a className=" SubheadingBlackLeft">{info.nameDisplay}</a>
-            </Link>
+
+            <a className=" SubheadingBlackLeft">{info.nameDisplay}</a>
+
             <div className="popover-info">
                 <img src={info.image} alt="popover-icon" />
                 <div className="popover-text">
@@ -124,7 +125,7 @@ class Nearby extends Component {
             if (event)
                 return event.map((item, idx) => {
                     return <div onClick={(e) => handleClickNearbyEvent(item)} className="nearby-events" onMouseLeave={onEventLeave} onMouseEnter={onEventEnter}
-                      
+
                         id={item.id} key={idx} >
                         <div id={item.id} className="pairing-item-container">
                             <div id={item.id} className="pairing-image">
@@ -157,7 +158,7 @@ class Nearby extends Component {
         })
     }
     renderTruckCard(data) {
-        return <TitleLink url="/food-truck/" title={data.name} key={data.key} id={data.id}>
+        return <Link to={"/food-truck/" + data.slug} key={data.key}>
             <div className="truck-event-card-container" >
                 <div className="truck-image-container">
                     <img src={data.image} alt="truck" />
@@ -179,7 +180,7 @@ class Nearby extends Component {
                     <Rate disabled value={parseInt(data.rating, 10)} />
                 </div>
             </div>
-        </TitleLink>
+        </Link>
     }
     renderFoodTruck(data) {
         const { handleClickBack } = this.props
@@ -193,7 +194,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/food-truck/" + data.slug} >
+                        <Link to={"/food-truck/" + data.food_truck.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -295,7 +296,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/brewery/" + data.slug} >
+                        <Link to={"/brewery/" + data.brewery.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -405,7 +406,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/brewery/" + data.slug} >
+                        <Link to={"/brewery/" + data.brewery.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -511,6 +512,7 @@ class Nearby extends Component {
                                     name: item.food_truck.name,
                                     rating: item.food_truck.avg_rating,
                                     cuisine: item.food_truck.cuisine,
+                                    slug: item.food_truck.slug
                                 })
                             })
                         }
@@ -576,6 +578,7 @@ class Nearby extends Component {
                                     name: item.food_truck.name,
                                     rating: item.food_truck.avg_rating,
                                     cuisine: item.food_truck.cuisine,
+                                    slug: item.food_truck.slug
                                 })
                             })
                         }
@@ -701,7 +704,7 @@ class Nearby extends Component {
                         {(matches) => {
 
                             if (matches) {
-                                return <div  id="content">
+                                return <div id="content">
                                     {
                                         this.renderNearbyEventListMobile()
                                     }
