@@ -31,9 +31,7 @@ export default class InformationContainer extends Component {
                 {
                     infoPage && renderPage &&
                     <div>
-                        <Head
-
-                        />
+                        <Head />
 
                         <Information parsedInfoPage={CircularJSON.parse(infoPage)} renderPage={renderPage} />
                     </div>

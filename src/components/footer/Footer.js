@@ -52,7 +52,7 @@ class Footer extends Component {
                         <Link to='/about'><a>About us</a></Link>
                         <Link to='/privacy'><a>Privacy & Terms</a></Link>
                         <Link to='/help'><a>Help</a></Link>
-                        <a>Press</a>
+                        <Link to='/info'><a>Blog</a></Link>
                     </Col>
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">Food trucks</h3>
