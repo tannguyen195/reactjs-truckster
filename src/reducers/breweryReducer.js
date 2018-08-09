@@ -14,7 +14,8 @@ const initial = {
     currentPage: null,
     lastPage: null,
     currentPageType: null,
-    lastPageType: null
+    lastPageType: null,
+    featuredBreweries: []
 }
 const breweryReducer = (state = initial, action) => {
     switch (action.type) {
@@ -42,6 +43,14 @@ const breweryReducer = (state = initial, action) => {
                     ...state,
                     isLoadingSearchBrewery: false,
                     brewerySearchResult: action.response.data,
+                }
+            }
+            else if (action.response.params === "is_featured") {
+
+                return {
+                    ...state,
+                    isLoadingSearchBrewery: false,
+                    featuredBreweries: action.response.data,
                 }
             }
             else

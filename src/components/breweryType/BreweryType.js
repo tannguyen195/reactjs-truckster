@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import stylesheet from './_breweryType.less'
 import InfiniteScroll from 'react-infinite-scroller';
-import BreweryCard from '../common/breweryCard/BreweryCard'
+import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import MediaQuery from 'react-responsive'
+const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 class BreweryType extends Component {
 
     // render brewery card 
@@ -13,9 +14,19 @@ class BreweryType extends Component {
         return brewerySearch.map((item, index) => {
 
             return <Col xs={24} sm={12} md={8} lg={8} style={{ marginBottom: "16px" }} key={index} >
-                <BreweryCard
-                    data={item}>
-                </BreweryCard>
+                <TruckNewCard data={
+                    {
+                        url: "/brewery/" + item.slug,
+                        image: item.cover_photo ?
+                            item.cover_photo[0].url : breweryIcon,
+                        logo: item.logo ?
+                            item.logo[0].url :
+                            imageBreweryPlaceholder,
+                        name: item.name,
+                        cuisine: item.breweries_type && [{ name: item.breweries_type.name }],
+                        rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
+                    }
+                } />
 
             </Col>
 

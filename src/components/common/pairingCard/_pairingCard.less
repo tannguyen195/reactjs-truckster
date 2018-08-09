@@ -73,8 +73,14 @@
         margin-top: 16px;
         margin-bottom: 16px;
         display: flex;
-        &:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        transition-duration: 0.3s;
+        transition-property: transform;
+        &:hover,
+        &:focus,
+        &:active {
+            transform: translateX(8px);
         }
         .pairing-image {
             img {
@@ -104,7 +110,6 @@
     }
 }
 
-
 .announce-modal-container {
     .logo-container {
         text-align: center;
@@ -123,6 +128,62 @@
         button {
             width: 216px;
             height: 50px;
+        }
+    }
+}
+
+.pairing-new-card-container {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 0;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+    &:hover,
+    &:focus,
+    &:active {
+        transform: translateX(8px);
+    }
+    .pairing-image-container {
+        img {
+            height: 100px;
+            width: 100px;
+            border-radius: 6px;
+        }
+    }
+    .pairing-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 16px;
+        .pairing-logo {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+        }
+        .cuisine-tag {
+            padding: 2px 8px 8px 0;
+            display: flex;
+            .cuisine-tag-item {
+                padding-right: 3px;
+                text-transform: uppercase;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        .ant-rate {
+            line-height: 0;
+            li {
+                margin: 0 2px;
+                i {
+                    &::before {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 }

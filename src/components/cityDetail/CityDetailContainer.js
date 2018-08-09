@@ -140,7 +140,7 @@ class CityContainer extends Component {
 }
 export function mapStateToProps(state) {
     return {
-        breweries: state.breweryReducer.breweries,
+        featuredBreweries: state.breweryReducer.featuredBreweries,
         errorBrewery: state.breweryReducer.error,
         truckSearchResult: state.truckReducer.truckSearchResult,
         truckFeaturedCity: state.truckReducer.truckFeaturedCity,
@@ -151,6 +151,7 @@ export function mapStateToProps(state) {
         errorActivity: state.activityReducer.error,
         brewerySearchResult: state.breweryReducer.brewerySearchResult,
         searchResult: state.truckReducer.searchResult,
+        featuredPairings: state.pairingReducer.featuredPairings,
     };
 }
 export function mapDispatchToProps(dispatch) {

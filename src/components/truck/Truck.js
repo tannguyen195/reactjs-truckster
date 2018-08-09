@@ -64,7 +64,7 @@ class Truck extends Component {
     // render truck card 
     renderTruckCard(trucks) {
         return trucks.map((item, index) => {
-            return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
+            return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={6} lg={6}>
                 <TruckCard data={item} />
             </Col>
         })

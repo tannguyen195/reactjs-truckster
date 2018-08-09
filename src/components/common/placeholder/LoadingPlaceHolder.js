@@ -4,9 +4,30 @@ import './_placeholder.less'
 import Placeholder from '../placeholder/Placeholder'
 class LoadingPlaceholder extends Component {
     renderPlaceHolder(itemNum) {
-        var indent = []
+        var indent = [], lg = 6, md = 8
+        switch (itemNum) {
+            case 8:
+                lg = 6
+                md = 8
+                break;
+            case 6:
+                lg = 8
+                md = 8
+                break;
+            case 3:
+                lg = 8
+                md = 12
+                break;
+            case 2:
+                lg = 12
+                md = 12
+
+                break;
+            default: break;
+
+        }
         for (var i = 0; i < itemNum; ++i) {
-            indent.push(<Col key={i} style={{ marginBottom: "16px" }} sm={12} xs={24} md={itemNum < 6 ? 24 / itemNum : 8} lg={itemNum < 6 ? 24 / itemNum : 8}>
+            indent.push(<Col key={i} style={{ marginBottom: "16px" }} sm={12} xs={24} md={md} lg={lg}>
                 <Placeholder />
             </Col>)
         }

@@ -9,9 +9,7 @@ const truckIcon = ('/static/images/truck-marker-icon.png')
 class TruckCard extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
+        this.state = {};
 
     }
 
@@ -21,36 +19,41 @@ class TruckCard extends Component {
             <Link to={`/food-truck/${data.slug}`} >
                 <a>
                     <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                    <Card className="truck-card-container" hoverable cover={
-                        <div className="truck-image"
-                            style={{
-                                backgroundImage: `url(${data.cover_photo ?
-                                    data.cover_photo[0].url : truckIcon})`,
-                                backgroundSize: data.cover_photo ?
-                                    "cover" : "50px"
-                            }}
-                        />}
-                    >
-                        <div className="meta-header">
-                            <p className="Body-1SemiBlackLeft ">{data.name}</p>
-                            <Rate disabled value={parseInt(data.avg_rating, 10)} />
-                        </div>
-                        <div className="meta-body">
-                            {/* <div className="logo">
-                            <img alt="logo" src={logo} />
-                        </div> */}
-                            <div className="bref">
-                                {/* <div className="text CaptionGreyLeft  ">
-                                Serving at {serve}
-                            </div> */}
-                                <div className="text CaptionGreyLeft">
-                                    {
-                                        data.start_time && data.end_time &&
-                                        `Open ${moment(data.start_time).format("hh:mm a")} - ${moment(data.end_time).format("hh:mm a")}`
-                                    }
-                                </div>
+                    <Card bordered={false} className="truck-card-container" cover={
+                        <div className="truck-cover">
+                            <div className="truck-image"
+                                style={{
+                                    backgroundImage: `url(${data.cover_photo ?
+                                        data.cover_photo[0].url : truckIcon})`,
+                                    backgroundSize: data.cover_photo ?
+                                        "cover" : "50px"
+                                }}
+                            />
+
+                            <div className="overlay-logo">
+                                <img alt="logo" src={data.logo ? data.logo[0].url : truckIcon} />
                             </div>
                         </div>
+
+                    }
+                    >
+                        <div className="meta-header">
+                            <div className="meta-header-title  Body-2SemiBlackLeft ">{data.name}</div>
+                            <div className="cuisine-tag">
+                                {
+                                    data.cuisine.map((item, index) => {
+                                        if (index === 0)
+                                            return <div key={index} className="cuisine-tag-item CaptionGreyLeft">
+                                                {item.name} </div>
+                                        else return <div key={index} className="cuisine-tag-item CaptionGreyLeft">
+                                            <span>&bull;</span>   {item.name} </div>
+                                    })
+                                }
+                            </div>
+                            <Rate disabled value={parseInt(data.avg_rating, 10)} />
+
+                        </div>
+
                     </Card>
                 </a>
             </Link>

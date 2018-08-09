@@ -3,17 +3,18 @@ import { Card } from 'antd'
 import TitleLink from '../titleLink'
 import moment from 'moment'
 import stylesheet from './_eventCard.less'
+import Item from '../../../../node_modules/antd/lib/list/Item';
 
 const eventIcon = ('/static/images/event-marker-icon.png')
 class EventCard extends Component {
     render() {
-        
-        const { data, imageWidth, carousel, } = this.props
+
+        const { data, imageWidth, carousel } = this.props
 
         return (
             <TitleLink url="/event/" title={data.name} id={data.id}>
-            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                <Card style={{ margin: carousel && "8px" }} className="event-card-container" hoverable
+                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+                <Card bordered={false} style={{ margin: carousel && "8px" }} className="event-card-container"
                     cover={
                         <div className="event-image"
                             style={{
@@ -23,33 +24,32 @@ class EventCard extends Component {
                                     "" : "50px",
                                 height: imageWidth && imageWidth
                             }}
-                        />}
-                >
-                    <div className="meta-header">
+                        >
+                            <div className="overlay-time">
+                                <div className="calendar">
+                                    <div className="month">
+                                        {moment(data.start_time).format("MMM")}
+                                    </div>
+                                    <div className="date">
+                                        {moment(data.start_time).format("DD")}
+                                    </div>
 
+                                </div>
 
-                    </div>
-                    <div className="meta-body">
-                        <div className="logo">
-                            <div className="calendar">
-                                <div className="month">
-                                    {moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM")}
-                                </div>
-                                <div className="date">
-                                    {moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("DD")}
-                                </div>
-                                <div className="year">
-                                    {moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("YYYY")}
-                                </div>
                             </div>
                         </div>
+                    }
+                >
+
+                    <div className="meta-body">
+
                         <div className="bref ">
-                            <div className="Body-1SemiBlackLeft event-name">{data.name}</div>
-                            <div className="text ">
-                                {moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")}
+                            <div className="Body-2SemiBlackLeft event-name">{data.name}</div>
+                            <div className="text CaptionGreyLeft">
+                                {moment(data.start_time).format("dddd")} <span>&bull;</span> {data.address}
                             </div>
-                            <div className="text">
-                                {data.address}
+                            <div className="time-event">
+                                {moment(data.start_time, "YYYY-MM-DD hh:mm a").format(" hh:mm:a")} - {moment(data.end_time).format(" hh:mm:a")}
                             </div>
                         </div>
                     </div>

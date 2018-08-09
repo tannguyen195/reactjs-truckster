@@ -129,37 +129,28 @@ class PairingCard extends Component {
         return (
             <div>
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-                <Card onClick={() => this.togglePairing()} className="pairing-card-container" hoverable cover={
-                    <div className="pairing-image"
-                        style={{
-                            backgroundImage: `url(${data.cover_photo ?
+                <a onClick={() => this.togglePairing()}>
+                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+                    <div className="pairing-new-card-container" >
+                        <div className="pairing-image-container">
+                            <img src={data.cover_photo ?
                                 data.cover_photo[0].url :
-                                homeImage})`
-                        }}
-                    />}
-                >
-                    <div className="meta-header">
-                        <p className="Body-1SemiBlackLeft ">{data.name}</p>
-                        <Rate disabled value={parseInt(data.avg_rating, 10)} />
-                    </div>
-                    <div className="meta-body">
-                        <div className="logo">
-                            <img alt="logo" src={data.logo ? data.logo[0].url : pairingMarkerIcon} />
+                                homeImage} alt="truck" />
                         </div>
-                        <div className="bref">
-                            <div className="text CaptionGreyLeft">
-                                Serving at {pairingsWeek.length} locations
-                        </div>
-                            <div className="text CaptionGreyLeft">
-                                {
-                                    data.start_time && data.end_time &&
-                                    ` ${moment(data.start_time).format("MMM DD")}, ${moment(data.start_time).format("hh:mm a")} - ${moment(data.end_time).format("hh:mm a")}`
-                                }
+                        <div className="pairing-info-container">
+                            <img className="pairing-logo" src={data.logo ? data.logo[0].url : pairingMarkerIcon} alt="logo-pairing" />
+                            <div className=" Body-1SemiBlackLeft">{data.name}</div>
+                            <div className="cuisine-tag">
+                                <div  className="cuisine-tag-item CaptionGreyLeft">
+                                    Serving at {pairingsWeek.length} locations</div>
+                                
                             </div>
+                            <Rate disabled value={parseInt(data.avg_rating, 10)} />
                         </div>
                     </div>
-                </Card>
+                </a>
 
+           
                 {/* Modal pairing list */}
                 {
                     pairingsWeek && pairingsWeek.length > 0 ?

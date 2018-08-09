@@ -8,7 +8,8 @@ const initial = {
     isLoadingGetPairingDetail: false,
     pairingDetail: null,
     currentPage: null,
-    lastPage: null
+    lastPage: null,
+    featuredPairings: []
 }
 const pairingReducer = (state = initial, action) => {
     switch (action.type) {
@@ -22,13 +23,22 @@ const pairingReducer = (state = initial, action) => {
             };
 
         case types.GET_PAIRING_SUCCESS:
-            return {
-                ...state,
-                isLoadingGetPairing: false,
-                pairings: state.pairings.concat(action.response.data),
-                currentPage: action.response.current_page,
-                lastPage: action.response.last_page,
-            }
+            if (action.response.params === "is_featured=true&city")
+                return {
+                    ...state,
+                    isLoadingGetPairing: false,
+                    featuredPairings: action.response.data,
+                    currentPage: action.response.current_page,
+                    lastPage: action.response.last_page,
+                }
+            else
+                return {
+                    ...state,
+                    isLoadingGetPairing: false,
+                    pairings: state.pairings.concat(action.response.data),
+                    currentPage: action.response.current_page,
+                    lastPage: action.response.last_page,
+                }
         case types.GET_PAIRING_ERROR:
             return {
                 ...state,

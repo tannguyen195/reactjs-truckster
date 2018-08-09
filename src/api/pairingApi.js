@@ -21,7 +21,7 @@ export const getPairing = (params, value, page) => {
             },
             success: function (response, status, xhr) {
                 dispatch(getPairingSuccess(
-                    response
+                    { ...response, params: params }
                 ));
             },
             error: function (error) {

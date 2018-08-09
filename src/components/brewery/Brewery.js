@@ -9,7 +9,8 @@ import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import stylesheet from './_brewery.less'
 import MediaQuery from 'react-responsive'
-
+import TruckNewCard from '../common/truckNewCard/TruckNewCard'
+const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 const categories =
     [
         {
@@ -53,7 +54,19 @@ class Brewery extends Component {
     renderBreweryCard(breweries) {
         return breweries.map((item, index) => {
             return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
-                <BreweryCard data={item} />
+                <TruckNewCard data={
+                    {
+                        url: "/brewery/" + item.slug,
+                        image: item.cover_photo ?
+                            item.cover_photo[0].url : breweryIcon,
+                        logo: item.logo ?
+                            item.logo[0].url :
+                            imageBreweryPlaceholder,
+                        name: item.name,
+                        cuisine: item.breweries_type && [{ name: item.breweries_type.name }],
+                        rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
+                    }
+                } />
             </Col>
         })
     }
@@ -96,7 +109,7 @@ class Brewery extends Component {
                                             if (matches) {
                                                 return <LoadingPlaceHolder itemNum={1} key='loader' />
                                             }
-                                            else return <LoadingPlaceHolder key='loader' />
+                                            else return <LoadingPlaceHolder itemNum={6} key='loader' />
                                         }}
                                     </MediaQuery>
                                 }
