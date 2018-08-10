@@ -567,7 +567,7 @@ class Nearby extends Component {
                     </div>
 
                     <div>
-                        <p className="ButtonGreyLeft">FOODTRUCKS IN EVENT</p>
+                        <p className="ButtonGreyLeft">FOOD TRUCKS AT THIS EVENT</p>
                         {
                             trucks.map((item, index) => {
                                 return this.renderTruckCard({

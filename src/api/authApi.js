@@ -65,8 +65,7 @@ export const signIn = (data) => {
                     response
                 ));
                 cookies.set('token', response.token, { path: '/' });
-
-                window.location.replace(sessionStorage.getItem("reloadUrl"))
+                window.location.replace("/")
             },
             error: function (error) {
                 dispatch(signInError(error))
@@ -125,7 +124,7 @@ export const loginSocial = (data) => {
                 dispatch(loginSocialSuccess(
                     response
                 ));
-                window.location.replace(sessionStorage.getItem("reloadUrl")) 
+                window.location.replace("/")
             },
             error: function (error) {
                 dispatch(loginSocialError(error))

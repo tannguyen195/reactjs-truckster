@@ -1,4 +1,4 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   webpack: (config, { dev }) => {
     config.module.rules.push(
@@ -49,9 +49,10 @@ module.exports = {
         test: /\.(html)$/,
         use: {
           loader: 'html-loader',
-        
+
         }
-      }
+      },
+
 
     );
     return config;
