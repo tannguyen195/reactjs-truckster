@@ -5,13 +5,14 @@ import EventDetail from './EventDetail'
 import { getActivityDetail } from '../../api/activityApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { toggleShareModal } from '../../actions/toggleAction'
-import { getDataInitial } from 'global'
+import { getDataInitial, getEventTime } from 'global'
+import moment from 'moment'
 import Head from '../head'
 class EventDetailContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            trucks: null
         }
     }
 
@@ -30,7 +31,34 @@ class EventDetailContainer extends Component {
             })
         }
     }
+    componentDidMount() {
+        const { activity } = this.props
+        let keys = [1], trucks = []
+        for (let i = 0; i < activity.calendar.length; ++i)
+            if (!keys.includes(activity.calendar[i].food_truck.id)) {
+                let events = getEventTime(activity.calendar[i])
 
+                for (let i = 0; i < events.length; ++i) {
+
+                    if (moment(events[i], "YYYY-MM-DD hh:mm a").unix() > moment().unix() && moment(events[i], "YYYY-MM-DD hh:mm:a").isBefore(moment().add(1, 'days'))) {
+                        trucks.push({ ...activity.calendar[i], timeDisplay: events[i] })
+                        break;
+                    }
+                }
+                keys.push(activity.calendar[i].food_truck.id)
+            }
+        let keysCalendar = [1]
+        let tempTrucks = []
+        for (let i = 0; i < trucks.length; ++i)
+            if (!keysCalendar.includes(trucks[i].id)) {
+                tempTrucks.push(trucks[i])
+                keysCalendar.push(trucks[i].id)
+            }
+
+        this.setState({
+            trucks: tempTrucks
+        })
+    }
 
     render() {
         const { activity, status } = this.props

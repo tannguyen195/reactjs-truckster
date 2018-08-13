@@ -5,13 +5,14 @@ import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 // import BreweryCard from '../common/breweryCard/BreweryCard'
-import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
+
 import PairingCard from '../common/pairingCard/PairingCard'
 import EventCard from '../common/eventCard/EventCard'
-import RenderContainer from '../common/renderContainer/RenderContainer'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import SearchBar from '../common/searchBar/SearchBar'
+import RenderContainer from '../common/renderContainer/RenderContainer'
 import MediaQuery from 'react-responsive';
+import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import stylesheet from './_cityDetail.less'
 import Placeholder from '../common/placeholder/Placeholder'
 
@@ -95,9 +96,9 @@ class CityDetail extends Component {
     // render truck card 
     renderEventCard(events) {
         return events.map((item, index) => {
-            if (index < 6)
-                return <EventCard data={item} />
-            else return null
+
+            return <EventCard key={index} data={item} />
+
         })
     }
     renderPlaceHolder() {
@@ -318,7 +319,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
                     <hr />
-                    <Section url="/food-truck/co/denver" seeall={true} title="Featured Trucks" >
+                    <Section url="/food-truck/co/denver" seeall={true} title="Featured Denver Food Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
                             <div>
@@ -348,7 +349,6 @@ class CityDetail extends Component {
                                 <RenderContainer message="Something went wrong, please try another time!"
                                     error={errorBrewery}  >
 
-
                                     <div>
                                         {
                                             featuredBreweries && featuredBreweries.length > 0 ?
@@ -366,7 +366,7 @@ class CityDetail extends Component {
                             </Section>
                         </Col>
                         <Col lg={12} md={12} sm={24} xs={24}>
-                            <Section url="/pairing/co/denver" seeall={true} title="Truck and Brewery Pairings of the Week" >
+                            <Section url="/pairing/co/denver" seeall={true} title="Truck and Brewery Pairings" >
                                 <RenderContainer
                                     message="Something went wrong, please try another time!"
                                     error={errorPairing}  >

@@ -48,9 +48,7 @@ class BreweryDetailContainer extends Component {
 
     static async getInitialProps({ reduxStore, req, query }) {
         let breweryDetail = await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`)
-
-
-        let suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
+        let suggestBrewery = await getDataInitial(`consumer/v1/breweries?brewery_type=${breweryDetail.breweries_type.name}`)
 
 
         return {

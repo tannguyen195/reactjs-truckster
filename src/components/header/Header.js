@@ -124,9 +124,9 @@ class Header extends Component {
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Brewery  </a>
                                 </Link>
-                                <Link to="/cuisine">
+                                <Link to="/food-truck/co/denver">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
-                                        Cuisine  </a>
+                                        Food Truck  </a>
                                 </Link>
                                 <Link to="/help">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
@@ -227,8 +227,8 @@ class Header extends Component {
                             <a className="item Body-1MediumGreyCenter">Brewery</a>
 
                         </Link>
-                        <Link to="/cuisine">
-                            <a className="item Body-1MediumGreyCenter">Cuisine</a>
+                        <Link to="/food-truck/co/denver">
+                            <a className="item Body-1MediumGreyCenter">Food truck</a>
                         </Link>
 
                         {

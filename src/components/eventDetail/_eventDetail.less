@@ -1,12 +1,32 @@
 .event-detail {
     padding-top: 68px;
     background: #fff;
+    height: 100vh;
+    overflow: hidden;
     hr {
         background: #efefef;
         height: 1px;
         border: 0;
     }
     .detail-container {
+        overflow-y: scroll;
+        height: 100vh;
+        padding: 30px;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
         .detail-header {
             display: flex;
             align-items: center;
@@ -43,10 +63,13 @@
                 }
             }
             .event-intro {
-                padding-top: 30px;
+                padding-top: 16px;
                 .information {
-                    padding-top: 30px;
+                   
                     white-space: pre-line;
+                }
+                .SubheadingBlackLeft{
+                    padding-bottom: 16px;
                 }
             }
         }

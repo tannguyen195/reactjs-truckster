@@ -25,7 +25,7 @@ const websiteIcon = ('/static/images/website-icon.svg')
 
 class TruckDetail extends Component {
 
-    renderSchedule(calendarDetail) {
+    renderSchedule() {
         const { handleClickSchedule, iconMarker, locationArr, locations, handleModeChange, mode, events, handleClickEvent, selectedKey } = this.props
 
         return <div>
@@ -205,9 +205,15 @@ class TruckDetail extends Component {
     }
 
     renderSuggestTruck(suggestTruck) {
-        return suggestTruck.map((item, index) => {
+        const { truckDetail } = this.props
+        let tempArr = []
+        suggestTruck.forEach(item => {
+            if (item.id !== truckDetail.id)
+                tempArr.push(item)
+        })
+        return tempArr.map((item, index) => {
             if (index < 3)
-                return <Col key={item.id} style={{ marginBottom: "16px" }} key={index} sm={12} xs={24}  md={8} lg={8}>
+                return <Col key={item.id} style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
                     <TruckCard data={item} />
                 </Col>
             else return null
@@ -318,7 +324,7 @@ class TruckDetail extends Component {
                             {/* Suggest Section */}
                             <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
                             <Row gutter={16} className="suggest-truck">
-                                {suggestTruck &&suggestTruck.data &&
+                                {suggestTruck && suggestTruck.data &&
                                     this.renderSuggestTruck(suggestTruck.data)
                                 }
                             </Row>

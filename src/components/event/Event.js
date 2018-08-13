@@ -57,9 +57,18 @@ class Event extends Component {
                                     isLoading={activitiesWeek ? false : true} error={error}  >
                                     {
                                         activitiesWeek &&
-                                        <CustomCarousel slideToShow={2}>
-                                            {this.renderEventCarousel(activitiesWeek)}
-                                        </CustomCarousel>
+                                        <MediaQuery maxWidth={767}>
+                                            {
+
+                                                (matches) => {
+                                                    return <CustomCarousel slideToShow={matches ? 1 : 2}>
+                                                        {this.renderEventCarousel(activitiesWeek)}
+                                                    </CustomCarousel>
+
+                                                }
+                                            }
+                                        </MediaQuery>
+
                                     }
                                 </RenderContainer>
                             </Section>

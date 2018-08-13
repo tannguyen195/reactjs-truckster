@@ -5,6 +5,10 @@ import stylesheet from './_eventDetail.less'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import moment from 'moment'
 import { getEventTime } from '../../../global'
+import RenderContainer from '../common/renderContainer/RenderContainer'
+import MediaQuery from 'react-responsive';
+import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
+import TruckCard from '../common/truckCard/TruckCard'
 const defaultImage = ("/static/images/default-image.png")
 const shareIcon = ('/static/images/share-icon.png')
 const timeIcon = ('/static/images/time-icon.png')
@@ -12,8 +16,17 @@ const locationIcon = ('/static/images/location-icon.png')
 
 class EventDetail extends Component {
 
+    // render truck card 
+    renderTruckCard(trucks) {
+        return trucks.map((item, index) => {
+            return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={6}>
+                <TruckCard data={item.food_truck} />
+            </Col>
+        })
+    }
+
     renderEventDetail(event) {
-        const { toggleShareModal } = this.props
+        const { toggleShareModal, trucks } = this.props
         let time = ""
 
         let events = getEventTime(event)
@@ -68,6 +81,34 @@ class EventDetail extends Component {
                             {event.information}
                         </div>
                     </div>
+
+                    <div className="event-intro">
+                        {
+                            trucks && trucks.length > 0 && <RenderContainer message="Something went wrong, please try another time!" >
+                                <div className="SubheadingBlackLeft">
+                                    Food trucks serving at this event </div>
+                                <div>
+                                    {
+                                        trucks ?
+
+
+                                            <Row gutter={16}>
+                                                {this.renderTruckCard(trucks)}
+                                            </Row>
+
+                                            : <MediaQuery key='loader' maxWidth={768}>
+                                                {(matches) => {
+                                                    return <LoadingPlaceHolder itemNum={matches ? 4 : 8} key='loader' />
+                                                }}
+                                            </MediaQuery>
+
+                                    }
+                                </div>
+                            </RenderContainer>
+                        }
+
+
+                    </div>
                 </div>
 
             </div >
@@ -93,7 +134,7 @@ class EventDetail extends Component {
                     activity
                         ?
                         <Row >
-                            <Col id="introduction" style={{ padding: "30px" }} className="detail-container" sm={24} xs={24} lg={13} md={13}>
+                            <Col id="introduction" className="detail-container" sm={24} xs={24} lg={13} md={13}>
                                 {
                                     this.renderEventDetail(activity)
                                 }

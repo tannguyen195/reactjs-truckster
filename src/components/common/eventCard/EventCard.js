@@ -28,10 +28,10 @@ class EventCard extends Component {
                             <div className="overlay-time">
                                 <div className="calendar">
                                     <div className="month">
-                                        {moment(data.start_time).format("MMM")}
+                                        {moment(data.timeDisplay).format("MMM")}
                                     </div>
                                     <div className="date">
-                                        {moment(data.start_time).format("DD")}
+                                        {moment(data.timeDisplay).format("DD")}
                                     </div>
 
                                 </div>
@@ -46,10 +46,10 @@ class EventCard extends Component {
                         <div className="bref ">
                             <div className="Body-2SemiBlackLeft event-name">{data.name}</div>
                             <div className="text CaptionGreyLeft">
-                                {moment(data.start_time).format("dddd")} <span>&bull;</span> {data.address}
+                                {moment(data.timeDisplay).format("dddd")} <span>&bull;</span> {data.address}
                             </div>
                             <div className="time-event">
-                                {moment(data.start_time, "YYYY-MM-DD hh:mm a").format(" hh:mm:a")} - {moment(data.end_time).format(" hh:mm:a")}
+                                {moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format(" hh:mm:a")} - {moment(data.end_time).format(" hh:mm:a")}
                             </div>
                         </div>
                     </div>

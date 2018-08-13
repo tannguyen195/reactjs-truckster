@@ -7,7 +7,7 @@ import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
 import Calendar from '../common/calendar/Calendar'
-
+import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import stylesheet from './_breweryDetail.less'
 
 import { getSchedule } from '../../../global'
@@ -138,11 +138,29 @@ class BreweryDetail extends Component {
         }
         )
     }
-    renderSuggestBrewery(suggestBrewery){
-        return suggestBrewery.map((item, index) => {
+    renderSuggestBrewery(suggestBrewery) {
+        const { breweryDetail } = this.props
+        let tempArr = []
+        suggestBrewery.forEach(item => {
+            if (item.id !== breweryDetail.id)
+                tempArr.push(item)
+        })
+        return tempArr.map((item, index) => {
             if (index < 3)
                 return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
-                    <BreweryCard data={item} />
+                    <TruckNewCard data={
+                        {
+                            url: "/brewery/" + item.slug,
+                            image: item.cover_photo ?
+                                item.cover_photo[0].url : breweryIcon,
+                            logo: item.logo ?
+                                item.logo[0].url :
+                                imageBreweryPlaceholder,
+                            name: item.name,
+                            cuisine: item.breweries_type && [{ name: item.breweries_type.name }],
+                            rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
+                        }
+                    } />
                 </Col>
             else return null
         })

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import stylesheet from './_section.less'
 import { Link } from 'routes'
-
-
+import { Icon } from 'antd'
 class Section extends Component {
     constructor(props) {
         super(props);
@@ -14,23 +13,28 @@ class Section extends Component {
 
     render() {
 
-        const { children, title, seeall, url } = this.props
+        const { children, title, url } = this.props
 
         return (
-            <section>
+            <section className="section-block-main">
                 <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                 <div className="header">
-                    <div className="section-title Display-2BlackLeft">
-                        {title}
-                    </div>
-                    {
-                        url && seeall && <Link to={url} >
-                            <a className="see-all ButtonRedCenter">
-                                SEE ALL
-                    </a>
-                        </Link>
-                    }
 
+                    <Link to={url} >
+
+                        <a className="section-title">
+                            <div className="Display-2BlackLeft">
+                                {title}
+                            </div>
+                            <div className="ButtonBlackCenter">
+                                <Icon className="icon-right" type="right" />
+                            </div>
+
+                            <div className="see-all ButtonRedCenter">
+                                Explore all
+                            </div>
+                        </a>
+                    </Link>
                 </div>
 
                 <div className="content">

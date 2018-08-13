@@ -3,7 +3,6 @@ import { Row, Col } from 'antd';
 import { Link } from 'routes'
 import React, { Component } from 'react'
 import CategoryCard from '../common/categoryCard/CategoryCard'
-import BreweryCard from '../common/breweryCard/BreweryCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'

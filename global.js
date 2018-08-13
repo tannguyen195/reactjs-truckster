@@ -147,6 +147,7 @@ export const getDataInitial = (url) => {
 
     })
         .then(function (response) {
+            console.log("[SUCCESS]", response)
             return response.data
         })
         .catch(function (response) {
@@ -158,7 +159,7 @@ export const getDataInitial = (url) => {
 export const getPageData = () => {
     return axios({
         method: 'get',
-        url: `http://ec2-52-14-177-231.us-east-2.compute.amazonaws.com//wp-json/wp/v2/posts`,
+        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts`,
         headers: {
 
             "Accept": "application/json",
