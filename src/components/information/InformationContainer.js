@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Information from './Information'
-import axios from 'axios';
 import CircularJSON from 'circular-json'
 import Head from '../head'
 import { getPageData } from 'global.js'
@@ -8,14 +7,16 @@ import { getPageData } from 'global.js'
 export default class InformationContainer extends Component {
 
     static async getInitialProps({ reduxStore, req, query }) {
-        let infoPage = null, renderPage = null, parsedInfoPage = null
+        let infoPage = null, renderPage = null
 
 
         infoPage = (await getPageData())
-
-        renderPage = CircularJSON.parse(await getPageData()).data[0]
+        renderPage = CircularJSON.parse(infoPage).data[0]
         if (query.slug) {
-
+            CircularJSON.parse(infoPage).data.forEach(element => {
+                if (element.slug == query.slug)
+                    renderPage = element
+            });
         }
         return {
             infoPage, renderPage, query
@@ -32,7 +33,6 @@ export default class InformationContainer extends Component {
                     infoPage && renderPage &&
                     <div>
                         <Head />
-
                         <Information parsedInfoPage={CircularJSON.parse(infoPage)} renderPage={renderPage} />
                     </div>
                 }

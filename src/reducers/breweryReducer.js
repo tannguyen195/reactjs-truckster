@@ -28,7 +28,7 @@ const breweryReducer = (state = initial, action) => {
             };
 
         case types.SEARCH_BREWERY_SUCCESS:
-            if (action.response.params === "brewery_type") {
+            if (action.response.params === "breweries_type") {
                 return {
                     ...state,
                     isLoadingSearchBrewery: false,

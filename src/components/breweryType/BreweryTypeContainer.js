@@ -27,11 +27,11 @@ class BreweryTypeContainer extends Component {
 
         if (!currentPage && !renderPageFlag) {
             renderPageFlag = true
-            searchBrewery("brewery_type", value, 1)
+            searchBrewery("breweries_type", value, 1)
         }
 
         else if (currentPage < lastPage)
-            searchBrewery("brewery_type", value, currentPage + 1)
+            searchBrewery("breweries_type", value, currentPage + 1)
 
         else if (currentPage === lastPage && currentPage) {
             this.setState({
