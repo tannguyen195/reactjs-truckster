@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Tabs, Rate } from 'antd';
 import { Link } from 'routes'
 import moment from 'moment'
-import TitleLink from '../common/titleLink'
 import stylesheet from './_userProfile.less'
 const homeImage = ('/static/images/home-image.jpg')
 const unknownUserIcon = ('/static/images/unknown-user-icon.png')
@@ -11,12 +10,38 @@ const locationIcon = ('/static/images/location-icon.png')
 
 class UserProfile extends Component {
 
+    renderReviewBrewery(userReview) {
+        console.log("userReview", userReview)
+        return userReview.map((item, index) => {
+            return <Col key={index} md={8} lg={8} sm={12} xs={24} >
+                <Link to={"/brewery/" + item.brewery.slug} >
+                    <div className="review-card">
+                        <div className="card-header">
+                            <Rate disabled value={item.rating} />
+                            <div className="CaptionGreyRight">{item.created_at}</div>
+                        </div>
+                        <div className="card-body">
+                            <div className="truck-image">
+                                <img alt="truck" src={item.brewery.cover_photo ? item.brewery.cover_photo[0].url : homeImage} />
+                            </div>
 
+                            <div className="review-info">
+                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft">{item.brewery.name}</div>
+                                <div className="CaptionGreyLeft"><img alt="locaion" src={locationIcon} />{item.brewery.location}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </Link>
+            </Col>
+
+        })
+    }
     renderReview(userReview) {
 
         return userReview.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
-                <TitleLink url="/food-truck/" title={item.food_trucks.name} id={item.food_trucks.id}>
+                <Link to={"/food-truck/" + item.food_trucks.slug}>
                     <div className="review-card">
                         <div className="card-header">
                             <Rate disabled value={item.rating ||
@@ -35,11 +60,10 @@ class UserProfile extends Component {
                         </div>
 
                     </div>
-                </TitleLink>
+                </Link>
             </Col>
 
         })
-
     }
     render() {
         const { userData, userReview, userFavorite, userBreweryReview } = this.props
@@ -87,7 +111,7 @@ class UserProfile extends Component {
                             <div className="user-review">
                                 {
                                     userBreweryReview && <Row type="flex" className="max-width" gutter={30}>
-                                        {this.renderReview(userBreweryReview)}
+                                        {this.renderReviewBrewery(userBreweryReview)}
                                     </Row>
                                 }
                             </div>

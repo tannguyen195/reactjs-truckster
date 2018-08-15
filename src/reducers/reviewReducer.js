@@ -274,7 +274,7 @@ const reviewReducer = (state = initial, action) => {
             return {
                 ...state,
                 isLoadingGetUserBreweryReview: false,
-                userBreweryReview: action.response.data[0].reviews_detail,
+                userBreweryReview: action.response.data[0].brewery_reviews_detail                ,
             }
         case types.GET_USER_BREWERY_REVIEW_ERROR:
             return {

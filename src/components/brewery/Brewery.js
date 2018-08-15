@@ -10,6 +10,7 @@ import stylesheet from './_brewery.less'
 import MediaQuery from 'react-responsive'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
 const categories =
     [
         {

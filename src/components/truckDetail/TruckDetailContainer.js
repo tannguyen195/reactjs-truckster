@@ -12,7 +12,8 @@ import { toggleShareModal } from '../../actions/toggleAction'
 import { getSchedule } from '../../../global'
 import Head from '../head'
 import moment from 'moment'
-
+import { Cookies } from 'react-cookie'
+const cookies = new Cookies()
 class TruckDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -32,18 +33,25 @@ class TruckDetailContainer extends Component {
         }
     }
 
-    static async getInitialProps({ reduxStore, req, query }) {
-        let truckDetail = await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`)
+    static async getInitialProps({ req, query }) {
+
+
+        let token = cookies.get('token')
+        let truckDetail = null
+        let suggestTruck = null
+        if (req && req.cookies) {
+            token = req.cookies.token
+        }
+        truckDetail = await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`, token)
+
 
         let cuisineStringArray = []
+        if (truckDetail)
+            truckDetail.cuisine.forEach(item => {
+                cuisineStringArray.push(item.name)
+            })
 
-        truckDetail.cuisine.forEach(item => {
-            cuisineStringArray.push(item.name)
-        })
-
-        let suggestTruck = await getDataInitial(`consumer/v1/foodtrucks?city=denver&cuisine=${cuisineStringArray.toString()}&sort_by=avg_rating&sort_type=desc`)
-
-
+        suggestTruck = await getDataInitial(`consumer/v1/foodtrucks?city=denver&cuisine=${cuisineStringArray.toString()}&sort_by=avg_rating&sort_type=desc`)
         return {
             truckDetail, suggestTruck
         }
@@ -97,6 +105,7 @@ class TruckDetailContainer extends Component {
             }
 
             this.setState({
+                favorite: truckDetail.is_favourite,
                 locationArr: [sortedLocations[0]],
                 locations: sortedLocations,
                 iconMarker: icon,
@@ -289,18 +298,19 @@ class TruckDetailContainer extends Component {
 
     handlePostReview(e) {
         this.props.postReview({
-            truckId: this.props.id,
+            truckId: this.props.truckDetail.id,
             ...e
         })
     }
 
 
     onFavoriteChange(e) {
+        console.log("e", e)
         if (e === 1) {
-            this.props.markFavorite(this.props.id)
+            this.props.markFavorite(this.props.truckDetail.id)
         }
         else {
-            this.props.unmarkFavorite(this.props.id)
+            this.props.unmarkFavorite(this.props.truckDetail.id)
         }
         this.setState({
             favorite: e
@@ -344,6 +354,7 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail } = this.props
+        console.log("this.props", this.props)
         return (
             <div>
                 {
@@ -392,7 +403,7 @@ export function mapStateToProps(state) {
         truckMenu: state.truckReducer.truckMenu,
         isLoadingPostReview: state.reviewReducer.isLoadingPostReview,
         isLoadingEditReview: state.reviewReducer.isLoadingEditReview,
-
+        isLoggedIn: state.authReducer.isLoggedIn,
         reviews: state.reviewReducer.reviews,
 
     };

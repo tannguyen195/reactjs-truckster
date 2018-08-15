@@ -227,7 +227,7 @@ class TruckDetail extends Component {
 
             isPairing,
             toggleShareModal,
-
+            favorite,
             suggestTruck
         } = this.props
         return (
@@ -270,7 +270,11 @@ class TruckDetail extends Component {
                                                 </span>
                                             </Tooltip>
                                             :
-                                            <Rate value={truckDetail.is_favourite ? 1 : 0} onChange={onFavoriteChange} count={1} character={<Icon type="heart" />} />
+                                            <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
+                                                count={1}
+                                                character={<Icon style={{
+                                                    color: favorite ? '#f32126' : "#dadada"
+                                                }} type="heart" />} />
                                     }
                                     <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
 

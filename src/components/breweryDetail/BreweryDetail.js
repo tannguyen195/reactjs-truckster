@@ -21,7 +21,7 @@ const phoneIcon = ('/static/images/phone-icon.png')
 const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
 const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
-
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
 class BreweryDetail extends Component {
 
     renderInfo(breweryDetail) {

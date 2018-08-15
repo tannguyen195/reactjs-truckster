@@ -17,7 +17,7 @@ class UserProfileContainer extends Component {
         this.props.getUserBreweryReview()
     }
     render() {
-
+console.log("this.props", this.props)
         return (
            <UserProfile {...this.props} />
 

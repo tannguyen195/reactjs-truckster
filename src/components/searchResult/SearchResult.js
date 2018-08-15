@@ -5,10 +5,9 @@ import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import CategoryCard from '../common/categoryCard/CategoryCard'
-import BreweryCard from '../common/breweryCard/BreweryCard'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import { Link } from 'routes'
-
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
 class SearchResult extends Component {
     // render brewery card 
     renderBreweryCard(brewerySearch) {

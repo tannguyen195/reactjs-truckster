@@ -7,6 +7,7 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import MediaQuery from 'react-responsive'
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
+const breweryIcon = ('/static/images/brewery-marker-icon.png')
 class BreweryType extends Component {
 
     // render brewery card 

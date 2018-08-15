@@ -135,23 +135,28 @@ export function getEventTime(data) {
 }
 
 
-export const getDataInitial = (url) => {
+export const getDataInitial = (url, token) => {
+    let header = {
+        "Accept": "application/json"
+    }
+    if (token) {
+        header = {
+            'Authorization': "Bearer " + token,
+            "Accept": "application/json",
+        }
+    }
     return axios({
         method: 'get',
         url: "https://dev.gotruckster.com/api/" + url,
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
-        headers: {
-            'Authorization': "Bearer " + cookies.get('token', { doNotParse: true }),
-            "Accept": "application/json",
-        }
-
+        headers: header
     })
-        .then(function (response) {
-            console.log("[SUCCESS]", response)
+        .then(function (response) { 
+            console.log("response", response)
             return response.data
         })
         .catch(function (response) {
-            console.log("[ERROR]", response)
+            console.log("error", response)
             return null
         });
 }
@@ -162,7 +167,6 @@ export const getPageData = () => {
         url: `https://cms.gotruckster.com/wp-json/wp/v2/posts`,
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: {
-
             "Accept": "application/json",
         }
     })

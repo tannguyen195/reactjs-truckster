@@ -60,7 +60,7 @@ export const editReview = (data) => {
                     response
                 ));
                 dispatch(getTruckReview(data.truckId))
-              
+
                 notification.open({
                     message: '',
                     description: "Successfully Edited",
@@ -158,6 +158,12 @@ export const markFavorite = (truckId) => {
                 dispatch(markFavoriteSuccess(
                     response
                 ));
+
+                notification.open({
+                    message: 'Successfully',
+                    description: "Added to your favorite list",
+                    icon: <img width={46} style={{ paddingRight: "8px" }} height={25} src={"/static/images/logo.png"} alt="truck-logo" />
+                });
             },
             error: function (error) {
                 dispatch(markFavoriteError(error))
@@ -182,6 +188,11 @@ export const unmarkFavorite = (truckId) => {
                 dispatch(unmarkFavoriteSuccess(
                     response
                 ));
+                notification.open({
+                    message: 'Successfully',
+                    description: "Removed to your favorite list",
+                    icon: <Icon type="check-circle-o" style={{ color: 'rgb(76, 218, 100)' }} />
+                });
             },
             error: function (error) {
                 dispatch(unmarkFavoriteError(error))
@@ -259,7 +270,7 @@ export const editBreweryReview = (data) => {
                     response
                 ));
                 dispatch(getBreweryReview(data.breweryId))
-              
+
                 notification.open({
                     message: '',
                     description: "Successfully Edited",

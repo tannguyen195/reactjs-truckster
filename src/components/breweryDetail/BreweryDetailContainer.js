@@ -10,6 +10,8 @@ import { toggleShareModal } from '../../actions/toggleAction'
 import { googleApi } from 'config'
 import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
 import Head from '../head'
+import { Cookies } from 'react-cookie'
+const cookies = new Cookies()
 class BreweryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -46,10 +48,16 @@ class BreweryDetailContainer extends Component {
 
     }
 
-    static async getInitialProps({ reduxStore, req, query }) {
-        let breweryDetail = await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`)
-        let suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
+    static async getInitialProps({ req, query }) {
 
+        let token = cookies.get('token')
+        let breweryDetail = null
+        let suggestBrewery = null
+        if (req && req.cookies) {
+            token = req.cookies.token
+        }
+        breweryDetail = await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`, token)
+        suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
 
         return {
             breweryDetail, suggestBrewery
@@ -59,14 +67,14 @@ class BreweryDetailContainer extends Component {
 
     handleEditReview(e) {
         this.props.editBreweryReview({
-            breweryId: this.props.match.params.id,
+            breweryId: this.props.breweryDetail.id,
             ...e
         })
     }
 
     handlePostReview(e) {
         this.props.postBreweryReview({
-            breweryId: this.props.match.params.id,
+            breweryId: this.props.breweryDetail.id,
             ...e
         })
     }
