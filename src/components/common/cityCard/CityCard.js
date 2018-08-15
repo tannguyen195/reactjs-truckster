@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { } from 'antd'
-import stylesheet from './_cityCard.less'
-
-
 class CityCard extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +13,7 @@ class CityCard extends Component {
 
         return (
             <div style={{ backgroundImage: `url(${image})` }} className="city-card-container" >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="content-city">
                     <div className="title">{name}</div>
                     {

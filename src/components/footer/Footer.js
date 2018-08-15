@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import { Link } from 'routes.js'
-import stylesheet from './_footer.less'
 const cover = ("/static/images/footer-cover.png")
 const googlePlay = ("/static/images/google-play.png")
 const appStore = ("/static/images/app-store.png")
@@ -19,7 +18,7 @@ class Footer extends Component {
         return (
 
             <footer className="footer-container" >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     <Row className="download" style={{ backgroundImage: `url(${cover})` }}>
                         <Col lg={12} md={12} className="store">

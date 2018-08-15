@@ -152,11 +152,9 @@ export const getDataInitial = (url, token) => {
         headers: header
     })
         .then(function (response) { 
-            console.log("response", response)
             return response.data
         })
         .catch(function (response) {
-            console.log("error", response)
             return null
         });
 }
@@ -171,10 +169,8 @@ export const getPageData = () => {
         }
     })
         .then(function (response) {
-            console.log("response", response)
             return CircularJSON.stringify(response);
         })
         .catch(function (error) {
-            console.log("error", error)
         });
 }

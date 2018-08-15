@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, Modal, Popover } from 'antd';
 
-import stylesheet from './_signUp.less'
 const FormItem = Form.Item
 const userIcon = ('/static/images/user-icon.png')
 const mailIcon = ('/static/images/mail-icon.png')
@@ -32,7 +31,7 @@ class SignUpModal extends React.Component {
 
         return (
             <div>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <Modal
                     width={540}
                     visible={visibleSignUp}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Popover } from 'antd'
 import GoogleMapReact from 'google-map-react';
 import moment from 'moment'
-import stylesheet from './_map.less'
+
 const truckMarkerIcon = ('/static/images/truck-marker-icon.png')
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
 const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
@@ -88,7 +88,7 @@ class Map extends Component {
         const { center, zoom } = this.state
         return (
             <div className="map-container" >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyAUYKV7F7rccvP7Pf67Jh_R6s1Unp2v82A" }}
                     center={center}

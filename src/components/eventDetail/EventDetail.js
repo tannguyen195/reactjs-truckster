@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Spin, Icon } from 'antd';
 import Map from '../common/map/Map'
-import stylesheet from './_eventDetail.less'
 import CustomCarousel from '../common/CustomCarousel/CustomCarousel'
 import moment from 'moment'
 import { getEventTime } from '../../../global'
@@ -129,7 +128,7 @@ class EventDetail extends Component {
         }
         return (
             <div className="event-detail">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     activity
                         ?

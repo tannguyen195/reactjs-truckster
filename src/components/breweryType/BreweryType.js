@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import stylesheet from './_breweryType.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
@@ -37,7 +36,7 @@ class BreweryType extends Component {
         const { value, brewerySearch, loadMoreBrewery, hasMore, error } = this.props
         return (
             <div className="search-detail main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div style={{ padding: "30px" }}
                     className="search-detail-container "   >
                     <div className="detail-header">

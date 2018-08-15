@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import stylesheet from './_information.less'
+
 import { Row, Col, } from 'antd';
 import { Link } from "routes"
 
@@ -8,7 +8,7 @@ export default class Information extends Component {
         const { parsedInfoPage, renderPage } = this.props
         return (
             <article className="info-wrapper">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                
                 <Row gutter={64}>
                     <Col lg={16} >
                         <div className="Body-1SemiBlackLeft">POSTS</div>

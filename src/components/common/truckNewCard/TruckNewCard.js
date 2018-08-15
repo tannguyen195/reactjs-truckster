@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Rate } from 'antd'
 import { Link } from 'routes'
-import stylesheet from './_truckNewCard.less'
 
 class TruckCard extends Component {
     constructor(props) {
@@ -17,7 +16,7 @@ class TruckCard extends Component {
         return (
             <Link to={data.url} >
                 <a>
-                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+    
                     <div className="truck-new-card-container" >
                         <div className="truck-image-container">
                             <img src={data.image} alt="truck" />

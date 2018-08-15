@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Popover } from 'antd';
 
-import stylesheet from './_contact.less'
 import GoogleMapReact from 'google-map-react';
 
 const facebook = ("/static/images/facebook-icon.png")
@@ -30,7 +29,7 @@ class Contact extends Component {
         return (
 
             <div className="contact-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                
                 <div className="contact">
                     <Row gutter={110}>
                         <Col lg={12}>

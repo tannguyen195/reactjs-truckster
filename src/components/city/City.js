@@ -3,7 +3,6 @@ import { Row, Col } from 'antd';
 import { Link } from 'routes'
 import CityCard from '../common/cityCard/CityCard'
 
-import stylesheet from './_city.less'
 
 
 const cities =
@@ -70,7 +69,7 @@ class City extends Component {
         return (
             <div className="category">
                 <div className=" main-wrapper body-content">
-                    <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                    
                     <div className="body-title DisplayBlackLeft">
                         All cities
                 </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { AutoComplete, Input, Select, Icon } from 'antd'
 import { getSearchResult } from '../../../actions/truckAction'
-import stylesheet from './_searchBar.less'
 import { Link } from 'routes'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -108,7 +107,7 @@ class SearchBar extends Component {
                         onPressEnter={() => this.onEnter()}
                         suffix={isHeader ? null : <Icon type="search" />} />
                 </AutoComplete>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
             </div>
 
         )

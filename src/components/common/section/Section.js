@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import stylesheet from './_section.less'
 import { Link } from 'routes'
 import { Icon } from 'antd'
 class Section extends Component {
@@ -17,7 +16,7 @@ class Section extends Component {
 
         return (
             <section className="section-block-main">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="header">
 
                     <Link to={url} >

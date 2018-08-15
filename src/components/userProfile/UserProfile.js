@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Button, Tabs, Rate } from 'antd';
 import { Link } from 'routes'
 import moment from 'moment'
-import stylesheet from './_userProfile.less'
 const homeImage = ('/static/images/home-image.jpg')
 const unknownUserIcon = ('/static/images/unknown-user-icon.png')
 const TabPane = Tabs.TabPane;
@@ -11,7 +10,6 @@ const locationIcon = ('/static/images/location-icon.png')
 class UserProfile extends Component {
 
     renderReviewBrewery(userReview) {
-        console.log("userReview", userReview)
         return userReview.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
                 <Link to={"/brewery/" + item.brewery.slug} >
@@ -71,7 +69,7 @@ class UserProfile extends Component {
         return (
 
             <div className="profile-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     userData && <div className="profile-header">
                         <div className="profile-picture">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import stylesheet from './_renderContainer.less'
 const errorNoResult = ('/static/images/error-no-result.svg')
 
 class RenderContainer extends Component {
@@ -9,7 +8,7 @@ class RenderContainer extends Component {
 
         return (
             <div className="render-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     error ?
                         <div className="error-holder">

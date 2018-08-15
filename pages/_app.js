@@ -16,6 +16,7 @@ class MyApp extends App {
       <Container>
         <Provider store={reduxStore}>
           <div>
+            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
             <Head>
               <script dangerouslySetInnerHTML={{
                 __html: `(function (w, d, s, l, i) {
@@ -32,7 +33,8 @@ class MyApp extends App {
             <HeaderContainer {...pageProps} />
             <Component {...pageProps} />
             <FooterContainer {...pageProps} />
-            <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+            {/* <style global jsx>{stylesheet}</style> */}
+
           </div>
         </Provider>
       </Container>

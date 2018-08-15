@@ -2,7 +2,6 @@ import React from 'react'
 import { Form, Input, Button, Modal, Popover } from 'antd';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import stylesheet from './_signIn.less'
 import { googleClientID, facebookAppID } from 'config'
 const FormItem = Form.Item
 const mailIcon = ('/static/images/mail-icon.png')
@@ -38,7 +37,7 @@ class SignInModal extends React.Component {
 
         return (
             <div>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
 
                 <Modal
                     width={540}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import Map from '../common/map/Map'
-import stylesheet from './_event.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import Section from '../common/section/Section'
 import EventCard from '../common/eventCard/EventCard'
@@ -43,7 +42,7 @@ class Event extends Component {
         const { activitiesWeek, error, activities, loadMore, hasMore } = this.props
         return (
             <div className="event-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <Row >
                     <Col style={{ padding: "30px" }}
                         className="event-detail"

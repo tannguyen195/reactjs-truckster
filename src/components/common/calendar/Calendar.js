@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import stylesheet from './_calendar.less'
 import BigCalendar from 'react-big-calendar'
 import { Button, Popover, Tooltip } from 'antd'
 import moment from 'moment'
 import { Link } from 'routes'
-import TitleLink from '../../common/titleLink'
 const truckIcon = ("/static/images/truck.svg")
 const breweryIcon = ("/static/images/brewery.svg")
 BigCalendar.momentLocalizer(moment);
@@ -125,7 +123,7 @@ class Calendar extends Component {
 
         return (
             <div >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <BigCalendar
                     selectable
                     events={events}

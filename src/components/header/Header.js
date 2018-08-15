@@ -4,7 +4,7 @@ import MediaQuery from 'react-responsive'
 import SearchBar from '../common/searchBar/SearchBar'
 
 import moment from 'moment'
-import stylesheet from './_header.less'
+
 import { Link } from 'routes'
 const locationIcon = ('/static/images/location-icon.png')
 const unknownUserIcon = ('/static/images/unknown-user-icon.png')
@@ -64,7 +64,7 @@ class Header extends Component {
         } = this.props
         return (
             <header className="header-container" >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div style={{ width: visibleDrawer ? '100%' : 0 }} className="menu-drawer">
                     <div className="menu-drawer-wrapper">
                         <div className="menu-drawer-user">

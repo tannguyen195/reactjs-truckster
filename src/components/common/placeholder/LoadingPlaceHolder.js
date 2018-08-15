@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
-import './_placeholder.less'
 import Placeholder from '../placeholder/Placeholder'
 class LoadingPlaceholder extends Component {
     renderPlaceHolder(itemNum) {

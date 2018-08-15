@@ -5,7 +5,6 @@ import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
-import stylesheet from './_truckDetail.less'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
 import TruckCard from '../common/truckCard/TruckCard'
@@ -345,7 +344,7 @@ class TruckDetail extends Component {
 
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+           
                 {
                     truckDetail
                         ?

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Form, Input, Button, Row, Col, Modal } from 'antd';
 
-import stylesheet from './_forgot.less'
 const FormItem = Form.Item
 const backIcon = ('/static/images/back-icon.png')
 const mailIcon = ('/static/images/mail-icon.png')
@@ -21,7 +20,7 @@ class ForgotModal extends React.Component {
 
         return (
             <div>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <Modal
 
                     width={540}

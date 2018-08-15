@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { Row, Col, Rate, Anchor, Spin, Card, Icon } from 'antd';
 import { Link } from 'routes'
-import BreweryCard from '../common/breweryCard/BreweryCard'
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
 import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
 import Calendar from '../common/calendar/Calendar'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
-import stylesheet from './_breweryDetail.less'
-
 import { getSchedule } from '../../../global'
+
 const LinkAnchor = Anchor.Link;
 const shareIcon = ('/static/images/share-icon.png')
 const websiteIcon = ('/static/images/website-icon.svg')
@@ -263,8 +261,6 @@ class BreweryDetail extends Component {
         const { breweryDetail, isPairing } = this.props
         return (
             <div style={{ padding: isPairing && 0 }} className="brewery-detail">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
-
                 <div id="info" className="detail-container" >
                     {
                         this.renderBreweryDetail(breweryDetail)

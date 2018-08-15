@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import stylesheet from './_categoryCard.less'
 
 
 class CategoryCard extends Component {
@@ -16,7 +15,7 @@ class CategoryCard extends Component {
 
         return (
             <div style={{ backgroundImage: `url(${image})` }} className="cuisine-card-container" >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                
                 <div className="content-cuisine">
                     <div className="title">{name}</div>
                 </div>

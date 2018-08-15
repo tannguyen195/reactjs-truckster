@@ -3,9 +3,6 @@ import { Row, Col } from 'antd';
 import { Link } from 'routes'
 import CategoryCard from '../common/categoryCard/CategoryCard'
 
-import stylesheet from './_category.less'
-
-
 const categories =
     [
         {
@@ -230,7 +227,7 @@ class Category extends Component {
 
         return (
             <div className="category main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                
                 <div className="body-title DisplayBlackLeft">
                     Cuisine
                 </div>

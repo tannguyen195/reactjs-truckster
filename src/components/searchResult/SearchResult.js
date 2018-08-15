@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
-import stylesheet from './_searchResult.less'
+
 import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
@@ -68,7 +68,7 @@ class SearchResult extends Component {
         const { searchResult, params } = this.props
         return (
             <div className="search-result main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     searchResult &&
                         searchResult.length === 0 ?

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd'
-import stylesheet from './_privacy.less'
+
 import Head from '../head'
 const data = {
     type: `Among the types of Personal Data that this Application collects, by itself or through third parties, there are: Calendar permission, Approximate location permission (non-continuous), SMS permission, Reminders permission, food related activity and date of birth.
@@ -66,7 +66,7 @@ class PrivacyTerm extends Component {
                     title="Privacy Policy - Truckster"
                     description="We take your privacy seriously. Read over our Privacy Policy to gain a better understanding of how we use your information."
                 />
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="privacy-wrapper">
 
                     <div className="privacy-container">

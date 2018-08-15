@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'routes'
 import { Button } from 'antd'
-import stylesheet from './_errorPage.less'
 const error404 = ('/static/images/error-404.svg')
 const error403 = ('/static/images/error-403.svg')
 const error500 = ('/static/images/error-500.svg')
@@ -35,7 +34,7 @@ class ErrorPage extends Component {
         }
         return (
             <div className="error-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="error-image">
                     <img alt="error" src={image} />
                 </div>

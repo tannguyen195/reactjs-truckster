@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd'
-import stylesheet from './_about.less'
+
 import Head from '../head'
 const aboutImage = ("/static/images/cover-about.jpg")
 const checkIcon = ("/static/images/check-icon.svg")
@@ -17,7 +17,7 @@ class About extends Component {
                     title="About Truckster – Our Story"
                     description="Learn more about Truckster and its founders. See how they got started and learn what makes their app the best of its kind!"
                 />
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="home-main-header" style={{ backgroundImage: `url(${aboutImage})` }} >
                     <div className="content-city">
                         <div className="title DisplayBlackCenter">

@@ -6,7 +6,7 @@ import CategoryCard from '../common/categoryCard/CategoryCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
-import stylesheet from './_brewery.less'
+
 import MediaQuery from 'react-responsive'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
@@ -75,10 +75,7 @@ class Brewery extends Component {
         const { breweries, error, loadMoreBrewery, hasMore } = this.props
         return (
             <div className="brewery">
-
-
                 <div className="brewery main-wrapper body-content">
-                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
                     <div className="body-title DisplayBlackLeft">
                         Brewery types
                 </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col, Spin, Icon } from 'antd';
-import stylesheet from './_categoryDetail.less'
 import InfiniteScroll from 'react-infinite-scroller';
 import TruckCard from '../common/truckCard/TruckCard'
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
@@ -23,7 +22,7 @@ class CategoryDetail extends Component {
 
         return (
             <div className="search-detail main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {
                     truckSearch ?
                         <div style={{ padding: "30px" }}

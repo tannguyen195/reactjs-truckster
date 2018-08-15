@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Card } from 'antd'
 import TitleLink from '../titleLink'
 import moment from 'moment'
-import stylesheet from './_eventCard.less'
-import Item from '../../../../node_modules/antd/lib/list/Item';
 
 const eventIcon = ('/static/images/event-marker-icon.png')
 class EventCard extends Component {
@@ -13,7 +11,7 @@ class EventCard extends Component {
 
         return (
             <TitleLink url="/event/" title={data.name} id={data.id}>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <Card bordered={false} style={{ margin: carousel && "8px" }} className="event-card-container"
                     cover={
                         <div className="event-image"

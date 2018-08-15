@@ -1,6 +1,5 @@
 import NextHead from 'next/head'
 import { string } from 'prop-types'
-import stylesheet from '../styles/index.less'
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
@@ -19,6 +18,7 @@ const Head = (props) => {
       <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,500,700,800,900" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+      
       <meta property="og:url" content={props.url || defaultOGURL} />
       <meta property="og:title" content={props.title || ''} />
       <meta property="og:description" content={props.description || defaultDescription} />

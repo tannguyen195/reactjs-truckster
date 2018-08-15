@@ -13,7 +13,6 @@ import SearchBar from '../common/searchBar/SearchBar'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import MediaQuery from 'react-responsive';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
-import stylesheet from './_cityDetail.less'
 import Placeholder from '../common/placeholder/Placeholder'
 
 const breweryIcon = ('/static/images/brewery-marker-icon.png')
@@ -208,7 +207,7 @@ class CityDetail extends Component {
 
         return (
             <div className="home main-wrapper">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 {/* main header  */}
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
                     <div className="content-city">

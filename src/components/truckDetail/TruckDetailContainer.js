@@ -305,7 +305,6 @@ class TruckDetailContainer extends Component {
 
 
     onFavoriteChange(e) {
-        console.log("e", e)
         if (e === 1) {
             this.props.markFavorite(this.props.truckDetail.id)
         }
@@ -354,7 +353,6 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail } = this.props
-        console.log("this.props", this.props)
         return (
             <div>
                 {

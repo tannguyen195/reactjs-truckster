@@ -7,7 +7,7 @@ import TruckCard from '../common/truckCard/TruckCard'
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import InfiniteScroll from 'react-infinite-scroller';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
-import stylesheet from './_truck.less'
+
 import MediaQuery from 'react-responsive'
 
 const categories =
@@ -74,7 +74,7 @@ class Truck extends Component {
         const { trucks, error, loadMoreTruck, hasMore } = this.props
         return (
             <div className="truck main-wrapper body-content">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="body-title DisplayBlackLeft">
                     Cuisine
                 </div>

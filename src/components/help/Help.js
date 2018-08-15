@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, AutoComplete, Button, Collapse } from 'antd';
 import { Link } from 'routes'
-import stylesheet from './_help.less'
+
 const Panel = Collapse.Panel;
 const plusIcon = ('/static/images/plus-icon.png')
 // const minusIcon = require('/static/images/minus-icon.png')
@@ -88,7 +88,7 @@ class Help extends Component {
         const { callback } = this.props
         return (
             <div >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }}></style>
+                
                 <div className="help-container">
                     <div className="help-main-header">
                         <div className="title-help DisplayBlackCenter ">

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Rate, Modal, Col, Row } from 'antd'
+import { Rate, Modal, Col, Row } from 'antd'
 import { Link } from 'routes'
 import TitleLink from '../titleLink'
-import stylesheet from './_pairingCard.less'
+
 import moment from 'moment'
 import { getSchedule } from '../../../../global'
 const homeImage = ("/static/images/home-image.jpg")
@@ -128,9 +128,9 @@ class PairingCard extends Component {
 
         return (
             <div>
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <a onClick={() => this.togglePairing()}>
-                    <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+    
                     <div className="pairing-new-card-container" >
                         <div className="pairing-image-container">
                             <img src={data.cover_photo ?

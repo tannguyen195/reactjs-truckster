@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import stylesheet from './_shareModal.less'
 import { Modal } from 'antd'
 import {
     FacebookShareButton,
@@ -30,7 +29,7 @@ class ShareModal extends Component {
                 visible={visible}
                 onCancel={handleCancel}
             >
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="share-modal-container">
                     <div className='logo-container'><img alt='logo' src={logo} /></div>
                     <FacebookShareButton url={"https://gotruckster.com/" + url} className="social-button-container"  >

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Tabs, Form, Input, Radio, DatePicker, } from 'antd';
-
-import stylesheet from './_editProfile.less'
 import Dropzone from 'react-dropzone'
 const RadioGroup = Radio.Group;
 const FormItem = Form.Item
@@ -178,7 +176,7 @@ class EditProfile extends Component {
         return (
 
             <div className="edit-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <div className="edit-header">
                     <div className="title-edit DisplayBlackLeft">
                         Account Settings

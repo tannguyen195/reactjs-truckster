@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Switch, Icon, Rate } from 'antd';
-import stylesheet from './_nearby.less'
+
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import moment from 'moment'
 import GoogleMapReact from 'google-map-react';
@@ -696,7 +696,7 @@ class Nearby extends Component {
 
         return (
             <div className="nearby-container">
-                <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+
                 <AnnounceNearbyModal handleExploreInRightPosition={handleExploreInRightPosition} handleCancel={handleCloseModal} visible={!isInRightPosition} />
                 <Row >
 
