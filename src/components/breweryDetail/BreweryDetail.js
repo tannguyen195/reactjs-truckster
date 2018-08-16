@@ -8,7 +8,7 @@ import UserReview from '../common/userReview/UserReview'
 import Calendar from '../common/calendar/Calendar'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import { getSchedule } from '../../../global'
-
+const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 const LinkAnchor = Anchor.Link;
 const shareIcon = ('/static/images/share-icon.png')
 const websiteIcon = ('/static/images/website-icon.svg')

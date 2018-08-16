@@ -4,11 +4,6 @@ import { Link } from 'routes'
 
 const truckIcon = ('/static/images/truck-marker-icon.png')
 class TruckCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-
-    }
 
     render() {
         const { data } = this.props

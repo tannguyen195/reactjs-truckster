@@ -14,9 +14,6 @@ export default class Information extends Component {
                         <div className="Body-1SemiBlackLeft">POSTS</div>
                         <div className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: renderPage.title.rendered }} />
                         <div dangerouslySetInnerHTML={{ __html: renderPage.content.rendered }} />
-
-
-
                     </Col>
                     <Col className="recent-post-container" lg={8}>
                         <div className="Body-1SemiBlackLeft">Recent Posts</div>

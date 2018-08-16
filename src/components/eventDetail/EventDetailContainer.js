@@ -39,11 +39,9 @@ class EventDetailContainer extends Component {
                 let events = getEventTime(activity.calendar[i])
 
                 for (let i = 0; i < events.length; ++i) {
-
-                    if (moment(events[i], "YYYY-MM-DD hh:mm a").unix() > moment().unix() && moment(events[i], "YYYY-MM-DD hh:mm:a").isBefore(moment().add(1, 'days'))) {
+                    if (activity.calendar[i]&&activity.calendar[i].food_truck)
                         trucks.push({ ...activity.calendar[i], timeDisplay: events[i] })
-                        break;
-                    }
+
                 }
                 keys.push(activity.calendar[i].food_truck.id)
             }
