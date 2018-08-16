@@ -4,7 +4,7 @@ import { Link } from 'routes'
 import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
-// import BreweryCard from '../common/breweryCard/BreweryCard'
+import ArticleCard from '../common/articleCard/ArticleCard'
 
 import PairingCard from '../common/pairingCard/PairingCard'
 import EventCard from '../common/eventCard/EventCard'
@@ -14,10 +14,11 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import MediaQuery from 'react-responsive';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import Placeholder from '../common/placeholder/Placeholder'
-
+carnationfestivalCard
 const breweryIcon = ('/static/images/brewery-marker-icon.png')
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
-
+const carnationfestivalCard = ("/static/images/carnationfestival-card.jpg")
+const civicCard = ("/static/images/civic-card.jpg")
 const homeImage = ("/static/images/denver-city.jpg")
 const tags = [
     "American", "Mexican", "Thai", "Pizza", "Dessert", "Coffee"
@@ -70,6 +71,48 @@ const cuisine = [
         name: 'Asian',
         image: ('/static/images/cuisines/Asian.jpg'),
         truckNum: 15
+    },
+]
+const articles = [
+
+    {
+        url: "/cuisine/Mexican",
+        title: 'Find the Best Taco Food Trucks in Denver',
+        image: ('/static/images/tacos-card.png'),
+        detail: `Taco trucks are what kicked off the food truck craze to begin with so it's only natural that there would be plenty to choose from.
+
+        Food trucks tend to offer tacos in all kinds of interesting varieties. That’s not to say that there aren’t any traditional Mexican food trucks either. You can also find foods from other cultures like Venezuelan or Brazilian.
+        
+        They usually offer a variety of favorites like tacos, enchiladas, burritos and more. Vegetarian and vegan options tend to be available as well depending on the food truck.`
+    },
+    {
+        url: "/cuisine/Multi-Cuisine",
+        title: 'Experience Multi-Cuisine Food Trucks',
+        image: ('/static/images/home-image.jpg'),
+        detail: `If you're looking for something with their own unique twist then you're in luck. The Denver area is home to many different food trucks that blend different types of cuisines or have their own creative spin on a certain type of dish.
+
+        For example, instead of regular french fries you can try different fry dishes like classic poutine, Greek fries, chili fries, and even steak and cheese fries.
+        
+        On the healthier side you'll find some trucks that serve salad bowl dishes with gluten free and vegan options to choose from.`
+    },
+    {
+        url: "/cuisine/BBQ",
+        title: `Taste the Flavor of
+        Denver BBQ`,
+        image: ('/static/images/bbq-card.png'),
+        detail: `In the mood for some mouth-watering BBQ? These and many other food trucks in the area have plenty of smoked meats to choose from.
+
+        Bar-B-Que comes in a variety of types such as Texas style brisket, St. Louis style pork rib, pulled pork and more. Beef ribs are a popular choice as well. Plenty of trucks offer their own spin on BBQ chicken, beans and coleslaw.
+        
+        For something a little different than traditional BBQ, some food trucks offer a blend of Mexican and American. They create blends like BBQ nachos and BBQ mac n’ cheese.`
+    },
+    {
+        url: "/nearby",
+        title: 'I Am Searching For a Food Truck Near Me',
+        image: ('/static/images/map-card.png'),
+        detail: `No matter where you are at in Denver, Truckster can find you a great food truck to check out. Get something for any time of day or any meal, be it breakfast, lunch, dinner or even dessert.
+
+        Planning an event and want to find a food truck to cater? Many of these businesses offer food truck catering in Denver for your special occasion whether it be a corporate event, wedding or outdoor event. Find the one you like and contact them by phone or email to set something up.`
     },
 ]
 class CityDetail extends Component {
@@ -187,6 +230,22 @@ class CityDetail extends Component {
             </Link>
         })
     }
+    //render article
+    renderArticleCard(articles) {
+        return articles.map((item, index) => {
+            return <Col key={index} xs={24} sm={12} md={12} lg={12}>
+                <Link to={item.url}>
+                    <a>
+                        <ArticleCard
+                            data={item} />
+                    </a>
+                </Link>
+
+
+
+            </Col>
+        })
+    }
     render() {
 
         const {
@@ -286,7 +345,7 @@ class CityDetail extends Component {
                 </div>
 
                 {/* home body  */}
-                <div className="body-content">
+                <div style={{ padding: 0 }} className="body-content">
                     <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
@@ -396,7 +455,10 @@ class CityDetail extends Component {
                             }
                         </Row>
                     </section>
-                    <Section seeall={false} title="Special Offers" >
+
+
+
+                    {/* <Section seeall={false} title="Special Offers" >
 
                         <MediaQuery maxWidth={767}>
                             {
@@ -410,8 +472,55 @@ class CityDetail extends Component {
                                 }
                             }
                         </MediaQuery>
-                    </Section>
+                    </Section> */}
                 </div>
+
+                {/* article section */}
+
+                <section className="article-section">
+                    <div className="article-section-container">
+                        <Row gutter={30}>
+                            <Col md={8} lg={8}>
+                                <div className="Display-3WhiteLeft">Denver Food Truck Events & Festivals</div>
+                                <div className="Body-2LeftGrey article-description">Truckster can also let you know if a local food truck festival or event is happening so you can check out all kinds at once. Be sure to go to the <a target="_blank" href="https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8">App Store</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.truckster">Google Play</a>  to download our app and find a food truck near you.</div>
+                                <div className="SubheadingWhiteLeft">Some annual events include:</div>
+                                <div className="event-card-small-container">
+                                    <a href="https://thecarnationfestival.com/" target="_blank" className="event-card-small">
+                                        <div>
+                                            <img src={carnationfestivalCard} alt="card" />
+                                        </div>
+
+                                        <div className="event-card-small-detail">
+                                            <div className="Body-1RegularWhiteLeft">The Carnation Festival</div>
+                                            <div className="Body-1RegularGrayLeft">For nearly 50 years this local festival provides fun for the whole family with rides, games, live music and of course plenty of food.</div>
+                                        </div>
+                                    </a>
+
+                                    <a href="http://www.civiccenterconservancy.org/event-civic-center-eats-2018_88.html"
+                                        target="_blank"
+                                        className="event-card-small">
+                                        <div> <img src={civicCard} alt="card" /></div>
+
+                                        <div className="event-card-small-detail">
+                                            <div className="Body-1RegularWhiteLeft">Civic Center Eats</div>
+                                            <div className="Body-1RegularGrayLeft">The largest gathering of food trucks and gourmet foods in the entire Denver area. Enjoy live music and other activities along with over 80 varieties of food vendors.</div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </Col>
+                            <Col md={16} lg={16}>
+                                <Row gutter={30}>
+                                    {
+                                        this.renderArticleCard(articles)
+                                    }
+
+                                </Row>
+                            </Col>
+                        </Row>
+                    </div>
+
+                </section>
             </div>
         )
     }

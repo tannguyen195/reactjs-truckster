@@ -45,7 +45,7 @@ class Event extends Component {
 
                 <Row >
                     <Col style={{ padding: "30px" }}
-                        className="event-detail"
+                        className="events-detail"
                         lg={13} md={13}>
 
                         <div className="name DisplayBlackLeft">  Events in Denver </div>
