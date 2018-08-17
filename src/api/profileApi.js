@@ -4,9 +4,7 @@ import {
     requestUpdateProfile, updateProfileError, updateProfileSuccess,
     requestChangePassword, changePasswordError, changePasswordSuccess
 } from '../actions/profileAction.js'
-import {
-    toggleErrorModal
-} from '../actions/toggleAction'
+
 import axios from 'axios';
 import { notification, Icon } from 'antd'
 import { Cookies } from 'react-cookie'
@@ -37,7 +35,6 @@ export const getUser = () => {
             error: function (error) {
 
                 dispatch(getUserError(error))
-                dispatch(toggleErrorModal(error))
             }
         })
     }

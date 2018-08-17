@@ -11,6 +11,8 @@ import { googleApi } from 'config'
 import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
 import Head from '../head'
 import { Cookies } from 'react-cookie'
+
+import _breweryDetail from './_breweryDetail.less'
 const cookies = new Cookies()
 class BreweryDetailContainer extends Component {
     constructor(props) {
@@ -86,6 +88,9 @@ class BreweryDetailContainer extends Component {
                 {
                     breweryDetail ?
                         <div>
+                            <style dangerouslySetInnerHTML={{
+                                __html: _breweryDetail
+                            }} />
                             <Head
                                 url="https://gotruckster.com/"
                                 title={breweryDetail.name + " - Brewery Denver, CO - Go Truckster"}

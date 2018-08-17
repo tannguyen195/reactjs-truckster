@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'antd'
-
+import _privacy from './_privacy.less'
 import Head from '../head'
+import { Link } from 'routes'
 const data = {
     type: `Among the types of Personal Data that this Application collects, by itself or through third parties, there are: Calendar permission, Approximate location permission (non-continuous), SMS permission, Reminders permission, food related activity and date of birth.
 
@@ -60,6 +61,7 @@ class PrivacyTerm extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: _privacy }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"
@@ -215,14 +217,17 @@ class PrivacyTerm extends Component {
                             Not finding what you looking for?
                             </div>
                         <div className="button-contact">
-                            <div to="/contact" >
-                                <Button type="primary">
-                                    <div className="ButtonWhiteCenter">
-                                        CONTACT US
-                                </div>
-                                </Button>
+                            <Link to="/contact" >
+                                <a>
 
-                            </div>
+
+                                    <Button type="primary">
+                                        <div className="ButtonWhiteCenter">
+                                            CONTACT US
+                                </div>
+                                    </Button>
+                                </a>
+                            </Link>
                         </div>
 
                     </div>

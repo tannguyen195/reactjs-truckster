@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import UserProfile from './UserProfile'
 import { getUserReview, getUserFavorite, getUserBreweryReview } from '../../api/reviewApi'
+import _userProfile from './_userProfile.less'
+
 class UserProfileContainer extends Component {
     constructor(props) {
         super(props)
@@ -18,7 +20,11 @@ class UserProfileContainer extends Component {
     }
     render() {
         return (
-           <UserProfile {...this.props} />
+            <div>
+                <style dangerouslySetInnerHTML={{ __html: _userProfile }} />
+                <UserProfile {...this.props} />
+            </div>
+
 
         )
     }

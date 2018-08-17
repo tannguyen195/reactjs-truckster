@@ -1,14 +1,5 @@
 import * as types from './types';
 
-export function toggleErrorModal(error) {
-    return (dispatch) => {
-        dispatch({
-            type: types.TOGGLE_ERROR_MODAL,
-            statusText: error.statusText
-        });
-    }
-}
-
 
 export function toggleSignInModal() {
     return {

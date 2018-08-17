@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Contact from './Contact'
+import _contact from './_contact.less'
 class ContactContainer extends Component {
     constructor(props) {
         super(props)
@@ -9,13 +10,16 @@ class ContactContainer extends Component {
         }
     }
     componentWillMount() {
-        
-      
+
+
     }
     render() {
 
-        return (       
+        return (
+            <div>
+                <style dangerouslySetInnerHTML={{ __html: _contact }} />
                 <Contact />
+            </div>
         )
     }
 }

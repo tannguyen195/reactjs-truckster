@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ForgotModal from './ForgotModal.jsx'
 
 import { Form } from 'antd'
-
+import _forgot from './_forgot.less'
 class ForgotModalContainer extends Component {
 	constructor(props) {
 		super(props)
@@ -14,21 +14,25 @@ class ForgotModalContainer extends Component {
 
 	handleForgot(e) {
 		e.preventDefault()
-		this.props.form.validateFields((err, values) => {
+		this.props.form.validateFields((err) => {
 			if (!err) {
 
 			}
 		})
-
 	}
+	
 	render() {
 		return (
-			<ForgotModal
-				{...this.state}
-				{...this.props}
+			<div>
+				<style dangerouslySetInnerHTML={{ __html: _forgot }} />
+				<ForgotModal
+					{...this.state}
+					{...this.props}
 
-				handleForgot={(e) => this.handleForgot(e)}
-			/>
+					handleForgot={(e) => this.handleForgot(e)}
+				/>
+			</div>
+
 		)
 	}
 }

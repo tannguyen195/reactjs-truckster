@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { mountBrewery } from '../../actions/breweryAction'
-import Brewery from './Brewery'
 import { searchBrewery } from '../../api/breweryApi'
+
 import Head from '../head'
+import Brewery from './Brewery'
+
+import _brewery from './_brewery.less'
+
 class BreweryContainer extends Component {
     constructor(props) {
         super(props)
@@ -37,6 +41,9 @@ class BreweryContainer extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{
+                    __html: _brewery
+                }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

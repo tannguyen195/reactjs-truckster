@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Help from './Help'
 import Head from '../head'
+import _help from './_help.less'
 class HelpContainer extends Component {
     constructor(props) {
         super(props)
@@ -16,6 +17,7 @@ class HelpContainer extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: _help }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

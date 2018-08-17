@@ -5,6 +5,8 @@ import { searchBrewery } from '../../api/breweryApi'
 import BreweryType from './BreweryType'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { mountBrewery } from '../../actions/breweryAction'
+
+import _breweryType from './_breweryType.less'
 let renderPageFlag = false
 class BreweryTypeContainer extends Component {
     constructor(props) {
@@ -42,9 +44,12 @@ class BreweryTypeContainer extends Component {
     }
     render() {
         const { error, status } = this.props
-       
+
         return (
             <div className="gray-background">
+                <style dangerouslySetInnerHTML={{
+                    __html: _breweryType
+                }} />
                 {
                     error ?
                         <ErrorPage status={status} />

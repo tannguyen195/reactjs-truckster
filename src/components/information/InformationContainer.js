@@ -3,12 +3,11 @@ import Information from './Information'
 import CircularJSON from 'circular-json'
 import Head from '../head'
 import { getPageData } from 'global.js'
-
+import _information from './_information.less'
 export default class InformationContainer extends Component {
 
     static async getInitialProps({ reduxStore, req, query }) {
         let infoPage = null, renderPage = null
-
 
         infoPage = (await getPageData())
         renderPage = CircularJSON.parse(infoPage).data[0]
@@ -31,6 +30,7 @@ export default class InformationContainer extends Component {
                 {
                     infoPage && renderPage &&
                     <div>
+                        <style dangerouslySetInnerHTML={{ __html: _information }} />
                         <Head
                             url="https://gotruckster.com/"
                             title={renderPage.title.rendered}

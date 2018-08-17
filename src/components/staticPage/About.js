@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'antd'
-
+import { Link } from 'routes'
 import Head from '../head'
+import _about from './_about.less'
 const aboutImage = ("/static/images/cover-about.jpg")
 const checkIcon = ("/static/images/check-icon.svg")
 class About extends Component {
@@ -11,7 +12,8 @@ class About extends Component {
 
         return (
             <div className="about-container  main-wrapper">
-               <Head
+                <style dangerouslySetInnerHTML={{ __html: _about }} />
+                <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"
                     title="About Truckster – Our Story"
@@ -109,13 +111,13 @@ Connor and his wife Molly teamed up to build Truckster, your hub for everything 
                         Not finding what you looking for?
                             </div>
                     <div className="button-contact">
-                        <div to="/contact" >
+                        <Link to="/contact" >
                             <Button type="primary">
                                 <div className="ButtonWhiteCenter">
                                     CONTACT US
                                 </div>
                             </Button>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 

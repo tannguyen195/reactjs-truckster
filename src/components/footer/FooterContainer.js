@@ -6,6 +6,7 @@ import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
 import { withRouter } from "next/router"
+import _footer from './_footer.less'
 class FooterContainer extends Component {
     constructor(props) {
         super(props)
@@ -24,7 +25,13 @@ class FooterContainer extends Component {
                 || router.pathname.includes("/activities") ?
                 <div />
                 :
-                <Footer {...this.state} {...this.props} />
+                <div>
+                    <style dangerouslySetInnerHTML={{ __html: _footer }} />
+                    <Footer {...this.state} {...this.props} >
+
+                    </Footer>
+                </div>
+
         )
     }
 }

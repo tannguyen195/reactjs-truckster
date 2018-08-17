@@ -6,13 +6,16 @@ import { getPairing } from '../../api/pairingApi'
 import { searchActivity } from '../../api/activityApi'
 import { searchBrewery } from '../../api/breweryApi'
 import { getSearchResult } from '../../actions/truckAction'
-import {
-    toggleAnnounceModal,
-
-} from '../../actions/toggleAction'
+import { toggleAnnounceModal } from '../../actions/toggleAction'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
+
+import _cityDetail from './_cityDetail.less'
+
+import _articleCard from '../common/articleCard/_articleCard.less'
+
+
 class CityContainer extends Component {
     constructor(props) {
         super(props)
@@ -120,12 +123,17 @@ class CityContainer extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{
+                    __html: _cityDetail + _articleCard
+                }} />
+
                 <Head
                     url="https://gotruckster.com/"
                     title={"Denver, Colorado - Go Truckster"}
                     description={"Discover the lastest events and best food trucks in Denver"}
                     ogImage={"https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg"}
                 />
+
                 <CityDetail {...this.state} {...this.props}
                     onSearchValueChange={(e) => this.onSearchValueChange(e)}
                     handleShowAnnounce={(e) => this.handleShowAnnounce(e)}

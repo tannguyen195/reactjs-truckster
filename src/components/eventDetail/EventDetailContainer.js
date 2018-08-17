@@ -5,8 +5,9 @@ import EventDetail from './EventDetail'
 import { getActivityDetail } from '../../api/activityApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { toggleShareModal } from '../../actions/toggleAction'
-import { getDataInitial, getEventTime } from 'global'
-import moment from 'moment'
+import { getDataInitial } from 'global'
+
+import _eventDetail from './_eventDetail.less'
 import Head from '../head'
 class EventDetailContainer extends Component {
     constructor(props) {
@@ -55,6 +56,9 @@ class EventDetailContainer extends Component {
                 {
                     activity ?
                         <div>
+                            <style dangerouslySetInnerHTML={{
+                                __html: _eventDetail
+                            }} />
                             <Head
                                 url="https://gotruckster.com/"
                                 title={activity.name + " - Event in Denver, CO - Go Truckster"}

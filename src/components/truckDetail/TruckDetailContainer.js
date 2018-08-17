@@ -13,6 +13,8 @@ import { getSchedule } from '../../../global'
 import Head from '../head'
 import moment from 'moment'
 import { Cookies } from 'react-cookie'
+
+import _truckDetail from './_truckDetail.less'
 const cookies = new Cookies()
 class TruckDetailContainer extends Component {
     constructor(props) {
@@ -357,6 +359,9 @@ class TruckDetailContainer extends Component {
             <div>
                 {
                     truckDetail ? <div>
+                        <style dangerouslySetInnerHTML={{
+                            __html: _truckDetail
+                        }} />
                         <Head
                             url="https://gotruckster.com/"
                             title={truckDetail.name + " - Food Truck Denver, CO - Go Truckster"}

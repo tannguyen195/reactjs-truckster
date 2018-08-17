@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Col, Row } from 'antd'
 import Slider from "react-slick";
-
+import _aboutTruckster from './_aboutTruckster.less'
 import Head from '../head'
 import { Link } from 'routes'
 const aboutTrucksterImage = ("/static/images/truckster-image-about.jpg")
@@ -119,6 +119,7 @@ class AboutTruckster extends Component {
     render() {
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: _aboutTruckster }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

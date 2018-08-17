@@ -14,7 +14,7 @@ import RenderContainer from '../common/renderContainer/RenderContainer'
 import MediaQuery from 'react-responsive';
 import LoadingPlaceHolder from '../common/placeholder/LoadingPlaceHolder'
 import Placeholder from '../common/placeholder/Placeholder'
-carnationfestivalCard
+
 const breweryIcon = ('/static/images/brewery-marker-icon.png')
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 const carnationfestivalCard = ("/static/images/carnationfestival-card.jpg")

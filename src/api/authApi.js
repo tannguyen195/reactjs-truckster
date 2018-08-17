@@ -7,7 +7,6 @@ import {
 } from '../actions/authAction.js'
 import {
     toggleSignInModal,
-    toggleErrorModal,
     toggleErrorSignInPopOver, toggleErrorSignUpPopOver
 } from '../actions/toggleAction'
 import { apiUrl } from 'config'
@@ -98,7 +97,6 @@ export const logOut = () => {
             },
             error: function (error) {
                 dispatch(logOutError(error))
-                dispatch(toggleErrorModal(error))
             }
         })
     }

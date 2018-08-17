@@ -17,12 +17,6 @@ const initial = {
 const toggleReducer = (state = initial, action) => {
     switch (action.type) {
 
-        case types.TOGGLE_ERROR_MODAL:
-            return {
-                openError: !state.openError,
-                statusText: action.statusText,
-                error: true
-            };
         case types.TOGGLE_SIGN_IN_MODAL:
 
             return {

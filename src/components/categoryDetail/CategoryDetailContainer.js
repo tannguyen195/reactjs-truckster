@@ -5,6 +5,8 @@ import { searchTruck } from '../../api/truckApi'
 import CategoryDetail from './CategoryDetail'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { mountTruck } from '../../actions/truckAction'
+
+import _categoryDetail from './_categoryDetail.less'
 class CategoryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -54,6 +56,9 @@ class CategoryDetailContainer extends Component {
 
         return (
             <div className="gray-background">
+                <style dangerouslySetInnerHTML={{
+                    __html: _categoryDetail
+                }} />
                 {
                     error ?
                         <ErrorPage status={status} />

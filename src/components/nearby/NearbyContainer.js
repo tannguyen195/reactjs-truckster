@@ -7,6 +7,7 @@ import { mountNearby } from '../../actions/nearbyAction'
 import { getEventTime } from 'global'
 import moment from 'moment'
 import Head from '../head'
+import _nearby from './_nearby.less'
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
 const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
 const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
@@ -344,6 +345,7 @@ class NearbyContainer extends Component {
 
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: _nearby }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

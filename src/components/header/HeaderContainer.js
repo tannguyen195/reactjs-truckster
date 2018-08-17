@@ -10,7 +10,6 @@ import {
     toggleSignInModal,
     toggleSignUpModal,
     toggleForgotModal,
-    toggleErrorModal
 } from '../../actions/toggleAction'
 import SignInModalContainer from '../signIn/SignInModalContainer'
 import SignUpModalContainer from '../signUp/SignUpModalContainer'
@@ -23,6 +22,8 @@ import { getSearchResult } from '../../actions/truckAction'
 import { notification } from 'antd';
 
 import { checkLogin } from '../../actions/authAction'
+
+import _header from './_header.less'
 class HeaderContainer extends Component {
 
     constructor(props) {
@@ -103,7 +104,7 @@ class HeaderContainer extends Component {
             });
 
             if (this.state.flagSearch) {
-               
+
                 setTimeout(() => {
                     this.props.getSearchResult({
                         params: this.state.searchValue,
@@ -153,6 +154,7 @@ class HeaderContainer extends Component {
     render() {
         return (
             <div>
+                <style dangerouslySetInnerHTML={{ __html: _header }} />
                 <Header
                     {...this.state}
                     {...this.props}
@@ -214,7 +216,6 @@ export function mapDispatchToProps(dispatch) {
         toggleSignInModal,
         toggleSignUpModal,
         toggleForgotModal,
-        toggleErrorModal,
         signIn,
         signUp,
         logOut,

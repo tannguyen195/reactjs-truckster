@@ -5,6 +5,7 @@ import Truck from './Truck'
 import { mountTruck } from '../../actions/truckAction'
 import { searchTruck } from '../../api/truckApi'
 import Head from '../head'
+import _truck from './_truck.less'
 class TruckContainer extends Component {
     constructor(props) {
         super(props)
@@ -40,6 +41,9 @@ class TruckContainer extends Component {
 
         return (
             <div className="gray-background">
+                <style dangerouslySetInnerHTML={{
+                    __html: _truck
+                }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/"

@@ -5,6 +5,7 @@ import { Form } from 'antd'
 import { updateProfile, changePassword } from '../../api/profileApi'
 import EditProfile from './EditProfile'
 import moment from 'moment'
+import _editProfile from './_editProfile.less'
 class EditProfileContainer extends Component {
     constructor(props) {
         super(props)
@@ -79,7 +80,7 @@ class EditProfileContainer extends Component {
     }
 
     componentWillMount() {
-        
+
         sessionStorage.setItem("reloadUrl", window.location.href)
         if (this.props.userData)
             this.setState({
@@ -116,6 +117,8 @@ class EditProfileContainer extends Component {
     render() {
 
         return (
+            <div>
+                <style dangerouslySetInnerHTML={{ __html: _editProfile }} />
                 <EditProfile
                     onAvatarChange={(e) => this.onAvatarChange(e)}
                     handleChangePassword={(e) => this.handleChangePassword(e)}
@@ -128,6 +131,8 @@ class EditProfileContainer extends Component {
                     handleUpdateProfile={(e) => this.handleUpdateProfile(e)}
                     {...this.state}
                     {...this.props} />
+            </div>
+
         )
     }
 }
