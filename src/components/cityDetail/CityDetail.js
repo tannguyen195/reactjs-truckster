@@ -377,7 +377,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
                     <hr />
-                    <Section url="/food-truck/co/denver" seeall={true} title="Featured Denver Food Trucks" >
+                    <Section url="/food-truck/co/denver/all" seeall={true} title="Featured Denver Food Trucks" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
                             <div>

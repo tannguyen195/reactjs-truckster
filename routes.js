@@ -28,9 +28,9 @@ module.exports = routes()
 
     .add('truckDetailRedirect', '/truck/:state/:city')
     .add('truckRedirect', '/truck/:state/:city')
-    .add('trucks', '/food-truck/:state/:city')
+    .add('trucks', '/food-truck/:state/:city/all')
     .add('truck', '/food-truck/:slug')
 
     .add('cities', '/co')
-    .add('cityDetail', '/:state/:city')
-
+    .add('cityDetail', '/food-truck/:state/:city')
+    .add('cityDetailRedirect', '/:state/:city')

@@ -7,24 +7,28 @@ import _information from './_information.less'
 export default class InformationContainer extends Component {
 
     static async getInitialProps({ reduxStore, req, query }) {
-        let infoPage = null, renderPage = null
+        let infoPage = null, renderPage = null, title = "The Official Truckster Blog - Fun, Food & Drinks"
 
         infoPage = (await getPageData())
         renderPage = CircularJSON.parse(infoPage).data[0]
+
         if (query.slug) {
             CircularJSON.parse(infoPage).data.forEach(element => {
-                if (element.slug == query.slug)
+                if (element.slug == query.slug) {
                     renderPage = element
+                    title = element.title.rendered + ' - Truckter'
+                }
             });
+
         }
         return {
-            infoPage, renderPage, query
+            infoPage, renderPage, query, title
         }
     }
 
 
     render() {
-        const { infoPage, renderPage } = this.props
+        const { infoPage, renderPage, title } = this.props
         return (
             <div >
                 {
@@ -33,7 +37,7 @@ export default class InformationContainer extends Component {
                         <style dangerouslySetInnerHTML={{ __html: _information }} />
                         <Head
                             url="https://gotruckster.com/"
-                            title={renderPage.title.rendered}
+                            title={title}
                             description={renderPage.title.rendered}
                             ogImage={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("https:"), renderPage.content.rendered.indexOf(".jpg") + 4)}
 

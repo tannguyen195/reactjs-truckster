@@ -34,7 +34,7 @@ const menuCity = () => (
     <Menu>
 
         <Menu.Item>
-            <Link to="/co/denver"  >
+            <Link to="/food-truck/co/denver"  >
                 <a className=" Body-1MediumBlackLeft">Denver </a>
             </Link>
         </Menu.Item>
@@ -124,7 +124,7 @@ class Header extends Component {
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Brewery  </a>
                                 </Link>
-                                <Link to="/food-truck/co/denver">
+                                <Link to="/food-truck/co/denver/all">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Food Truck  </a>
                                 </Link>
@@ -227,7 +227,7 @@ class Header extends Component {
                             <a className="item Body-1MediumGreyCenter">Brewery</a>
 
                         </Link>
-                        <Link to="/food-truck/co/denver">
+                        <Link to="/food-truck/co/denver/all">
                             <a className="item Body-1MediumGreyCenter">Food truck</a>
                         </Link>
 
