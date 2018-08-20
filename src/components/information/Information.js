@@ -12,7 +12,7 @@ export default class Information extends Component {
                 <Row gutter={64}>
                     <Col lg={16} >
                         <div className="Body-1SemiBlackLeft">POSTS</div>
-                        <div className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: renderPage.title.rendered }} />
+                        <h2 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: renderPage.title.rendered }} />
                         <div dangerouslySetInnerHTML={{ __html: renderPage.content.rendered }} />
                     </Col>
                     <Col className="recent-post-container" lg={8}>

@@ -13,25 +13,20 @@
         .section-title {
             display: flex;
             align-items: flex-end;
+            h3 {
+                margin: 0;
+            }
             &:hover {
-                .see-all {
-                    transition-duration: 0.3s;
-                    transition: max-width 1s, opacity 1s, transform 750ms, -webkit-transform 750ms, -moz-transform 750ms, -o-transform 750ms;
-                    opacity: 1;
-                }
                 .icon-right {
                     visibility: hidden !important;
                 }
             }
         }
-        .see-all {
-            padding-bottom: 1px;
-            transform: perspective(1px) translateZ(0);
-            transition: max-width 1s, opacity 1s, transform 750ms, -webkit-transform 750ms, -moz-transform 750ms, -o-transform 750ms;
-            opacity: 0;
-        }
     }
     .content {
         padding-top: 20px;
+    }
+    .see-all {
+        text-align: center
     }
 }

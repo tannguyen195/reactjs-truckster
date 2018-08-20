@@ -75,9 +75,9 @@ class Truck extends Component {
         return (
             <div className="truck main-wrapper body-content">
 
-                <div className="body-title DisplayBlackLeft">
+                <h1 className="body-title DisplayBlackLeft">
                     Cuisine
-                </div>
+                </h1>
                 <div className="divider"> </div>
                 <Row style={{ paddingTop: "30px" }} gutter={16}>
                     {this.renderCategoryCard(categories)}
@@ -95,9 +95,9 @@ class Truck extends Component {
                     </Col>
                 </Row>
 
-                <div className="body-title DisplayBlackLeft">
+                <h1 className="body-title DisplayBlackLeft">
                     Food trucks
-                </div>
+                </h1>
                 <div className="divider"> </div>
 
                 <RenderContainer message="Something went wrong, please try another time!"

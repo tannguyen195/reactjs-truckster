@@ -27,7 +27,7 @@ class Pairing extends Component {
                 <div style={{ padding: "30px" }}
                     className="search-detail-container "   >
                     <div className="detail-header">
-                        <div className="name DisplayBlackLeft">Pairings of the Week </div>
+                        <h2 className="name DisplayBlackLeft">Pairings of the Week </h2>
                     </div>
 
                     <hr />

@@ -235,7 +235,7 @@ class TruckDetail extends Component {
                 <div className="detail-main-header" style={{ backgroundImage: `url(${truckDetail.cover_photo ? truckDetail.cover_photo[0].url : homeImage})` }} >
                     <div className="content-detail">
                         <div className="detail-wrapper">
-                            <div className="DisplayWhiteLeft name">  {truckDetail.name}</div>
+                            <h1 className="DisplayWhiteLeft name">  {truckDetail.name}</h1>
                             <div className="detail-rate">
                                 <div className="rate-number Body-1SemiBlackCenter">
                                     {isNaN(rateNum) ? 0 : rateNum}

@@ -642,7 +642,7 @@ class Nearby extends Component {
             tempNearbyState, isLoadingGetNearby, nearbyList } = this.props
 
         return <div className="nearby-event-list-detail">
-            <div className="name DisplayBlackLeft">  Discover in <a>Denver</a> </div>
+            <h1 className="name DisplayBlackLeft">  Discover in <a>Denver</a> </h1>
             <hr />
             <div className="nearby-filter">
                 <div className="filter-content">

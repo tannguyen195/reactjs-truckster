@@ -206,7 +206,6 @@ class CityDetail extends Component {
                     }
                 } />
             </Col>
-
         })
     }
     //render favorite cuisine
@@ -270,7 +269,7 @@ class CityDetail extends Component {
                 {/* main header  */}
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
                     <div className="content-city">
-                        <div className="title DisplayBlackCenter">Discover the lastest events and best food trucks in Denver</div>
+                        <h1 className="title DisplayBlackCenter">Discover the lastest events and best food trucks in Denver</h1>
                         <div className="search">
                             <SearchBar
                                 searchValue={searchValue}
@@ -446,9 +445,8 @@ class CityDetail extends Component {
                         </Col>
                     </Row>
                     <hr />
-
                     <section className="favorite-cuisine-container">
-                        <div className="Display-2BlackCenter ">Favorite Cuisine in Denver </div>
+                        <h4 className="Display-2BlackCenter ">Favorite Cuisine in Denver </h4>
                         <Row type="flex" justify="center" className="cuisine-list">
                             {
                                 this.renderCuisine(cuisine)
@@ -481,7 +479,7 @@ class CityDetail extends Component {
                     <div className="article-section-container">
                         <Row gutter={30}>
                             <Col md={8} lg={8}>
-                                <div className="Display-3WhiteLeft">Denver Food Truck Events & Festivals</div>
+                                <h2 className="Display-3WhiteLeft">Denver Food Truck Events & Festivals</h2>
                                 <div className="Body-2LeftGrey article-description">Truckster can also let you know if a local food truck festival or event is happening so you can check out all kinds at once. Be sure to go to the <a target="_blank" href="https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8">App Store</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.truckster">Google Play</a>  to download our app and find a food truck near you.</div>
                                 <div className="SubheadingWhiteLeft">Some annual events include:</div>
                                 <div className="event-card-small-container">

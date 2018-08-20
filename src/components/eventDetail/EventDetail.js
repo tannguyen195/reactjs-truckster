@@ -40,7 +40,7 @@ class EventDetail extends Component {
         return (
             <div>
                 <div className="detail-header">
-                    <div className="name DisplayBlackLeft ">  {event.name}</div>
+                    <h1 className="name DisplayBlackLeft ">  {event.name}</h1>
 
                     <img onClick={(e) => toggleShareModal()} alt="back" src={shareIcon} />
 

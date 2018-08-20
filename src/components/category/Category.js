@@ -228,9 +228,9 @@ class Category extends Component {
         return (
             <div className="category main-wrapper body-content">
                 
-                <div className="body-title DisplayBlackLeft">
+                <h1 className="body-title DisplayBlackLeft">
                     Cuisine
-                </div>
+                </h1>
                 <div className="divider"> </div>
                 <Row style={{ paddingTop: "30px" }} gutter={16}>
                     {this.renderCategoryCard(categories)}

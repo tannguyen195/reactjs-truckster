@@ -16,22 +16,12 @@ class Section extends Component {
 
         return (
             <section className="section-block-main">
-
                 <div className="header">
-
                     <Link to={url} >
-
                         <a className="section-title">
-                            <div className="Display-2BlackLeft">
+                            <h3 className="Display-2BlackLeft">
                                 {title}
-                            </div>
-                            <div className="ButtonBlackCenter">
-                                <Icon className="icon-right" type="right" />
-                            </div>
-
-                            <div className="see-all ButtonRedCenter">
-                                Explore all
-                            </div>
+                            </h3>
                         </a>
                     </Link>
                 </div>
@@ -39,6 +29,16 @@ class Section extends Component {
                 <div className="content">
                     {children}
                 </div>
+                {
+                    url && <div className="see-all">
+                        <Link to={url} >
+                            <a className="ButtonRedCenter">
+                                EXPLORE ALL   </a>
+                        </Link>
+                    </div >
+                }
+
+
 
             </section >
         )

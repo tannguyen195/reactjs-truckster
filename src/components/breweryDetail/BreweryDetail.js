@@ -176,7 +176,7 @@ class BreweryDetail extends Component {
                         }} >
                         <div className="content-detail">
                             <div className="detail-wrapper">
-                                <div className="DisplayWhiteLeft name ">  {breweryDetail.name}</div>
+                                <h1 className="DisplayWhiteLeft name ">  {breweryDetail.name}</h1>
                                 <div className="detail-rate">
                                     <div className="rate-number Body-1SemiBlackCenter">
                                         {breweryDetail.rating}

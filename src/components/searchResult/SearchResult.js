@@ -83,7 +83,7 @@ class SearchResult extends Component {
                         :
                         <div className="search-detail-container "   >
                             <div className="detail-header">
-                                <div className="name DisplayBlackLeft">Search results for "{`${params}`}"</div>
+                                <h1 className="name DisplayBlackLeft">Search results for "{`${params}`}"</h1>
                             </div>
 
                             <hr />

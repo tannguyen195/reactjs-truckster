@@ -25,7 +25,7 @@ class ArticleCard extends Component {
                         
                             <div className="content">
 
-                                <div className="title Display-2WhiteLeft">{data.title}</div>
+                                <h3 className="title Display-2WhiteLeft">{data.title}</h3>
 
                                 <div className="detail Body-1RegularWhiteLeft">{data.detail}</div>
                             </div>

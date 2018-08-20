@@ -70,9 +70,9 @@ class City extends Component {
             <div className="category">
                 <div className=" main-wrapper body-content">
                     
-                    <div className="body-title DisplayBlackLeft">
+                    <h1 className="body-title DisplayBlackLeft">
                         All cities
-                </div>
+                </h1>
                     <div className="divider"> </div>
                     <Row style={{ paddingTop: "30px" }} gutter={16}>
                         {this.renderCityCard(cities)}
