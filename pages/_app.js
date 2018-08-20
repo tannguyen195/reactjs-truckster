@@ -52,6 +52,7 @@ class MyApp extends App {
                 _reviewSummary
             }} />
             <Head>
+              <meta name="google-site-verification" content="W204RWXwNhuLH3zXanF_pqetzYMSwaH62yOO4evoSyw" />
               <script dangerouslySetInnerHTML={{
                 __html: `(function (w, d, s, l, i) {
           w[l] = w[l] || []; w[l].push({
