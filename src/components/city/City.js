@@ -48,7 +48,7 @@ class City extends Component {
                         isComing={item.isComing}
                         truckNum={item.truckNum}
                         image={item.image}
-                        name={item.name} /> : <Link to={`/co/${item.name.toLowerCase()}`}>
+                        name={item.name} /> : <Link to={`/food-truck/co/${item.name.toLowerCase()}`}>
                             <a>
                                 <CityCard
                                     isComing={item.isComing}

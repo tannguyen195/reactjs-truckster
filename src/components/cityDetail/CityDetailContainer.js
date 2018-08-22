@@ -129,8 +129,8 @@ class CityContainer extends Component {
 
                 <Head
                     url="https://gotruckster.com/"
-                    title={"Denver, Colorado - Go Truckster"}
-                    description={"Discover the lastest events and best food trucks in Denver"}
+                    title={"Denver Food Trucks Near Me – Locations, Schedules & Catering"}
+                    description={"Find the best food trucks in Denver, CO featuring gourmet street food. View food truck schedules, pairings, menus, reviews, discounts and catering information!"}
                     ogImage={"https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg"}
                 />
 

@@ -39,7 +39,7 @@ export default class InformationContainer extends Component {
                         <Head
                             url="https://gotruckster.com/"
                             title={title}
-                            description={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("<p>", 2), renderPage.content.rendered.indexOf(".</p>", 1) + 4)}
+                            description={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("<p>", 2) + 3, renderPage.content.rendered.indexOf(".</p>", 1))}
                             ogImage={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("https:"), renderPage.content.rendered.indexOf(".jpg") + 4)}
 
                         >
