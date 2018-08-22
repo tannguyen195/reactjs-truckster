@@ -11,7 +11,7 @@ class PaymentSuccess extends Component {
                 <style dangerouslySetInnerHTML={{ __html: _paymentSuccess }} />
                 <div className="success-content">
                     <Icon type="check-circle-o" style={{ color: "#28a745", fontSize: '50px' }} />
-                    <div className="order Display-2BlackCenter">Order Completed!</div>
+                    <div className="order Display-2BlackCenter">Order Submitted!</div>
                 </div>
             </div>
         )
