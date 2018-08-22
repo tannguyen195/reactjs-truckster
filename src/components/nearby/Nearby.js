@@ -68,7 +68,7 @@ const MarkerCustom = ({ info, icon, visible }) => {
                         {info.addressDisplay}
                     </div>
                     <div className="time CaptionGreyLeft">
-                        {moment(info.timeDisplay, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
+                        {moment(info.timeDisplay, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD")}   {moment(info.start_time, "YYYY-MM-DD hh:mm a").format("hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
                     </div>
                 </div>
             </div>
@@ -145,7 +145,7 @@ class Nearby extends Component {
                                     <img src={timeIcon} alt="icon" />
                                     {
                                         item.timeDisplay && item.end_time &&
-                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(item.end_time).format("hh:mm a")}`
+                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(item.start_time, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(item.end_time).format("hh:mm a")}`
                                     }
                                 </div>
 
@@ -536,7 +536,7 @@ class Nearby extends Component {
                         <div className="activity-info">
                             <div className="info-item Body-1RegularWhiteLeft">
                                 <img src={timeIcon} alt="icon" />
-                                {`${moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(data.end_time).format("hh:mm a")}`}
+                                {`${moment(data.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(data.start_time, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(data.end_time).format("hh:mm a")}`}
                             </div>
 
                             <div className="info-item Body-1RegularWhiteLeft">
