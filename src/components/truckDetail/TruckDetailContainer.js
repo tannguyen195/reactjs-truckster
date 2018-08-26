@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
 
-import { getTruckDetail, getSuggestTruck } from '../../api/truckApi'
+import { getTruckDetail } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
