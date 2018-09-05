@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Event from './Event'
 import { searchActivity } from '../../api/activityApi'
+import { mountActivity } from '../../actions/activityAction'
 import Head from '../head'
 
 import _event from './_event.less'
@@ -16,7 +17,8 @@ class EventContainer extends Component {
     }
 
     componentDidMount() {
-        const { searchActivity } = this.props
+        const { searchActivity, mountActivity } = this.props
+        mountActivity()
         searchActivity(true)
         searchActivity(false, 1)
     }
@@ -70,6 +72,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        mountActivity,
         searchActivity
     }, dispatch)
 }

@@ -25,7 +25,7 @@ export function searchActivityError(response) {
         });
     }
 }
-        
+
 // get activity detail
 export function requestGetActivityDetail(isLoadingGetActivityDetail) {
     return {
@@ -51,4 +51,11 @@ export function getActivityDetailError(response) {
         });
     }
 }
-        
+export function mountActivity() {
+    return (dispatch) => {
+        dispatch({
+            type: types.MOUNT_ACTIVITY,
+        });
+    }
+}
+

@@ -93,7 +93,7 @@ class Event extends Component {
                                         >
                                             <Row style={{ paddingTop: "30px" }} gutter={16}>
 
-                                                {this.renderEventCard(activities, 140)}
+                                                {this.renderEventCard(activities)}
 
                                             </Row>
                                         </InfiniteScroll>

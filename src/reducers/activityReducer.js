@@ -62,7 +62,7 @@ const activityReducer = (state = initial, action) => {
                     ...state,
                     isLoadingSearchActivity: false,
                     activitiesWeek: activitiesWeekState,
-                   
+
                 }
             }
             else {
@@ -137,6 +137,15 @@ const activityReducer = (state = initial, action) => {
                 status: action.response.status,
                 message: action.response.statusText || 'Something went wrong'
             };
+        case types.MOUNT_ACTIVITY:
+            return {
+                ...state,
+                activities: [],
+                activitiesWeek: [],
+                currentPage: null,
+                lastPage: null,
+            }
+
         default:
             return state;
     }

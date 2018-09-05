@@ -128,7 +128,8 @@ export const MOUNT_TRUCK = 'MOUNT_TRUCK';
 export const MOUNT_BREWERY = 'MOUNT_BREWERY';
 //Mount pairing
 export const MOUNT_PAIRING = 'MOUNT_PAIRING';
-
+//Mount activity
+export const MOUNT_ACTIVITY = 'MOUNT_ACTIVITY';
 // Get brewery detail action
 export const REQUEST_GET_PAIRING_DETAIL = 'REQUEST_GET_PAIRING_DETAIL';
 export const GET_PAIRING_DETAIL_SUCCESS = 'GET_PAIRING_DETAIL_SUCCESS';

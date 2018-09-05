@@ -1,5 +1,6 @@
 import NextHead from 'next/head'
 import { string } from 'prop-types'
+import { facebookAppID } from 'config.js'
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
@@ -18,7 +19,7 @@ const Head = (props) => {
       <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,500,700,800,900" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-      
+
       <meta property="og:url" content={props.url || defaultOGURL} />
       <meta property="og:title" content={props.title || ''} />
       <meta property="og:description" content={props.description || defaultDescription} />
@@ -27,7 +28,7 @@ const Head = (props) => {
       <meta property="og:image:height" content="630" />
       {props.children}
       <meta name="p:domain_verify" content="2897f8053dbcc8124a8b6e082a3e6a37" />
-
+      <meta property={`fb:${facebookAppID}`} content="APPID" />
 
     </NextHead>
   )
