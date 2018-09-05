@@ -7,17 +7,21 @@ const truckMarkerIcon = ('/static/images/truck-marker-icon.png')
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
 const breweryMarkerIcon = ('/static/images/brewery-marker-icon.png')
 const pairingMarkerIcon = ('/static/images/pairing-marker-icon.png')
-const Content = ({ info }) => (
-    <div>
-        <div className="address Body-1RegularBlackLeft">
-            {info.address || info.name}
-        </div>
-        <div className="time CaptionGreyLeft">
-            {moment(info.timeDisplay, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
-        </div>
+const Content = ({ info }) => {
+    return (
 
-    </div>
-);
+        <div>
+            <div className="address Body-1RegularBlackLeft">
+                {info.address || info.name}
+            </div>
+            {
+                info.timeDisplay && <div className="time CaptionGreyLeft">
+                    {moment(info.timeDisplay, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD h:mm a")} - {moment(info.end_time).format("h:mm a")}
+                </div>
+            }
+        </div>
+    );
+}
 
 const AnyReactComponent = ({ info, icon }) => (
     <Popover className="marker-container" content={<Content info={info} />} title={info.location_name || info.name}>
@@ -72,6 +76,7 @@ class Map extends Component {
             })
         }
     }
+
     componentWillReceiveProps(nextProps) {
         const { location } = nextProps
         if (location.length > 0 && location[0])
@@ -94,7 +99,7 @@ class Map extends Component {
                     bootstrapURLKeys={{ key: "AIzaSyAUYKV7F7rccvP7Pf67Jh_R6s1Unp2v82A" }}
                     center={center}
                     defaultZoom={zoom}
-                    
+
                     defaultOptions={{
                         styles: [
                             {

@@ -77,16 +77,16 @@ class TruckDetailContainer extends Component {
                     key: index,
                     icon: icon,
                 })
-                if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a") > moment())
+                if (moment(item.timeDisplay, "YYYY-MM-DD h:mm a") > moment())
                     locations.push(item)
             })
 
             //Sort upcoming schedule
             locations.sort((a, b) => {
 
-                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                     return -1
-                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                     return 1
                 return 0
             })
@@ -135,16 +135,16 @@ class TruckDetailContainer extends Component {
                     key: index,
                     icon: icon,
                 })
-                if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a") > moment())
+                if (moment(item.timeDisplay, "YYYY-MM-DD h:mm a") > moment())
                     locations.push(item)
             })
 
             //Sort upcoming schedule
             locations.sort((a, b) => {
 
-                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                     return -1
-                if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                     return 1
                 return 0
             })
@@ -318,7 +318,7 @@ class TruckDetailContainer extends Component {
         })
     }
     handleClickEvent(e) {
-        if (moment(e.timeDisplay, "YYYY-MM-DD hh:mm a") > moment()) {
+        if (moment(e.timeDisplay, "YYYY-MM-DD h:mm a") > moment()) {
             let icon = ""
             if (e && e.brewery === null) {
                 icon = "truck"

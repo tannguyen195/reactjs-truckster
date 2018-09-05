@@ -17,9 +17,9 @@ class PairingDetail extends Component {
                 {
                     e === 0 ?
                         <div className="time CaptionGreyLeft">
-                            From {moment(startTime).format('MM-DD-YYYY')} - {moment(startTime).format('hh:mm a')}
+                            From {moment(startTime).format('MM-DD-YYYY')} - {moment(startTime).format('h:mm a')}
                         </div> :
-                        <div className="time CaptionGreyLeft">To {moment(endTime).format('MM-DD-YYYY')} - {moment(endTime).format('hh:mm a')}</div>
+                        <div className="time CaptionGreyLeft">To {moment(endTime).format('MM-DD-YYYY')} - {moment(endTime).format('h:mm a')}</div>
                 }
 
 

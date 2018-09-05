@@ -35,7 +35,7 @@ const activityReducer = (state = initial, action) => {
 
                     for (let i = 0; i < events.length; ++i) {
 
-                        if (moment(events[i], "YYYY-MM-DD hh:mm a").unix() > moment().unix()) {
+                        if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
 
                             timeTemp = events[i];
 
@@ -50,9 +50,9 @@ const activityReducer = (state = initial, action) => {
 
                     activitiesWeekState.sort((a, b) => {
 
-                        if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                             return -1
-                        if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                             return 1
                         return 0
                     })
@@ -74,7 +74,7 @@ const activityReducer = (state = initial, action) => {
 
                     for (let i = 0; i < events.length; ++i) {
 
-                        if (moment(events[i], "YYYY-MM-DD hh:mm a").unix() > moment().unix()) {
+                        if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
 
                             timeTemp = events[i];
 
@@ -89,9 +89,9 @@ const activityReducer = (state = initial, action) => {
 
                     activitiesWeekState.sort((a, b) => {
 
-                        if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                             return -1
-                        if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                             return 1
                         return 0
                     })

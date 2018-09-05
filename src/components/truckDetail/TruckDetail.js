@@ -59,11 +59,11 @@ class TruckDetail extends Component {
                                             return <Menu.Item key={item.index}>
                                                 <div className='schedule-item'>
                                                     <div className="weekday CaptionGreyLeft">
-                                                        {moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("dddd, MMM DD, YYYY")}
+                                                        {moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("dddd, MMM DD, YYYY")}
                                                     </div>
                                                     <div className="time CaptionBlackLeft">
-                                                        {moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")} -
-                                             {moment(item.end_time).format("hh:mm a")}</div>
+                                                        {moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("h:mm a")} -
+                                             {moment(item.end_time).format("h:mm a")}</div>
                                                 </div>
                                             </Menu.Item>
                                         })

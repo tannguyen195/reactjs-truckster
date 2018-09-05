@@ -35,7 +35,7 @@ class PairingCard extends Component {
     isThisWeek(data) {
         let schedules = []
         getSchedule(data).forEach(item => {
-            if (moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").isSame(new Date(), "week"))
+            if (moment(item.timeDisplay, "YYYY-MM-DD h:mm a").isSame(new Date(), "week"))
                 schedules.push(item)
         })
 
@@ -46,9 +46,9 @@ class PairingCard extends Component {
     }
     renderPairingWeek(pairingsWeek) {
         pairingsWeek.sort((a, b) => {
-            if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+            if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                 return -1
-            if (moment(a.timeDisplay, "YYYY-MM-DD hh:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD hh:mm a").unix())
+            if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                 return 1
             return 0
         })
@@ -75,7 +75,7 @@ class PairingCard extends Component {
                                     <img src={timeIcon} alt="icon" />
                                     {
                                         item.timeDisplay && item.end_time &&
-                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(item.end_time).format("hh:mm a")}`
+                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("MMM DD")}, ${moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("h:mm a")} - ${moment(item.end_time).format("h:mm a")}`
                                     }
                                 </div>
 
@@ -105,7 +105,7 @@ class PairingCard extends Component {
                                     <img src={timeIcon} alt="icon" />
                                     {
                                         item.timeDisplay && item.end_time &&
-                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("MMM DD")}, ${moment(item.timeDisplay, "YYYY-MM-DD hh:mm a").format("hh:mm a")} - ${moment(item.end_time).format("hh:mm a")}`
+                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("MMM DD")}, ${moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("h:mm a")} - ${moment(item.end_time).format("h:mm a")}`
                                     }
                                 </div>
 

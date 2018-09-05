@@ -47,13 +47,13 @@ class NearbyContainer extends Component {
                     let events = getEventTime(nextProps.nearby[i])
                     for (let i = 0; i < events.length; ++i) {
 
-                        if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[i], "YYYY-MM-DD hh:mm a").unix() > moment().unix()) {
-                            tempTime = moment(events[i], "YYYY-MM-DD hh:mm:a").format("YYYY-MM-DD") + " " + moment(nextProps.nearby[i].end_time, "YYYY-MM-DD hh:mm:a").format("hh:mm a")
+                        if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
+                            tempTime = moment(events[i], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD") + " " + moment(nextProps.nearby[i].end_time, "YYYY-MM-DD h:mm a").format("h:mm a")
                             break;
                         }
                     }
 
-                    if (moment(tempTime, "YYYY-MM-DD hh:mm:a").isBefore(moment().add(1, 'days'))) {
+                    if (moment(tempTime, "YYYY-MM-DD h:mm a").isBefore(moment().add(1, 'days'))) {
                         //Check if item is brewery
                         if (nextProps.nearby[i].brewery &&
                             !nextProps.nearby[i].food_truck) {

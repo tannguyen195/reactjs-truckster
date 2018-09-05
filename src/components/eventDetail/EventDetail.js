@@ -31,7 +31,7 @@ class EventDetail extends Component {
         let events = getEventTime(event)
 
         for (var i = 0; i < events.length; ++i) {
-            if (moment(events[i], "YYYY-MM-DD hh:mm a") > moment()) {
+            if (moment(events[i], "YYYY-MM-DD h:mm a") > moment()) {
                 time = events[i];
                 break;
             }
@@ -69,7 +69,7 @@ class EventDetail extends Component {
                     <div className="event-info">
                         <img alt="location" src={timeIcon} />
                         <div className="Body-2GreyLeft">
-                            {moment(time, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(event.end_time).format(" hh:mm:a")}
+                            {moment(time, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD h:mm a")} - {moment(event.end_time).format(" h:mm a")}
                         </div>
                     </div>
                     <div className="event-intro">
@@ -121,7 +121,7 @@ class EventDetail extends Component {
         let events = getEventTime(activity)
 
         for (var i = 0; i < events.length; ++i) {
-            if (moment(events[i], "YYYY-MM-DD hh:mm a") > moment()) {
+            if (moment(events[i], "YYYY-MM-DD h:mm a") > moment()) {
                 time = events[i];
                 break;
             }

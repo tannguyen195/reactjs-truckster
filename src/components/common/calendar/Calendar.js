@@ -13,7 +13,7 @@ const Content = ({ info }) => (
             {info.address || info.name}
         </div>
         <div className="time CaptionGreyLeft">
-            {moment(info.timeDisplay, "YYYY-MM-DD hh:mm a").format("ddd, MMMM DD hh:mm:a")} - {moment(info.end_time).format("hh:mm:a")}
+            {moment(info.timeDisplay, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD h:mm a")} - {moment(info.end_time).format("h:mm a")}
         </div>
 
     </div>
@@ -61,7 +61,7 @@ class Calendar extends Component {
                 :
                 event.event.location_name}>
             <div style={{
-                opacity: moment(event.event.timeDisplay, "YYYY-MM-DD hh:mm a") > moment() ? 1 : 0.5
+                opacity: moment(event.event.timeDisplay, "YYYY-MM-DD h:mm a") > moment() ? 1 : 0.5
             }} className="event-schedule-icon">
 
                 <img alt="icon" style={{

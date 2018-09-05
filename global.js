@@ -29,9 +29,9 @@ export function getSchedule(data) {
 
                     schudeles.push({
                         ...calendarItem,
-                        timeDisplay: tempDate.format("YYYY-MM-DD hh:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD hh:mm a")), "YYYY-MM-DD hh:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("hh:mm a")), "YYYY-MM-DD hh:mm a").toDate()
+                        timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
+                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 
@@ -48,9 +48,9 @@ export function getSchedule(data) {
 
                     schudeles.push({
                         ...calendarItem,
-                        timeDisplay: tempDate.format("YYYY-MM-DD hh:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD hh:mm a")), "YYYY-MM-DD hh:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("hh:mm a")), "YYYY-MM-DD hh:mm a").toDate()
+                        timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
+                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 
@@ -64,9 +64,9 @@ export function getSchedule(data) {
 
                     schudeles.push({
                         ...calendarItem,
-                        timeDisplay: tempDate.format("YYYY-MM-DD hh:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD hh:mm a")), "YYYY-MM-DD hh:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("hh:mm a")), "YYYY-MM-DD hh:mm a").toDate()
+                        timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
+                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 
@@ -97,7 +97,7 @@ export function getEventTime(data) {
             for (let i = 0; i < repeated; ++i) {
                 let tempDate = moment(data.start_time).add(i * interval, 'day')
                 schudeles.push(
-                    tempDate.format("YYYY-MM-DD hh:mm a"))
+                    tempDate.format("YYYY-MM-DD h:mm a"))
             }
 
             break;
@@ -111,7 +111,7 @@ export function getEventTime(data) {
                 let tempDate = moment(data.start_time).add(i * interval, 'w')
 
                 schudeles.push(
-                    tempDate.format("YYYY-MM-DD hh:mm a"))
+                    tempDate.format("YYYY-MM-DD h:mm a"))
             }
 
             break;
@@ -124,7 +124,7 @@ export function getEventTime(data) {
             for (let j = 0; j < repeated; ++j) {
                 let tempDate = moment(data.start_time).add(j * interval, 'M')
 
-                schudeles.push(tempDate.format("YYYY-MM-DD hh:mm a"))
+                schudeles.push(tempDate.format("YYYY-MM-DD h:mm a"))
             }
             break;
         }

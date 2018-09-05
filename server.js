@@ -25,7 +25,6 @@ app.prepare().then(() => {
     }
   };
   server.get('/sitemap.xml', (req, res) => {
-    console.log("res", res)
     return (
       res.status(200).sendFile('sitemap.xml', options)
     )
