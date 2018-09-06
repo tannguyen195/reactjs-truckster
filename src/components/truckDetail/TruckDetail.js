@@ -62,7 +62,7 @@ class TruckDetail extends Component {
                                                         {moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("dddd, MMM DD, YYYY")}
                                                     </div>
                                                     <div className="time CaptionBlackLeft">
-                                                        {moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("h:mm a")} -
+                                                        {moment(item.start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} -
                                              {moment(item.end_time).format("h:mm a")}</div>
                                                 </div>
                                             </Menu.Item>

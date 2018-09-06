@@ -13,8 +13,8 @@ export function getSchedule(data) {
             case "ONCE": {
                 schudeles.push({
                     ...calendarItem,
-                    timeDisplay: calendarItem.start_time,
-                    start: moment(calendarItem.start_time).toDate(),
+                    timeDisplay: calendarItem.end_time,
+                    start: moment(calendarItem.end_time).toDate(),
                     end: moment(calendarItem.end_time).toDate()
                 })
                 break;
@@ -25,7 +25,7 @@ export function getSchedule(data) {
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 100
 
                 for (let i = 0; i < repeated; ++i) {
-                    let tempDate = moment(calendarItem.start_time).add(i * interval, 'day')
+                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'day')
 
                     schudeles.push({
                         ...calendarItem,
@@ -44,7 +44,7 @@ export function getSchedule(data) {
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 100
 
                 for (let i = 0; i < repeated; ++i) {
-                    let tempDate = moment(calendarItem.start_time).add(i * interval, 'w')
+                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'w')
 
                     schudeles.push({
                         ...calendarItem,
@@ -60,7 +60,7 @@ export function getSchedule(data) {
                 let interval = calendarItem.interval ? calendarItem.interval : 1
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 2000
                 for (let j = 0; j < repeated; ++j) {
-                    let tempDate = moment(calendarItem.start_time).add(j * interval, 'M')
+                    let tempDate = moment(calendarItem.end_time).add(j * interval, 'M')
 
                     schudeles.push({
                         ...calendarItem,
@@ -85,7 +85,7 @@ export function getEventTime(data) {
     switch (data.frequency.name) {
         case "ONCE": {
             schudeles.push(
-                data.start_time,
+                data.end_time,
             )
             break;
         }
@@ -95,7 +95,7 @@ export function getEventTime(data) {
             //Get day of pairing of the week
 
             for (let i = 0; i < repeated; ++i) {
-                let tempDate = moment(data.start_time).add(i * interval, 'day')
+                let tempDate = moment(data.end_time).add(i * interval, 'day')
                 schudeles.push(
                     tempDate.format("YYYY-MM-DD h:mm a"))
             }
@@ -108,7 +108,7 @@ export function getEventTime(data) {
             //Get day of pairing of the week
 
             for (var i = 0; i < repeated; ++i) {
-                let tempDate = moment(data.start_time).add(i * interval, 'w')
+                let tempDate = moment(data.end_time).add(i * interval, 'w')
 
                 schudeles.push(
                     tempDate.format("YYYY-MM-DD h:mm a"))
@@ -122,7 +122,7 @@ export function getEventTime(data) {
             let repeated = data.times_repeated ? data.times_repeated : 100
 
             for (let j = 0; j < repeated; ++j) {
-                let tempDate = moment(data.start_time).add(j * interval, 'M')
+                let tempDate = moment(data.end_time).add(j * interval, 'M')
 
                 schudeles.push(tempDate.format("YYYY-MM-DD h:mm a"))
             }

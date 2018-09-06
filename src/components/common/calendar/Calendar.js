@@ -13,7 +13,7 @@ const Content = ({ info }) => (
             {info.address || info.name}
         </div>
         <div className="time CaptionGreyLeft">
-            {moment(info.timeDisplay, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD h:mm a")} - {moment(info.end_time).format("h:mm a")}
+            {moment(info.timeDisplay, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD")} {moment(info.start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} - {moment(info.end_time).format("h:mm a")}
         </div>
 
     </div>

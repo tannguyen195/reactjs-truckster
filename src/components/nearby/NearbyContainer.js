@@ -48,7 +48,7 @@ class NearbyContainer extends Component {
                     for (let i = 0; i < events.length; ++i) {
 
                         if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-                            tempTime = moment(events[i], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD") + " " + moment(nextProps.nearby[i].end_time, "YYYY-MM-DD h:mm a").format("h:mm a")
+                            tempTime = moment(events[i], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD")
                             break;
                         }
                     }

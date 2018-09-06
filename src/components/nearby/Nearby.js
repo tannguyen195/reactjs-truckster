@@ -79,7 +79,6 @@ const MarkerCustom = ({ info, icon, visible }) => {
 const listFilterItem = ["Food truck", "Event", "Pairing"]
 
 const filterItem = (title, key, onChange, isLoadingGetNearby) => {
-
     return <div key={key} className="filter-item">
         <div className="Body-1SemiBlackLeft"> <img alt="marker"
             src={key === 0 ?
