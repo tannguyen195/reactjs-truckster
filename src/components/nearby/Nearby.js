@@ -620,7 +620,7 @@ class Nearby extends Component {
                     <div className="nearby-events-list-mobile" >
                         {
                             nearbyList && nearbyList.length === 0 ?
-                                <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 24 hours was found near your chosen location</div>
+                                <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 15 hours was found near your chosen location</div>
                                 :
                                 this.renderEventCard(tempNearbyState)
                         }
@@ -664,7 +664,7 @@ class Nearby extends Component {
                     <div style={{ paddingTop: "30px" }} >
                         {
                             nearbyList && nearbyList.length === 0 ?
-                                <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 24 hours was found near your chosen location</div>
+                                <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 15 hours was found near your chosen location</div>
                                 :
 
 

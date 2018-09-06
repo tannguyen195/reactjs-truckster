@@ -47,12 +47,12 @@ class NearbyContainer extends Component {
 
                     for (let j = 0; j < events.length - 1; ++j) {
                         if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[j], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-                            tempTime = moment(events[j], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD")
+                            tempTime = moment(events[j], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD h:mm a")
                             break;
                         }
                     }
 
-                    if (moment(tempTime, "YYYY-MM-DD h:mm a").isBefore(moment().add(1, 'days'))) {
+                    if (moment(tempTime, "YYYY-MM-DD h:mm a").isBefore(moment().add(15, 'hours'))) {
                         //Check if item is brewery
                         if (nextProps.nearby[i].brewery &&
                             !nextProps.nearby[i].food_truck) {
@@ -119,9 +119,9 @@ class NearbyContainer extends Component {
                         // nearby.push({ ...nextProps.nearby[i], ...tempItem })
                         nearbyList.push({ ...nextProps.nearby[i], ...tempItem, timeDisplay: tempTime })
 
-                        if (!keys.includes(nextProps.nearby[i].latitude)) {
+                        if (!keys.includes(nextProps.nearby[i].latitude + tempTime)) {
                             nearby.push({ ...nextProps.nearby[i], ...tempItem, timeDisplay: tempTime })
-                            keys.push(nextProps.nearby[i].latitude)
+                            keys.push(nextProps.nearby[i].latitude + tempTime)
                         }
                     }
                 }
@@ -340,7 +340,6 @@ class NearbyContainer extends Component {
         })
     }
     render() {
-
         return (
             <div>
                 <style dangerouslySetInnerHTML={{ __html: _nearby }} />
