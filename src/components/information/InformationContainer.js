@@ -10,16 +10,15 @@ export default class InformationContainer extends Component {
         let infoPage = null, renderPage = null, title = "The Official Truckster Blog - Fun, Food & Drinks"
 
         infoPage = (await getPageData())
-        renderPage = CircularJSON.parse(infoPage).data[0]
+        renderPage = CircularJSON.parse(infoPage).data
 
         if (query.slug) {
             CircularJSON.parse(infoPage).data.forEach(element => {
                 if (element.slug == query.slug) {
-                    renderPage = element
+                    renderPage = [element]
                     title = element.title.rendered + ' - Truckter'
                 }
             });
-
         }
         return {
             infoPage, renderPage, query, title
@@ -39,8 +38,8 @@ export default class InformationContainer extends Component {
                         <Head
                             url="https://gotruckster.com/"
                             title={title}
-                            description={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("<p>", 2) + 3, renderPage.content.rendered.indexOf(".</p>", 1))}
-                            ogImage={renderPage.content.rendered.slice(renderPage.content.rendered.indexOf("https:"), renderPage.content.rendered.indexOf(".jpg") + 4)}
+                            description={renderPage[0].content.rendered.slice(renderPage[0].content.rendered.indexOf("<p>", 2) + 3, renderPage[0].content.rendered.indexOf(".</p>", 1))}
+                            ogImage={renderPage[0].content.rendered.slice(renderPage[0].content.rendered.indexOf("https:"), renderPage[0].content.rendered.indexOf(".jpg") + 4)}
 
                         >
                             <meta property="og:locale" content="en_US" />

@@ -3,7 +3,7 @@ import { Button, Col, Row } from 'antd'
 import Slider from "react-slick";
 import _aboutTruckster from './_aboutTruckster.less'
 import Head from '../head'
-import { Link } from 'routes'
+import { Link, Router } from 'routes'
 const aboutTrucksterImage = ("/static/images/truckster-image-about.jpg")
 const landingImage1 = ("/static/images/video-1.png")
 const landingImage2 = ("/static/images/video-2.png")
@@ -137,12 +137,14 @@ Everything Food Trucks`}
                             <div className="explore-breweries">Explore breweries, upcoming events, menus, and your favorite brewery & food truck pairings</div>
                             <div className="button-explore">
 
-                                <Button type="primary">
-                                    <Link to="/food-truck/co/denver">
-                                        <a className="ButtonWhiteCenter">
-                                            GO EXPLORE
+                                <Button onClick={() => {
+                                    Router.push("/food-truck/co/denver")
+                                }} type="primary">
+
+                                    <a className="ButtonWhiteCenter">
+                                        GO EXPLORE
                                 </a>
-                                    </Link>
+
                                 </Button>
 
                             </div>
