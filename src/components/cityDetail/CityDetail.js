@@ -264,7 +264,7 @@ class CityDetail extends Component {
         } = this.props
 
         return (
-            <div className="home main-wrapper">
+            <div className="home main-wrapper ">
 
                 {/* main header  */}
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
@@ -344,7 +344,7 @@ class CityDetail extends Component {
                 </div>
 
                 {/* home body  */}
-                <div style={{ padding: 0 }} className="body-content">
+                <div style={{ paddingTop: 0 }} className="body-content media">
                     <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
@@ -475,7 +475,7 @@ class CityDetail extends Component {
 
                 {/* article section */}
 
-                <section className="article-section">
+                <section className="article-section media">
                     <div className="article-section-container">
                         <Row gutter={30}>
                             <Col md={8} lg={8}>

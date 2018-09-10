@@ -5,6 +5,7 @@ import { Link } from "routes"
 
 export default class Information extends Component {
     renderBlog(renderPage) {
+        const { query } = this.props
         return renderPage.map((item, index) => {
             return <div>
                 <Link to={"/info/" + item.slug}>
@@ -12,15 +13,26 @@ export default class Information extends Component {
                         <h2 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                     </a>
                 </Link>
+                {
+                    query && query.slug ?
+                        <div dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
+                        : <div>
+                            <div dangerouslySetInnerHTML={{ __html: item.content.rendered.slice(0, item.content.rendered.indexOf(".</p>", 1)) }} />
+                            <Link to={"/info/" + item.slug}>
+                                <a> Continue reading</a>
+                            </Link>
+                        </div>
 
-                <div dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
+                }
+
             </div>
         })
     }
     render() {
         const { parsedInfoPage, renderPage } = this.props
+        console.log("this,props", this.props)
         return (
-            <article className="info-wrapper">
+            <article className="info-wrapper media">
                 <div className="Body-1SemiBlackLeft"> POST</div>
                 <Row gutter={64} type="flex" align="top">
                     <Col lg={16} >

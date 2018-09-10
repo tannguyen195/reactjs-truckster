@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Footer from './Footer'
+import DownloadApp from './DownloadApp'
+import { isMobile } from 'react-device-detect';
 import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
@@ -10,8 +12,16 @@ import _footer from './_footer.less'
 class FooterContainer extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            isDownloadVisible: true
+        }
 
+    }
+
+    onDownloadVisible() {
+        this.setState({
+            isDownloadVisible: false
+        })
     }
     render() {
         const { router } = this.props
@@ -24,13 +34,19 @@ class FooterContainer extends Component {
                 || router.pathname.includes("/user")
                 || router.pathname.includes("/success")
                 || router.pathname.includes("/activities") ?
-                <div />
+                <div >
+
+                </div>
                 :
                 <div>
                     <style dangerouslySetInnerHTML={{ __html: _footer }} />
                     <Footer {...this.state} {...this.props} >
 
                     </Footer>
+                    {
+                        isMobile && this.state.isDownloadVisible && <DownloadApp onDownloadVisible={() => this.onDownloadVisible()} />
+                    }
+
                 </div>
 
         )

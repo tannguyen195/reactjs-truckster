@@ -8,9 +8,13 @@
 @warm-grey: #757575;
 @black: #212121;
 @orangish: #fa7339;
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     margin: 0
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -24,6 +28,13 @@ body {
     background: #fafafa;
     width: 100%;
     padding-top: 68px;
+}
+
+.media {
+    @media only screen and (max-width: 768px) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
 }
 
 .body-content {

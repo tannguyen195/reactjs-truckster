@@ -44,7 +44,7 @@ export default class InformationContainer extends Component {
                         >
                             <meta property="og:locale" content="en_US" />
                             <meta property="og:type" content="article" /></Head>
-                        <Information parsedInfoPage={CircularJSON.parse(infoPage)} renderPage={renderPage} />
+                        <Information {...this.props} parsedInfoPage={CircularJSON.parse(infoPage)} renderPage={renderPage} />
                     </div>
                 }
             </div>
