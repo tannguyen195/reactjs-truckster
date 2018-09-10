@@ -36,7 +36,12 @@ class DownloadApp extends Component {
                 </div>
                 <div className="get-app-button">
                     <Button type="primary">
-                        <a className="" href="gotrucksterconsumer://app">
+                        <a onClick={
+                            () => {
+                                setTimeout(function () { window.location = "https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8" }, 25);
+                                window.location = "gotrucksterconsumer://app";
+                            }
+                        } >
                             GET APP
                         </a></Button>
                 </div>
