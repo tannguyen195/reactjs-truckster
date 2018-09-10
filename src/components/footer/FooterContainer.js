@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Footer from './Footer'
 import DownloadApp from './DownloadApp'
-import { isMobile } from 'react-device-detect';
+import { isMobile, isAndroid, isIOS } from 'react-device-detect';
 import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
@@ -44,7 +44,11 @@ class FooterContainer extends Component {
 
                     </Footer>
                     {
-                        isMobile && this.state.isDownloadVisible && <DownloadApp onDownloadVisible={() => this.onDownloadVisible()} />
+                        isMobile && this.state.isDownloadVisible &&
+                        <DownloadApp
+                            isIOS={isIOS}
+                            isAndroid={isAndroid}
+                            onDownloadVisible={() => this.onDownloadVisible()} />
                     }
 
                 </div>
