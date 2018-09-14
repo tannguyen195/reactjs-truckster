@@ -10,7 +10,7 @@ export default class Information extends Component {
             return <div>
                 <Link to={"/info/" + item.slug}>
                     <a>
-                        <h2 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+                        <h1 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                     </a>
                 </Link>
                 {

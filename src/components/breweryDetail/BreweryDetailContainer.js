@@ -93,7 +93,7 @@ class BreweryDetailContainer extends Component {
                             }} />
                             <Head
                                 url="https://gotruckster.com/"
-                                title={breweryDetail.name + " - Brewery Denver, CO - Go Truckster"}
+                                title={breweryDetail.name + " - Brewery Denver, CO - Truckster"}
                                 description={breweryDetail.company_description}
                                 ogImage={breweryDetail.cover_photo[0].url}
                             />

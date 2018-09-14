@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'routes'
-import { Icon } from 'antd'
+import { Button } from 'antd'
 class Section extends Component {
     constructor(props) {
         super(props);
@@ -33,7 +33,10 @@ class Section extends Component {
                     url && <div className="see-all">
                         <Link to={url} >
                             <a className="ButtonRedCenter">
-                                EXPLORE ALL   </a>
+                                <Button className="ButtonWhiteCenter" type="primary">
+                                    SEE ALL
+                                </Button>
+                            </a>
                         </Link>
                     </div >
                 }

@@ -364,7 +364,7 @@ class TruckDetailContainer extends Component {
                         }} />
                         <Head
                             url="https://gotruckster.com/"
-                            title={truckDetail.name + " - Food Truck Denver, CO - Go Truckster"}
+                            title={truckDetail.name + " - Food Truck Denver, CO - Truckster"}
                             description={truckDetail.company_description}
                             ogImage={truckDetail.cover_photo[0].url}
                         />

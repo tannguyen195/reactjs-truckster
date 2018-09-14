@@ -61,7 +61,7 @@ class EventDetailContainer extends Component {
                             }} />
                             <Head
                                 url="https://gotruckster.com/"
-                                title={activity.name + " - Event in Denver, CO - Go Truckster"}
+                                title={activity.name + " - Event in Denver, CO - Truckster"}
                                 description={activity.information}
                                 ogImage={activity.pictures[0].url}
                             />
