@@ -17,7 +17,7 @@ module.exports = routes()
     .add('pairing', '/pairing/:state/:city')
 
     .add('events', '/event/:state/:city')
-    .add('event', '/event/:name--:id')
+    .add('event', '/event/:slug')
 
     .add('cuisines', '/cuisine')
     .add('cuisine', '/cuisine/:value')

@@ -20,8 +20,8 @@ class EventDetailContainer extends Component {
     static async getInitialProps({ reduxStore, req, query }) {
 
         return {
-            activity: await getDataInitial(`consumer/v1/activities/${query.id}`),
-            id: query.id
+            activity: await getDataInitial(`consumer/v1/activities/slug/${query.slug}`),
+            slug: query.slug
         }
     }
 
