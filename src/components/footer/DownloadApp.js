@@ -15,7 +15,7 @@ class DownloadApp extends Component {
 
     render() {
 
-        const { onDownloadVisible, isAndroid, isIOS } = this.props
+        const { isAndroid, isIOS, paramsDeepLink, toggleDeepLink } = this.props
         let url = "gotrucksterconsumer://app"
         if (isAndroid)
             url = "https://play.google.com/store/apps/details?id=com.truckster"
@@ -24,7 +24,7 @@ class DownloadApp extends Component {
         return (
             <div className="download-app">
                 <div className="download-left">
-                    <div onClick={onDownloadVisible} className="close-icon">
+                    <div onClick={toggleDeepLink} className="close-icon">
                         <img src={closeIcon} alt="close" />
                     </div>
 

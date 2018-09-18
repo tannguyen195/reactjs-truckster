@@ -7,6 +7,9 @@ import { isMobile, isAndroid, isIOS } from 'react-device-detect';
 import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
+import {
+    toggleDeepLink
+} from '../../actions/deepLinkAction'
 import { withRouter } from "next/router"
 import _footer from './_footer.less'
 class FooterContainer extends Component {
@@ -18,13 +21,9 @@ class FooterContainer extends Component {
 
     }
 
-    onDownloadVisible() {
-        this.setState({
-            isDownloadVisible: false
-        })
-    }
+
     render() {
-        const { router } = this.props
+        const { router, toggleDeepLink, paramsDeepLink } = this.props
 
         return (
             router.pathname.includes("/event")
@@ -46,9 +45,11 @@ class FooterContainer extends Component {
                     {
                         isMobile && this.state.isDownloadVisible &&
                         <DownloadApp
+                            paramsDeepLink={paramsDeepLink}
+                            toggleDeepLink={toggleDeepLink}
                             isIOS={isIOS}
                             isAndroid={isAndroid}
-                            onDownloadVisible={() => this.onDownloadVisible()} />
+                        />
                     }
 
                 </div>
@@ -58,12 +59,14 @@ class FooterContainer extends Component {
 }
 export function mapStateToProps(state) {
     return {
-
+        visibleDeepLink: state.deepLinkReducer.visibleDeepLink,
+        paramsDeepLink: state.deepLinkReducer.params,
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        toggleAnnounceModal
+        toggleAnnounceModal,
+        toggleDeepLink
     }, dispatch)
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterContainer));
