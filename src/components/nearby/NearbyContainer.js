@@ -6,6 +6,7 @@ import { getNearby } from '../../api/nearbyApi'
 import { mountNearby } from '../../actions/nearbyAction'
 import { getEventTime } from 'global'
 import moment from 'moment'
+import { changeRoute } from '../../actions/deepLinkAction'
 import Head from '../head'
 import _nearby from './_nearby.less'
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
@@ -44,10 +45,10 @@ class NearbyContainer extends Component {
                     let tempItem = {}
                     let tempTime = ""
                     let events = getEventTime(nextProps.nearby[i])
-             
+
                     for (let j = 0; j < events.length; ++j) {
                         if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[j], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-                          
+
                             tempTime = moment(events[j], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD h:mm a")
                             break;
                         }
@@ -181,6 +182,10 @@ class NearbyContainer extends Component {
     }
 
     componentDidMount() {
+        const { changeRoute } = this.props
+        changeRoute(
+            `gotrucksterconsumer://app/nearby`
+        )
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(((e) => {
 
@@ -381,6 +386,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        changeRoute,
         mountNearby,
         getNearby
     }, dispatch)
