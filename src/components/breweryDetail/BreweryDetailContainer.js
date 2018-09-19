@@ -26,7 +26,7 @@ class BreweryDetailContainer extends Component {
         }
     }
     componentDidMount() {
-        const { breweryDetail, changeRoute }
+        const { breweryDetail, changeRoute } = this.props
         if (breweryDetail)
             changeRoute(
                 `gotrucksterconsumer://app/brewery/${breweryDetail.id}`
