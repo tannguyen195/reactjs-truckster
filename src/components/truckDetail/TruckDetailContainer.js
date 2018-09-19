@@ -124,7 +124,7 @@ class TruckDetailContainer extends Component {
         if (truckDetail) {
             // change deep link route
             this.props.changeRoute(
-                `gotrucksterconsumer://app/food-truck/${this.props.truckDetail.id}`
+                `gotrucksterconsumer://app/truck/${truckDetail.id}`
             )
             // Set location
             let locations = [], icon = "", events = []
