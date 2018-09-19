@@ -8,7 +8,6 @@ class EventCard extends Component {
     render() {
 
         const { data, imageWidth, carousel } = this.props
-        console.log("darat", data)
         return (
             <Link to={"/event/" + data.slug}>
                 <a>

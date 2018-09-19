@@ -40,9 +40,15 @@ class DownloadApp extends Component {
                 </div>
                 <div className="get-app-button">
                     <Button type="primary">
-                        <a href={url}>
-                            GET APP
-                        </a></Button>
+                        {
+                            paramsDeepLink ? <a href={paramsDeepLink}>
+                                OPEN IN APP
+</a> :
+                                <a href={url}>
+                                    GET APP
+                        </a>
+                        }
+                    </Button>
                 </div>
 
             </div>

@@ -11,7 +11,7 @@ const deepLinkReducer = (state = initial, action) => {
         case types.CHANGE_ROUTE:
             return {
                 ...state,
-                params
+                params: action.params
             }
         case types.TOGGLE_DEEP_LINK:
             return {

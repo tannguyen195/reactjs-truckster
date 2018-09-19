@@ -13,17 +13,17 @@ import {
 import { withRouter } from "next/router"
 import _footer from './_footer.less'
 class FooterContainer extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
             isDownloadVisible: true
         }
-
     }
 
 
     render() {
-        const { router, toggleDeepLink, paramsDeepLink } = this.props
+        const { router, toggleDeepLink, paramsDeepLink, visibleDeepLink } = this.props
 
         return (
             router.pathname.includes("/event")
@@ -44,7 +44,7 @@ class FooterContainer extends Component {
                     </Footer>
                     <button onClick={toggleDeepLink}>test</button>
                     {
-                        isMobile && toggleDeepLink &&
+                       visibleDeepLink &&
                         <DownloadApp
                             paramsDeepLink={paramsDeepLink}
                             toggleDeepLink={toggleDeepLink}
@@ -59,6 +59,7 @@ class FooterContainer extends Component {
     }
 }
 export function mapStateToProps(state) {
+    3
     return {
         visibleDeepLink: state.deepLinkReducer.visibleDeepLink,
         paramsDeepLink: state.deepLinkReducer.params,
