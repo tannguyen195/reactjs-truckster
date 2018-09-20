@@ -44,7 +44,7 @@ class FooterContainer extends Component {
                     </Footer>
                     <button onClick={toggleDeepLink}>test</button>
                     {
-                     visibleDeepLink &&
+                        isMobile && visibleDeepLink &&
                         <DownloadApp
                             paramsDeepLink={paramsDeepLink}
                             toggleDeepLink={toggleDeepLink}
