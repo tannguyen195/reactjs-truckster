@@ -8,6 +8,7 @@ import { toggleShareModal } from '../../actions/toggleAction'
 import { getDataInitial } from 'global'
 
 import _eventDetail from './_eventDetail.less'
+import { changeRoute } from '../../actions/deepLinkAction'
 import Head from '../head'
 class EventDetailContainer extends Component {
     constructor(props) {
@@ -33,8 +34,10 @@ class EventDetailContainer extends Component {
         }
     }
     componentDidMount() {
-        const { activity } = this.props
-
+        const { activity, changeRoute } = this.props
+        changeRoute(
+            `gotrucksterconsumer://app/event/${activity.id}`
+        )
         let keys = [1], trucks = []
         for (let i = 0; i < activity.calendar.length; ++i) {
 
@@ -89,7 +92,8 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         toggleShareModal,
-        getActivityDetail
+        getActivityDetail,
+        changeRoute
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EventDetailContainer);

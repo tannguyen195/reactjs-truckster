@@ -30,7 +30,7 @@ export default class Information extends Component {
     }
     render() {
         const { parsedInfoPage, renderPage } = this.props
-        console.log("this,props", this.props)
+       
         return (
             <article className="info-wrapper media">
                 <div className="Body-1SemiBlackLeft"> POST</div>

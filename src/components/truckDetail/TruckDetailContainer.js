@@ -10,6 +10,7 @@ import AnnounceModal from '../common/announceModal/AnnounceModal'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { toggleShareModal } from '../../actions/toggleAction'
 import { getSchedule } from '../../../global'
+import { changeRoute } from '../../actions/deepLinkAction'
 import Head from '../head'
 import moment from 'moment'
 import { Cookies } from 'react-cookie'
@@ -121,6 +122,10 @@ class TruckDetailContainer extends Component {
     componentDidMount() {
         const { truckDetail } = this.props
         if (truckDetail) {
+            // change deep link route
+            this.props.changeRoute(
+                `gotrucksterconsumer://app/truck/${truckDetail.id}`
+            )
             // Set location
             let locations = [], icon = "", events = []
             getSchedule(truckDetail.calendar).forEach((item, index) => {
@@ -419,6 +424,7 @@ export function mapDispatchToProps(dispatch) {
         getTruckReview,
         postReview,
         editReview,
+        changeRoute
 
     }, dispatch)
 }

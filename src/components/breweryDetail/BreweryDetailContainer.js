@@ -9,6 +9,8 @@ import { getDataInitial } from 'global'
 import { toggleShareModal } from '../../actions/toggleAction'
 import { googleApi } from 'config'
 import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
+import { changeRoute } from '../../actions/deepLinkAction'
+
 import Head from '../head'
 import { Cookies } from 'react-cookie'
 
@@ -23,7 +25,13 @@ class BreweryDetailContainer extends Component {
             favorite: false,
         }
     }
-
+    componentDidMount() {
+        const { breweryDetail, changeRoute } = this.props
+        if (breweryDetail)
+            changeRoute(
+                `gotrucksterconsumer://app/brewery/${breweryDetail.id}`
+            )
+    }
     componentWillReceiveProps(nextProps) {
         let self = this
         if (nextProps.breweryDetail) {
@@ -131,7 +139,8 @@ export function mapDispatchToProps(dispatch) {
         getBreweryDetail,
         editBreweryReview,
         postBreweryReview,
-        getBreweryReview
+        getBreweryReview,
+        changeRoute
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BreweryDetailContainer);

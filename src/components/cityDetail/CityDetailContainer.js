@@ -7,6 +7,7 @@ import { searchActivity } from '../../api/activityApi'
 import { searchBrewery } from '../../api/breweryApi'
 import { getSearchResult } from '../../actions/truckAction'
 import { toggleAnnounceModal } from '../../actions/toggleAction'
+import { changeRoute } from '../../actions/deepLinkAction'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
@@ -31,10 +32,12 @@ class CityContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.searchActivity(true)
-        this.props.searchTruck("is_featured=true&city", "denver")
-        this.props.searchBrewery("is_featured", "true")
-        this.props.getPairing("is_featured=true&city", "denver")
+        const { searchActivity, searchTruck, searchBrewery, getPairing, changeRoute } = this.props
+        searchActivity(true)
+        searchTruck("is_featured=true&city", "denver")
+        searchBrewery("is_featured", "true")
+        getPairing("is_featured=true&city", "denver")
+        changeRoute(null)
     }
 
     componentWillReceiveProps(nextProps) {
@@ -169,7 +172,8 @@ export function mapDispatchToProps(dispatch) {
         searchBrewery,
         getPairing,
         searchTruck,
-        searchActivity
+        searchActivity,
+        changeRoute
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CityContainer);

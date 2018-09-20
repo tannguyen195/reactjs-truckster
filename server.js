@@ -24,7 +24,6 @@ app.prepare().then(() => {
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
               http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
   
   
   <url>
@@ -422,8 +421,6 @@ app.prepare().then(() => {
 
       response.data.foodTrucks.forEach((page) => {
         ``
-        let modDate = new Date()
-        let lastMod = `${modDate.getFullYear()}-${('0' + (modDate.getMonth() + 1)).slice(-2)}-${('0' + modDate.getDate()).slice(-2)}`
 
         page = `${SITE_ROOT}/food-truck/${page}`
 
@@ -436,8 +433,7 @@ app.prepare().then(() => {
       })
       response.data.breweries.forEach((page) => {
         ``
-        let modDate = new Date()
-        let lastMod = `${modDate.getFullYear()}-${('0' + (modDate.getMonth() + 1)).slice(-2)}-${('0' + modDate.getDate()).slice(-2)}`
+
 
         page = `${SITE_ROOT}/brewery/${page}`
 
@@ -455,8 +451,6 @@ app.prepare().then(() => {
 
       response.data.activities.forEach((page) => {
         ``
-        let modDate = new Date()
-        let lastMod = `${modDate.getFullYear()}-${('0' + (modDate.getMonth() + 1)).slice(-2)}-${('0' + modDate.getDate()).slice(-2)}`
 
         page = `${SITE_ROOT}/event/${page}`
 
@@ -471,9 +465,8 @@ app.prepare().then(() => {
         xml += `<priority>0.5</priority>`
         xml += '</url>'
       })
-      console.log("xml", xml)
       xml += '</urlset>'
-      fs.writeFileSync('static/sitemap.xml', xml)
+      // fs.writeFileSync('static/sitemap.xml', xml)
     })
     .catch(function (error) {
       console.log("error", error)

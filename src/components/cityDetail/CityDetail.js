@@ -480,7 +480,7 @@ class CityDetail extends Component {
                         <Row gutter={30}>
                             <Col md={8} lg={8}>
                                 <h2 className="Display-3WhiteLeft">Denver Food Truck Events & Festivals</h2>
-                                <div className="Body-2LeftGrey article-description">Truckster can also let you know if a local food truck festival or event is happening so you can check out all kinds at once. Be sure to go to the <a target="_blank" href="https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8">App Store</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.truckster">Google Play</a>  to download our app and find a food truck near you.</div>
+                                <div className="Body-1RegularWhiteLeft article-description">Truckster can also let you know if a local food truck festival or event is happening so you can check out all kinds at once. Be sure to go to the <a target="_blank" href="https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8">App Store</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.truckster">Google Play</a>  to download our app and find a food truck near you.</div>
                                 <div className="SubheadingWhiteLeft">Some annual events include:</div>
                                 <div className="event-card-small-container">
                                     <a href="https://thecarnationfestival.com/" target="_blank" className="event-card-small">

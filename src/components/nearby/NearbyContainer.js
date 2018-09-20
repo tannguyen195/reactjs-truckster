@@ -6,6 +6,7 @@ import { getNearby } from '../../api/nearbyApi'
 import { mountNearby } from '../../actions/nearbyAction'
 import { getEventTime } from 'global'
 import moment from 'moment'
+import { changeRoute } from '../../actions/deepLinkAction'
 import Head from '../head'
 import _nearby from './_nearby.less'
 const eventMarkerIcon = ('/static/images/event-marker-icon.png')
@@ -42,18 +43,19 @@ class NearbyContainer extends Component {
 
                 for (let i = 0; i < nextProps.nearby.length; ++i) {
                     let tempItem = {}
-                    let tempTime = ""
+                    let tempTime = "", tempTempStart = ""
                     let events = getEventTime(nextProps.nearby[i])
-             
+
                     for (let j = 0; j < events.length; ++j) {
                         if (nextProps.nearby[i] && nextProps.nearby[i].end_time && moment(events[j], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-                          
+                            tempTempStart = moment(events[j], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD") + ` ` + moment(nextProps.nearby[i].start_time, "YYYY-MM-DD h:mm a").format("h:mm a")
                             tempTime = moment(events[j], "YYYY-MM-DD h:mm a").format("YYYY-MM-DD h:mm a")
                             break;
                         }
                     }
 
-                    if (moment(tempTime, "YYYY-MM-DD h:mm a").isBefore(moment().add(15, 'hours'))) {
+                    if (moment(tempTempStart, "YYYY-MM-DD h:mm a").isBefore(moment().add(15, 'hours'))) {
+
                         //Check if item is brewery
                         if (nextProps.nearby[i].brewery &&
                             !nextProps.nearby[i].food_truck) {
@@ -181,6 +183,10 @@ class NearbyContainer extends Component {
     }
 
     componentDidMount() {
+        const { changeRoute } = this.props
+        changeRoute(
+            `gotrucksterconsumer://app/nearby`
+        )
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(((e) => {
 
@@ -381,6 +387,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        changeRoute,
         mountNearby,
         getNearby
     }, dispatch)

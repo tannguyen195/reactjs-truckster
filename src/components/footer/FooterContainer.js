@@ -7,24 +7,23 @@ import { isMobile, isAndroid, isIOS } from 'react-device-detect';
 import {
     toggleAnnounceModal,
 } from '../../actions/toggleAction'
+import {
+    toggleDeepLink
+} from '../../actions/deepLinkAction'
 import { withRouter } from "next/router"
 import _footer from './_footer.less'
 class FooterContainer extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
             isDownloadVisible: true
         }
-
     }
 
-    onDownloadVisible() {
-        this.setState({
-            isDownloadVisible: false
-        })
-    }
+
     render() {
-        const { router } = this.props
+        const { router, toggleDeepLink, paramsDeepLink, visibleDeepLink } = this.props
 
         return (
             router.pathname.includes("/event")
@@ -43,12 +42,15 @@ class FooterContainer extends Component {
                     <Footer {...this.state} {...this.props} >
 
                     </Footer>
+                    <button onClick={toggleDeepLink}>test</button>
                     {
-                        isMobile && this.state.isDownloadVisible &&
+                        isMobile && visibleDeepLink &&
                         <DownloadApp
+                            paramsDeepLink={paramsDeepLink}
+                            toggleDeepLink={toggleDeepLink}
                             isIOS={isIOS}
                             isAndroid={isAndroid}
-                            onDownloadVisible={() => this.onDownloadVisible()} />
+                        />
                     }
 
                 </div>
@@ -57,13 +59,16 @@ class FooterContainer extends Component {
     }
 }
 export function mapStateToProps(state) {
+    3
     return {
-
+        visibleDeepLink: state.deepLinkReducer.visibleDeepLink,
+        paramsDeepLink: state.deepLinkReducer.params,
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        toggleAnnounceModal
+        toggleAnnounceModal,
+        toggleDeepLink
     }, dispatch)
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FooterContainer));
