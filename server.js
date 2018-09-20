@@ -466,7 +466,7 @@ app.prepare().then(() => {
         xml += '</url>'
       })
       xml += '</urlset>'
-      fs.writeFileSync('static/sitemap.xml', xml)
+      // fs.writeFileSync('static/sitemap.xml', xml)
     })
     .catch(function (error) {
       console.log("error", error)
