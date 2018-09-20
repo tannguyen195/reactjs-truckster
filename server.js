@@ -466,7 +466,7 @@ app.prepare().then(() => {
         xml += '</url>'
       })
       xml += '</urlset>'
-      // fs.writeFileSync('static/sitemap.xml', xml)
+      //fs.writeFileSync('static/sitemap.xml', xml)
     })
     .catch(function (error) {
       console.log("error", error)
@@ -484,7 +484,7 @@ app.prepare().then(() => {
   const options = {
     root: path.join(__dirname, '/static'),
     headers: {
-      'Content-Type': 'text/plain;charset=UTF-8',
+      'Content-Type': 'application/xml',
     }
   };
   server.get('/sitemap.xml', (req, res) => {
