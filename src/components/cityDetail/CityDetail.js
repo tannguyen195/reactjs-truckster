@@ -269,7 +269,7 @@ class CityDetail extends Component {
                 {/* main header  */}
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
                     <div className="content-city">
-                        <h1 className="title DisplayBlackCenter">Discover the lastest events and best food trucks in Denver</h1>
+                        <h1 className="title DisplayBlackCenter">Discover the Best Denver Food Trucks and Upcoming Events</h1>
                         <div className="search">
                             <SearchBar
                                 searchValue={searchValue}

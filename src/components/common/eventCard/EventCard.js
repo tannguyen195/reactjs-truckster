@@ -6,8 +6,9 @@ import moment from 'moment'
 const eventIcon = ('/static/images/event-marker-icon.png')
 class EventCard extends Component {
     render() {
-
+    
         const { data, imageWidth, carousel } = this.props
+      
         return (
             <Link to={"/event/" + data.slug}>
                 <a>
@@ -46,7 +47,7 @@ class EventCard extends Component {
                                     {moment(data.timeDisplay, "YYYY-MM-DD h:mm a").format("dddd")} <span>&bull;</span> {data.address}
                                 </div>
                                 <div className="time-event">
-                                    {moment(data.timeDisplay, "YYYY-MM-DD h:mm a").format("h:mm a")} - {moment(data.end_time, "YYYY-MM-DD h:mm a").format("h:mm a")}
+                                    {moment(data.start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} - {moment(data.end_time, "YYYY-MM-DD h:mm a").format("h:mm a")}
                                 </div>
                             </div>
                         </div>

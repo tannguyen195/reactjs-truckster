@@ -35,6 +35,7 @@ class EventDetail extends Component {
                 time = events[i];
                 break;
             }
+            else time = events[events.length - 1];
         }
 
         return (
@@ -69,7 +70,7 @@ class EventDetail extends Component {
                     <div className="event-info">
                         <img alt="location" src={timeIcon} />
                         <div className="Body-2GreyLeft">
-                            {moment(time, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD h:mm a")} - {moment(event.end_time).format(" h:mm a")}
+                            {moment(time, "YYYY-MM-DD h:mm a").format("ddd, MMMM DD")}  {moment(event.start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} - {moment(event.end_time).format(" h:mm a")}
                         </div>
                     </div>
                     <div className="event-intro">
