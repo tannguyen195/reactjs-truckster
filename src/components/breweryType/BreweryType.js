@@ -40,7 +40,7 @@ class BreweryType extends Component {
                 <div style={{ padding: "30px" }}
                     className="search-detail-container "   >
                     <div className="detail-header">
-                        <h2 className="name DisplayBlackLeft">{value} </h2>
+                        <h2 className="name DisplayBlackLeft">{value.charAt(0).toUpperCase() + value.slice(1)} </h2>
                     </div>
 
                     <hr />

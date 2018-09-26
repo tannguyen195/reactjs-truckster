@@ -39,7 +39,7 @@ class Brewery extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col lg={6} md={6} sm={12} xs={24} key={index} style={{ marginBottom: "16px" }} >
-                <Link to={`/brewery-type/${item.name}`}>
+                <Link to={`/brewery-type/${item.name.toLowerCase()}`}>
                     <a>
                         <CategoryCard
                             image={item.image}

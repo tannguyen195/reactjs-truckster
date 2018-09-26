@@ -50,7 +50,7 @@ class Truck extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col key={index} style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
-                <Link to={`/cuisine/${item.name}`}>
+                <Link to={`/cuisine/${item.name.toLowerCase()}`}>
                     <a>
                         <CategoryCard
                             image={item.image}
@@ -76,7 +76,7 @@ class Truck extends Component {
             <div className="truck main-wrapper body-content">
 
                 <h1 className="body-title DisplayBlackLeft">
-                    Cuisine
+                    Search by Cuisine
                 </h1>
                 <div className="divider"> </div>
                 <Row style={{ paddingTop: "30px" }} gutter={16}>

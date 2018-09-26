@@ -210,7 +210,7 @@ class Category extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col lg={6} md={12} sm={12} xs={12} key={index} style={{ marginBottom: "16px" }}>
-                <Link to={`/cuisine/${item.name}`}>
+                <Link to={`/cuisine/${item.name.toLowerCase()}`}>
                     <a>
                         <CategoryCard
                             image={item.image}
@@ -227,7 +227,7 @@ class Category extends Component {
 
         return (
             <div className="category main-wrapper body-content">
-                
+
                 <h1 className="body-title DisplayBlackLeft">
                     Cuisine
                 </h1>
