@@ -220,18 +220,18 @@ class TruckDetail extends Component {
             if (count === 3)
                 break;
         }
-
-        return <Row gutter={16} className="suggest-truck">
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[arrIDsuggest[0]] } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[arrIDsuggest[1]] } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[arrIDsuggest[2]] } />
-            </Col>
-        </Row>
+        if (arrIDsuggest.length === 3)
+            return <Row gutter={16} className="suggest-truck">
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckCard data={tempArr[arrIDsuggest[0]]} />
+                </Col>
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckCard data={tempArr[arrIDsuggest[1]]} />
+                </Col>
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckCard data={tempArr[arrIDsuggest[2]]} />
+                </Col>
+            </Row>
 
     }
     renderTruckDetail(truckDetail) {

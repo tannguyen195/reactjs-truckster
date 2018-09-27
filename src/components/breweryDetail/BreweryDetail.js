@@ -284,7 +284,8 @@ class BreweryDetail extends Component {
                             {/* Suggest Section */}
                             <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
 
-                            {suggestBrewery && suggestBrewery.data &&
+                            {
+                                suggestBrewery && suggestBrewery.data &&
                                 this.renderSuggestBrewery(suggestBrewery.data)
                             }
 
