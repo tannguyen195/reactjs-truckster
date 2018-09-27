@@ -154,53 +154,54 @@ class BreweryDetail extends Component {
             if (count === 3)
                 break;
         }
-        return <Row gutter={16} className="suggest-brewery">
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[arrIDsuggest[0]].slug,
-                        image: tempArr[arrIDsuggest[0]].cover_photo ?
-                            tempArr[arrIDsuggest[0]].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[arrIDsuggest[0]].logo ?
-                            tempArr[arrIDsuggest[0]].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[arrIDsuggest[0]].name,
-                        cuisine: tempArr[arrIDsuggest[0]].breweries_type && [{ name: tempArr[arrIDsuggest[0]].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[0]].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[arrIDsuggest[1]].slug,
-                        image: tempArr[arrIDsuggest[1]].cover_photo ?
-                            tempArr[arrIDsuggest[1]].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[arrIDsuggest[1]].logo ?
-                            tempArr[arrIDsuggest[1]].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[arrIDsuggest[1]].name,
-                        cuisine: tempArr[arrIDsuggest[1]].breweries_type && [{ name: tempArr[arrIDsuggest[1]].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[1]].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[arrIDsuggest[2]].slug,
-                        image: tempArr[arrIDsuggest[2]].cover_photo ?
-                            tempArr[arrIDsuggest[2]].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[arrIDsuggest[2]].logo ?
-                            tempArr[arrIDsuggest[2]].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[arrIDsuggest[2]].name,
-                        cuisine: tempArr[arrIDsuggest[2]].breweries_type && [{ name: tempArr[arrIDsuggest[2]].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[2]].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-        </Row>
+        if (arrIDsuggest.length === 3)
+            return <Row gutter={16} className="suggest-brewery">
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckNewCard data={
+                        {
+                            url: "/brewery/" + tempArr[arrIDsuggest[0]].slug,
+                            image: tempArr[arrIDsuggest[0]].cover_photo ?
+                                tempArr[arrIDsuggest[0]].cover_photo[0].url : breweryIcon,
+                            logo: tempArr[arrIDsuggest[0]].logo ?
+                                tempArr[arrIDsuggest[0]].logo[0].url :
+                                imageBreweryPlaceholder,
+                            name: tempArr[arrIDsuggest[0]].name,
+                            cuisine: tempArr[arrIDsuggest[0]].breweries_type && [{ name: tempArr[arrIDsuggest[0]].breweries_type.name }],
+                            rating: parseFloat((Math.round(tempArr[arrIDsuggest[0]].rating * 2) / 2).toFixed(1), 10)
+                        }
+                    } />
+                </Col>
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckNewCard data={
+                        {
+                            url: "/brewery/" + tempArr[arrIDsuggest[1]].slug,
+                            image: tempArr[arrIDsuggest[1]].cover_photo ?
+                                tempArr[arrIDsuggest[1]].cover_photo[0].url : breweryIcon,
+                            logo: tempArr[arrIDsuggest[1]].logo ?
+                                tempArr[arrIDsuggest[1]].logo[0].url :
+                                imageBreweryPlaceholder,
+                            name: tempArr[arrIDsuggest[1]].name,
+                            cuisine: tempArr[arrIDsuggest[1]].breweries_type && [{ name: tempArr[arrIDsuggest[1]].breweries_type.name }],
+                            rating: parseFloat((Math.round(tempArr[arrIDsuggest[1]].rating * 2) / 2).toFixed(1), 10)
+                        }
+                    } />
+                </Col>
+                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckNewCard data={
+                        {
+                            url: "/brewery/" + tempArr[arrIDsuggest[2]].slug,
+                            image: tempArr[arrIDsuggest[2]].cover_photo ?
+                                tempArr[arrIDsuggest[2]].cover_photo[0].url : breweryIcon,
+                            logo: tempArr[arrIDsuggest[2]].logo ?
+                                tempArr[arrIDsuggest[2]].logo[0].url :
+                                imageBreweryPlaceholder,
+                            name: tempArr[arrIDsuggest[2]].name,
+                            cuisine: tempArr[arrIDsuggest[2]].breweries_type && [{ name: tempArr[arrIDsuggest[2]].breweries_type.name }],
+                            rating: parseFloat((Math.round(tempArr[arrIDsuggest[2]].rating * 2) / 2).toFixed(1), 10)
+                        }
+                    } />
+                </Col>
+            </Row>
     }
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
