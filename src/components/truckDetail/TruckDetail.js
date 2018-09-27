@@ -206,19 +206,33 @@ class TruckDetail extends Component {
     renderSuggestTruck(suggestTruck) {
         const { truckDetail } = this.props
 
-        let tempArr = []
+        let tempArr = [], arrIDsuggest = [], count = 0
         suggestTruck.forEach(item => {
             if (item.id !== truckDetail.id)
                 tempArr.push(item)
         })
-        console.log(_.random(tempArr.length - 1))
-        return tempArr.map((item, index) => {
-            if (index < 3)
-                return <Col key={item.id} style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
-                    <TruckCard data={item} />
-                </Col>
-            else return null
-        })
+        for (let i = 0; i < tempArr.length; i++) {
+            let ranNum = _.random(tempArr.length - 1)
+            if (!_.includes(arrIDsuggest, ranNum)) {
+                count++;
+                arrIDsuggest.push(ranNum)
+            }
+            if (count === 3)
+                break;
+        }
+
+        return <Row gutter={16} className="suggest-truck">
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[arrIDsuggest[0]] } />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[arrIDsuggest[1]] } />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[arrIDsuggest[2]] } />
+            </Col>
+        </Row>
+
     }
     renderTruckDetail(truckDetail) {
         let rateNum = parseFloat((Math.round(truckDetail.avg_rating * 2) / 2).toFixed(1), 10)
@@ -328,11 +342,11 @@ class TruckDetail extends Component {
 
                             {/* Suggest Section */}
                             <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
-                            <Row gutter={16} className="suggest-truck">
-                                {suggestTruck && suggestTruck.data &&
-                                    this.renderSuggestTruck(suggestTruck.data)
-                                }
-                            </Row>
+
+                            {suggestTruck && suggestTruck.data &&
+                                this.renderSuggestTruck(suggestTruck.data)
+                            }
+
                         </div>
                     </div>
                 </div>

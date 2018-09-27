@@ -7,6 +7,7 @@ import ReviewSummary from '../common/reviewSummary/ReviewSummary'
 import UserReview from '../common/userReview/UserReview'
 import Calendar from '../common/calendar/Calendar'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
+import _ from "lodash";
 import { getSchedule } from '../../../global'
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 const LinkAnchor = Anchor.Link;
@@ -138,30 +139,68 @@ class BreweryDetail extends Component {
     }
     renderSuggestBrewery(suggestBrewery) {
         const { breweryDetail } = this.props
-        let tempArr = []
+        let tempArr = [], arrIDsuggest = [], count = 0
         suggestBrewery.forEach(item => {
             if (item.id !== breweryDetail.id)
                 tempArr.push(item)
         })
-        return tempArr.map((item, index) => {
-            if (index < 3)
-                return <Col style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
-                    <TruckNewCard data={
-                        {
-                            url: "/brewery/" + item.slug,
-                            image: item.cover_photo ?
-                                item.cover_photo[0].url : breweryIcon,
-                            logo: item.logo ?
-                                item.logo[0].url :
-                                imageBreweryPlaceholder,
-                            name: item.name,
-                            cuisine: item.breweries_type && [{ name: item.breweries_type.name }],
-                            rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
-                        }
-                    } />
-                </Col>
-            else return null
-        })
+
+        for (let i = 0; i < tempArr.length; i++) {
+            let ranNum = _.random(tempArr.length - 1)
+            if (!_.includes(arrIDsuggest, ranNum)) {
+                count++;
+                arrIDsuggest.push(ranNum)
+            }
+            if (count === 3)
+                break;
+        }
+        return <Row gutter={16} className="suggest-brewery">
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckNewCard data={
+                    {
+                        url: "/brewery/" + tempArr[arrIDsuggest[0]].slug,
+                        image: tempArr[arrIDsuggest[0]].cover_photo ?
+                            tempArr[arrIDsuggest[0]].cover_photo[0].url : breweryIcon,
+                        logo: tempArr[arrIDsuggest[0]].logo ?
+                            tempArr[arrIDsuggest[0]].logo[0].url :
+                            imageBreweryPlaceholder,
+                        name: tempArr[arrIDsuggest[0]].name,
+                        cuisine: tempArr[arrIDsuggest[0]].breweries_type && [{ name: tempArr[arrIDsuggest[0]].breweries_type.name }],
+                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[0]].rating * 2) / 2).toFixed(1), 10)
+                    }
+                } />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckNewCard data={
+                    {
+                        url: "/brewery/" + tempArr[arrIDsuggest[1]].slug,
+                        image: tempArr[arrIDsuggest[1]].cover_photo ?
+                            tempArr[arrIDsuggest[1]].cover_photo[0].url : breweryIcon,
+                        logo: tempArr[arrIDsuggest[1]].logo ?
+                            tempArr[arrIDsuggest[1]].logo[0].url :
+                            imageBreweryPlaceholder,
+                        name: tempArr[arrIDsuggest[1]].name,
+                        cuisine: tempArr[arrIDsuggest[1]].breweries_type && [{ name: tempArr[arrIDsuggest[1]].breweries_type.name }],
+                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[1]].rating * 2) / 2).toFixed(1), 10)
+                    }
+                } />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckNewCard data={
+                    {
+                        url: "/brewery/" + tempArr[arrIDsuggest[2]].slug,
+                        image: tempArr[arrIDsuggest[2]].cover_photo ?
+                            tempArr[arrIDsuggest[2]].cover_photo[0].url : breweryIcon,
+                        logo: tempArr[arrIDsuggest[2]].logo ?
+                            tempArr[arrIDsuggest[2]].logo[0].url :
+                            imageBreweryPlaceholder,
+                        name: tempArr[arrIDsuggest[2]].name,
+                        cuisine: tempArr[arrIDsuggest[2]].breweries_type && [{ name: tempArr[arrIDsuggest[2]].breweries_type.name }],
+                        rating: parseFloat((Math.round(tempArr[arrIDsuggest[2]].rating * 2) / 2).toFixed(1), 10)
+                    }
+                } />
+            </Col>
+        </Row>
     }
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
@@ -244,11 +283,11 @@ class BreweryDetail extends Component {
 
                             {/* Suggest Section */}
                             <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
-                            <Row gutter={16} className="suggest-brewery">
-                                {suggestBrewery && suggestBrewery.data &&
-                                    this.renderSuggestBrewery(suggestBrewery.data)
-                                }
-                            </Row>
+
+                            {suggestBrewery && suggestBrewery.data &&
+                                this.renderSuggestBrewery(suggestBrewery.data)
+                            }
+
                         </div>
 
                     </div>
