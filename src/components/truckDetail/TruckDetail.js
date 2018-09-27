@@ -8,7 +8,7 @@ import UserReview from '../common/userReview/UserReview'
 import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
 import TruckCard from '../common/truckCard/TruckCard'
-
+import _ from "lodash";
 const LinkAnchor = Anchor.Link;
 
 const closeIcon = ("/static/images/close-icon.svg")
@@ -205,11 +205,13 @@ class TruckDetail extends Component {
 
     renderSuggestTruck(suggestTruck) {
         const { truckDetail } = this.props
+
         let tempArr = []
         suggestTruck.forEach(item => {
             if (item.id !== truckDetail.id)
                 tempArr.push(item)
         })
+        console.log(_.random(tempArr.length - 1))
         return tempArr.map((item, index) => {
             if (index < 3)
                 return <Col key={item.id} style={{ marginBottom: "16px" }} key={index} sm={12} xs={24} md={8} lg={8}>
@@ -253,7 +255,7 @@ class TruckDetail extends Component {
                                 <div className="tag">
                                     {
                                         truckDetail.cuisine.map((item, index) => {
-                                            return <Link key={index} to={`/cuisine/${item.name}`}>
+                                            return <Link key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
                                                 <a className="tag-item Body-1MediumBlackCenter">
                                                     {item.name} </a>
                                             </Link>
@@ -344,7 +346,7 @@ class TruckDetail extends Component {
 
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
-           
+
                 {
                     truckDetail
                         ?

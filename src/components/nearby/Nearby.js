@@ -212,7 +212,7 @@ class Nearby extends Component {
                         <div className="tag">
                             {
                                 data.food_truck.cuisine.map((item, index) => {
-                                    return <Link key={index} to={`/cuisine/${item.name}`}>
+                                    return <Link key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
                                         <a className="tag-item Body-1MediumBlackCenter">
                                             {item.name} </a>
                                     </Link>

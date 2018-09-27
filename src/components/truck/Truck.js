@@ -96,7 +96,7 @@ class Truck extends Component {
                 </Row>
 
                 <h1 className="body-title DisplayBlackLeft">
-                    Food trucks
+                    View All Denver Food Trucks 
                 </h1>
                 <div className="divider"> </div>
 

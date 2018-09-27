@@ -402,6 +402,7 @@ class TruckDetailContainer extends Component {
         )
     }
 }
+
 export function mapStateToProps(state) {
     return {
         isLoadingTruckDetail: state.truckReducer.isLoadingTruckDetail,

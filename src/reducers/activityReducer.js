@@ -1,6 +1,7 @@
 import * as types from '../actions/types';
 import moment from 'moment'
-
+import update from 'immutability-helper';
+import _ from 'lodash'
 import { getEventTime } from 'global'
 const initial = {
     error: null,
@@ -34,36 +35,28 @@ const activityReducer = (state = initial, action) => {
                     let events = getEventTime(element)
 
                     for (let i = 0; i < events.length; ++i) {
-
                         if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-
                             timeTemp = events[i];
-
+                            activitiesWeekState.push({
+                                ...element,
+                                timeDisplay: timeTemp
+                            })
                             break;
                         }
-                        else timeTemp = events[events.length - 1];
                     }
-                    activitiesWeekState.push({
-                        ...element,
-                        timeDisplay: timeTemp
-                    })
-
-                    activitiesWeekState.sort((a, b) => {
-
-                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
-                            return -1
-                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
-                            return 1
-                        return 0
-                    })
 
                 });
-                return {
-                    ...state,
-                    isLoadingSearchActivity: false,
-                    activitiesWeek: activitiesWeekState,
 
-                }
+                activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
+                activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
+
+
+
+                return update(state, {
+                    isLoadingSearchActivity: { $set: false },
+                    activitiesWeek: { $set: activitiesWeekState },
+                })
+
             }
             else {
                 let activitiesWeekState = []
@@ -87,16 +80,9 @@ const activityReducer = (state = initial, action) => {
                         timeDisplay: timeTemp
                     })
 
-                    activitiesWeekState.sort((a, b) => {
-
-                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() < moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
-                            return -1
-                        if (moment(a.timeDisplay, "YYYY-MM-DD h:mm a").unix() > moment(b.timeDisplay, "YYYY-MM-DD h:mm a").unix())
-                            return 1
-                        return 0
-                    })
 
                 });
+                activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
                 return {
                     ...state,
                     isLoadingSearchActivity: false,
