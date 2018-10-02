@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Button } from 'antd';
-import { Link } from 'routes'
+import { Link, Router } from 'routes'
 import Section from '../common/section/Section'
 import TruckCard from '../common/truckCard/TruckCard'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
@@ -239,9 +239,6 @@ class CityDetail extends Component {
                             data={item} />
                     </a>
                 </Link>
-
-
-
             </Col>
         })
     }
@@ -281,9 +278,13 @@ class CityDetail extends Component {
 
                             />
                             <div className="button-find">
-                                <Button disabled={searchValue.length < 1 ? true : false} onClick={() => history.push("/search/")} className="search-btn SubheadingWhiteCenter" size="large" type="primary">
-                                    Find trucks
+                                <Link to="/search">
+                                    <a>
+                                        <Button disabled={searchValue.length < 1 ? true : false}  className="search-btn SubheadingWhiteCenter" size="large" type="primary">
+                                            Find trucks
                             </Button>
+                                    </a>
+                                </Link>
                             </div>
                         </div>
 
@@ -453,8 +454,6 @@ class CityDetail extends Component {
                             }
                         </Row>
                     </section>
-
-
 
                     {/* <Section seeall={false} title="Special Offers" >
 

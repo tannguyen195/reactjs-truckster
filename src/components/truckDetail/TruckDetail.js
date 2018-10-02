@@ -207,10 +207,15 @@ class TruckDetail extends Component {
         const { truckDetail } = this.props
 
         let tempArr = [], arrIDsuggest = [], count = 0
+
+        // tempArr = suggestTruck.filter((item) => {
+        //     return item.id !== truckDetail.id
+        // })
         suggestTruck.forEach(item => {
             if (item.id !== truckDetail.id)
                 tempArr.push(item)
         })
+    
         for (let i = 0; i < tempArr.length; i++) {
             let ranNum = _.random(tempArr.length - 1)
             if (!_.includes(arrIDsuggest, ranNum)) {
@@ -245,6 +250,7 @@ class TruckDetail extends Component {
             favorite,
             suggestTruck
         } = this.props
+
         return (
 
             <div>
@@ -343,8 +349,8 @@ class TruckDetail extends Component {
                             {/* Suggest Section */}
                             <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
 
-                            {suggestTruck && suggestTruck.data &&
-                                this.renderSuggestTruck(suggestTruck.data)
+                            {suggestTruck &&
+                                this.renderSuggestTruck(suggestTruck)
                             }
 
                         </div>

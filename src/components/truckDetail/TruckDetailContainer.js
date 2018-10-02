@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
 
-import { getTruckDetail } from '../../api/truckApi'
+import { getTruckDetail, getSuggestTruck } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
@@ -33,6 +33,7 @@ class TruckDetailContainer extends Component {
             mode: 'upcoming',
             events: [],
             selectedKey: "0",
+            suggestTruck: null
         }
     }
 
@@ -41,27 +42,30 @@ class TruckDetailContainer extends Component {
 
         let token = cookies.get('token')
         let truckDetail = null
-        let suggestTruck = null
+
         if (req && req.cookies) {
             token = req.cookies.token
         }
         truckDetail = await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`, token)
 
 
-        let cuisineStringArray = []
-        if (truckDetail)
-            truckDetail.cuisine.forEach(item => {
-                cuisineStringArray.push(item.name)
-            })
-
-        suggestTruck = await getDataInitial(`consumer/v1/foodtrucks?city=denver&cuisine=${cuisineStringArray.toString()}&sort_by=avg_rating&sort_type=desc`)
         return {
-            truckDetail, suggestTruck
+            truckDetail,
         }
     }
     componentWillReceiveProps(nextProps) {
         const { truckDetail } = nextProps
+        if (this.props.truckDetail !== truckDetail) {
+            // get suggest truck
+            let cuisineStringArray = []
 
+            truckDetail.cuisine.forEach(item => {
+                cuisineStringArray.push(item.name)
+            })
+
+            this.props.getSuggestTruck(cuisineStringArray.toString())
+
+        }
         if (truckDetail) {
 
             // Set location
@@ -122,6 +126,15 @@ class TruckDetailContainer extends Component {
     componentDidMount() {
         const { truckDetail } = this.props
         if (truckDetail) {
+            // get suggest truck
+            let cuisineStringArray = []
+
+            truckDetail.cuisine.forEach(item => {
+                cuisineStringArray.push(item.name)
+            })
+
+            this.props.getSuggestTruck(cuisineStringArray.toString())
+
             // change deep link route
             this.props.changeRoute(
                 `gotrucksterconsumer://app/truck/${truckDetail.id}`
@@ -174,7 +187,7 @@ class TruckDetailContainer extends Component {
                 locations: sortedLocations,
                 iconMarker: icon,
                 events: events,
-                selectedKey: sortedLocations[0] && sortedLocations[0].index
+                selectedKey: sortedLocations[0] && sortedLocations[0].index,
             })
 
 
@@ -257,8 +270,8 @@ class TruckDetailContainer extends Component {
         let newOrder = []
         let checkExist = this.checkExistOrder(e.id, this.state.order);
         if (checkExist) {
-            this.state.order.forEach((item, index) => {
 
+            this.state.order.forEach((item, index) => {
                 if (item.id === e.id)
                     item = {
                         ...item,
@@ -414,13 +427,16 @@ export function mapStateToProps(state) {
         isLoadingEditReview: state.reviewReducer.isLoadingEditReview,
         isLoggedIn: state.authReducer.isLoggedIn,
         reviews: state.reviewReducer.reviews,
+        suggestTruck: state.truckReducer.suggestTruck
 
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        getSuggestTruck,
         toggleShareModal,
-        markFavorite, unmarkFavorite,
+        markFavorite,
+        unmarkFavorite,
         getTruckDetail,
         getTruckReview,
         postReview,

@@ -97,3 +97,27 @@ export function mountTruck() {
         });
     }
 }
+
+export function requestGetSuggestTruck(isLoadingGetSuggestTruck) {
+    return (dispatch) => {
+        dispatch({
+            type: types.REQUEST_GET_SUGGEST_TRUCK,
+            isLoadingGetSuggestTruck: isLoadingGetSuggestTruck
+        })
+    }
+}
+export function getSuggestTruckSuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_SUGGEST_TRUCK_SUCCESS,
+            response
+        })
+    }
+}
+export function getSuggestTruckError() {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_SUGGEST_TRUCK_ERROR
+        })
+    }
+}

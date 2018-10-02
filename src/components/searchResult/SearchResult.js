@@ -96,21 +96,19 @@ class SearchResult extends Component {
                                 </Section>
 
                                 <Section
-                                    url="/"
                                     title="Food trucks" >
                                     <Row gutter={16}>
                                         {this.renderTruckCard(searchResult)}
                                     </Row>
-
                                 </Section>
+
                                 <Section
-                                    url="/"
                                     title="Breweries" >
                                     <Row gutter={16}>
                                         {this.renderBreweryCard(searchResult)}
                                     </Row>
-
                                 </Section>
+                                
                             </div>
                         </div>
                 }

@@ -1,13 +1,13 @@
-import NextHead from 'next/head'
+import Head from 'next/head'
 import { string } from 'prop-types'
 import { facebookAppID } from 'config.js'
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
 
-const Head = (props) => {
+const NextHead = (props) => {
   return (
-    <NextHead>
+    <Head>
       <meta charset="UTF-8" />
       <title>{props.title || ''}</title>
       <meta name="description" content={props.description || defaultDescription} />
@@ -30,7 +30,7 @@ const Head = (props) => {
       <meta name="p:domain_verify" content="2897f8053dbcc8124a8b6e082a3e6a37" />
       <meta property={`fb:${facebookAppID}`} content="APPID" />
 
-    </NextHead>
+    </Head>
   )
 }
 
@@ -41,4 +41,4 @@ Head.propTypes = {
   ogImage: string
 }
 
-export default Head
+export default NextHead

@@ -5,6 +5,8 @@ const initial = {
     isLoadingGetSuggestTruck: false,
     isLoadingSearchTruck: false,
     isLoadingGetTruckDetail: false,
+    isLoadingGetSuggestTruck: false,
+    suggestTruck: null,
     truckDetail: null,
     truckMenu: null,
     suggestTruck: null,
@@ -115,7 +117,29 @@ const truckReducer = (state = initial, action) => {
                 message: action.response.statusText
             };
 
+        // Get truck suggest
+        case types.REQUEST_GET_SUGGEST_TRUCK:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetSuggestTruck: action.isLoadingGetSuggestTruck
+            };
 
+        case types.GET_SUGGEST_TRUCK_SUCCESS:
+
+            return {
+                ...state,
+                isLoadingGetSuggestTruck: false,
+                suggestTruck: action.response.data,
+            }
+        case types.GET_SUGGEST_TRUCK_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetSuggestTruck: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
 
         // Get truck menu action
         case types.REQUEST_GET_TRUCK_MENU:

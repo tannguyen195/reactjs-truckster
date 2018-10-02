@@ -221,7 +221,7 @@ class Header extends Component {
 
                     <div className="option-header">
                         <Link to="/nearby">
-                            <a className="item Body-1MediumGreyCenter">Explore</a>
+                            <a className="item Body-1MediumGreyCenter">Map</a>
                         </Link>
                         <Link to="/brewery/co/denver">
                             <a className="item Body-1MediumGreyCenter">Brewery</a>

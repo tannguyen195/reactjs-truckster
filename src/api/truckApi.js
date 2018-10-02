@@ -88,3 +88,25 @@ export const getTruckMenu = (truckId) => {
     }
 }
 
+// get suggest truck api
+export const getSuggestTruck = (params) => {
+
+    return (dispatch) => {
+        dispatch(requestGetSuggestTruck(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + `api/consumer/v1/foodtrucks?city=denver&cuisine=${params}&sort_by=avg_rating&sort_type=desc`,
+            headers: {
+                "Accept": "application/json",
+            },
+            success: function (response, status, xhr) {
+                dispatch(getSuggestTruckSuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getSuggestTruckError(error))
+            }
+        })
+    }
+}
