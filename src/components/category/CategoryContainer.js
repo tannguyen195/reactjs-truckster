@@ -16,7 +16,7 @@ class CategoryContainer extends Component {
         return (
             <div style={{background:"#fafafa"}}>
                 <Head
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/cuisine"
                     title={"Search Denver Food Trucks By Cuisine – Truckster"}
                     description={"Satisfying your growling stomach is easy with our cuisine search tool. View Denver food trucks by cuisine type now!"}
                     ogImage={"https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg"}

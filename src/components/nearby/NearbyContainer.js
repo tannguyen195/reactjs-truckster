@@ -352,7 +352,7 @@ class NearbyContainer extends Component {
                 <style dangerouslySetInnerHTML={{ __html: _nearby }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/nearby"
                     title="Food Trucks Nearby – View Schedules & Details - Truckster"
                     description="Find food trucks, breweries and pairings in real time. Search by location, name or cuisine type! Satisfy your hunger now. Download the Truckster App for faster access!"
                 />

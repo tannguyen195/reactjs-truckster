@@ -64,7 +64,7 @@ class PrivacyTerm extends Component {
                 <style dangerouslySetInnerHTML={{ __html: _privacy }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/privacy"
                     title="Privacy Policy - Truckster"
                     description="We take your privacy seriously. Read over our Privacy Policy to gain a better understanding of how we use your information."
                 />

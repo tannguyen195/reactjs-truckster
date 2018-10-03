@@ -15,7 +15,7 @@ class About extends Component {
                 <style dangerouslySetInnerHTML={{ __html: _about }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/about"
                     title="About Truckster – Our Story"
                     description="Learn more about Truckster and its founders. See how they got started and learn what makes their app the best of its kind!"
                 />

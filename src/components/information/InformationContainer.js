@@ -36,7 +36,7 @@ export default class InformationContainer extends Component {
                     <div>
                         <style dangerouslySetInnerHTML={{ __html: _information }} />
                         <Head
-                            url="https://gotruckster.com/"
+                            url="https://gotruckster.com/blog"
                             title={title}
                             description={renderPage[0].content.rendered.slice(renderPage[0].content.rendered.indexOf("<p>", 2) + 3, renderPage[0].content.rendered.indexOf(".</p>", 1))}
                             ogImage={renderPage[0].content.rendered.slice(renderPage[0].content.rendered.indexOf("https:"), renderPage[0].content.rendered.indexOf(".jpg") + 4)}

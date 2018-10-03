@@ -12,7 +12,7 @@ class SearchResultContainer extends Component {
             <div>
                 <style dangerouslySetInnerHTML={{ __html: _searchResult }} />
                 <Head
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/search"
                     title={"Search Results – Truckster"}
                 >
                     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"></meta>

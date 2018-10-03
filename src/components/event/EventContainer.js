@@ -47,7 +47,7 @@ class EventContainer extends Component {
                 }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/event/co/denver"
                     title="Denver Events, Festivals, Rallies, Markets & More"
                     description="Looking for something to do in Denver, CO? Check out our calendar of upcoming events, festivals, food truck rallies, farmers markets & more. Fun for all ages!"
                 />

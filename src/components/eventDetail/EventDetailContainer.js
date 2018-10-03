@@ -53,7 +53,7 @@ class EventDetailContainer extends Component {
     }
 
     render() {
-        const { activity, status } = this.props
+        const { activity, status, slug } = this.props
         return (
             <div>
                 {
@@ -63,7 +63,7 @@ class EventDetailContainer extends Component {
                                 __html: _eventDetail
                             }} />
                             <Head
-                                url="https://gotruckster.com/"
+                                url={"https://gotruckster.com/event/" + `${slug}`}
                                 title={activity.name + " - Event in Denver, CO - Truckster"}
                                 description={activity.information}
                                 ogImage={activity.pictures[0].url}

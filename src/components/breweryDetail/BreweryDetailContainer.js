@@ -70,7 +70,8 @@ class BreweryDetailContainer extends Component {
         suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
 
         return {
-            breweryDetail, suggestBrewery
+            breweryDetail, suggestBrewery,
+            slug: query.slug
         }
     }
 
@@ -90,7 +91,7 @@ class BreweryDetailContainer extends Component {
     }
 
     render() {
-        const { status, breweryDetail } = this.props
+        const { status, breweryDetail, slug } = this.props
         return (
             <div>
                 {
@@ -100,7 +101,7 @@ class BreweryDetailContainer extends Component {
                                 __html: _breweryDetail
                             }} />
                             <Head
-                                url="https://gotruckster.com/"
+                                url={"https://gotruckster.com/brewery/" + `${slug}`}
                                 title={breweryDetail.name + " - Brewery Denver, CO - Truckster"}
                                 description={breweryDetail.company_description}
                                 ogImage={breweryDetail.cover_photo[0].url}

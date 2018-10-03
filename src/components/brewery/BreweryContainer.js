@@ -46,7 +46,7 @@ class BreweryContainer extends Component {
                 }} />
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
-                    url="https://gotruckster.com/"
+                    url="https://gotruckster.com/brewery/co/denver"
                     title="Denver Breweries Near Me – Menus, Reviews Catering & More"
                     description="Check out the best breweries in Denver, CO featuring locally made craft beer, gourmet food and amazing happy hour deals! View directions, menus and reviews!"
                 />

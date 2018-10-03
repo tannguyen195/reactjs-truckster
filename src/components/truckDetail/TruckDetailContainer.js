@@ -51,6 +51,7 @@ class TruckDetailContainer extends Component {
 
         return {
             truckDetail,
+            slug: query.slug
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -372,7 +373,8 @@ class TruckDetailContainer extends Component {
         })
     }
     render() {
-        const { truckDetail } = this.props
+        const { truckDetail, slug } = this.props
+
         return (
             <div>
                 {
@@ -381,7 +383,7 @@ class TruckDetailContainer extends Component {
                             __html: _truckDetail
                         }} />
                         <Head
-                            url="https://gotruckster.com/"
+                            url={"https://gotruckster.com/food-truck/" + `${slug}`}
                             title={truckDetail.name + " - Food Truck Denver, CO - Truckster"}
                             description={truckDetail.company_description}
                             ogImage={truckDetail.cover_photo[0].url}
