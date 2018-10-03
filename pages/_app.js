@@ -19,7 +19,7 @@ import _announceModal from '../src/components/common/announceModal/_announceModa
 import _searchBar from '../src/components/common/searchBar/_searchBar.less'
 import _customCarousel from '../src/components/common/CustomCarousel/_customCarousel.less'
 import _calendar from '../src/components/common/calendar/_calendar.less'
-
+import _shareModal from '../src/components/common/shareModal/_shareModal.less'
 import _userReview from '../src/components/common/userReview/_userReview.less'
 import _renderContainer from '../src/components/common/renderContainer/_renderContainer.less'
 import _reviewModify from '../src/components/common/reviewModify/_reviewModify.less'
@@ -49,7 +49,8 @@ class MyApp extends App {
                 _userReview +
                 _renderContainer +
                 _reviewModify +
-                _reviewSummary
+                _reviewSummary +
+                _shareModal
             }} />
             <HeaderContainer {...pageProps} />
             <Component {...pageProps} />
