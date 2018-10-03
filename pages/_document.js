@@ -20,6 +20,13 @@ export default class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,500,700,800,900" rel="stylesheet" />
                     <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta name="p:domain_verify" content="2897f8053dbcc8124a8b6e082a3e6a37" />
+                    <meta property={`fb:2077048179191099`} content="APPID" />
+                    <link rel="icon" sizes="192x192" href="/static/touch-icon.png" />
+                    <link rel="apple-touch-icon" href="/static/touch-icon.png" />
+                    <link rel="mask-icon" href="/static/favicon-mask.svg" color="#49B882" />
+                    <link rel="icon" href="/static/favicon.ico" />
                 </Head>
                 <body>
                     <Main />

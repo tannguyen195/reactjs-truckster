@@ -41,7 +41,7 @@ class EventDetailContainer extends Component {
         let keys = [1], trucks = []
         for (let i = 0; i < activity.calendar.length; ++i) {
 
-            if (!keys.includes(activity.calendar[i].food_truck.id)) {
+            if (activity.calendar[i].food_truck && !keys.includes(activity.calendar[i].food_truck.id)) {
                 trucks.push(activity.calendar[i])
                 keys.push(activity.calendar[i].food_truck.id)
             }
