@@ -14,7 +14,7 @@ app.prepare().then(() => {
   const glob = require('glob')
   const fs = require('fs')
 
-  const SITE_ROOT = process.env.SITE_ROOT || 'https://www.gotruckster.com'
+  const SITE_ROOT = process.env.SITE_ROOT || 'https://gotruckster.com'
   const SOURCE = process.env.SOURCE || path.join(__dirname, '..', '/pages', '/**/*.js')
   const DESTINATION = process.env.DESTINATION || path.join(__dirname, '..', '/static', '/sitemap.xml')
 
@@ -87,57 +87,57 @@ app.prepare().then(() => {
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/brewery-type/Large</loc>
+    <loc>https://gotruckster.com/brewery-type/large</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/brewery-type/Micro</loc>
+    <loc>https://gotruckster.com/brewery-type/micro</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/brewery-type/Contract</loc>
+    <loc>https://gotruckster.com/brewery-type/contract</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/brewery-type/Regional</loc>
+    <loc>https://gotruckster.com/brewery-type/regional</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/American</loc>
+    <loc>https://gotruckster.com/cuisine/american</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Asian</loc>
+    <loc>https://gotruckster.com/cuisine/asian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/BBQ</loc>
+    <loc>https://gotruckster.com/cuisine/bbq</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Burgers</loc>
+    <loc>https://gotruckster.com/cuisine/burgers</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Cajun%20Creole</loc>
+    <loc>https://gotruckster.com/cuisine/cajun%20creole</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Coffee</loc>
+    <loc>https://gotruckster.com/cuisine/coffee</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Columbian</loc>
+    <loc>https://gotruckster.com/cuisine/columbian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
@@ -187,217 +187,217 @@ app.prepare().then(() => {
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Multi-Cuisine</loc>
+    <loc>https://gotruckster.com/cuisine/multi-cuisine</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Brazilian</loc>
+    <loc>https://gotruckster.com/cuisine/brazilian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Breakfast</loc>
+    <loc>https://gotruckster.com/cuisine/breakfast</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Cajun_Creole</loc>
+    <loc>https://gotruckster.com/cuisine/cajun_creole</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Carribian</loc>
+    <loc>https://gotruckster.com/cuisine/carribian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Chicago</loc>
+    <loc>https://gotruckster.com/cuisine/chicago</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Chinese</loc>
+    <loc>https://gotruckster.com/cuisine/chinese</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Crepes</loc>
+    <loc>https://gotruckster.com/cuisine/crepes</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Cuban</loc>
+    <loc>https://gotruckster.com/cuisine/cuban</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Dessert</loc>
+    <loc>https://gotruckster.com/cuisine/dessert</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Ethiopian</loc>
+    <loc>https://gotruckster.com/cuisine/ethiopian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Farm%20Fresh</loc>
+    <loc>https://gotruckster.com/cuisine/farm%20fresh</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Filipino</loc>
+    <loc>https://gotruckster.com/cuisine/filipino</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/French</loc>
+    <loc>https://gotruckster.com/cuisine/french</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/German</loc>
+    <loc>https://gotruckster.com/cuisine/german</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Greek</loc>
+    <loc>https://gotruckster.com/cuisine/greek</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Hawaiian</loc>
+    <loc>https://gotruckster.com/cuisine/hawaiian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Indian</loc>
+    <loc>https://gotruckster.com/cuisine/indian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Italian</loc>
+    <loc>https://gotruckster.com/cuisine/italian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Jamaican</loc>
+    <loc>https://gotruckster.com/cuisine/jamaican</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Japanese</loc>
+    <loc>https://gotruckster.com/cuisine/japanese</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Juice</loc>
+    <loc>https://gotruckster.com/cuisine/juice</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Latin%20American</loc>
+    <loc>https://gotruckster.com/cuisine/latin%20american</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Latin%20Asian%20Fusion</loc>
+    <loc>https://gotruckster.com/cuisine/latin%20asian%20fusion</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Mediterranean</loc>
+    <loc>https://gotruckster.com/cuisine/mediterranean</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Mexican</loc>
+    <loc>https://gotruckster.com/cuisine/mexican</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Middle%20Eastern</loc>
+    <loc>https://gotruckster.com/cuisine/middle%20eastern</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Native%20American</loc>
+    <loc>https://gotruckster.com/cuisine/native%20american</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/New%20England</loc>
+    <loc>https://gotruckster.com/cuisine/new%20england</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Peruvian</loc>
+    <loc>https://gotruckster.com/cuisine/peruvian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Pizza</loc>
+    <loc>https://gotruckster.com/cuisine/pizza</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Polish</loc>
+    <loc>https://gotruckster.com/cuisine/polish</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Polynesian</loc>
+    <loc>https://gotruckster.com/cuisine/polynesian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Puertorican</loc>
+    <loc>https://gotruckster.com/cuisine/puertorican</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Senegalese</loc>
+    <loc>https://gotruckster.com/cuisine/senegalese</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Southern</loc>
+    <loc>https://gotruckster.com/cuisine/southern</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Spanish</loc>
+    <loc>https://gotruckster.com/cuisine/spanish</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Thai</loc>
+    <loc>https://gotruckster.com/cuisine/thai</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Turkish</loc>
+    <loc>https://gotruckster.com/cuisine/vurkish</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Vegan</loc>
+    <loc>https://gotruckster.com/cuisine/vegan</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Vegetarian</loc>
+    <loc>https://gotruckster.com/cuisine/vegetarian</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Venezuelan</loc>
+    <loc>https://gotruckster.com/cuisine/venezuelan</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
   <url>
-    <loc>https://gotruckster.com/cuisine/Wings</loc>
+    <loc>https://gotruckster.com/cuisine/wings</loc>
     <lastmod>2018-09-15T11:59:46+00:00</lastmod>
     <priority>0.64</priority>
   </url>
@@ -466,7 +466,7 @@ app.prepare().then(() => {
         xml += '</url>'
       })
       xml += '</urlset>'
-      //fs.writeFileSync('static/sitemap.xml', xml)
+      fs.writeFileSync('static/sitemap.xml', xml)
     })
     .catch(function (error) {
       console.log("error", error)

@@ -38,7 +38,7 @@ class SearchResult extends Component {
         return categories.map((item, index) => {
             if (item.type === "cuisine")
                 return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
-                    <Link to={`/cuisine/${item.name.toLowerCase()}`}>
+                    <Link to={`/cuisine/${item.link.toLowerCase()}`}>
                         <a>
                             <CategoryCard
                                 image={item.image}
@@ -81,7 +81,7 @@ class SearchResult extends Component {
                             </RenderContainer>
                         </div>
                         :
-                        <div className="search-detail-container "   >
+                        <div className="search-detail-container">
                             <div className="detail-header">
                                 <h1 className="name DisplayBlackLeft">Search results for "{`${params}`}"</h1>
                             </div>

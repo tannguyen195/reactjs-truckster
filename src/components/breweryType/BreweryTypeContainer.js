@@ -46,7 +46,7 @@ class BreweryTypeContainer extends Component {
         const { error, status } = this.props
 
         return (
-            <div className="gray-background">
+            <div >
                 <style dangerouslySetInnerHTML={{
                     __html: _breweryType
                 }} />

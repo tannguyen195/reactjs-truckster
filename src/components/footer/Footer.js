@@ -24,7 +24,7 @@ class Footer extends Component {
                         <Col lg={12} md={12} className="store">
                             <div className="logo">
                                 <img alt="logo" src={logoApp} /></div>
-                            <h1 className="Display-2BlackCenter">Download the app</h1>
+                            <p className="Display-2BlackCenter">Download the app</p>
                             <Row gutter={16} className="store-container">
                                 <a onClick={() => {
                                     window.open("https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8");

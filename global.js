@@ -25,13 +25,13 @@ export function getSchedule(data) {
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 100
 
                 for (let i = 0; i < repeated; ++i) {
-                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'day')
+                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'day'), tempDate1 = moment(calendarItem.start_time).add(i * interval, 'w')
 
                     schudeles.push({
                         ...calendarItem,
                         timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
+                        start: moment((tempDate1.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate1.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 
@@ -44,13 +44,13 @@ export function getSchedule(data) {
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 100
 
                 for (let i = 0; i < repeated; ++i) {
-                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'w')
+                    let tempDate = moment(calendarItem.end_time).add(i * interval, 'w'), tempDate1 = moment(calendarItem.start_time).add(i * interval, 'w')
 
                     schudeles.push({
                         ...calendarItem,
                         timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
+                        start: moment((tempDate1.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate1.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 
@@ -60,13 +60,13 @@ export function getSchedule(data) {
                 let interval = calendarItem.interval ? calendarItem.interval : 1
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 2000
                 for (let j = 0; j < repeated; ++j) {
-                    let tempDate = moment(calendarItem.end_time).add(j * interval, 'M')
+                    let tempDate = moment(calendarItem.end_time).add(j * interval, 'M'), tempDate1 = moment(calendarItem.start_time).add(i * interval, 'w')
 
                     schudeles.push({
                         ...calendarItem,
                         timeDisplay: tempDate.format("YYYY-MM-DD h:mm a"),
-                        start: moment((tempDate.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
-                        end: moment((tempDate.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
+                        start: moment((tempDate1.format("YYYY-MM-DD h:mm a")), "YYYY-MM-DD h:mm a").toDate(),
+                        end: moment((tempDate1.format("YYYY-MM-DD") + ' ' + moment(calendarItem.end_time).format("h:mm a")), "YYYY-MM-DD h:mm a").toDate()
                     })
                 }
 

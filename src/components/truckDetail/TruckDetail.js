@@ -244,7 +244,6 @@ class TruckDetail extends Component {
         const {
             isLoggedIn,
             onFavoriteChange,
-
             isPairing,
             toggleShareModal,
             favorite,

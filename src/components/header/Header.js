@@ -224,11 +224,11 @@ class Header extends Component {
                             <a className="item Body-1MediumGreyCenter">Map</a>
                         </Link>
                         <Link to="/brewery/co/denver">
-                            <a className="item Body-1MediumGreyCenter">Brewery</a>
+                            <a className="item Body-1MediumGreyCenter">Breweries</a>
 
                         </Link>
                         <Link to="/food-truck/co/denver/all">
-                            <a className="item Body-1MediumGreyCenter">Food truck</a>
+                            <a className="item Body-1MediumGreyCenter">Food trucks</a>
                         </Link>
 
                         {

@@ -109,7 +109,6 @@ class Calendar extends Component {
                     <Button shape="circle" onClick={goToBack} icon="left" />
                     <Button shape="circle" onClick={goToNext} icon="right" />
 
-
                     <Tooltip title="Month View">
                         <Button shape="circle" onClick={goToMonthView} icon="table" />
                     </Tooltip>
@@ -120,7 +119,6 @@ class Calendar extends Component {
     }
     render() {
         const { events, handleClickEvent } = this.props
-
         return (
             <div >
 
@@ -132,7 +130,8 @@ class Calendar extends Component {
                     defaultDate={new Date()}
 
                     onSelectEvent={handleClickEvent}
-
+                    startAccessor="start"
+                    endAccessor="end"
                     components={{
                         toolbar: this.getCustomToolbar,
                         event: this.getCustomEvent
