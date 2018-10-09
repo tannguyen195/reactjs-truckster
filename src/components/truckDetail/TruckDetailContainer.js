@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
-
 import { getTruckDetail, getSuggestTruck } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
 import ErrorPage from '../common/errorPage/ErrorPage'
-import { toggleShareModal } from '../../actions/toggleAction'
+import { toggleShareModal, toggleCateringModal } from '../../actions/toggleAction'
 import { getSchedule } from '../../../global'
 import { changeRoute } from '../../actions/deepLinkAction'
 import Head from '../head'
@@ -406,6 +405,7 @@ class TruckDetailContainer extends Component {
                             handleModeChange={(e) => this.handleModeChange(e)}
                             handleClickEvent={(e) => this.handleClickEvent(e)}
                         />
+
                         <AnnounceModal
                             message={`This feature will be available soon.                               
                         We are currently hard at work on selected feature. It will be available as soon as possible.`}
@@ -421,7 +421,7 @@ class TruckDetailContainer extends Component {
 export function mapStateToProps(state) {
     return {
         isLoadingTruckDetail: state.truckReducer.isLoadingTruckDetail,
-
+        visibleDeepLink: state.deepLinkReducer.visibleDeepLink,
         error: state.truckReducer.error,
         status: state.truckReducer.status,
         truckMenu: state.truckReducer.truckMenu,
@@ -444,7 +444,7 @@ export function mapDispatchToProps(dispatch) {
         postReview,
         editReview,
         changeRoute
-
+        , toggleCateringModal
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TruckDetailContainer);

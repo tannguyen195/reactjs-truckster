@@ -47,3 +47,10 @@ export function toggleShareModal() {
         });
     }
 }
+
+
+export function toggleCateringModal() {
+    return {
+        type: types.TOGGLE_CATERING_MODAL
+    }
+}

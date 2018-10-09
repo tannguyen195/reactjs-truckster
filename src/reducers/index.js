@@ -10,6 +10,7 @@ import breweryReducer from './breweryReducer'
 import pairingReducer from './pairingReducer'
 import nearbyReducer from './nearbyReducer'
 import deepLinkReducer from './deepLinkReducer'
+import cateringReducer from './cateringReducer'
 const rootReducer = combineReducers({
     profileReducer,
     toggleReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     breweryReducer,
     pairingReducer,
     nearbyReducer,
-    deepLinkReducer
+    deepLinkReducer,
+    cateringReducer
 });
 
 export default rootReducer;

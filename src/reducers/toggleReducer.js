@@ -11,6 +11,7 @@ const initial = {
     visibleErrorSignUpPopOver: false,
     url: "https://gotruckster.com/",
     openError: false,
+    visibleCatering: false,
     error: false,
     statusText: ""
 }
@@ -52,6 +53,11 @@ const toggleReducer = (state = initial, action) => {
             return {
                 url: action.url,
                 visibleShare: !state.visibleShare
+            };
+        case types.TOGGLE_CATERING_MODAL:
+            return {
+
+                visibleCatering: !state.visibleCatering
             };
         default:
             return state;

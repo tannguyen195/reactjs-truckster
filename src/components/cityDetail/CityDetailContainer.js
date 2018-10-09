@@ -8,6 +8,7 @@ import { searchBrewery } from '../../api/breweryApi'
 import { getSearchResult } from '../../actions/truckAction'
 import { toggleAnnounceModal } from '../../actions/toggleAction'
 import { changeRoute } from '../../actions/deepLinkAction'
+
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'

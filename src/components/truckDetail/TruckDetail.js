@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Rate, Anchor, Spin, Button, Tooltip, Icon, Card, Menu, Radio } from 'antd';
+import { Row, Col, Rate, Anchor, Spin, Button, Tooltip, Icon, Card, Menu, Radio, Affix } from 'antd';
 import { Link } from 'routes'
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
@@ -9,6 +9,8 @@ import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
 import TruckCard from '../common/truckCard/TruckCard'
 import _ from "lodash";
+
+const cateringIcon = '/static/images/catering-icon.svg'
 const LinkAnchor = Anchor.Link;
 
 const closeIcon = ("/static/images/close-icon.svg")
@@ -21,6 +23,8 @@ const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
 const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 const websiteIcon = ('/static/images/website-icon.svg')
+
+import CateringContainer from '../catering/CateringContainer'
 
 class TruckDetail extends Component {
 
@@ -171,7 +175,6 @@ class TruckDetail extends Component {
                     </div>
                 </div>
                 <hr />
-
             </div>
 
         })
@@ -215,7 +218,7 @@ class TruckDetail extends Component {
             if (item.id !== truckDetail.id)
                 tempArr.push(item)
         })
-    
+
         for (let i = 0; i < tempArr.length; i++) {
             let ranNum = _.random(tempArr.length - 1)
             if (!_.includes(arrIDsuggest, ranNum)) {
@@ -281,24 +284,7 @@ class TruckDetail extends Component {
                                         })
                                     }
                                 </div>
-                                <span className="left-row">
-                                    {
-                                        !isLoggedIn ?
-                                            <Tooltip title="Login required">
-                                                <span>
-                                                    <Rate disabled count={1} character={<Icon type="heart" />} />
-                                                </span>
-                                            </Tooltip>
-                                            :
-                                            <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
-                                                count={1}
-                                                character={<Icon style={{
-                                                    color: favorite ? '#f32126' : "#dadada"
-                                                }} type="heart" />} />
-                                    }
-                                    <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
 
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -354,6 +340,11 @@ class TruckDetail extends Component {
 
                         </div>
                     </div>
+                    <Affix style={{ position: 'relative', flex: 1 }} offsetTop={130}>
+                        <div className='catering-section'>
+                            <CateringContainer toggleShareModal={toggleShareModal} />
+                        </div>
+                    </Affix>
                 </div>
             </div>
 
@@ -361,7 +352,7 @@ class TruckDetail extends Component {
     }
 
     render() {
-        const { truckDetail, isPairing } = this.props
+        const { truckDetail, isPairing, toggleCateringModal, visibleDeepLink } = this.props
 
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
@@ -374,6 +365,12 @@ class TruckDetail extends Component {
                             {
                                 this.renderTruckDetail(truckDetail)
                             }
+                            <div onClick={toggleCateringModal} style={{ bottom: visibleDeepLink ? 64 : 0 }} className="catering-responsive">
+                                <div className="catering-inner ">
+
+                                    <div className="ButtonWhiteRight">CATERING</div>
+                                </div>
+                            </div>
                         </div>
 
                         :
