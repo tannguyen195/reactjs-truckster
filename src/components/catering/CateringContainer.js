@@ -14,6 +14,9 @@ class CateringContainer extends Component {
             occasion: ""
         }
     }
+    handleSubmitForm = () => {
+        window.open('mailto:test@example.com?subject=subject&body=body')
+    }
     onOccasionChange = (e) => {
         const { setFieldsValue } = this.props.form
         setFieldsValue({
@@ -32,18 +35,18 @@ class CateringContainer extends Component {
         } = this.props
         e.preventDefault();
         form.validateFieldsAndScroll((err, values) => {
-            
+
             if (!err) {
                 form.setFieldsValue({
                     email: values.email
                 })
                 nextStep(values)
-               
+
             }
         });
     }
     render() {
-   
+
 
         return (
             <div>
@@ -52,6 +55,7 @@ class CateringContainer extends Component {
                 }} />
                 <Catering
                     handleSubmit={this.handleSubmit}
+                    handleSubmitForm={this.handleSubmitForm}
                     onOccasionChange={this.onOccasionChange}
                     onPreviousStep={() => { this.onPreviousStep() }}
                     {...this.state}

@@ -171,13 +171,20 @@
                     margin: 0 auto;
                     width: 100%;
                 }
+                @media only screen and (max-width: 1000px) {
+                    width: 600px;
+                    max-width: initial;;
+                }
             }
             .catering-section {
                 z-index: 10;
                 top: -50px;
                 position: absolute;
+                @media only screen and (max-width: 768px) {
+                    visibility: hidden;
+                }
                 @media only screen and (max-width: 1000px) {
-                    visibility: hidden
+                    width: 100%;
                 }
             }
         }
@@ -392,14 +399,16 @@
         }
     }
     .catering-responsive {
+        @media only screen and (max-width: 768px) {
+            visibility: visible;
+        }
+        visibility: hidden;
         width: 100%;
         position: fixed;
         background: #f32126;
         z-index: 12;
         padding: 16px;
-        .catering-inner {
-
-        }
+        .catering-inner {}
     }
     .map {
         position: relative;

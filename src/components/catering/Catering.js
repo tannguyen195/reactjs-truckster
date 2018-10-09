@@ -31,7 +31,8 @@ export default class extends Component {
 
     render() {
         const { step, visibleCatering, toggleCateringModal, previousStep, handleSubmit,
-            isLoggedIn, favorite, onFavoriteChange, toggleShareModal
+            isLoggedIn, favorite, onFavoriteChange, toggleShareModal,
+            handleSubmitForm
         } = this.props
 
         return (
@@ -99,7 +100,7 @@ Fast, easy and delicious. Book it here.</div>
 
                             {
                                 step < 8 ? <Button htmlType="submit" type="primary">NEXT</Button>
-                                    : <Button style={{ width: 200 }} type="primary">SUBMIT</Button>
+                                    : <Button onClick={handleSubmitForm} style={{ width: 200 }} type="primary">SUBMIT</Button>
                             }
 
                         </div>

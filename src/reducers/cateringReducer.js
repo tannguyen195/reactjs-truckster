@@ -5,7 +5,7 @@ const initial = {
     cateringData: {
        
     },
-    step: 7
+    step: 1
 }
 const cateringReducer = (state = initial, action) => {
     switch (action.type) {

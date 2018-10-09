@@ -9,7 +9,7 @@ import moment from 'moment'
 import Calendar from '../common/calendar/Calendar'
 import TruckCard from '../common/truckCard/TruckCard'
 import _ from "lodash";
-
+import { isMobile } from 'react-device-detect';
 const cateringIcon = '/static/images/catering-icon.svg'
 const LinkAnchor = Anchor.Link;
 
@@ -365,7 +365,7 @@ class TruckDetail extends Component {
                             {
                                 this.renderTruckDetail(truckDetail)
                             }
-                            <div onClick={toggleCateringModal} style={{ bottom: visibleDeepLink ? 64 : 0 }} className="catering-responsive">
+                            <div onClick={toggleCateringModal} style={{ bottom: isMobile && isibleDeepLink ? 64 : 0 }} className="catering-responsive">
                                 <div className="catering-inner ">
 
                                     <div className="ButtonWhiteRight">CATERING</div>
