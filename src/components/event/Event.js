@@ -51,17 +51,19 @@ class Event extends Component {
                         <div className="name DisplayBlackLeft">  Events in Denver </div>
                         <hr />
                         <div className="event-section">
-                            <Section seeall={true} title="Upcoming" >
+                            <Section seeall={false} title="Upcoming" >
                                 <RenderContainer message="Something went wrong, please try another time!"
                                     isLoading={activitiesWeek ? false : true} error={error}  >
                                     {
-                                        activitiesWeek &&
+                                        activitiesWeek && activitiesWeek.length > 0 &&
                                         <MediaQuery maxWidth={767}>
                                             {
 
                                                 (matches) => {
                                                     return <CustomCarousel slideToShow={matches ? 1 : 2}>
-                                                        {this.renderEventCarousel(activitiesWeek)}
+                                                        {
+                                                            this.renderEventCarousel(activitiesWeek)
+                                                        }
                                                     </CustomCarousel>
 
                                                 }

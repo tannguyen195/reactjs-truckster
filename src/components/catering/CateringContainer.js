@@ -8,6 +8,7 @@ import { toggleCateringModal } from '../../actions/toggleAction'
 import { nextStep, previousStep } from '../../actions/cateringAction'
 import { catering } from '../../api/cateringApi'
 import moment from 'moment'
+
 class CateringContainer extends Component {
     constructor(props) {
         super(props)
