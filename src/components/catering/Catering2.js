@@ -11,8 +11,8 @@ export default class extends Component {
         } = this.props
         form.setFieldsValue({
             eventDate: cateringData.eventDate,
-            startTime: cateringData.startTime,
-            endTime: cateringData.endTime
+            start_time: cateringData.start_time,
+            end_time: cateringData.end_time
         })
     }
     render() {
@@ -35,14 +35,14 @@ export default class extends Component {
 
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">Start Time</div>
-                        {getFieldDecorator('startTime', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
+                        {getFieldDecorator('start_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
                             <TimePicker format="HH:mm" />
                         )}
                     </FormItem>
 
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">End Time</div>
-                        {getFieldDecorator('endTime', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
+                        {getFieldDecorator('end_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
                             <TimePicker format="HH:mm" />
                         )}
                     </FormItem>

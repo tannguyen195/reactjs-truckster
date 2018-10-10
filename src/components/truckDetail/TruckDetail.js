@@ -342,7 +342,7 @@ class TruckDetail extends Component {
                     </div>
                     <Affix style={{ position: 'relative', flex: 1 }} offsetTop={130}>
                         <div className='catering-section'>
-                            <CateringContainer toggleShareModal={toggleShareModal} />
+                            <CateringContainer food_truck_id={truckDetail.id} toggleShareModal={toggleShareModal} />
                         </div>
                     </Affix>
                 </div>

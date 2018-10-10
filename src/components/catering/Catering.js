@@ -79,6 +79,7 @@ Fast, easy and delicious. Book it here.</div>
 
                     <Form onSubmit={handleSubmit} className="catering-modal">
                         <div className="progress-container">
+                      
                             <Progress strokeColor="#fa393d" percent={step / 8 * 100} showInfo={false} />
                         </div>
                         <div className="catering-header">

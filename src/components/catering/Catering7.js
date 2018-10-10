@@ -24,13 +24,13 @@ export default class extends Component {
                     {getFieldDecorator('paying', {
                     })(
                         <RadioGroup className="catering5-button-paying">
-                            <Radio value={"Host"}>
+                            <Radio value={1}>
                                 <div className="paying-button">
                                     <img src={userIcon} alt="user" />
                                     Host
                                     </div>
                             </Radio>
-                            <Radio value={"Attendees"}>
+                            <Radio value={0}>
                                 <div className="paying-button">
                                     <img src={groupIcon} alt="group" /> Attendees</div>
                             </Radio>

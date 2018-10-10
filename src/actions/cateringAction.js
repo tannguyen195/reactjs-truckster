@@ -18,3 +18,29 @@ export function previousStep() {
 
     }
 }
+
+export function requestCatering(isLoadingCatering) {
+    return {
+        type: types.REQUEST_CATERING,
+        isLoadingCatering: isLoadingCatering
+    };
+}
+
+export function cateringSuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.CATERING_SUCCESS,
+            response
+        });
+    }
+}
+
+export function cateringError(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.CATERING_ERROR,
+            response
+        });
+    }
+}
+

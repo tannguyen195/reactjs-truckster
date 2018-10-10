@@ -9,7 +9,7 @@ export default class extends Component {
             form, cateringData
         } = this.props
         form.setFieldsValue({
-            participant: cateringData.participant,
+            participants: cateringData.participants,
         })
     }
 
@@ -22,7 +22,7 @@ export default class extends Component {
                 <div className="catering-section-title">How many estimated participants?</div>
                 <div className="paddingLeftRight56">
                     <FormItem className="marginBottom40">
-                        {getFieldDecorator('participant', {
+                        {getFieldDecorator('participants', {
                             rules: [{
                                 message: `Please enter number!`, pattern: '[0-9]'
                             }],

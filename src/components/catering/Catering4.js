@@ -25,7 +25,7 @@ export default class extends Component {
                 <div>
                     <FormItem className="marginBottom16">
                         {getFieldDecorator('occasion', {
-
+                            initialValue: "Birthday"
                         })(
                             <RadioGroup>
                                 <Radio value={"Birthday"}>Birthday</Radio>

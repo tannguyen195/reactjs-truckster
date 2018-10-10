@@ -13,7 +13,7 @@ export default class extends Component {
         form.setFieldsValue({
             address: cateringData.address,
             residence: cateringData.residence ? cateringData.residence : ['colorado', 'denver'],
-            zip: cateringData.zip
+            zip_code: cateringData.zip_code
         })
     }
     render() {
@@ -35,7 +35,7 @@ export default class extends Component {
                     </FormItem>
                     <div className="catering3-address">
                         <FormItem className="catering3-residence marginBottom40"  >
-                            {getFieldDecorator('residence', {
+                            {getFieldDecorator('city', {
                                 initialValue: ['colorado', 'denver'],
                                 rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
                             })(
@@ -44,7 +44,8 @@ export default class extends Component {
                         </FormItem>
 
                         <FormItem className="marginBottom40">
-                            {getFieldDecorator('zip', {
+                            {getFieldDecorator('zip_code', {
+                                initialValue: 0,
                                 rules: [{
                                     message: `Please enter zipcode!`, pattern: "[0-9]"
                                 }],

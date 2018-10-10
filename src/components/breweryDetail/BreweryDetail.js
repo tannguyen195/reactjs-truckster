@@ -9,6 +9,7 @@ import Calendar from '../common/calendar/Calendar'
 import TruckNewCard from '../common/truckNewCard/TruckNewCard'
 import _ from "lodash";
 import { getSchedule } from '../../../global'
+
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
 const LinkAnchor = Anchor.Link;
 const shareIcon = ('/static/images/share-icon.png')

@@ -6,16 +6,34 @@ import _catering from './_catering.less'
 import { Form } from 'antd'
 import { toggleCateringModal } from '../../actions/toggleAction'
 import { nextStep, previousStep } from '../../actions/cateringAction'
-
+import { catering } from '../../api/cateringApi'
+import moment from 'moment'
 class CateringContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            occasion: ""
+            occasion: "",
+
         }
     }
     handleSubmitForm = () => {
-        window.open('mailto:test@example.com?subject=subject&body=body')
+     
+
+        const { cateringData, catering, food_truck_id, form } = this.props
+
+        form.validateFieldsAndScroll((err, values) => {
+            catering({
+                ...cateringData,
+                city: cateringData.city[0] + "-" + cateringData.city[1],
+                start_time: moment(cateringData.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD') + ` ` + moment(cateringData.start_time, 'HH:mm:s').format('HH:mm:s'),
+                end_time: moment(cateringData.eventDate).format('YYYY-MM-DD') + ` ` + moment(cateringData.end_time, 'HH:mm:s').format('HH:mm:s'),
+                food_truck_id,
+                comment: values.comment
+            })
+
+        });
+
+
     }
     onOccasionChange = (e) => {
         const { setFieldsValue } = this.props.form
@@ -37,9 +55,7 @@ class CateringContainer extends Component {
         form.validateFieldsAndScroll((err, values) => {
 
             if (!err) {
-                form.setFieldsValue({
-                    email: values.email
-                })
+
                 nextStep(values)
 
             }
@@ -75,7 +91,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        nextStep, previousStep, toggleCateringModal
+        nextStep, previousStep, toggleCateringModal, catering
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(CateringContainer));
