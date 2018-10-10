@@ -365,7 +365,7 @@ class TruckDetail extends Component {
                             {
                                 this.renderTruckDetail(truckDetail)
                             }
-                            <div onClick={toggleCateringModal} style={{ bottom: isMobile && isibleDeepLink ? 64 : 0 }} className="catering-responsive">
+                            <div onClick={toggleCateringModal} style={{ bottom: isMobile && visibleDeepLink ? 64 : 0 }} className="catering-responsive">
                                 <div className="catering-inner ">
 
                                     <div className="ButtonWhiteRight">CATERING</div>
