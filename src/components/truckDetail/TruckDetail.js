@@ -299,7 +299,26 @@ class TruckDetail extends Component {
                                 <LinkAnchor href="#info" title="Info" />
                                 <LinkAnchor href="#menu" title="Menu" />
                                 <LinkAnchor href="#reviews" title="Reviews" />
+                                <span className="left-row">
+                                {
+                                    !isLoggedIn ?
+                                        <Tooltip title="Login required">
+                                            <span>
+                                                <Rate disabled count={1} character={<Icon type="heart" />} />
+                                            </span>
+                                        </Tooltip>
+                                        :
+                                        <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
+                                            count={1}
+                                            character={<Icon style={{
+                                                color: favorite ? '#f32126' : "#dadada"
+                                            }} type="heart" />} />
+                                }
+                                <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
+
+                            </span>
                             </Anchor>
+                            
                         </div>
 
                         <div className="menu-content">
@@ -368,7 +387,7 @@ class TruckDetail extends Component {
                             <div onClick={toggleCateringModal} style={{ bottom: isMobile && visibleDeepLink ? 64 : 0 }} className="catering-responsive">
                                 <div className="catering-inner ">
 
-                                    <div className="ButtonWhiteRight">CATERING</div>
+                                    <div className="ButtonWhiteRight">BOOK THIS TRUCK</div>
                                 </div>
                             </div>
                         </div>

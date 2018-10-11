@@ -41,30 +41,12 @@ export default class extends Component {
                     <div>
                         <div className="catering-title">
                             <div>
-                                Hire a Food Truck
+                                Book This Truck
                             </div>
-                            <span className="left-row">
-                                {
-                                    !isLoggedIn ?
-                                        <Tooltip title="Login required">
-                                            <span>
-                                                <Rate disabled count={1} character={<Icon type="heart" />} />
-                                            </span>
-                                        </Tooltip>
-                                        :
-                                        <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
-                                            count={1}
-                                            character={<Icon style={{
-                                                color: favorite ? '#f32126' : "#dadada"
-                                            }} type="heart" />} />
-                                }
-                                <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
-
-                            </span>
+                         
                         </div>
-                        <div className="catering-desc">Food truck catering for your next event.
-Fast, easy and delicious. Book it here.</div>
-                        <Button onClick={toggleCateringModal} type="primary">BOOK CATERING NOW</Button>
+                        <div className="catering-desc">Want a food truck to cater your next event? Truckster makes it easy, just click below to get started.</div>
+                        <Button onClick={toggleCateringModal} type="primary">SUBMIT CATERING REQUEST</Button>
                     </div>
 
                 </div>
@@ -79,7 +61,7 @@ Fast, easy and delicious. Book it here.</div>
 
                     <Form onSubmit={handleSubmit} className="catering-modal">
                         <div className="progress-container">
-                      
+
                             <Progress strokeColor="#fa393d" percent={step / 8 * 100} showInfo={false} />
                         </div>
                         <div className="catering-header">

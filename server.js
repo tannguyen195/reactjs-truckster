@@ -472,11 +472,6 @@ app.prepare().then(() => {
       console.log("error", error)
     });
 
-
-
-
-
-
   // fs.writeFileSync(DESTINATION, xml)
 
 
@@ -492,7 +487,7 @@ app.prepare().then(() => {
       res.status(200).sendFile('sitemap.xml', options)
     )
   });
-
+  server.set('case sensitive routing', true);
   server.use(cookieParser());
   server.use(handler).listen(port)
 })

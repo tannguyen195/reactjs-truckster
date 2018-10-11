@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Form, Input, Icon } from 'antd';
+import { Form, InputNumber, Icon } from 'antd';
 import { residences } from '../data'
 import { Link } from 'routes'
 const FormItem = Form.Item;
@@ -24,12 +24,15 @@ export default class extends Component {
                 <div className="paddingLeftRight56">
                     <FormItem className="marginBottom40">
                         {getFieldDecorator('budget', {
-                            rules: [{
-                                message: `Please enter number!`, pattern: '[0-9]'
-                            }],
+                           
                         })(
-                            <Input
-                                prefix={<Icon type="dollar" theme="outlined" />}
+                            <InputNumber
+                               
+                                formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                type="text"
+                                min={0}
+                                prefix={< Icon type="dollar" theme="outlined" />}
                             />
                         )}
                     </FormItem>

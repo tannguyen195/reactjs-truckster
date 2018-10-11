@@ -27,7 +27,7 @@ export default class extends Component {
                                 message: `Please enter number!`, pattern: '[0-9]'
                             }],
                         })(
-                            <Input />
+                            <Input type="number" />
                         )}
                     </FormItem>
 
