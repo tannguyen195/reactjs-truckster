@@ -36,14 +36,14 @@ export default class extends Component {
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">Start Time</div>
                         {getFieldDecorator('start_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
-                            <TimePicker format="HH:mm" />
+                            <TimePicker use12Hours format="h:mm a" />
                         )}
                     </FormItem>
 
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">End Time</div>
                         {getFieldDecorator('end_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
-                            <TimePicker format="HH:mm" />
+                            <TimePicker use12Hours format="h:mm a" />
                         )}
                     </FormItem>
                 </div>

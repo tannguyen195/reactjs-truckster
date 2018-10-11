@@ -29,7 +29,7 @@ module.exports = routes()
 
     .add('truckDetailRedirect', '/truck/:state/:city')
     .add('truckRedirect', '/truck/:state/:city')
-    .add('trucks', '/food-truck/:state/:city/all')
+    .add('food-truck', '/food-truck/:state/:city/all')
     .add('truck', '/food-truck/:slug', 'truck')
 
     .add('cities', '/co')
