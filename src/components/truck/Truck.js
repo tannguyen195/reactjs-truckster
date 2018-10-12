@@ -14,31 +14,31 @@ const categories =
     [
         {
             name: 'American',
-            image: ('/static/images/cuisines/American.jpg')
+            image: ('/static/images/cuisines/american.jpg')
         },
         {
             name: 'Asian',
-            image: ('/static/images/cuisines/Asian.jpg')
+            image: ('/static/images/cuisines/asian.jpg')
         },
         {
             name: 'BBQ',
-            image: ('/static/images/cuisines/BBQ.jpg')
+            image: ('/static/images/cuisines/bbq.jpg')
         },
         {
             name: 'Burgers',
-            image: ('/static/images/cuisines/Burgers.jpg')
+            image: ('/static/images/cuisines/burgers.jpg')
         },
         {
             name: 'Cajun Creole',
-            image: ('/static/images/cuisines/Cajun_Creole.jpg')
+            image: ('/static/images/cuisines/cajun-creole.jpg')
         },
         {
             name: 'Coffee',
-            image: ('/static/images/cuisines/Coffee.jpg')
+            image: ('/static/images/cuisines/coffee.jpg')
         },
         {
             name: 'Columbian',
-            image: ('/static/images/cuisines/Columbian.jpg')
+            image: ('/static/images/cuisines/columbian.jpg')
         },
 
     ];

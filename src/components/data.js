@@ -5,7 +5,7 @@ export const categories =
     [
         {
             name: 'Multi-Cuisine',
-            image: ('/static/images/cuisines/Multi-Cuisine.jpeg'), type: 'cuisine',
+            image: ('/static/images/cuisines/multi-cuisine.jpeg'), type: 'cuisine',
             link: 'multi-cuisine'
         },
         {
