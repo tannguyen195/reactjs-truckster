@@ -9,7 +9,7 @@ const path = require('path');
 const axios = require('axios');
 app.prepare().then(() => {
   const server = express();
-
+  server.set('case sensitive routing', true);
   // Create dynamic sitemap
   const glob = require('glob')
   const fs = require('fs')
@@ -487,7 +487,7 @@ app.prepare().then(() => {
       res.status(200).sendFile('sitemap.xml', options)
     )
   });
-  server.set('case sensitive routing', true);
+
   server.use(cookieParser());
   server.use(handler).listen(port)
 })
