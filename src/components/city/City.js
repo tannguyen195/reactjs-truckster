@@ -10,28 +10,28 @@ const cities =
         {
             isComing: true,
             name: 'Aurora',
-            image: ('/static/images/cities/Aurora.jpeg')
+            image: ('/static/images/cities/aurora.jpeg')
         },
         {
             isComing: true,
             name: 'Boulder',
-            image: ('/static/images/cities/Boulder.jpg')
+            image: ('/static/images/cities/boulder.jpg')
         },
         {
             isComing: true,
             name: 'Colorado Springs',
-            image: ('/static/images/cities/ColoradoSprings.jpg')
+            image: ('/static/images/cities/colorado-springs.jpg')
         },
         {
 
             name: 'Denver',
-            image: ('/static/images/cities/Denver.jpeg'),
+            image: ('/static/images/cities/denver.jpeg'),
             truckNum: 461
         },
         {
             isComing: true,
             name: 'Fort Collins',
-            image: ('/static/images/cities/FortCollins.jpg')
+            image: ('/static/images/cities/fort-collins.jpg')
         },
 
     ]
