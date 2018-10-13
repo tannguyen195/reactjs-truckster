@@ -25,13 +25,13 @@ module.exports = routes()
     .add('breweries', '/brewery/:state/:city')
     .add('brewery', '/brewery/:slug')
 
-    .add('breweryType', '/brewery-type/:value')
+    .add('brewery-type', '/brewery-type/:value')
 
-    .add('truckDetailRedirect', '/truck/:state/:city')
-    .add('truckRedirect', '/truck/:state/:city')
+    .add('truck-detail-redirect', '/truck/:state/:city')
+    .add('truck-redirect', '/truck/:state/:city')
     .add('food-truck', '/food-truck/:state/:city/all')
     .add('truck', '/food-truck/:slug', 'truck')
 
     .add('cities', '/co')
-    .add('cityDetail', '/food-truck/:state/:city')
-    .add('cityDetailRedirect', '/:state/:city')
+    .add('city-detail', '/food-truck/:state/:city')
+    .add('city-detail-redirect', '/:state/:city')
