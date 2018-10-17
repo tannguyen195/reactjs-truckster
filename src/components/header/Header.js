@@ -102,12 +102,12 @@ class Header extends Component {
                             getPopupContainer={() => document.getElementById('area1')}
                             overlay={menuCity()}>
                             <span className="dropdown-container">
-                                <Link to="/co" >
-                                    <a id="area1" className="menu-drawer-city">
-                                        <img src={locationIcon} alt="city" />
-                                        <span className="city-name">All cities</span>
-                                    </a>
-                                </Link>
+
+                                <a id="area1" className="menu-drawer-city">
+                                    <img src={locationIcon} alt="city" />
+                                    <span className="city-name">All cities</span>
+                                </a>
+
                             </span>
                         </Dropdown>
 
@@ -118,15 +118,15 @@ class Header extends Component {
                             <div className="menu-drawer-item-group">
                                 <Link to="/nearby">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
-                                        Explore  </a>
+                                        Map  </a>
                                 </Link>
                                 <Link to="/brewery/co/denver">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
-                                        Brewery  </a>
+                                        Breweries  </a>
                                 </Link>
                                 <Link to="/food-truck/co/denver/all">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
-                                        Food Truck  </a>
+                                        Food Trucks  </a>
                                 </Link>
                                 <Link to="/help">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
@@ -185,12 +185,12 @@ class Header extends Component {
                     getPopupContainer={() => document.getElementById('area2')}
                     overlay={menuCity()}>
                     <span className="dropdown-container">
-                        <Link to="/co" >
-                            <a id="area2" className="city">
-                                <img src={locationIcon} alt="city" />
-                                <span className="Body-1MediumBlackLeft city-name">All cities</span>
-                            </a>
-                        </Link>
+
+                        <a id="area2" className="city">
+                            <img src={locationIcon} alt="city" />
+                            <span className="Body-1MediumBlackLeft city-name">All cities</span>
+                        </a>
+
                     </span>
                 </Dropdown>
 

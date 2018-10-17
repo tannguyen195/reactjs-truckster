@@ -31,7 +31,9 @@ class NearbyContainer extends Component {
             visibleNearbyEventDetail: false,
             nearbyEventDetail: null,
             isInRightPosition: true,
-            currentLocation: null
+            currentLocation: null,
+
+            visibleListResponsive: false
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -181,7 +183,22 @@ class NearbyContainer extends Component {
                 })
         }
     }
+    handleClickMarker(e) {
+        let arr = []
+        this.state.nearbyList.forEach(item => {
+            if (e.latitude === item.latitude)
+                arr.push(item)
+        })
 
+        this.setState({
+            nearbyEventDetail: arr,
+            currentHoverItem: e.id.toString(),
+            center: {
+                lat: parseFloat(e.latitude),
+                lng: parseFloat(e.longtitude),
+            }
+        })
+    }
     componentDidMount() {
         const { changeRoute } = this.props
         changeRoute(
@@ -203,15 +220,17 @@ class NearbyContainer extends Component {
             }));
         }
     }
-
+    toggleListResponsive() {
+        this.setState({
+            visibleListResponsive: !this.state.visibleListResponsive
+        })
+    }
     onVisibleChange(e) {
-
         if (e === this.state.currentHoverItem) {
             this.setState({ visible: true })
         }
     }
     onEventEnter(e) {
-
         this.setState({
             currentHoverItem: e.target.getAttribute("id")
         })
@@ -253,10 +272,10 @@ class NearbyContainer extends Component {
 
         this.detectCurrentLocation(currentLocation)
         cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#5289ff',
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: '#FF0000',
+            fillColor: 'transparent',
             fillOpacity: 0.1,
             map: map,
             center: center,
@@ -311,6 +330,7 @@ class NearbyContainer extends Component {
         getNearby(this.state.center, currentPage + 1)
     }
     handleClickNearbyEvent(e) {
+
         document.getElementById("content").scrollTop = 0;
         let arr = []
         this.state.nearbyList.forEach(item => {
@@ -320,11 +340,28 @@ class NearbyContainer extends Component {
 
         this.setState({
             visibleNearbyEventDetail: true,
-            nearbyEventDetail: arr
-
+            nearbyEventDetail: arr,
+            currentHoverItem: e.id.toString(),
+         
         })
     }
+    handleClickNearbyEventResponsive(e) {
+        this.toggleListResponsive()
+        let arr = []
+        this.state.nearbyList.forEach(item => {
+            if (e.latitude === item.latitude)
+                arr.push(item)
+        })
 
+        this.setState({
+            nearbyEventDetail: arr,
+            currentHoverItem: e.id.toString(),
+            center: {
+                lat: parseFloat(e.latitude),
+                lng: parseFloat(e.longtitude),
+            }
+        })
+    }
     handleClickBack(e) {
         var elmnt = document.getElementById("content");
         elmnt.scrollTop = 0
@@ -371,6 +408,10 @@ class NearbyContainer extends Component {
                     onEventLeave={(e) => this.onEventLeave(e)}
                     onEventEnter={(e) => this.onEventEnter(e)}
                     loadMore={() => this.loadMore()}
+
+                    toggleListResponsive={() => this.toggleListResponsive()}
+                    handleClickMarker={(e) => this.handleClickMarker(e)}
+                    handleClickNearbyEventResponsive={(e) => this.handleClickNearbyEventResponsive(e)}
                 />
             </div>
         )

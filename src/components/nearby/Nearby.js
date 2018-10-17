@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Switch, Icon, Rate } from 'antd';
+import { Row, Col, Switch, Icon, Rate, Button } from 'antd';
 
 import RenderContainer from '../common/renderContainer/RenderContainer'
 import moment from 'moment'
@@ -8,7 +8,7 @@ import { Link, Router } from 'routes'
 import AnnounceNearbyModal from './AnnounceNearbyModal'
 import TitleLink from '../common/titleLink'
 import MediaQuery from 'react-responsive'
-
+const homeImage = ("/static/images/home-image.jpg")
 const mapMarker = ('/static/images/map-marker-icon.svg')
 const truckGreyIcon = ('/static/images/truck-grey-icon.svg')
 const websiteIcon = ('/static/images/website-icon.svg')
@@ -26,8 +26,8 @@ const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 
 
-const MarkerCustom = ({ info, icon, visible }) => {
-
+const MarkerCustom = ({ info, icon, visible, handleClickMarker }) => {
+ 
     let url = ""
     switch (info.type) {
         case "brewery":
@@ -47,7 +47,7 @@ const MarkerCustom = ({ info, icon, visible }) => {
             break;
         default: break;
     }
-    return <div onClick={() => { Router.pushRoute(url) }} className="marker-container">
+    return <div onClick={() => handleClickMarker(info)} className="marker-container">
         <div>
             <img width={36} alt="marker" src={icon} />
         </div>
@@ -96,16 +96,18 @@ const filterItem = (title, key, onChange, isLoadingGetNearby) => {
 class Nearby extends Component {
 
     renderMarker(data) {
-        const { currentHoverItem, onVisibleChange } = this.props
+        const { currentHoverItem, onVisibleChange, handleClickMarker } = this.props
+
         return data.map((event, idx) => {
             if (event) {
                 return event.map((item, index) => {
                     return <MarkerCustom
+                        key={index}
 
                         onVisibleChange={() => onVisibleChange(item.id.toString())}
                         visible={item.id.toString() === currentHoverItem ? true : false}
                         info={item}
-                        key={index}
+                        handleClickMarker={handleClickMarker}
                         icon={item.marker}
                         lat={parseFloat(item.latitude)}
                         lng={parseFloat(item.longtitude)} />
@@ -115,7 +117,49 @@ class Nearby extends Component {
             else return null
         })
     }
+    renderEventResponsiveCard(events) {
 
+        const {  handleClickNearbyEventResponsive } = this.props
+        return events.map((event, index) => {
+
+            if (event)
+                return event.map((item, idx) => {
+                    return <div
+                        onClick={(e) => handleClickNearbyEventResponsive(item)}
+                        className="nearby-events"
+
+
+                        id={item.id} key={idx} >
+                        <div id={item.id} className="pairing-item-container">
+                            <div id={item.id} className="pairing-image">
+                                <img id={item.id} alt="pairing-icon" src={item.image ? item.image : defaultImage} />
+                            </div>
+                            <div id={item.id} className="pairing-info">
+                                <div id={item.id} className=" Body-1SemiBlackLeft pairing-icon">
+                                    <img id={item.id} src={item.marker} alt="pairing-icon" />
+                                    {item.nameDisplay}
+                                </div>
+
+                                <div id={item.id} className="pairing-item-bref CaptionGreyLeft">
+                                    <img id={item.id} src={item.type === "pairing-brewery" ? truckGreyIcon : locationIcon} alt="icon" />
+                                    {item.type === "pairing-brewery" ? item.food_truck.name : item.addressDisplay}
+                                </div>
+                                <div id={item.id} className="pairing-item-bref CaptionGreyLeft">
+                                    <img src={timeIcon} alt="icon" />
+                                    {
+                                        item.timeDisplay && item.end_time &&
+                                        ` ${moment(item.timeDisplay, "YYYY-MM-DD h:mm a").format("MMM DD")}, ${moment(item.start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} - ${moment(item.end_time).format("h:mm a")}`
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                })
+            else return null
+        })
+    }
     renderEventCard(events) {
 
         const { onEventEnter, onEventLeave, handleClickNearbyEvent } = this.props
@@ -123,7 +167,9 @@ class Nearby extends Component {
 
             if (event)
                 return event.map((item, idx) => {
-                    return <div onClick={(e) => handleClickNearbyEvent(item)} className="nearby-events" onMouseLeave={onEventLeave} onMouseEnter={onEventEnter}
+                    return <div onClick={(e) => handleClickNearbyEvent(item)} className="nearby-events"
+                        onMouseLeave={onEventLeave}
+                        onMouseEnter={onEventEnter}
 
                         id={item.id} key={idx} >
                         <div id={item.id} className="pairing-item-container">
@@ -622,7 +668,7 @@ class Nearby extends Component {
                             nearbyList && nearbyList.length === 0 ?
                                 <div className="Body-1SemiBlackLeft">No truck, pairing or event in the next 15 hours was found near your chosen location</div>
                                 :
-                                this.renderEventCard(tempNearbyState)
+                                this.renderEventResponsiveCard(tempNearbyState)
                         }
                     </div>
 
@@ -683,20 +729,30 @@ class Nearby extends Component {
     }
     render() {
 
-        const { center, onChangeMapPosition,
+        const {
+            center,
+            onChangeMapPosition,
             zoom, handleGoogleMapApi,
             tempNearbyState,
             visibleNearbyEventDetail,
             isLoadingGetNearby,
             isInRightPosition,
             handleCloseModal,
-            handleExploreInRightPosition
+            handleExploreInRightPosition,
+
+            toggleListResponsive,
+            visibleListResponsive,
+
+            nearbyEventDetail
         } = this.props
 
         return (
             <div className="nearby-container">
 
-                <AnnounceNearbyModal handleExploreInRightPosition={handleExploreInRightPosition} handleCancel={handleCloseModal} visible={!isInRightPosition} />
+                <AnnounceNearbyModal
+                    handleExploreInRightPosition={handleExploreInRightPosition}
+                    handleCancel={handleCloseModal}
+                    visible={!isInRightPosition} />
                 <Row >
 
                     <MediaQuery maxWidth={768}>
@@ -704,9 +760,40 @@ class Nearby extends Component {
 
                             if (matches) {
                                 return <div id="content">
-                                    {
+                                    <div className="responsive-list-button">
+                                        <Button
+                                            onClick={toggleListResponsive}>
+                                            {!visibleListResponsive ? "LIST" : "MAP"}</Button>
+                                    </div>
+                                    {visibleListResponsive &&
                                         this.renderNearbyEventListMobile()
                                     }
+                                    {
+                                        nearbyEventDetail && <div style={{ display: visibleListResponsive ? "none" : "" }} className="detail-responsive">
+                                            <div
+                                                className="cover-photo"
+                                                style={{
+                                                    backgroundImage: `url(${nearbyEventDetail[0].image ?
+                                                        nearbyEventDetail[0].image : homeImage})`
+                                                }}>
+                                            </div>
+                                            <div className="detail-body-responsive">
+                                                <div className="Body-1SemiBlackLeft">{nearbyEventDetail[0].nameDisplay}</div>
+                                                <div className="popover-info">
+                                                    <img src={nearbyEventDetail[0].image} alt="popover-icon" />
+                                                    <div className="popover-text">
+                                                        <div className="address Body-1RegularBlackLeft">
+                                                            {nearbyEventDetail[0].addressDisplay}
+                                                        </div>
+                                                        <div className="time CaptionGreyLeft">
+                                                            {moment(nearbyEventDetail[0].timeDisplay, "YYYY-MM-DD h:mm a").format("dddd, MMMM DD")}   {moment(nearbyEventDetail[0].start_time, "YYYY-MM-DD h:mm a").format("h:mm a")} - {moment(nearbyEventDetail[0].end_time).format("h:mm a")}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
                                 </div>
                             }
                             else return <Col id="content" style={{ overflow: isLoadingGetNearby && "hidden" }} className="nearby-event-list-container" lg={8} md={8}>
@@ -717,11 +804,10 @@ class Nearby extends Component {
                             </Col>
                         }}
                     </MediaQuery>
-                    <Col className="map" lg={16} md={16}>
+                    <Col className="map" style={{ display: visibleListResponsive ? "none" : "" }} lg={16} md={16}>
                         <div className="lottie-container">
                             <img src={mapMarker} alt="marker" />
                         </div>
-
 
                         <GoogleMapReact
                             onChange={onChangeMapPosition}
@@ -738,6 +824,8 @@ class Nearby extends Component {
                                 this.renderMarker(tempNearbyState)
                             }
                         </GoogleMapReact>
+
+
 
 
                     </Col>
