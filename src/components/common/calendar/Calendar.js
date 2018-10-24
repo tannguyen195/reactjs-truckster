@@ -61,15 +61,14 @@ class Calendar extends Component {
                 :
                 event.event.location_name}>
             <div style={{
-                opacity: moment(event.event.timeDisplay, "YYYY-MM-DD h:mm a") > moment() ? 1 : 0.5
+
+                background: moment(event.event.timeDisplay, "YYYY-MM-DD h:mm a") > moment() ? event.event.brewery ?
+                    '#ffd35e' : '#f32126' : "rgba(0,0,0,0.1)"
             }} className="event-schedule-icon">
 
-                <img alt="icon" style={{
-                    background: event.event.brewery ?
-                        '#ffd35e' : '#f32126'
-                }}
+                <img alt="icon"
                     src={event.event.brewery ?
-                        breweryIcon : truckIcon} />
+                        breweryIcon : truckIcon} /><div className="calendar-time">{moment(event.event.start_time, "YYYY-MM-DD h:mm a").format("HH:mm")}-{moment(event.event.end_time).format("HH:mm")}</div>
             </div>
         </Popover>
     }

@@ -34,9 +34,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-calendar {
-    border: solid 2px #dadada;
     background-color: #fafafa;
-    border-radius: 6px;
     box-sizing: border-box;
     height: 100%;
     display: -ms-flexbox;
@@ -290,7 +288,6 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-month-view {
     position: relative;
-    border: 1px solid #dadada;
     flex: 1 0 0;
     width: 100%;
     user-select: none;
@@ -334,7 +331,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-date-cell {
-    min-height: 64px;
+    min-height: 32px;
     flex-basis: 14.2857%;
     max-width: 14.2857%;
 }
@@ -742,7 +739,22 @@ button.rbc-input::-moz-focus-inner {
     }
 }
 
-.marker-container {}
+.marker-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 4px;
+    margin: 0 1px;
+    opacity: 1;
+    color: #fff;
+    background: rgb(243, 33, 38);
+    border-radius: 4px;
+    .calendar-time {
+        font-size: 12px;
+        margin-left: 4px;
+        font-weight: bold;
+    }
+}
 
 .custom-event {
     display: flex;
@@ -763,9 +775,9 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .event-schedule-icon {
-    position: absolute;
     top: 25px;
     img {
+        width: 24px;
         padding: 3px;
         border-radius: 50%;
     }

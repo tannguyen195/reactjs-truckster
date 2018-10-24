@@ -184,25 +184,25 @@ class TruckDetail extends Component {
         if (truckMenu.category)
             return Object.entries(truckMenu.category).map((category, categoryidx) =>
                 <div key={categoryidx} className="menu-container">
-                    <div className="category-menu  ButtonGreyLeft">{category[0]}</div>
-                    <Row gutter={25}>
-                        {
-                            category[1].map((item, index) => {
-                                return <Col key={index} className="food" sm={12} md={12} lg={12}>
-                                    <Card onClick={() => handleClickMenuItem(item)} hoverable>
-                                        <div className="name Body-1MediumBlackLeft">{item.name}</div>
-                                        <div className="bref CaptionGreyLeft">{item.description}</div>
-                                        <div className="price Body-1MediumBlackLeft">
-                                            {
-                                                item.price && `$${item.price}`
-                                            }
-                                        </div>
-                                    </Card>
-                                </Col>
-                            }
-                            )
+                    <div className="category-menu ">{category[0]}</div>
+                    {
+                        category[1].map((item, index) => {
+                            return <div key={index} className="food" >
+                                <div>
+                                    <div className="name ">{item.name}</div>
+                                    <div className="bref CaptionGreyLeft">{item.description}</div>
+                                </div>
+                                <div className="price Body-1MediumBlackLeft">
+                                    {
+                                        item.price && `$${item.price}`
+                                    }
+                                </div>
+
+                            </div>
                         }
-                    </Row>
+                        )
+                    }
+
                 </div>)
     }
 
@@ -300,25 +300,25 @@ class TruckDetail extends Component {
                                 <LinkAnchor href="#menu" title="Menu" />
                                 <LinkAnchor href="#reviews" title="Reviews" />
                                 <span className="left-row">
-                                {
-                                    !isLoggedIn ?
-                                        <Tooltip title="Login required">
-                                            <span>
-                                                <Rate disabled count={1} character={<Icon type="heart" />} />
-                                            </span>
-                                        </Tooltip>
-                                        :
-                                        <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
-                                            count={1}
-                                            character={<Icon style={{
-                                                color: favorite ? '#f32126' : "#dadada"
-                                            }} type="heart" />} />
-                                }
-                                <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
+                                    {
+                                        !isLoggedIn ?
+                                            <Tooltip title="Login required">
+                                                <span>
+                                                    <Rate disabled count={1} character={<Icon type="heart" />} />
+                                                </span>
+                                            </Tooltip>
+                                            :
+                                            <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
+                                                count={1}
+                                                character={<Icon style={{
+                                                    color: favorite ? '#f32126' : "#dadada"
+                                                }} type="heart" />} />
+                                    }
+                                    <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
 
-                            </span>
+                                </span>
                             </Anchor>
-                            
+
                         </div>
 
                         <div className="menu-content">
@@ -331,7 +331,7 @@ class TruckDetail extends Component {
 
                             <hr />
                             {/* Menu Section */}
-                            <div id="menu" className="menu-title Display-2BlackLeft">Menu</div>
+                            <div style={{ paddingBottom: 0 }} id="menu" className="menu-title Display-2BlackLeft">Menu</div>
                             <div className="menu-truck">
                                 {truckDetail.menus[0] &&
                                     this.renderMenu(truckDetail.menus[0])

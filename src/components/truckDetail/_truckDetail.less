@@ -255,7 +255,6 @@
         .detail-schedule {
             margin-top: 20px;
             margin-bottom: 30px;
-            border-radius: 6px;
             background-color: #ffffff;
             border: solid 1px #dadada;
             .schedule {
@@ -377,23 +376,33 @@
                 .menu-container {
                     .category-menu {
                         padding-bottom: 16px;
+                        padding-top: 24px;
+                        color: #212121;
+                        font-size: 20px;
+                        font-weight: 800;
                     }
                 }
                 .food {
-                    .ant-card {
-                        // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-                        margin-bottom: 25px;
-                        border-radius: 6px;
-                        .ant-card-body {
-                            padding: 16px;
-                            .name {}
-                            .bref {
-                                color: #bdbdbd;
-                                padding-bottom: 20px;
-                                height: 60px;
-                            }
-                            .price {}
-                        }
+                    // box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+                    display: flex;
+                    justify-content: space-between;
+                    box-shadow: inset 0 -1px 0 0 #dadada;
+                    align-items: center;
+                    .name {
+                        padding-top: 8px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 1.43;
+                    }
+                    .bref {
+                        color: #bdbdbd;
+                        padding-top: 4px;
+                        padding-bottom: 8px;
+                    }
+                    .price {
+                        font-size: 14px;
+                        padding-left: 24px;
+                        line-height: 1.43;
                     }
                 }
             }

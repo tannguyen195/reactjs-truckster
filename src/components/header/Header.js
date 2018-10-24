@@ -116,6 +116,9 @@ class Header extends Component {
                         <hr />
                         <div className="menu-drawer-body">
                             <div className="menu-drawer-item-group">
+
+
+
                                 <Link to="/nearby">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Map  </a>
@@ -220,6 +223,7 @@ class Header extends Component {
 
 
                     <div className="option-header">
+                        <a onClick={() => window.open("https://marvelapp.com/31a1f8d/screen/49450371")} className="item Body-1MediumGreyCenter">Catering</a>
                         <Link to="/nearby">
                             <a className="item Body-1MediumGreyCenter">Map</a>
                         </Link>
