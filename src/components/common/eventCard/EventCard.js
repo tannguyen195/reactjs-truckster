@@ -10,7 +10,7 @@ class EventCard extends Component {
         const { data, imageWidth, carousel } = this.props
       
         return (
-            <Link to={"/event/" + data.slug}>
+            <Link prefetch to={"/event/" + data.slug}>
                 <a>
                     <Card bordered={false} style={{ margin: carousel && "8px" }} className="event-card-container"
                         cover={

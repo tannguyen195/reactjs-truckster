@@ -1,0 +1,237 @@
+.catering__container {
+    padding-top: 68px;
+    .catering__header {
+        .catering__background {
+            position: relative;
+            height: 640px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            color: white;
+            background-size: cover;
+            .header__text {
+                text-shadow: 0px 4px 20px rgba(0, 0, 0, 1);
+            }
+            .header__content {
+                padding-top: 128px;
+                max-width: 540px;
+                margin: 0 auto;
+                text-align: center;
+                .header__desc {
+                    text-shadow: 0px 4px 20px rgba(0, 0, 0, 1);
+                    padding-top: 24px;
+                    white-space: pre-line;
+                    font-size: 20px;
+                    line-height: 1.6;
+                }
+            }
+            .catering__mask {
+                width: 100%;
+                height: 640px;
+                position: absolute;
+                background: #212121;
+                z-index: 2;
+                opacity: 0.7;
+            }
+        }
+        .catering__step {
+            width: 100%;
+            bottom: -80px;
+            position: absolute;
+            text-align: center;
+            @media only screen and (max-width: 999px) {
+                bottom: -200px;
+            }
+            @media only screen and (max-width: 768px) {
+                position: relative;
+                bottom: initial;
+            }
+            .step__container {
+                max-width: 1180px;
+                margin: 0 auto;
+                .ant-card-body {
+                    padding: 0;
+                    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.15);
+                    border: solid 0.5px #dadada;
+                    background-color: #ffffff;
+                    .step-item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100%;
+                        margin: 0 24px;
+                        .step__num {
+                            padding-bottom: 24px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            .num__circle {
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50%;
+                                border: solid 1px #fa393d;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 16px;
+                                font-weight: bold;
+                                line-height: 1.5;
+                                color: #fa393d;
+                            }
+                        }
+                        .item__desc {
+                            font-size: 16px;
+                            font-weight: bold;
+                            color: #212121;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .catering__body {
+        padding-top: 200px;
+        background: #fafafa;
+        .catering__body-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            .catering__section {
+                padding-bottom: 56px;
+                img {
+                    width: 445px;
+                    height: 560px;
+                    @media only screen and (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+            .auto {
+                margin: auto;
+                margin-top: 100px;
+            }
+            .section__container {
+                max-width: 350px;
+                margin-top: 100px;
+                @media only screen and (max-width: 768px) {
+                    margin: auto;
+                    margin-top: 100px;
+                }
+                .section__title {
+                    font-size: 32px;
+                    font-weight: 800;
+                    line-height: 1.25;
+                    letter-spacing: -0.2px;
+                    color: #212121;
+                    padding-bottom: 24px;
+                }
+                .section__content {
+                    font-size: 16px;
+                    line-height: 1.5;
+                    letter-spacing: -0.3px;
+                    color: #757575
+                }
+            }
+        }
+        .catering__body-cuisine {
+            background: #fff;
+            padding-top: 80px;
+            .favorite-cuisine-container {
+                padding-top: 48px;
+                .cuisine-list {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    .cuisine-item {
+                        padding-bottom: 16px;
+                        text-align: center;
+                        .cuisine-image {
+                            img {
+                                margin-bottom: 8px;
+                                width: 72px;
+                                height: 72px;
+                                border-radius: 50%;
+                                transform: perspective(1px) translateZ(0);
+                                box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                                transition-duration: 0.3s;
+                                transition-property: transform;
+                                &:hover,
+                                &:focus,
+                                &:active {
+                                    transform: translateY(-8px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .explore-cuisine {
+                text-align: center;
+                padding-top: 52px;
+                padding-bottom: 80px;
+                button {
+                    width: 320px;
+                    height: 48px;
+                    border-radius: 6px;
+                    border: solid 1px #dadada;
+                    font-size: 14px;
+                    font-weight: bold;
+                    line-height: 1.71;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+        .catering__body-perfect {
+            .perfect__title {
+                padding-top: 80px;
+                padding-bottom: 72px;
+                white-space: pre-line;
+            }
+            .perfect__width {
+                max-width: 1180px;
+                margin: 0 auto;
+                .perfect__item {
+                    padding-bottom: 120px;
+                    text-align: center;
+                    img {
+                        width: 80px;
+                        margin-bottom: 16px;
+                    }
+                    .perfect__name {
+                        white-space: pre-line;
+                        font-size: 16px;
+                        font-weight: bold;
+                        line-height: 1.5;
+                        color: #212121;
+                    }
+                }
+            }
+        }
+        .catering__body-contact {
+            .catering__perfect-image {
+                height: 480px;
+                background-position: center
+            }
+            .perfect__title {
+                padding-top: 128px;
+            }
+            .perfect__desc {
+                padding-top: 24px;
+            }
+            .contact-button {
+                text-align: center;
+                padding-top: 32px;
+                button {
+                    width: 217px;
+                    height: 56px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.71;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+    }
+}

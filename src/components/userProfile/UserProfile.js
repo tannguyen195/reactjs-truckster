@@ -12,7 +12,7 @@ class UserProfile extends Component {
     renderReviewBrewery(userReview) {
         return userReview.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
-                <Link to={"/brewery/" + item.brewery.slug} >
+                <Link prefetch to={"/brewery/" + item.brewery.slug} >
                     <div className="review-card">
                         <div className="card-header">
                             <Rate disabled value={item.rating} />
@@ -39,7 +39,7 @@ class UserProfile extends Component {
 
         return userReview.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
-                <Link to={"/food-truck/" + item.food_trucks.slug}>
+                <Link prefetch to={"/food-truck/" + item.food_trucks.slug}>
                     <div className="review-card">
                         <div className="card-header">
                             <Rate disabled value={item.rating ||
@@ -82,7 +82,7 @@ class UserProfile extends Component {
                             <div className="create-at Body-2GreyLeft">
                                 Member Since: {moment(userData.created_at).format("MMMM DD, YYYY")}
                             </div>
-                            <Link to="/edit">
+                            <Link prefetch to="/edit">
                                 <a className="edit-button">
                                     <Button type="danger">
                                         EDIT PROFILE</Button>

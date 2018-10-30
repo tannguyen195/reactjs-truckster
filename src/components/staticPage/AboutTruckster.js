@@ -147,6 +147,15 @@ Everything Food Trucks`}
 
                                 </Button>
 
+                                <Button onClick={() => {
+                                    Router.push("/catering")
+                                }} >
+
+                                    <a className="ButtonWhiteCenter">
+                                        CATERING
+                                </a>
+
+                                </Button>
                             </div>
                         </div>
 

@@ -50,7 +50,7 @@ class Truck extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col key={index} style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
-                <Link to={`/cuisine/${item.name.toLowerCase()}`}>
+                <Link prefetch to={`/cuisine/${item.name.toLowerCase()}`}>
                     <a>
                         <CategoryCard
                             image={item.image}
@@ -83,7 +83,7 @@ class Truck extends Component {
                     {this.renderCategoryCard(categories)}
 
                     <Col style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
-                        <Link to={`/cuisine`}>
+                        <Link prefetch to={`/cuisine`}>
                             <a>
 
                                 <CategoryCard

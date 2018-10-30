@@ -31,7 +31,7 @@ class TitleLink extends Component {
         return (
             <div>
                 {
-                    title && <Link to={url + changeTitleAddress(title) + "--" + id}>
+                    title && <Link prefetch to={url + changeTitleAddress(title) + "--" + id}>
                         <a>
                             {children}
                         </a>

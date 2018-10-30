@@ -48,16 +48,16 @@ class Footer extends Component {
                 <Row type="flex" justify="space-between" className="info">
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">About</h3>
-                        <Link to='/about'><a>About us</a></Link>
-                        <Link to='/privacy'><a>Privacy & Terms</a></Link>
-                        <Link to='/help'><a>Help</a></Link>
-                        <Link to='/info'><a>Blog</a></Link>
+                        <Link prefetch to='/about'><a>About us</a></Link>
+                        <Link prefetch to='/privacy'><a>Privacy & Terms</a></Link>
+                        <Link prefetch to='/help'><a>Help</a></Link>
+                        <Link prefetch to='/info'><a>Blog</a></Link>
                     </Col>
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">Food trucks</h3>
-                        <Link to='/food-truck/co/denver/all'><a>Find trucks</a></Link>
-                        <Link to='/cuisine'><a>Cuisine</a></Link>
-                        <Link to='/event/co/denver'><a>Events</a></Link>
+                        <Link prefetch to='/food-truck/co/denver/all'><a>Find trucks</a></Link>
+                        <Link prefetch to='/cuisine'><a>Cuisine</a></Link>
+                        <Link prefetch to='/event/co/denver'><a>Events</a></Link>
 
                     </Col>
                     <Col md={4} className="column">

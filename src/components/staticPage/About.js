@@ -111,7 +111,7 @@ Connor and his wife Molly teamed up to build Truckster, your hub for everything 
                         Not finding what you looking for?
                             </div>
                     <div className="button-contact">
-                        <Link to="/contact" >
+                        <Link prefetch to="/contact" >
                             <Button type="primary">
                                 <div className="ButtonWhiteCenter">
                                     CONTACT US

@@ -203,7 +203,7 @@ class Nearby extends Component {
         })
     }
     renderTruckCard(data) {
-        return <Link to={"/food-truck/" + data.slug} key={data.key}>
+        return <Link prefetch to={"/food-truck/" + data.slug} key={data.key}>
             <div className="truck-event-card-container" >
                 <div className="truck-image-container">
                     <img src={data.image} alt="truck" />
@@ -239,7 +239,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/food-truck/" + data.food_truck.slug} >
+                        <Link prefetch to={"/food-truck/" + data.food_truck.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -258,7 +258,7 @@ class Nearby extends Component {
                         <div className="tag">
                             {
                                 data.food_truck.cuisine.map((item, index) => {
-                                    return <Link key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
+                                    return <Link prefetch key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
                                         <a className="tag-item Body-1MediumBlackCenter">
                                             {item.name} </a>
                                     </Link>
@@ -341,7 +341,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/brewery/" + data.brewery.slug} >
+                        <Link prefetch to={"/brewery/" + data.brewery.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -359,7 +359,7 @@ class Nearby extends Component {
 
                         <div className="tag">
 
-                            <Link to={`/brewery-type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
+                            <Link prefetch to={`/brewery-type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
                                 <a className="tag-item Body-1MediumBlackCenter">
                                     {data.brewery.breweries_type && data.brewery.breweries_type.name} </a>
 
@@ -451,7 +451,7 @@ class Nearby extends Component {
                     <img onClick={() => handleClickBack()} src={backIcon} alt="back" />
 
                     <div className="nearby-bref">
-                        <Link to={"/brewery/" + data.brewery.slug} >
+                        <Link prefetch to={"/brewery/" + data.brewery.slug} >
                             <a className="Display-2WhiteLeft">{data.nameDisplay}</a>
                         </Link>
                         {
@@ -469,7 +469,7 @@ class Nearby extends Component {
 
                         <div className="tag">
 
-                            <Link to={`/brewery/type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
+                            <Link prefetch to={`/brewery/type/${data.brewery.breweries_type && data.brewery.breweries_type.name}`}>
                                 <div className="tag-item Body-1MediumBlackCenter">
                                     {data.brewery.breweries_type && data.brewery.breweries_type.name} </div>
 

@@ -15,7 +15,7 @@ class BreweryCard extends Component {
 
         const { data } = this.props
         return (
-            <Link to={`/brewery/${data.slug}` } >
+            <Link prefetch to={`/brewery/${data.slug}` } >
                 <a>
     
                     <Card className="brewery-card-container" hoverable cover={

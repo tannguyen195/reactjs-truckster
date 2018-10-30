@@ -231,7 +231,7 @@ class BreweryDetail extends Component {
                                 <div className="flex-row">
                                     <div className="tag">
 
-                                        <Link to={`/brewery/type/${breweryDetail.breweries_type && breweryDetail.breweries_type.name}`}>
+                                        <Link prefetch to={`/brewery/type/${breweryDetail.breweries_type && breweryDetail.breweries_type.name}`}>
                                             <a className="tag-item Body-1MediumBlackCenter">
                                                 {breweryDetail.breweries_type && breweryDetail.breweries_type.name} </a>
 
@@ -254,9 +254,9 @@ class BreweryDetail extends Component {
 
                         <div className="menu-anchor">
                             <Anchor offsetTop={isPairing ? 0 : 68}>
-                                <LinkAnchor href="#info" title="Info" />
-                                <LinkAnchor href="#menu" title="Menu" />
-                                <LinkAnchor href="#reviews" title="Review" />
+                                <Link prefetchAnchor href="#info" title="Info" />
+                                <Link prefetchAnchor href="#menu" title="Menu" />
+                                <Link prefetchAnchor href="#reviews" title="Review" />
                             </Anchor>
                         </div>
 

@@ -217,7 +217,7 @@ class PrivacyTerm extends Component {
                             Not finding what you looking for?
                             </div>
                         <div className="button-contact">
-                            <Link to="/contact" >
+                            <Link prefetch to="/contact" >
                                 <a>
 
 

@@ -17,7 +17,7 @@ class Section extends Component {
         return (
             <section className="section-block-main">
                 <div className="header">
-                    <Link to={url} >
+                    <Link prefetch to={url} >
                         <a className="section-title">
                             <h3 className="Display-2BlackLeft">
                                 {title}
@@ -31,7 +31,7 @@ class Section extends Component {
                 </div>
                 {
                     url && <div className="see-all">
-                        <Link to={url} >
+                        <Link prefetch to={url} >
                             <a className="ButtonRedCenter">
                                 <Button className="ButtonWhiteCenter" type="primary">
                                     SEE ALL

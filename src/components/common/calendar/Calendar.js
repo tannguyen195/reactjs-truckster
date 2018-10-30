@@ -52,7 +52,7 @@ class Calendar extends Component {
                             <img className="truck-icon-holder" alt="truck-icon-holder" src={truckIcon} />
                     }
 
-                    <Link
+                    <Link prefetch
                         to={"/food-truck/" + event.event.food_truck.slug}>
 
                         {event.event.food_truck.name}

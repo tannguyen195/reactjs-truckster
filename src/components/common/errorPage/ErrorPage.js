@@ -43,7 +43,7 @@ class ErrorPage extends Component {
                     <div className="error-status">{status}</div>
                     <div className="error-message">{message}</div>
                     <div className="return-button">
-                        <Link to="/">
+                        <Link prefetch to="/">
                             <a> <Button type="primary ButtonWhiteCenter">Return Home </Button></a>
                         </Link>
                     </div>

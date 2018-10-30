@@ -14,13 +14,13 @@ const logoDevice = ('/static/images/logo.png')
 const menu = ({ logOut }) => (
     <Menu>
         <Menu.Item>
-            <Link to="/user">
+            <Link prefetch to="/user">
                 <a className=" Body-1MediumBlackLeft">My profile</a>
 
             </Link>
         </Menu.Item>
         <Menu.Item>
-            <Link to="/edit"  >
+            <Link prefetch to="/edit"  >
                 <a className=" Body-1MediumBlackLeft">Account Settings   </a>
             </Link>
         </Menu.Item>
@@ -34,7 +34,7 @@ const menuCity = () => (
     <Menu>
 
         <Menu.Item>
-            <Link to="/food-truck/co/denver"  >
+            <Link prefetch to="/food-truck/co/denver"  >
                 <a className=" Body-1MediumBlackLeft">Denver </a>
             </Link>
         </Menu.Item>
@@ -72,7 +72,7 @@ class Header extends Component {
                             {
                                 isLoggedIn ?
                                     !isLoadingGetUser && userData ?
-                                        <Link to="/user"  >
+                                        <Link prefetch to="/user"  >
                                             <a onClick={handleOpenMenu} className="item Body-1MediumBlackLeft">
                                                 <img alt="avatar"
                                                     src={userData.avatar ? userData.avatar : unknownUserIcon} />
@@ -119,19 +119,19 @@ class Header extends Component {
 
 
 
-                                <Link to="/nearby">
+                                <Link prefetch to="/nearby">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Map  </a>
                                 </Link>
-                                <Link to="/brewery/co/denver">
+                                <Link prefetch to="/brewery/co/denver">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Breweries  </a>
                                 </Link>
-                                <Link to="/food-truck/co/denver/all">
+                                <Link prefetch to="/food-truck/co/denver/all">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Food Trucks  </a>
                                 </Link>
-                                <Link to="/help">
+                                <Link prefetch to="/help">
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Help  </a>
                                 </Link>
@@ -139,11 +139,11 @@ class Header extends Component {
                             </div>
                             <div className="menu-drawer-item-group">
 
-                                <Link to='/about'>
+                                <Link prefetch to='/about'>
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         About us </a>
                                 </Link>
-                                <Link to='/privacy'>
+                                <Link prefetch to='/privacy'>
                                     <a onClick={handleOpenMenu} className="item Body-2LeftGrey">
                                         Privacy & Terms </a></Link>
                             </div>
@@ -162,7 +162,7 @@ class Header extends Component {
 
                 </div>
 
-                <Link to="/">
+                <Link prefetch to="/">
 
                     <MediaQuery maxWidth={768}>
                         <img width={50} className="logo-device" alt="truckster logo" src={logoDevice} />
@@ -171,7 +171,7 @@ class Header extends Component {
 
                 </Link>
 
-                <Link to="/">
+                <Link prefetch to="/">
                     <a className="logo">
                         <MediaQuery maxWidth={768}>
                             {(matches) => {
@@ -223,15 +223,17 @@ class Header extends Component {
 
 
                     <div className="option-header">
-                        {/* <a onClick={() => window.open("https://marvelapp.com/31a1f8d/screen/49450371")} className="item Body-1MediumGreyCenter">Catering</a> */}
-                        <Link to="/nearby">
+                        <Link prefetch to="/catering">
+                            <a className="item Body-1MediumGreyCenter">Catering</a>
+                        </Link>
+                        <Link prefetch to="/nearby">
                             <a className="item Body-1MediumGreyCenter">Map</a>
                         </Link>
-                        <Link to="/brewery/co/denver">
+                        <Link prefetch to="/brewery/co/denver">
                             <a className="item Body-1MediumGreyCenter">Breweries</a>
 
                         </Link>
-                        <Link to="/food-truck/co/denver/all">
+                        <Link prefetch to="/food-truck/co/denver/all">
                             <a className="item Body-1MediumGreyCenter">Food trucks</a>
                         </Link>
 

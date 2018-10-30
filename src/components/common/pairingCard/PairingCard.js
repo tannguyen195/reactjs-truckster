@@ -86,7 +86,7 @@ class PairingCard extends Component {
             }
             else {
                 return <Col key={index} md={12} lg={12}>
-                    <Link to={"/brewery/" + item.brewery.slug} >
+                    <Link prefetch to={"/brewery/" + item.brewery.slug} >
                         <div className="pairing-item-container">
                             <div className="pairing-image">
                                 <img alt="pairing-icon" src={item.brewery.cover_photo ? item.brewery.cover_photo[0].url : defaultImage} />
@@ -165,7 +165,7 @@ class PairingCard extends Component {
                         >
                             <div className="title-pairing Display-2BlackLeft">
                                 <span> Pairing list of   </span>
-                                <span> <Link
+                                <span> <Link prefetch
                                     to={"/food-truck/" + data.slug}
                                 ><a>{data.name}</a>
                                 </Link></span>
@@ -189,7 +189,7 @@ class PairingCard extends Component {
                             <div className="announce-modal-container">
                                 <div className='logo-container'><img alt='logo' src={logo} /></div>
                                 <div className='Regular-24px-Style message'>
-                                    <span> <Link
+                                    <span> <Link prefetch
                                         to={"/food-truck/" + data.slug}
                                     ><a>{data.name}</a>
                                     </Link> has no pairings in this week</span>

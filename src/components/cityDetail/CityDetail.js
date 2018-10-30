@@ -212,7 +212,7 @@ class CityDetail extends Component {
     //render favorite cuisine
     renderCuisine(cuisine) {
         return cuisine.map((item, index) => {
-            return <Link key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
+            return <Link prefetch key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
 
                 <Col lg={4} md={4} sm={6} xs={6} className="cuisine-item">
                     <a>
@@ -234,7 +234,7 @@ class CityDetail extends Component {
     renderArticleCard(articles) {
         return articles.map((item, index) => {
             return <Col key={index} xs={24} sm={12} md={12} lg={12}>
-                <Link to={item.url}>
+                <Link prefetch to={item.url}>
                     <a>
                         <ArticleCard
                             data={item} />
@@ -279,7 +279,7 @@ class CityDetail extends Component {
 
                             />
                             <div className="button-find">
-                                <Link to="/search">
+                                <Link prefetch to="/search">
                                     <a>
                                         <Button disabled={searchValue.length < 1 ? true : false}  className="search-btn SubheadingWhiteCenter" size="large" type="primary">
                                             Find trucks
@@ -297,7 +297,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags2.map((item, index) => {
-                                                    return <Link key={index} params={{ value: item }} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    return <Link prefetch key={index} params={{ value: item }} to={`/cuisine/${item.toLowerCase()}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -308,7 +308,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags3.map((item, index) => {
-                                                    return <Link key={index} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>
@@ -322,7 +322,7 @@ class CityDetail extends Component {
                                         <div className="tag">
                                             {
                                                 tags.map((item, index) => {
-                                                    return <Link key={index} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
                                                         <div className="tag-item Body-1MediumBlackCenter">
                                                             {item}
                                                         </div>

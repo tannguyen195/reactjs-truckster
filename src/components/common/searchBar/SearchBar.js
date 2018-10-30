@@ -44,7 +44,7 @@ class SearchBar extends Component {
         }
         return (
             <Option className="option-container" key={item.name} text={item.name}>
-                <Link to={link} >
+                <Link prefetch to={link} >
                     <div className="search-container ">
                         <div className="left">
                             <img alt="icon-type" src={icon} />

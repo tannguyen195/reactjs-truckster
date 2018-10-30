@@ -8,7 +8,7 @@ class TruckCard extends Component {
     render() {
         const { data } = this.props
         return (
-            <Link to={`/food-truck/${data.slug}`} >
+            <Link prefetch to={`/food-truck/${data.slug}`} >
                 <a>
     
                     <Card bordered={false} className="truck-card-container" cover={

@@ -12,6 +12,7 @@ module.exports = routes()
     .add('intro')
     .add('city')
     .add('trucks')
+    .add('catering')
     .add('success', '/order/:success')
 
     .add('info', '/info/:slug')

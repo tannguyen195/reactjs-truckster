@@ -39,7 +39,7 @@ export const categories =
             link: 'bugers'
         },
         {
-            name: 'Cajun_Creole',
+            name: 'Cajun Creole',
             image: ('/static/images/cuisines/cajun-creole.jpg'), type: 'cuisine',
             link: 'cajun'
         },

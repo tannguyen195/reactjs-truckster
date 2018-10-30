@@ -8,7 +8,7 @@ export default class Information extends Component {
         const { query } = this.props
         return renderPage.map((item, index) => {
             return <div>
-                <Link to={"/info/" + item.slug}>
+                <Link prefetch to={"/info/" + item.slug}>
                     <a>
                         <h1 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
                     </a>
@@ -18,7 +18,7 @@ export default class Information extends Component {
                         <div dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
                         : <div>
                             <div dangerouslySetInnerHTML={{ __html: item.content.rendered.slice(0, item.content.rendered.indexOf(".</p>", 1)) }} />
-                            <Link to={"/info/" + item.slug}>
+                            <Link prefetch to={"/info/" + item.slug}>
                                 <a> Continue reading</a>
                             </Link>
                         </div>
@@ -47,7 +47,7 @@ export default class Information extends Component {
                             {
                                 parsedInfoPage.data.map((item, index) => {
                                     return <li key={index} className="post-item">
-                                        <Link to={"/info/" + item.slug}>
+                                        <Link prefetch to={"/info/" + item.slug}>
                                             <a>{item.title.rendered}</a>
                                         </Link>
 

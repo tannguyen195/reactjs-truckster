@@ -277,7 +277,7 @@ class TruckDetail extends Component {
                                 <div className="tag">
                                     {
                                         truckDetail.cuisine.map((item, index) => {
-                                            return <Link key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
+                                            return <Link prefetch key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
                                                 <a className="tag-item Body-1MediumBlackCenter">
                                                     {item.name} </a>
                                             </Link>
@@ -296,9 +296,9 @@ class TruckDetail extends Component {
                     <div className="detail-body">
                         <div className="menu-anchor">
                             <Anchor offsetTop={isPairing ? 0 : 68}>
-                                <LinkAnchor href="#info" title="Info" />
-                                <LinkAnchor href="#menu" title="Menu" />
-                                <LinkAnchor href="#reviews" title="Reviews" />
+                                <Link prefetchAnchor href="#info" title="Info" />
+                                <Link prefetchAnchor href="#menu" title="Menu" />
+                                <Link prefetchAnchor href="#reviews" title="Reviews" />
                                 <span className="left-row">
                                     {
                                         !isLoggedIn ?
