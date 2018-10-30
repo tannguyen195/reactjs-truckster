@@ -296,9 +296,9 @@ class TruckDetail extends Component {
                     <div className="detail-body">
                         <div className="menu-anchor">
                             <Anchor offsetTop={isPairing ? 0 : 68}>
-                                <Link prefetchAnchor href="#info" title="Info" />
-                                <Link prefetchAnchor href="#menu" title="Menu" />
-                                <Link prefetchAnchor href="#reviews" title="Reviews" />
+                                <LinkAnchor href="#info" title="Info" />
+                                <LinkAnchor href="#menu" title="Menu" />
+                                <LinkAnchor href="#reviews" title="Reviews" />
                                 <span className="left-row">
                                     {
                                         !isLoggedIn ?

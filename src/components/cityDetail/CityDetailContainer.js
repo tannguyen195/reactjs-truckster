@@ -136,7 +136,9 @@ class CityContainer extends Component {
                     title={"Denver Food Trucks Near Me – Locations, Schedules & Catering"}
                     description={"Find the best food trucks in Denver, CO featuring gourmet street food. View food truck schedules, pairings, menus, reviews, discounts and catering information!"}
                     ogImage={"https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg"}
-                ><link rel="canonical" href="https://gotruckster.com/food-truck/co/denver" /></Head>
+                >
+                    <link rel="canonical" href="https://gotruckster.com/food-truck/co/denver" />
+                </Head>
 
                 <CityDetail {...this.state} {...this.props}
                     onSearchValueChange={(e) => this.onSearchValueChange(e)}

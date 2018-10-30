@@ -16,7 +16,6 @@ class TruckCard extends Component {
         return (
             <Link prefetch to={data.url} >
                 <a>
-    
                     <div className="truck-new-card-container" >
                         <div className="truck-image-container">
                             <img src={data.image} alt="truck" />

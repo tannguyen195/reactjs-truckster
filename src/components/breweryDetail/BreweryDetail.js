@@ -254,9 +254,9 @@ class BreweryDetail extends Component {
 
                         <div className="menu-anchor">
                             <Anchor offsetTop={isPairing ? 0 : 68}>
-                                <Link prefetchAnchor href="#info" title="Info" />
-                                <Link prefetchAnchor href="#menu" title="Menu" />
-                                <Link prefetchAnchor href="#reviews" title="Review" />
+                                <LinkAnchor href="#info" title="Info" />
+                                <LinkAnchor href="#menu" title="Menu" />
+                                <LinkAnchor href="#reviews" title="Review" />
                             </Anchor>
                         </div>
 
