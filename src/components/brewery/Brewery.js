@@ -15,19 +15,19 @@ const categories =
     [
         {
             name: 'Large',
-            image: ('/static/images/breweryTypes/Large.jpg')
+            image: ('/static/images/breweryTypes/large.jpg')
         },
         {
             name: 'Micro',
-            image: ('/static/images/breweryTypes/Micro.jpg')
+            image: ('/static/images/breweryTypes/micro.jpg')
         },
         {
             name: 'Contract',
-            image: ('/static/images/breweryTypes/Contract.jpg')
+            image: ('/static/images/breweryTypes/contract.jpg')
         },
         {
             name: 'Regional',
-            image: ('/static/images/breweryTypes/Regional.jpg')
+            image: ('/static/images/breweryTypes/regional.jpg')
         },
 
     ];

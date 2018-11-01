@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import BreweryDetail from './BreweryDetail'
-import { getBreweryDetail } from '../../api/breweryApi'
+import { getBreweryDetail, getSuggestBrewery } from '../../api/breweryApi'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import axios from 'axios';
 import { getDataInitial } from 'global'
@@ -26,11 +26,15 @@ class BreweryDetailContainer extends Component {
         }
     }
     componentDidMount() {
-        const { breweryDetail, changeRoute } = this.props
-        if (breweryDetail)
+        const { breweryDetail, changeRoute, getSuggestBrewery } = this.props
+
+        if (breweryDetail) {
             changeRoute(
                 `gotrucksterconsumer://app/brewery/${breweryDetail.id}`
             )
+            getSuggestBrewery(breweryDetail.breweries_type.name)
+        }
+
     }
     componentWillReceiveProps(nextProps) {
         let self = this
@@ -67,10 +71,10 @@ class BreweryDetailContainer extends Component {
             token = req.cookies.token
         }
         breweryDetail = await getDataInitial(`consumer/v1/breweries/slug/${query.slug}`, token)
-        suggestBrewery = await getDataInitial(`consumer/v1/breweries?breweries_type=${breweryDetail.breweries_type.name}`)
+
 
         return {
-            breweryDetail, suggestBrewery,
+            breweryDetail,
             slug: query.slug
         }
     }
@@ -132,6 +136,7 @@ export function mapStateToProps(state) {
         status: state.breweryReducer.status,
 
         reviews: state.reviewReducer.breweryReviews,
+        suggestBrewery: state.breweryReducer.suggestBrewery,
     };
 }
 export function mapDispatchToProps(dispatch) {
@@ -141,7 +146,8 @@ export function mapDispatchToProps(dispatch) {
         editBreweryReview,
         postBreweryReview,
         getBreweryReview,
-        changeRoute
+        changeRoute,
+        getSuggestBrewery
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BreweryDetailContainer);

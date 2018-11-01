@@ -96,7 +96,7 @@ export const getSuggestTruck = (params) => {
         dispatch(requestGetSuggestTruck(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/foodtrucks?city=denver&cuisine=${params}&sort_by=avg_rating&sort_type=desc`,
+            url: apiUrl + `api/consumer/v1/foodtrucks?city=denver&cuisine=${params}&sort_by=avg_rating&sort_type=desc&random=1`,
             headers: {
                 "Accept": "application/json",
             },

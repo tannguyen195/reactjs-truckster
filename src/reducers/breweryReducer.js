@@ -104,6 +104,30 @@ const breweryReducer = (state = initial, action) => {
                 currentPageType: null,
                 lastPageType: null,
             }
+
+        // Get truck suggest
+        case types.REQUEST_GET_SUGGEST_BREWERY:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetSuggestBrewery: action.isLoadingGetSuggestBrewery
+            };
+
+        case types.GET_SUGGEST_BREWERY_SUCCESS:
+            return {
+                ...state,
+                isLoadingGetSuggestBrewery: false,
+                suggestBrewery: action.response.data,
+            }
+        case types.GET_SUGGEST_BREWERY_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetSuggestBrewery: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
+
         default:
             return state;
     }

@@ -58,3 +58,27 @@ export function mountBrewery() {
     }
 }
         
+
+export function requestGetSuggestBrewery(isLoadingGetSuggestBrewery) {
+    return (dispatch) => {
+        dispatch({
+            type: types.REQUEST_GET_SUGGEST_BREWERY,
+            isLoadingGetSuggestBrewery: isLoadingGetSuggestBrewery
+        })
+    }
+}
+export function getSuggestBrewerySuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_SUGGEST_BREWERY_SUCCESS,
+            response
+        })
+    }
+}
+export function getSuggestBreweryError() {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_SUGGEST_BREWERY_ERROR
+        })
+    }
+}

@@ -1,6 +1,7 @@
 import {
     requestSearchBrewery, searchBreweryError, searchBrewerySuccess,
-    requestGetBreweryDetail, getBreweryDetailError, getBreweryDetailSuccess
+    requestGetBreweryDetail, getBreweryDetailError, getBreweryDetailSuccess,
+    requestGetSuggestBrewery, getSuggestBreweryError, getSuggestBrewerySuccess
 } from '../actions/breweryAction.js'
 
 
@@ -54,6 +55,29 @@ export const getBreweryDetail = (breweryId) => {
             },
             error: function (error) {
                 dispatch(getBreweryDetailError(error))
+            }
+        })
+    }
+}
+
+
+// get suggest truck api
+export const getSuggestBrewery = (type) => {
+    return (dispatch) => {
+        dispatch(requestGetSuggestBrewery(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + `api/consumer/v1/breweries?breweries_type=${type}&random=1`,
+            headers: {
+                "Accept": "application/json",
+            },
+            success: function (response, status, xhr) {
+                dispatch(getSuggestBrewerySuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getSuggestBreweryError(error))
             }
         })
     }

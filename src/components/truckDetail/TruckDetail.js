@@ -209,37 +209,25 @@ class TruckDetail extends Component {
     renderSuggestTruck(suggestTruck) {
         const { truckDetail } = this.props
 
-        let tempArr = [], arrIDsuggest = [], count = 0
-
-        // tempArr = suggestTruck.filter((item) => {
-        //     return item.id !== truckDetail.id
-        // })
+        let tempArr = []
         suggestTruck.forEach(item => {
             if (item.id !== truckDetail.id)
                 tempArr.push(item)
         })
 
-        for (let i = 0; i < tempArr.length; i++) {
-            let ranNum = _.random(tempArr.length - 1)
-            if (!_.includes(arrIDsuggest, ranNum)) {
-                count++;
-                arrIDsuggest.push(ranNum)
-            }
-            if (count === 3)
-                break;
-        }
-        if (arrIDsuggest.length === 3)
-            return <Row gutter={16} className="suggest-truck">
-                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                    <TruckCard data={tempArr[arrIDsuggest[0]]} />
-                </Col>
-                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                    <TruckCard data={tempArr[arrIDsuggest[1]]} />
-                </Col>
-                <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                    <TruckCard data={tempArr[arrIDsuggest[2]]} />
-                </Col>
-            </Row>
+
+
+        return <Row gutter={16} className="suggest-truck">
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[0]} />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[1]} />
+            </Col>
+            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                <TruckCard data={tempArr[2]} />
+            </Col>
+        </Row>
 
     }
     renderTruckDetail(truckDetail) {
