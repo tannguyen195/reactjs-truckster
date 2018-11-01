@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Row, Col, Icon, Progress } from 'antd'
-
+import _ from 'lodash'
 class ReviewSummary extends Component {
 
     render() {
-
+        
         const { summary } = this.props
 
         return (
             <Row gutter={30} type='flex' justify='center' className="row-review">
- 
+
                 <Col md={4} lg={4}>
                     <div className="feedback-container">
                         <div className="avarage-rating">
@@ -33,10 +33,10 @@ class ReviewSummary extends Component {
                         </div>
                         <Progress
                             className="progress-container"
-                            percent={Object.values(summary)[2] / summary.total_reviews * 100}
+                            percent={summary['5stars'] / summary.total_reviews * 100}
                             strokeWidth={8} showInfo={false} />
                         <div className="vote-container Body-1RegularGrayLeft">
-                            {Object.values(summary)[2]}
+                            {summary['5stars']}
                         </div>
                     </div>
                     <div className="rating-bar-container" >
@@ -48,10 +48,10 @@ class ReviewSummary extends Component {
                         </div>
                         <Progress
                             className="progress-container"
-                            percent={Object.values(summary)[3] / summary.total_reviews * 100}
+                            percent={summary['4stars'] / summary.total_reviews * 100}
                             strokeWidth={8} showInfo={false} />
                         <div className="vote-container Body-1RegularGrayLeft">
-                            {Object.values(summary)[3]}
+                            {summary['4stars']}
                         </div>
                     </div>
                     <div className="rating-bar-container" >
@@ -62,10 +62,10 @@ class ReviewSummary extends Component {
                         </div>
                         <Progress
                             className="progress-container"
-                            percent={Object.values(summary)[4] / summary.total_reviews * 100}
+                            percent={summary['3stars'] / summary.total_reviews * 100}
                             strokeWidth={8} showInfo={false} />
                         <div className="vote-container Body-1RegularGrayLeft">
-                            {Object.values(summary)[4]}
+                            {summary['3stars']}
                         </div>
                     </div>
                     <div className="rating-bar-container" >
@@ -75,10 +75,10 @@ class ReviewSummary extends Component {
                         </div>
                         <Progress
                             className="progress-container"
-                            percent={Object.values(summary)[5] / summary.total_reviews * 100}
+                            percent={summary['2stars'] / summary.total_reviews * 100}
                             strokeWidth={8} showInfo={false} />
                         <div className="vote-container Body-1RegularGrayLeft">
-                            {Object.values(summary)[5]}
+                            {summary['2stars']}
                         </div>
                     </div>
                     <div className="rating-bar-container" >
@@ -88,10 +88,10 @@ class ReviewSummary extends Component {
                         </div>
                         <Progress
                             className="progress-container"
-                            percent={Object.values(summary)[6] / summary.total_reviews * 100}
+                            percent={summary['1stars'] / summary.total_reviews * 100}
                             strokeWidth={8} showInfo={false} />
                         <div className="vote-container Body-1RegularGrayLeft">
-                            {Object.values(summary)[6]}
+                            {summary['1stars']}
                         </div>
                     </div>
                 </Col>

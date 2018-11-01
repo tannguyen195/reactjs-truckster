@@ -86,7 +86,7 @@ export default class extends Component {
                                 <Row>
                                     {
                                         stepCatering.map((item, index) => {
-                                            return <Col xs={12} sm={12} md={12} lg={6}>
+                                            return <Col key={index} xs={12} sm={12} md={12} lg={6}>
                                                 <Card.Grid key={index}
                                                     style={{
                                                         width: '100%',
@@ -197,7 +197,7 @@ many more.</div>
                                                 </Col>
 
                                             </Link>
-                                        else return <div />
+                                        else return <div key={index} />
                                     })
                                 }
                             </Row>

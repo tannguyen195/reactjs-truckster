@@ -68,7 +68,8 @@ class Calendar extends Component {
 
                 <img alt="icon"
                     src={event.event.brewery ?
-                        breweryIcon : truckIcon} /><div className="calendar-time">{moment(event.event.start_time, "YYYY-MM-DD h:mm a").format("HH:mm")}-{moment(event.event.end_time).format("HH:mm")}</div>
+                        breweryIcon : truckIcon} />
+                <div className="calendar-time">{moment(event.event.start_time, "YYYY-MM-DD h:mm a").format("h:mma")}-{moment(event.event.end_time).format("h:mma")}</div>
             </div>
         </Popover>
     }
