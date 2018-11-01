@@ -204,7 +204,7 @@ many more.</div>
                         </div>
                         <div className="explore-button">
                             <Button onClick={() => {
-                                Router.push('/cuisine')
+                                Router.replaceRoute('/cuisine')
                             }}>
                                 Explore All Cuisines
                                 </Button>
@@ -246,7 +246,7 @@ for your Upcoming Event `}</div>
 
                                 <div className="explore-button">
                                     <Button onClick={() => {
-                                        Router.push('/food-truck/co/denver/all')
+                                        Router.replaceRoute('/food-truck/co/denver/all')
                                     }}>
                                         Explore All Trucks
                                 </Button>

@@ -94,12 +94,18 @@
     }
     .catering__body {
         padding-top: 200px;
+        @media only screen and (max-width: 768px) {
+            padding-top: 240px;
+         }
         background: #fafafa;
         .catering__body-section {
             max-width: 1180px;
             margin: 0 auto;
             .catering__section {
                 padding-bottom: 56px;
+                @media only screen and (max-width: 768px) {
+                   padding: 0;
+                }
                 img {
                     object-fit: cover;
                     width: 445px;
