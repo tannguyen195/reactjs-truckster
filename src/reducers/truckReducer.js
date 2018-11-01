@@ -6,6 +6,8 @@ const initial = {
     isLoadingSearchTruck: false,
     isLoadingGetTruckDetail: false,
     isLoadingGetSuggestTruck: false,
+    isLoadingGetRecommendTruck: false,
+    recommendTruck: null,
     suggestTruck: null,
     truckDetail: null,
     truckMenu: null,
@@ -199,6 +201,28 @@ const truckReducer = (state = initial, action) => {
                 searchResult: action.response.searchResult,
                 params: action.response.params
             }
+        // Get recommended truck 
+        case types.REQUEST_GET_RECOMMEND_TRUCK:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetRecommendTruck: action.isLoadingGetRecommendTruck
+            };
+
+        case types.GET_RECOMMEND_TRUCK_SUCCESS:
+            return {
+                ...state,
+                isLoadingGetRecommendTruck: false,
+                recommendTruck: action.response,
+            }
+        case types.GET_RECOMMEND_TRUCK_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetRecommendTruck: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
 
         default:
             return state;

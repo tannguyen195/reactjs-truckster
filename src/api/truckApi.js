@@ -2,7 +2,8 @@ import {
     requestSearchTruck, searchTruckError, searchTruckSuccess,
     requestGetTruckDetail, getTruckDetailError, getTruckDetailSuccess,
     requestGetTruckMenu, getTruckMenuError, getTruckMenuSuccess,
-    requestGetSuggestTruck, getSuggestTruckError, getSuggestTruckSuccess
+    requestGetSuggestTruck, getSuggestTruckError, getSuggestTruckSuccess,
+    requestGetRecommendTruck, getRecommendTruckError, getRecommendTruckSuccess
 } from '../actions/truckAction.js'
 import axios from 'axios'
 var https = require("https");
@@ -110,3 +111,28 @@ export const getSuggestTruck = (params) => {
         })
     }
 }
+
+
+// get caltering recommended truck api
+export const getRecommenedTruck = () => {
+
+    return (dispatch) => {
+        dispatch(requestGetRecommendTruck(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + `api/consumer/v1/foodtrucks/recommendation-catering`,
+            headers: {
+                "Accept": "application/json",
+            },
+            success: function (response, status, xhr) {
+                dispatch(getRecommendTruckSuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getRecommendTruckError(error))
+            }
+        })
+    }
+}
+

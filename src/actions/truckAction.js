@@ -121,3 +121,27 @@ export function getSuggestTruckError() {
         })
     }
 }
+
+export function requestGetRecommendTruck(isLoadingGetRecommendTruck) {
+    return (dispatch) => {
+        dispatch({
+            type: types.REQUEST_GET_RECOMMEND_TRUCK,
+            isLoadingGetRecommendTruck: isLoadingGetRecommendTruck
+        })
+    }
+}
+export function getRecommendTruckSuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_RECOMMEND_TRUCK_SUCCESS,
+            response
+        })
+    }
+}
+export function getRecommendTruckError() {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_RECOMMEND_TRUCK_ERROR
+        })
+    }
+}

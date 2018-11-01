@@ -1,8 +1,10 @@
+import ReactDOM from 'react-dom'
 import React, { Component } from 'react';
 import './_aboutCatering.less'
 import { Card, Row, Col, Button } from 'antd';
 import { categories } from '../data'
 import { Link, Router } from 'routes'
+import TruckCard from '../common/truckCard/TruckCard'
 const cateringImage1 = '/static/images/catering-1.jpg'
 const cateringImage2 = '/static/images/catering-2.jpg'
 const cateringImage3 = '/static/images/catering-3.jpg'
@@ -47,9 +49,16 @@ const stepCatering = ["Decide your cuisine type",
     "Select “Book this Truck” and fill out the quick and easy form",
     "Once submitted, Truckster will get back to you within 24 hours"]
 export default class extends Component {
-
+    handleScrollToElement() {
+        window.scrollTo(0, this.myRef.current.offsetTop);
+    }
+    constructor(props) {
+        super(props);
+        this.myRef = React.createRef();
+    }
 
     render() {
+        const { recommendTruck } = this.props
         return (
             <div className="catering__container">
                 <div className="catering__header">
@@ -61,14 +70,16 @@ export default class extends Component {
                         {/* <div className="catering__mask"></div> */}
                         <div className="header__content">
                             <div className="DisplayWhiteCenter header__text">
-                                Food Truck Catering
-                        </div>
+                                Food Truck Catering  </div>
 
                             <div className="LeadRegularWhiteCenter header__desc">
                                 {`There are so many different kinds of food trucks out there,
                                how to begin? Truckster makes it easy.`}
                             </div>
-
+                            <div className="book-button">
+                                <Button type="primary" onClick={()=>this.handleScrollToElement()}>
+                                    BOOK A TRUCK</Button>
+                            </div>
                         </div>
                         <div className="catering__step">
                             <Card bordered={false} className="step__container" >
@@ -191,7 +202,7 @@ many more.</div>
                                 }
                             </Row>
                         </div>
-                        <div className="explore-cuisine">
+                        <div className="explore-button">
                             <Button onClick={() => {
                                 Router.push('/cuisine')
                             }}>
@@ -207,7 +218,7 @@ many more.</div>
                             <Row type="flex" justify="center">
                                 {
                                     perfects.map((item, index) => {
-                                        return <Col className="perfect__item" xs={12} sm={12} md={8} lg={8}>
+                                        return <Col key={index} className="perfect__item" xs={12} sm={12} md={8} lg={8}>
                                             <img alt="perfect" src={item.image} />
                                             <div className="perfect__name">{item.name}</div>
                                         </Col>
@@ -216,7 +227,33 @@ many more.</div>
                             </Row>
                         </div>
                     </div>
+                    {
+                        recommendTruck && <div
+                            className="catering__body-recommend"
+                            ref={this.myRef}>
+                            <div className="Display-2BlackCenter perfect__title">{`Food Truck Recommendations
+for your Upcoming Event `}</div>
+                            <div className="perfect__width">
+                                <Row gutter={30} type="flex" justify="center">
+                                    {
+                                        recommendTruck.map((item, index) => {
+                                            return <Col key={index} className="perfect__item" xs={24} sm={12} md={8} lg={8}>
+                                                <TruckCard data={item} />
+                                            </Col>
+                                        })
+                                    }
+                                </Row>
 
+                                <div className="explore-button">
+                                    <Button onClick={() => {
+                                        Router.push('/food-truck/co/denver/all')
+                                    }}>
+                                        Explore All Trucks
+                                </Button>
+                                </div>
+                            </div>
+                        </div>
+                    }
                     <div className="catering__body-contact">
                         <div className="catering__perfect-image" style={{
                             backgroundImage: `url(${cateringContact})`

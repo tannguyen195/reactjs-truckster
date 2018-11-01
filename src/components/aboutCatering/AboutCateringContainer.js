@@ -6,6 +6,7 @@ import Head from '../head'
 import AboutCatering from './AboutCatering'
 
 import _aboutCatering from './_aboutCatering.less'
+import {getRecommenedTruck} from '../../api/truckApi'
 const cateringImage1 = '/static/images/catering-1.jpg'
 class AboutCateringContainer extends Component {
     constructor(props) {
@@ -15,7 +16,10 @@ class AboutCateringContainer extends Component {
         }
     }
 
-    
+    componentDidMount() {
+        const {getRecommenedTruck} = this.props
+        getRecommenedTruck()
+    }
     render() {
 
         return (
@@ -42,11 +46,12 @@ class AboutCateringContainer extends Component {
 }
 export function mapStateToProps(state) {
     return {
+        recommendTruck: state.truckReducer.recommendTruck
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-
+        getRecommenedTruck
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AboutCateringContainer);
