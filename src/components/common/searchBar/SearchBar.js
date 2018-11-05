@@ -84,7 +84,7 @@ class SearchBar extends Component {
                 }
 
                 <AutoComplete
-                    allowClear={true}
+                    
                     defaultActiveFirstOption={false}
                     placeholder="Find Cuisine Types, Food Trucks and Breweries"
                     optionLabelProp="value"

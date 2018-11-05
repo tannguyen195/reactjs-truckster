@@ -77,7 +77,7 @@ export default class extends Component {
                                how to begin? Truckster makes it easy.`}
                             </div>
                             <div className="book-button">
-                                <Button type="primary" onClick={()=>this.handleScrollToElement()}>
+                                <Button type="primary" onClick={() => this.handleScrollToElement()}>
                                     BOOK A TRUCK</Button>
                             </div>
                         </div>
@@ -203,11 +203,14 @@ many more.</div>
                             </Row>
                         </div>
                         <div className="explore-button">
-                            <Button onClick={() => {
-                                Router.replaceRoute('/cuisine')
-                            }}>
-                                Explore All Cuisines
+                            <Link to="/cuisine">
+                                <a>
+                                    <Button >
+                                        Explore All Cuisines
                                 </Button>
+                                </a>
+
+                            </Link>
                         </div>
                     </div>
 
@@ -245,11 +248,13 @@ for your Upcoming Event `}</div>
                                 </Row>
 
                                 <div className="explore-button">
-                                    <Button onClick={() => {
-                                        Router.replaceRoute('/food-truck/co/denver/all')
-                                    }}>
-                                        Explore All Trucks
-                                </Button>
+                                    <Link to="/food-truck/co/denver/all">
+                                        <a>
+                                            <Button >
+                                                Explore All Trucks  </Button>
+                                        </a>
+
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -263,9 +268,13 @@ for your Upcoming Event `}</div>
                             <div className="LeadRegularWhiteCenter perfect__desc">Reach out to Truckster’s experts to discuss your specific event and
 let us help you make it easy.</div>
                             <div className="contact-button">
-                                <Button onClick={() => {
-                                    Router.push('/contact')
-                                }} type="primary" className="ButtonNormalPrimary">CONTACT US</Button>
+                                <Link to="/contact">
+                                    <a>
+                                        <Button type="primary" className="ButtonNormalPrimary">CONTACT US</Button>
+                                    </a>
+
+                                </Link>
+
                             </div>
                         </div>
 
