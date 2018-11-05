@@ -11,6 +11,8 @@ import pairingReducer from './pairingReducer'
 import nearbyReducer from './nearbyReducer'
 import deepLinkReducer from './deepLinkReducer'
 import cateringReducer from './cateringReducer'
+
+import searchReducer from './searchReducer'
 const rootReducer = combineReducers({
     profileReducer,
     toggleReducer,
@@ -22,7 +24,8 @@ const rootReducer = combineReducers({
     pairingReducer,
     nearbyReducer,
     deepLinkReducer,
-    cateringReducer
+    cateringReducer,
+    searchReducer
 });
 
 export default rootReducer;

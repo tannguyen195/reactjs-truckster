@@ -12,19 +12,20 @@ const breweryIcon = ('/static/images/brewery-marker-icon.png')
 class SearchResult extends Component {
     // render brewery card 
     renderBreweryCard(brewerySearch) {
+
         return brewerySearch.map((item, index) => {
             if (item.type === "brewery")
                 return <Col xs={24} sm={12} md={8} lg={8} style={{ marginBottom: "16px" }} key={index} >
                     <TruckNewCard data={
                         {
                             url: "/brewery/" + item.slug,
-                            image: item.cover_photo ?
-                                item.cover_photo[0].url : breweryIcon,
-                            logo: item.logo ?
-                                item.logo[0].url :
+                            image: JSON.parse(item.cover_photo) && JSON.parse(item.cover_photo)[0] ?
+                                JSON.parse(item.cover_photo)[0].url : breweryIcon,
+                            logo: JSON.parse(item.logo) && JSON.parse(item.logo)[0] ?
+                                JSON.parse(item.logo)[0].url :
                                 imageBreweryPlaceholder,
                             name: item.name,
-                            cuisine: item.breweries_type && [{ name: item.breweries_type.name }],
+                            cuisine: item.brewery_type && [{ name: item.brewery_type.name }] || [],
                             rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
                         }
                     } />
@@ -59,14 +60,18 @@ class SearchResult extends Component {
             if (item.type === "truck")
                 return <Col xs={24} sm={12} md={8} lg={8} style={{ marginBottom: "16px" }} key={index} >
                     <TruckCard
-                        data={item}>
+                        data={{
+                            ...item,
+                            cover_photo: JSON.parse(item.cover_photo),
+                            logo: JSON.parse(item.logo),
+                        }}>
                     </TruckCard>
                 </Col>
             else return null
         })
     }
     render() {
-        const { searchResult, params } = this.props
+        const { searchResult, param } = this.props
         return (
             <div className="search-result main-wrapper body-content">
 
@@ -76,39 +81,38 @@ class SearchResult extends Component {
                         <div className="error-holder">
                             <RenderContainer
                                 error={true}
-                                message={`We couldn’t find any results for "${params}"`} >
+                                message={`We couldn’t find any results for "${param}"`} >
 
                             </RenderContainer>
                         </div>
                         :
                         <div className="search-detail-container">
                             <div className="detail-header">
-                                <h1 className="name DisplayBlackLeft">Search results for "{`${params}`}"</h1>
+                                <h1 className="name DisplayBlackLeft">Search results for "{`${param}`}"</h1>
                             </div>
 
                             <hr />
                             <div className="detail-body">
-                                <Section
-                                    title="Cuisine" >
+                                <section>
+                                    {/* <div className="search-section-title Display-2BlackLeft">Cuisine</div> */}
                                     <Row gutter={16}>
                                         {this.renderCategoryCard(searchResult)}
                                     </Row>
-                                </Section>
+                                </section>
 
-                                <Section
-                                    title="Food trucks" >
+                                <section>
+                                    <div className="search-section-title Display-2BlackLeft">Food Truck</div>
                                     <Row gutter={16}>
                                         {this.renderTruckCard(searchResult)}
                                     </Row>
-                                </Section>
-
-                                <Section
-                                    title="Breweries" >
+                                </section>
+                                <section>
+                                    <div className="search-section-title Display-2BlackLeft">Brewery</div>
                                     <Row gutter={16}>
                                         {this.renderBreweryCard(searchResult)}
                                     </Row>
-                                </Section>
-                                
+
+                                </section>
                             </div>
                         </div>
                 }

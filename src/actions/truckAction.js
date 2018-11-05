@@ -79,16 +79,7 @@ export function getTruckMenuError(response) {
     }
 }
 
-export function getSearchResult(response) {
 
-    return (dispatch) => {
-
-        dispatch({
-            type: types.GET_SEARCH_RESULT,
-            response
-        });
-    }
-}
 
 export function mountTruck() {
     return (dispatch) => {

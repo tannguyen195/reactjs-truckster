@@ -5,9 +5,10 @@ import { searchTruck } from '../../api/truckApi'
 import { getPairing } from '../../api/pairingApi'
 import { searchActivity } from '../../api/activityApi'
 import { searchBrewery } from '../../api/breweryApi'
-import { getSearchResult } from '../../actions/truckAction'
+import { search } from '../../api/searchApi'
 import { toggleAnnounceModal } from '../../actions/toggleAction'
 import { changeRoute } from '../../actions/deepLinkAction'
+import { onParamChange } from '../../actions/searchAction'
 
 import CityDetail from './CityDetail'
 import { categories } from '../data'
@@ -79,10 +80,6 @@ class CityContainer extends Component {
             });
 
             if (this.state.flagSearch) {
-                this.props.getSearchResult({
-                    params: this.state.searchValue,
-                    searchResult: result
-                })
                 this.setState({
                     flagSearch: false
                 })
@@ -108,14 +105,12 @@ class CityContainer extends Component {
         if (self.state.typingTimeout) {
             clearTimeout(self.state.typingTimeout);
         }
-
+        self.props.onParamChange(e)
         self.setState({
             searchValue: e,
             typing: false,
             typingTimeout: setTimeout(function () {
-                self.props.searchTruck("keyword", e, 1)
-                self.props.searchBrewery("name", e, 1)
-
+                self.props.search(e)
                 self.setState({
                     flagSearch: true
                 })
@@ -170,12 +165,13 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getSearchResult,
+        onParamChange,
         toggleAnnounceModal,
         searchBrewery,
         getPairing,
         searchTruck,
         searchActivity,
+        search,
         changeRoute
     }, dispatch)
 }

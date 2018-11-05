@@ -25,7 +25,6 @@ const initial = {
     currentPageType: null,
     lastPageType: null,
     total: null,
-    searchResult: [],
     nearby: [],
     params: "",
 }
@@ -193,13 +192,6 @@ const truckReducer = (state = initial, action) => {
                 currentPageType: null,
                 lastPageType: null,
 
-            }
-        case types.GET_SEARCH_RESULT:
-
-            return {
-                ...state,
-                searchResult: action.response.searchResult,
-                params: action.response.params
             }
         // Get recommended truck 
         case types.REQUEST_GET_RECOMMEND_TRUCK:

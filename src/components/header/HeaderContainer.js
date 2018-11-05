@@ -16,10 +16,11 @@ import SignUpModalContainer from '../signUp/SignUpModalContainer'
 import ForgotModalContainer from '../forgot/ForgotModalContainer'
 import { searchTruck } from '../../api/truckApi'
 import { searchBrewery } from '../../api/breweryApi'
+import { search } from '../../api/searchApi'
 import { signIn, logOut, signUp, loginSocial } from '../../api/authApi'
 import { categories } from '../data'
-import { getSearchResult } from '../../actions/truckAction'
 import { notification } from 'antd';
+import { onParamChange } from '../../actions/searchAction'
 
 import { checkLogin } from '../../actions/authAction'
 
@@ -51,14 +52,6 @@ class HeaderContainer extends Component {
             visibleDrawer: !this.state.visibleDrawer
         })
     }
-
-    handleSearchTruck(value) {
-        this.props.searchTruck("keyword", value)
-    }
-    handleSearchBrewery(value) {
-        this.props.searchBrewery("name", value)
-    }
-
     componentWillReceiveProps(nextProps) {
         if (
             nextProps.truckSearchResult &&
@@ -106,10 +99,6 @@ class HeaderContainer extends Component {
             if (this.state.flagSearch) {
 
                 setTimeout(() => {
-                    this.props.getSearchResult({
-                        params: this.state.searchValue,
-                        searchResult: result
-                    })
                     this.setState({
                         flagSearch: false
                     })
@@ -136,14 +125,12 @@ class HeaderContainer extends Component {
         if (self.state.typingTimeout) {
             clearTimeout(self.state.typingTimeout);
         }
-
+        self.props.onParamChange(e)
         self.setState({
             searchValue: e,
             typing: false,
             typingTimeout: setTimeout(function () {
-                self.props.searchTruck("keyword", e, 1)
-                self.props.searchBrewery("name", e, 1)
-
+                self.props.search(e)
                 self.setState({
                     flagSearch: true
                 })
@@ -210,7 +197,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getSearchResult,
+        onParamChange,
         toggleShareModal,
         toggleAnnounceModal,
         toggleSignInModal,
@@ -222,7 +209,8 @@ export function mapDispatchToProps(dispatch) {
         loginSocial,
         searchTruck,
         searchBrewery,
-        checkLogin
+        checkLogin,
+        search
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

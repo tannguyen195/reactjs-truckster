@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { AutoComplete, Input, Select, Icon } from 'antd'
-import { getSearchResult } from '../../../actions/truckAction'
 import { Link } from 'routes'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { Router } from 'routes'
-const targetIcon = ("/static/images/target-icon.png")
-const drinkIconGrey = ("/static/images/drink-icon-grey.svg")
+const truckGrayIcon = ("/static/images/truck-gray.svg")
+const breweryGrayIcon = ("/static/images/brewery-gray.svg")
 const foodIconGrey = ("/static/images/food-icon-grey.svg")
 const arrowRightIcon = ("/static/images/arrow-right-icon.png")
 const Option = Select.Option;
@@ -19,7 +18,7 @@ class SearchBar extends Component {
             result: [],
         }
     }
-
+ 
     renderOption(item, index) {
 
         let link = "",
@@ -32,12 +31,12 @@ class SearchBar extends Component {
             }
             case "truck": {
                 link = `/food-truck/${item.slug}`;
-                icon = targetIcon;
+                icon = truckGrayIcon;
                 break;
             }
             case "brewery": {
                 link = `/brewery/${item.slug}`;
-                icon = drinkIconGrey;
+                icon = breweryGrayIcon;
                 break;
             }
             default: break;
@@ -76,7 +75,7 @@ class SearchBar extends Component {
     }
     render() {
 
-        const { isHeader, searchValue, onSearchValueChange, result } = this.props
+        const { isHeader, searchValue, onSearchValueChange, result, searchResult } = this.props
         return (
             <div className="searchbar-container">
                 {
@@ -84,7 +83,7 @@ class SearchBar extends Component {
                 }
 
                 <AutoComplete
-                    
+
                     defaultActiveFirstOption={false}
                     placeholder="Find Cuisine Types, Food Trucks and Breweries"
                     optionLabelProp="value"
@@ -92,7 +91,7 @@ class SearchBar extends Component {
                     dropdownClassName="certain-category-search-dropdown"
                     size="large"
                     style={{ width: '100%' }}
-                    dataSource={result ? result.map(this.renderOption) : []}
+                    dataSource={searchResult ? searchResult.map(this.renderOption) : []}
 
                     onSelect={(value, e) => this.onSelect(value, e)}
                     onSearch={(e) => this.handleSearch(e)}
@@ -116,14 +115,13 @@ class SearchBar extends Component {
 
 export function mapStateToProps(state) {
     return {
-
+        searchResult: state.searchReducer.searchResult
 
     };
 }
 
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getSearchResult
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

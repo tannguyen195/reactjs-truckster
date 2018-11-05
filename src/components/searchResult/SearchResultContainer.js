@@ -29,8 +29,8 @@ class SearchResultContainer extends Component {
 }
 export function mapStateToProps(state) {
     return {
-        searchResult: state.truckReducer.searchResult,
-        params: state.truckReducer.params
+        searchResult: state.searchReducer.searchResult,
+        param: state.searchReducer.param,
     };
 }
 export function mapDispatchToProps(dispatch) {
