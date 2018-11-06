@@ -339,12 +339,17 @@ class TruckDetail extends Component {
                             <hr />
 
                             {/* Suggest Section */}
-                            <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
+                            {
+                                suggestTruck &&
+                                suggestTruck.length > 0 &&
+                                <div>
+                                    <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
 
-                            {suggestTruck &&
-                                this.renderSuggestTruck(suggestTruck)
+                                    {
+                                        this.renderSuggestTruck(suggestTruck)
+                                    }
+                                </div>
                             }
-
                         </div>
                     </div>
                     <Affix style={{ position: 'relative', flex: 1 }} offsetTop={130}>

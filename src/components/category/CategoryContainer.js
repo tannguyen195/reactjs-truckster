@@ -10,11 +10,13 @@ class CategoryContainer extends Component {
             hasMore: true
         }
     }
-
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
 
         return (
-            <div style={{background:"#fafafa"}}>
+            <div style={{ background: "#fafafa" }}>
                 <Head
                     url="https://gotruckster.com/cuisine"
                     title={"Search Denver Food Trucks By Cuisine – Truckster"}

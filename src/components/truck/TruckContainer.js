@@ -19,6 +19,7 @@ class TruckContainer extends Component {
         const { mountTruck, searchTruck } = this.props
         mountTruck()
         searchTruck("", "", 1)
+        window.scrollTo(0, 0);
     }
     loadMoreTruck() {
         const { currentPage, lastPage, searchTruck } = this.props
