@@ -217,7 +217,7 @@ class TruckDetail extends Component {
 
 
         return tempArr.map((item, index) => {
-            if (item)
+            if (item && index < 3)
                 return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
                     <TruckCard data={item} />
                 </Col>

@@ -23,7 +23,7 @@ class UserReview extends Component {
                             <div className="info">
                                 <div className="user-name Body-1MediumBlackLeft">{item.user.name}</div>
                                 <div className="date CaptionGreyLeft">
-                                    {moment(item.created_at, "YYYY-MM-DD h:mm a").format("DD/MM/YYYY h:mm a")}
+                                    {moment(item.created_at, "YYYY-MM-DD h:mm a").format("MM/DD/YYYY h:mm a")}
                                 </div></div>
                         </div>
                         <div className="header-right">
