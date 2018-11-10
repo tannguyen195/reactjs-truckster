@@ -10,6 +10,9 @@ const initial = {
     isLoadingUnmarkFavorite: false,
     isLoadingGetUserFavorite: false,
     isLoadingEditReview: false,
+    isLoadingMarkFavoriteBrewery: false,
+    isLoadingUnmarkFavoriteBrewery: false,
+    isLoadingMarkFavoriteBrewery: false,
     userFavorite: null,
 
     isLoadingEditBreweryReview: false,
@@ -18,6 +21,7 @@ const initial = {
     isLoadingGetBreweryReview: false,
     breweryReviews: null,
     userBreweryReview: null,
+    userFavoriteBrewery: null,
 }
 const reviewReducer = (state = initial, action) => {
     switch (action.type) {
@@ -274,7 +278,7 @@ const reviewReducer = (state = initial, action) => {
             return {
                 ...state,
                 isLoadingGetUserBreweryReview: false,
-                userBreweryReview: action.response.data[0].brewery_reviews_detail                ,
+                userBreweryReview: action.response.data[0].brewery_reviews_detail,
             }
         case types.GET_USER_BREWERY_REVIEW_ERROR:
             return {
@@ -284,6 +288,76 @@ const reviewReducer = (state = initial, action) => {
                 status: action.response.status,
                 message: action.response.statusText || 'Something went wrong'
             };
+
+
+        // Mark favorite
+        case types.REQUEST_MARK_FAVORITE_BREWERY:
+            return {
+                ...state,
+                error: false,
+                isLoadingMarkFavoriteBrewery: action.isLoadingMarkFavoriteBrewery
+            };
+
+        case types.MARK_FAVORITE_BREWERY_SUCCESS:
+            return {
+                ...state,
+                isLoadingMarkFavoriteBrewery: false,
+
+            }
+        case types.MARK_FAVORITE_BREWERY_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingMarkFavoriteBrewery: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
+
+        // unmark favorite 
+        case types.REQUEST_UNMARK_FAVORITE_BREWERY:
+            return {
+                ...state,
+                error: false,
+                isLoadingUnmarkFavoriteBrewery: action.isLoadingUnmarkFavoriteBrewery
+            };
+
+        case types.UNMARK_FAVORITE_BREWERY_SUCCESS:
+            return {
+                ...state,
+                isLoadingUnmarkFavoriteBrewery: false,
+
+            }
+        case types.UNMARK_FAVORITE_BREWERY_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingUnmarkFavoriteBrewery: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
+        // Get user favorite 
+        case types.REQUEST_GET_USER_FAVORITE_BREWERY:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetUserFavoriteBrewery: action.isLoadingGetUserFavoriteBrewery
+            };
+
+        case types.GET_USER_FAVORITE_BREWERY_SUCCESS:
+            return {
+                ...state,
+                isLoadingGetUserFavoriteBrewery: false,
+                userFavoriteBrewery: action.response.data[0].favourites_detail,
+            }
+        case types.GET_USER_FAVORITE_BREWERY_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetUserFavoriteBrewery: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
+
         default:
             return state;
     }

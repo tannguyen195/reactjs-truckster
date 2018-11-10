@@ -11,7 +11,12 @@ import {
     requestGetBreweryReview, getBreweryReviewSuccess, getBreweryReviewError,
     requestPostBreweryReview, postBreweryReviewSuccess, postBreweryReviewError,
     requestEditBreweryReview, editBreweryReviewSuccess, editBreweryReviewError,
-    requestGetUserBreweryReview, getUserBreweryReviewSuccess, getUserBreweryReviewError
+    requestGetUserBreweryReview, getUserBreweryReviewSuccess, getUserBreweryReviewError,
+
+    requestGetUserFavoriteBrewery, getUserFavoriteBrewerySuccess, getUserFavoriteBreweryError,
+
+    requestMarkFavoriteBrewery, markFavoriteBreweryError, markFavoriteBrewerySuccess,
+    requestUnmarkFavoriteBrewery, unmarkFavoriteBreweryError, unmarkFavoriteBrewerySuccess
 } from '../actions/reviewAction.js'
 
 import { notification, Icon } from 'antd'
@@ -347,6 +352,93 @@ export const getUserBreweryReview = () => {
             },
             error: function (error) {
                 dispatch(getUserBreweryReviewError(error))
+            }
+        })
+    }
+}
+
+// favorite brewery
+
+export const markFavoriteBrewery = (breweryId) => {
+    return (dispatch) => {
+        dispatch(requestMarkFavoriteBrewery(true))
+        $.ajax({
+            type: 'POST',
+            url: apiUrl + `api/breweries/${breweryId}/favourites`,
+            headers: {
+                "Accept": "application/json",
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
+            },
+            success: function (response, status, xhr) {
+                dispatch(markFavoriteBrewerySuccess(
+                    response
+                ));
+
+                notification.open({
+                    message: 'Successfully',
+                    description: "Added to your favorite list",
+                    icon: <img width={46} style={{ paddingRight: "8px" }} height={25} src={"/static/images/logo.png"} alt="brewery-logo" />
+                });
+            },
+            error: function (error) {
+                dispatch(markFavoriteBreweryError(error))
+            }
+        })
+    }
+}
+
+export const unmarkFavoriteBrewery = (breweryId) => {
+    return (dispatch) => {
+        dispatch(requestUnmarkFavoriteBrewery(true))
+        $.ajax({
+            type: 'DELETE',
+            url: apiUrl + `api/foodbrewerys/${breweryId}/favourites`,
+            headers: {
+                "Accept": "application/json",
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
+            },
+            success: function (response, status, xhr) {
+                dispatch(unmarkFavoriteBrewerySuccess(
+                    response
+                ));
+                notification.open({
+                    message: 'Successfully',
+                    description: "Removed to your favorite list",
+                    icon: <Icon type="check-circle-o" style={{ color: 'rgb(76, 218, 100)' }} />
+                });
+            },
+            error: function (error) {
+                dispatch(unmarkFavoriteBreweryError(error))
+
+            }
+        })
+    }
+}
+
+export const getUserFavoriteBrewery = () => {
+    return (dispatch) => {
+        dispatch(requestGetUserFavoriteBrewery(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + 'api/user/favourites',
+            headers: {
+                "Accept": "application/json",
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', "Bearer " + cookies.get('token', { doNotParse: true }));
+            },
+            success: function (response, status, xhr) {
+                dispatch(getUserFavoriteBrewerySuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getUserFavoriteBreweryError(error))
+
             }
         })
     }

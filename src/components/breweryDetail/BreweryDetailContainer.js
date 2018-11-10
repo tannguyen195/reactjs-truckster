@@ -8,7 +8,7 @@ import axios from 'axios';
 import { getDataInitial } from 'global'
 import { toggleShareModal } from '../../actions/toggleAction'
 import { googleApi } from 'config'
-import { editBreweryReview, postBreweryReview, getBreweryReview } from '../../api/reviewApi'
+import { editBreweryReview, postBreweryReview, getBreweryReview , markFavoriteBrewery, unmarkFavoriteBrewery,} from '../../api/reviewApi'
 import { changeRoute } from '../../actions/deepLinkAction'
 
 import Head from '../head'
@@ -93,7 +93,17 @@ class BreweryDetailContainer extends Component {
             ...e
         })
     }
-
+    onFavoriteChange(e) {
+        if (e === 1) {
+            this.props.markFavoriteBrewery(this.props.breweryDetail.id)
+        }
+        else {
+            this.props.unmarkFavoriteBrewery(this.props.breweryDetail.id)
+        }
+        this.setState({
+            favorite: e
+        })
+    }
     render() {
         const { status, breweryDetail, slug } = this.props
         return (

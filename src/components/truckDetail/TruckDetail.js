@@ -216,18 +216,12 @@ class TruckDetail extends Component {
         })
 
 
-
-        return <Row gutter={16} className="suggest-truck">
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[0]} />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[1]} />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckCard data={tempArr[2]} />
-            </Col>
-        </Row>
+        return tempArr.map((item, index) => {
+            if (item)
+                return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckCard data={item} />
+                </Col>
+        })
 
     }
     renderTruckDetail(truckDetail) {
@@ -344,10 +338,11 @@ class TruckDetail extends Component {
                                 suggestTruck.length > 0 &&
                                 <div>
                                     <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
-
-                                    {
-                                        this.renderSuggestTruck(suggestTruck)
-                                    }
+                                    <Row gutter={16} className="suggest-truck">
+                                        {
+                                            this.renderSuggestTruck(suggestTruck)
+                                        }
+                                    </Row>
                                 </div>
                             }
                         </div>

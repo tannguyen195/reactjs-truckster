@@ -289,3 +289,84 @@ export function getUserBreweryReviewError(response) {
         });
     }
 }
+
+
+
+//Mark favorite brewry action
+
+export function requestMarkFavoriteBrewery(isLoadingMarkFavoriteBrewery) {
+    return {
+        type: types.REQUEST_MARK_FAVORITE_BREWERY,
+        isLoadingMarkFavoriteBrewery: isLoadingMarkFavoriteBrewery
+    };
+}
+
+export function markFavoriteBrewerySuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.MARK_FAVORITE_BREWERY_SUCCESS,
+            response
+        });
+    }
+}
+
+export function markFavoriteBreweryError(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.MARK_FAVORITE_BREWERY_ERROR,
+            response
+        });
+    }
+}
+
+// Unmark favorite 
+export function requestUnmarkFavoriteBrewery(isLoadingUnmarkFavoriteBrewery) {
+    return {
+        type: types.REQUEST_UNMARK_FAVORITE_BREWERY,
+        isLoadingUnmarkFavoriteBrewery: isLoadingUnmarkFavoriteBrewery
+    };
+}
+
+export function unmarkFavoriteBrewerySuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.UNMARK_FAVORITE_BREWERY_SUCCESS,
+            response
+        });
+    }
+}
+
+export function unmarkFavoriteBreweryError(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.UNMARK_FAVORITE_BREWERY_ERROR,
+            response
+        });
+    }
+}
+
+// Get user favorite 
+export function requestGetUserFavoriteBrewery(isLoadingGetUserFavoriteBrewery) {
+    return {
+        type: types.REQUEST_GET_USER_FAVORITE_BREWERY,
+        isLoadingGetUserFavoriteBrewery: isLoadingGetUserFavoriteBrewery
+    };
+}
+
+export function getUserFavoriteBrewerySuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_USER_FAVORITE_BREWERY_SUCCESS,
+            response
+        });
+    }
+}
+
+export function getUserFavoriteBreweryError(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_USER_FAVORITE_BREWERY_ERROR,
+            response
+        });
+    }
+}
