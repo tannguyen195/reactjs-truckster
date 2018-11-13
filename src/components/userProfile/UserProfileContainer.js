@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import UserProfile from './UserProfile'
-import { getUserReview, getUserFavorite, getUserBreweryReview } from '../../api/reviewApi'
+import { getUserReview, getUserFavorite, getUserBreweryReview, getUserFavoriteBrewery } from '../../api/reviewApi'
 import _userProfile from './_userProfile.less'
 
 class UserProfileContainer extends Component {
@@ -14,9 +14,16 @@ class UserProfileContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.getUserReview()
-        this.props.getUserFavorite()
-        this.props.getUserBreweryReview()
+        const {
+            getUserReview,
+            getUserFavorite,
+            getUserFavoriteBrewery,
+            getUserBreweryReview
+        } = this.props
+        getUserReview()
+        getUserFavorite()
+        getUserBreweryReview()
+        getUserFavoriteBrewery()
     }
     render() {
         return (
@@ -34,11 +41,13 @@ export function mapStateToProps(state) {
         userData: state.profileReducer.userData,
         userReview: state.reviewReducer.userReview,
         userFavorite: state.reviewReducer.userFavorite,
-        userBreweryReview: state.reviewReducer.userBreweryReview
+        userBreweryReview: state.reviewReducer.userBreweryReview,
+        userFavoriteBrewery: state.reviewReducer.userFavoriteBrewery,
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        getUserFavoriteBrewery,
         getUserBreweryReview,
         getUserReview,
         getUserFavorite

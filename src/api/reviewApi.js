@@ -364,7 +364,7 @@ export const markFavoriteBrewery = (breweryId) => {
         dispatch(requestMarkFavoriteBrewery(true))
         $.ajax({
             type: 'POST',
-            url: apiUrl + `api/breweries/${breweryId}/favourites`,
+            url: apiUrl + `api/consumer/v1/breweries/${breweryId}/favourites`,
             headers: {
                 "Accept": "application/json",
             },
@@ -394,7 +394,7 @@ export const unmarkFavoriteBrewery = (breweryId) => {
         dispatch(requestUnmarkFavoriteBrewery(true))
         $.ajax({
             type: 'DELETE',
-            url: apiUrl + `api/foodbrewerys/${breweryId}/favourites`,
+            url: apiUrl + `api/consumer/v1//foodbrewerys/${breweryId}/favourites`,
             headers: {
                 "Accept": "application/json",
             },
@@ -424,7 +424,7 @@ export const getUserFavoriteBrewery = () => {
         dispatch(requestGetUserFavoriteBrewery(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + 'api/user/favourites',
+            url: apiUrl + 'api/user/brewery-favourites',
             headers: {
                 "Accept": "application/json",
             },

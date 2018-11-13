@@ -17,15 +17,10 @@ class Section extends Component {
         return (
             <section className="section-block-main">
                 <div className="header">
-                    {
-                        <Link to={url} >
-                            <a className="section-title">
-                                <h3 className="Display-2BlackLeft">
-                                    {title}
-                                </h3>
-                            </a>
-                        </Link>
-                    }
+
+                    <h2 className="Display-2BlackLeft">
+                        {title}
+                    </h2>
 
                 </div>
 

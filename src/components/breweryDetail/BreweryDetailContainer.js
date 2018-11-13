@@ -8,7 +8,7 @@ import axios from 'axios';
 import { getDataInitial } from 'global'
 import { toggleShareModal } from '../../actions/toggleAction'
 import { googleApi } from 'config'
-import { editBreweryReview, postBreweryReview, getBreweryReview , markFavoriteBrewery, unmarkFavoriteBrewery,} from '../../api/reviewApi'
+import { editBreweryReview, postBreweryReview, getBreweryReview, markFavoriteBrewery, unmarkFavoriteBrewery, } from '../../api/reviewApi'
 import { changeRoute } from '../../actions/deepLinkAction'
 
 import Head from '../head'
@@ -59,7 +59,9 @@ class BreweryDetailContainer extends Component {
         if (nextProps.id !== this.props.id) {
             this.props.getBreweryDetail(nextProps.id)
         }
-
+        self.setState({
+            favorite: nextProps.breweryDetail.is_favourite,
+        })
     }
 
     static async getInitialProps({ req, query }) {
@@ -94,11 +96,12 @@ class BreweryDetailContainer extends Component {
         })
     }
     onFavoriteChange(e) {
+        const { markFavoriteBrewery, unmarkFavoriteBrewery, breweryDetail } = this.props
         if (e === 1) {
-            this.props.markFavoriteBrewery(this.props.breweryDetail.id)
+            markFavoriteBrewery(breweryDetail.id)
         }
         else {
-            this.props.unmarkFavoriteBrewery(this.props.breweryDetail.id)
+            unmarkFavoriteBrewery(breweryDetail.id)
         }
         this.setState({
             favorite: e
@@ -123,6 +126,7 @@ class BreweryDetailContainer extends Component {
                             <BreweryDetail
                                 {...this.state}
                                 {...this.props}
+                                onFavoriteChange={(e) => this.onFavoriteChange(e)}
                                 handlePostReview={(e) => this.handlePostReview(e)}
                                 handleEditReview={(e) => this.handleEditReview(e)}
 
@@ -144,9 +148,9 @@ export function mapStateToProps(state) {
         isLoadingBreweryDetail: state.breweryReducer.isLoadingBreweryDetail,
         error: state.breweryReducer.error,
         status: state.breweryReducer.status,
-
         reviews: state.reviewReducer.breweryReviews,
         suggestBrewery: state.breweryReducer.suggestBrewery,
+        isLoggedIn: state.authReducer.isLoggedIn,
     };
 }
 export function mapDispatchToProps(dispatch) {
@@ -157,7 +161,9 @@ export function mapDispatchToProps(dispatch) {
         postBreweryReview,
         getBreweryReview,
         changeRoute,
-        getSuggestBrewery
+        getSuggestBrewery,
+        markFavoriteBrewery,
+        unmarkFavoriteBrewery
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BreweryDetailContainer);

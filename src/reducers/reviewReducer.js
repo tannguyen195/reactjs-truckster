@@ -347,7 +347,7 @@ const reviewReducer = (state = initial, action) => {
             return {
                 ...state,
                 isLoadingGetUserFavoriteBrewery: false,
-                userFavoriteBrewery: action.response.data[0].favourites_detail,
+                userFavoriteBrewery: action.response.data[0].brewery_favourites,
             }
         case types.GET_USER_FAVORITE_BREWERY_ERROR:
             return {

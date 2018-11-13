@@ -48,8 +48,8 @@ class TruckContainer extends Component {
                 <Head
                     ogImage="https://dev.gotruckster.com/storage/avatars/0Mv5ywY5QF0o3WwybN0hBvhasU88RM4uKnjpL3Xx.png"
                     url="https://gotruckster.com/food-truck/co/denver/all"
-                    title="Denver Food Trucks Near Me – Locations, Schedules & Catering"
-                    description="Find the best food trucks in Denver, CO featuring gourmet street food. View food truck schedules, pairings, menus, reviews, discounts and catering information!"
+                    title="View All Food Trucks in Denver, Colorado"
+                    description="Updated list of Denver food trucks. Find gourmet street food near you."
                 />
                 <Truck
                     {...this.state}

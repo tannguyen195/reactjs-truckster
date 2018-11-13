@@ -234,7 +234,7 @@ class CityDetail extends Component {
     renderArticleCard(articles) {
         return articles.map((item, index) => {
             return <Col key={index} xs={24} sm={12} md={12} lg={12}>
-                <Link prefetch to={item.url}>
+                <Link prefetch to={item.url.toLowerCase()}>
                     <a>
                         <ArticleCard
                             data={item} />
@@ -281,7 +281,7 @@ class CityDetail extends Component {
                             <div className="button-find">
                                 <Link prefetch to="/search">
                                     <a>
-                                        <Button disabled={searchValue.length < 1 ? true : false}  className="search-btn SubheadingWhiteCenter" size="large" type="primary">
+                                        <Button disabled={searchValue.length < 1 ? true : false} className="search-btn SubheadingWhiteCenter" size="large" type="primary">
                                             Find trucks
                             </Button>
                                     </a>
@@ -290,52 +290,51 @@ class CityDetail extends Component {
                         </div>
 
 
-                        <MediaQuery maxWidth={460}>
-                            {(matches) => {
-                                if (matches) {
-                                    return <div className="tag-container">
-                                        <div className="tag">
-                                            {
-                                                tags2.map((item, index) => {
-                                                    return <Link prefetch key={index} params={{ value: item }} to={`/cuisine/${item.toLowerCase()}`}>
-                                                        <div className="tag-item Body-1MediumBlackCenter">
-                                                            {item}
-                                                        </div>
-                                                    </Link>
-                                                })
-                                            }
-                                        </div>
-                                        <div className="tag">
-                                            {
-                                                tags3.map((item, index) => {
-                                                    return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
-                                                        <div className="tag-item Body-1MediumBlackCenter">
-                                                            {item}
-                                                        </div>
-                                                    </Link>
-                                                })
-                                            }
-                                        </div>
+                        {/* <MediaQuery maxWidth={460}>{(matches) => {
+                            if (matches) {
+                                return <div className="tag-container">
+                                    <div className="tag">
+                                        {
+                                            tags2.map((item, index) => {
+                                                return <Link prefetch key={index} params={{ value: item }} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    <div className="tag-item Body-1MediumBlackCenter">
+                                                        {item}
+                                                    </div>
+                                                </Link>
+                                            })
+                                        }
                                     </div>
-                                } else {
-                                    return <div className="tag-container">
-                                        <div className="tag">
-                                            {
-                                                tags.map((item, index) => {
-                                                    return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
-                                                        <div className="tag-item Body-1MediumBlackCenter">
-                                                            {item}
-                                                        </div>
-                                                    </Link>
-                                                })
-                                            }
-
-                                        </div>
+                                    <div className="tag">
+                                        {
+                                            tags3.map((item, index) => {
+                                                return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    <div className="tag-item Body-1MediumBlackCenter">
+                                                        {item}
+                                                    </div>
+                                                </Link>
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            } else {
+                                return <div className="tag-container">
+                                    <div className="tag">
+                                        {
+                                            tags.map((item, index) => {
+                                                return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
+                                                    <div className="tag-item Body-1MediumBlackCenter">
+                                                        {item}
+                                                    </div>
+                                                </Link>
+                                            })
+                                        }
 
                                     </div>
-                                }
-                            }}
-                        </MediaQuery>
+
+                                </div>
+                            }
+                        }}
+                        </MediaQuery> */}
 
                     </div>
 
@@ -347,7 +346,7 @@ class CityDetail extends Component {
 
                 {/* home body  */}
                 <div style={{ paddingTop: 0 }} className="body-content media">
-                    <Section url="/event/co/denver" seeall={true} title="What's happening in Denver?" >
+                    <Section url="/event/co/denver" seeall={true} title="What's Happening in Denver?" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={errorActivity}  >
                             <div>
@@ -378,7 +377,7 @@ class CityDetail extends Component {
                         </RenderContainer>
                     </Section>
                     <hr />
-                    <Section url="/food-truck/co/denver/all" seeall={true} title="Featured Denver Food Trucks" >
+                    <Section url="/food-truck/co/denver/all" seeall={true} title="Featured Food Trucks in Denver, CO" >
                         <RenderContainer message="Something went wrong, please try another time!"
                             error={error}  >
                             <div>

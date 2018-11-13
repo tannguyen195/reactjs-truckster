@@ -23,8 +23,8 @@ class UserProfile extends Component {
                                 <img alt="truck" src={item.brewery.cover_photo ? item.brewery.cover_photo[0].url : homeImage} />
                             </div>
 
-                            <div className="review-info">
-                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft">{item.brewery.name}</div>
+                            <div className="review-info ">
+                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft review-title">{item.brewery.name}</div>
                                 <div className="CaptionGreyLeft"><img alt="locaion" src={locationIcon} />{item.brewery.location}</div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ class UserProfile extends Component {
                             </div>
 
                             <div className="review-info">
-                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft">{item.food_trucks.name}</div>
+                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft review-title">{item.food_trucks.name}</div>
                                 <div className="CaptionGreyLeft"><img alt="locaion" src={locationIcon} />{item.food_trucks.state}, {item.food_trucks.city} </div>
                             </div>
                         </div>
@@ -63,8 +63,37 @@ class UserProfile extends Component {
 
         })
     }
+
+    renderFavoriteBrewery(data) {
+        console.log(data)
+        return data.map((item, index) => {
+            return <Col key={index} md={8} lg={8} sm={12} xs={24} >
+                <Link prefetch to={"/brewery/" + item.brewery.slug}>
+                    <div className="review-card">
+                        <div className="card-header">
+                            <Rate disabled value={item.brewery.rating ||
+                                parseFloat((Math.round(item.brewery.rating * 2) / 2).toFixed(1), 10)} />
+                            <div className="CaptionGreyRight">{item.created_at}</div>
+                        </div>
+                        <div className="card-body">
+                            <div className="truck-image">
+                                <img alt="truck" src={item.brewery.cover_photo ? item.brewery.cover_photo[0].url : homeImage} />
+                            </div>
+
+                            <div className="review-info">
+                                <div style={{ paddingBottom: '4px' }} className="Body-1MediumBlackLeft review-title">{item.brewery.name}</div>
+                                <div className="CaptionGreyLeft"><img alt="locaion" src={locationIcon} />{item.brewery.state}, {item.brewery.city} </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </Link>
+            </Col>
+
+        })
+    }
     render() {
-        const { userData, userReview, userFavorite, userBreweryReview } = this.props
+        const { userData, userReview, userFavorite, userBreweryReview, userFavoriteBrewery } = this.props
 
         return (
 
@@ -117,9 +146,27 @@ class UserProfile extends Component {
                         <TabPane tab="My Favorites" key="3">
                             <div className="user-review">
                                 {
-                                    userFavorite && <Row type="flex" className="max-width" gutter={30}>
-                                        {this.renderReview(userFavorite)}
-                                    </Row>
+                                    userFavorite &&
+                                    <div>
+                                        <div className="favorite-title">Food trucks</div>
+                                        <Row type="flex" className="max-width" gutter={30}>
+                                            {this.renderReview(userFavorite)}
+                                        </Row>
+                                    </div>
+                                }
+
+
+                            </div>
+                            <div className="user-review">
+
+                                {
+                                    userFavoriteBrewery &&
+                                    <div>
+                                        <div className="favorite-title">Brewery</div>
+                                        <Row type="flex" className="max-width" gutter={30}>
+                                            {this.renderFavoriteBrewery(userFavoriteBrewery)}
+                                        </Row>
+                                    </div>
                                 }
                             </div>
                         </TabPane>

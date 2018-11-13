@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Rate, Anchor, Spin, Card, Icon } from 'antd';
+import { Row, Col, Rate, Anchor, Spin, Card, Icon, Tooltip } from 'antd';
 import { Link } from 'routes'
 import Map from '../common/map/Map'
 import ReviewModifyContainer from '../common/reviewModify/ReviewModifyContainer'
@@ -22,6 +22,7 @@ const facebookIconWhite = ('/static/images/facebook-icon-white.svg')
 const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 const breweryIcon = ('/static/images/brewery-marker-icon.png')
+
 class BreweryDetail extends Component {
 
     renderInfo(breweryDetail) {
@@ -197,7 +198,7 @@ class BreweryDetail extends Component {
     }
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
-        const { isPairing, toggleShareModal, suggestBrewery } = this.props
+        const { isPairing, toggleShareModal, suggestBrewery, isLoggedIn, onFavoriteChange, favorite } = this.props
         return (
             <div>
                 <div>
@@ -229,11 +230,7 @@ class BreweryDetail extends Component {
                                         </Link>
 
                                     </div>
-                                    <span className="left-row">
 
-                                        <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
-
-                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -248,6 +245,25 @@ class BreweryDetail extends Component {
                                 <LinkAnchor href="#info" title="Info" />
                                 <LinkAnchor href="#menu" title="Menu" />
                                 <LinkAnchor href="#reviews" title="Review" />
+
+                                <span className="left-row">
+                                    {
+                                        !isLoggedIn ?
+                                            <Tooltip title="Login required">
+                                                <span>
+                                                    <Rate disabled count={1} character={<Icon type="heart" />} />
+                                                </span>
+                                            </Tooltip>
+                                            :
+                                            <Rate value={favorite ? 1 : 0} onChange={onFavoriteChange}
+                                                count={1}
+                                                character={<Icon style={{
+                                                    color: favorite ? '#f32126' : "#dadada"
+                                                }} type="heart" />} />
+                                    }
+                                    <img onClick={(e) => toggleShareModal(window.location.href)} alt="back" src={shareIcon} />
+
+                                </span>
                             </Anchor>
                         </div>
 
