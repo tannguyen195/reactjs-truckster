@@ -60,7 +60,7 @@ export function getSchedule(data) {
                 let interval = calendarItem.interval ? calendarItem.interval : 1
                 let repeated = calendarItem.times_repeated ? calendarItem.times_repeated : 2000
                 for (let j = 0; j < repeated; ++j) {
-                    let tempDate = moment(calendarItem.end_time).add(j * interval, 'M'), tempDate1 = moment(calendarItem.start_time).add(i * interval, 'w')
+                    let tempDate = moment(calendarItem.end_time).add(j * interval, 'M'), tempDate1 = moment(calendarItem.start_time).add(j * interval, 'w')
 
                     schudeles.push({
                         ...calendarItem,
