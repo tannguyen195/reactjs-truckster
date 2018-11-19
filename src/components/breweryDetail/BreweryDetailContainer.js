@@ -122,7 +122,29 @@ class BreweryDetailContainer extends Component {
                                 title={breweryDetail.name + " - Brewery Denver, CO - Truckster"}
                                 description={breweryDetail.company_description}
                                 ogImage={breweryDetail.cover_photo[0].url}
-                            />
+                            >
+                                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                                    __html: `{
+                                "@context": "http://schema.org",
+                                "@type": "LocalBusiness",
+                                "name": ${breweryDetail.name},
+                                "telePhone": ${breweryDetail.phone},                               
+                                "geo": {
+                                    "@type": "GeoCoordinates",
+                                    "latitude": ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && breweryDetail.calendar[0].latitude},
+                                    "longitude":  ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && breweryDetail.calendar[0].longtitude}
+                                },
+                                "url": https://gotruckster.com/brewery/${slug},
+                                "logo":  ${breweryDetail.logo && breweryDetail.logo.length > 0 && breweryDetail.logo[0].url},
+                                "image": " ${breweryDetail.cover_photo && breweryDetail.cover_photo.length > 0 && breweryDetail.cover_photo[0].url},
+                                "aggregateRating": {
+                                    "@type": "AggregateRating",
+                                    "ratingValue":${breweryDetail.avg_rating || 0},
+                                    "ratingCount": ${breweryDetail.reviews_summary.total_reviews}
+                                }}`
+                                }} >
+                                </script>
+                            </Head>
                             <BreweryDetail
                                 {...this.state}
                                 {...this.props}
