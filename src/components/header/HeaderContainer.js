@@ -134,7 +134,7 @@ class HeaderContainer extends Component {
                 self.setState({
                     flagSearch: true
                 })
-            }, 1000)
+            }, 500)
         });
     }
 

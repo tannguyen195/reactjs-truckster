@@ -18,7 +18,22 @@ class SearchBar extends Component {
             result: [],
         }
     }
- 
+    renderSearchResult() {
+        const {
+            searchResult, isLoadingSearch
+        } = this.props
+        if (searchResult) {
+            if (isLoadingSearch)
+                return [].concat(
+                    <Option className="loading-search " key="loading">
+                        <div className="text-loading "> FINDING RESULT <Icon type="loading" /> </div>
+                    </Option>
+
+                )
+            else return searchResult.map(this.renderOption)
+        }
+        else return []
+    }
     renderOption(item, index) {
 
         let link = "",
@@ -68,7 +83,8 @@ class SearchBar extends Component {
     }
 
     onSelect(value, e) {
-        Router.pushRoute(e.props.children.props.to)
+        if (e.key !== "loading")
+            Router.pushRoute(e.props.children.props.to)
     }
     onEnter() {
         Router.pushRoute('/search')
@@ -91,11 +107,9 @@ class SearchBar extends Component {
                     dropdownClassName="certain-category-search-dropdown"
                     size="large"
                     style={{ width: '100%' }}
-                    dataSource={searchResult ? searchResult.map(this.renderOption) : []}
-
+                    dataSource={this.renderSearchResult()}
                     onSelect={(value, e) => this.onSelect(value, e)}
                     onSearch={(e) => this.handleSearch(e)}
-
                     onChange={onSearchValueChange}
                     value={searchValue}
                 >
@@ -115,8 +129,9 @@ class SearchBar extends Component {
 
 export function mapStateToProps(state) {
     return {
-        searchResult: state.searchReducer.searchResult
-
+        searchResult: state.searchReducer.searchResult,
+        isLoadingSearch: state.searchReducer.isLoadingSearch,
+        param: state.searchReducer.param
     };
 }
 

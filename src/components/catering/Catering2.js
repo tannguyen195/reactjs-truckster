@@ -27,7 +27,7 @@ export default class extends Component {
                     {getFieldDecorator('eventDate', {
                         rules: [{ type: 'object', required: true, message: 'Please select time!' }],
                     })(
-                        <DatePicker />
+                        <DatePicker format="MM-DD-YYYY"/>
                     )}
                 </FormItem>
 

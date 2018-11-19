@@ -394,7 +394,7 @@ export const unmarkFavoriteBrewery = (breweryId) => {
         dispatch(requestUnmarkFavoriteBrewery(true))
         $.ajax({
             type: 'DELETE',
-            url: apiUrl + `api/consumer/v1//foodbrewerys/${breweryId}/favourites`,
+            url: apiUrl + `api/consumer/v1/breweries/${breweryId}/favourites`,
             headers: {
                 "Accept": "application/json",
             },
@@ -407,7 +407,7 @@ export const unmarkFavoriteBrewery = (breweryId) => {
                 ));
                 notification.open({
                     message: 'Successfully',
-                    description: "Removed to your favorite list",
+                    description: "Removed from your favorite list",
                     icon: <Icon type="check-circle-o" style={{ color: 'rgb(76, 218, 100)' }} />
                 });
             },
