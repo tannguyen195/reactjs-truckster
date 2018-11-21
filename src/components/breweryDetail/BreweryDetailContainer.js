@@ -135,8 +135,8 @@ class BreweryDetailContainer extends Component {
                                     "longitude":  ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && breweryDetail.calendar[0].longtitude}
                                 },
                                 "url": https://gotruckster.com/brewery/${slug},
-                                "logo":  ${breweryDetail.logo && breweryDetail.logo.length > 0 && breweryDetail.logo[0].url},
-                                "image": " ${breweryDetail.cover_photo && breweryDetail.cover_photo.length > 0 && breweryDetail.cover_photo[0].url},
+                                "logo":${breweryDetail.logo && breweryDetail.logo.length > 0 && breweryDetail.logo[0].url},
+                                "image":${breweryDetail.cover_photo && breweryDetail.cover_photo.length > 0 && breweryDetail.cover_photo[0].url},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
                                     "ratingValue":${breweryDetail.avg_rating || 0},

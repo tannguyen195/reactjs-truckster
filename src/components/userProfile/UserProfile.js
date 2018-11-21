@@ -65,7 +65,6 @@ class UserProfile extends Component {
     }
 
     renderFavoriteBrewery(data) {
-        console.log(data)
         return data.map((item, index) => {
             return <Col key={index} md={8} lg={8} sm={12} xs={24} >
                 <Link prefetch to={"/brewery/" + item.brewery.slug}>

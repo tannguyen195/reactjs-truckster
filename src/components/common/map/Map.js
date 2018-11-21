@@ -53,23 +53,25 @@ class Map extends Component {
     }
     renderMarker(location, icon) {
         return location.map((item, index) => {
-            return <AnyReactComponent
-                info={item}
-                key={index}
-                icon={icon}
-                lat={parseFloat(item.latitude)}
-                lng={parseFloat(item.longtitude)} />
+            if (item.latitude)
+                return <AnyReactComponent
+                    info={item}
+                    key={index}
+                    icon={icon}
+                    lat={parseFloat(item.latitude)}
+                    lng={parseFloat(item.longtitude)} />
         })
     }
     componentWillMount() {
         const { location, zoom } = this.props
         if (location.length > 0 && location[0])
-            this.setState({
-                center: {
-                    lat: parseFloat(location[0].latitude),
-                    lng: parseFloat(location[0].longtitude)
-                }
-            })
+            if (location[0].latitude)
+                this.setState({
+                    center: {
+                        lat: parseFloat(location[0].latitude),
+                        lng: parseFloat(location[0].longtitude)
+                    }
+                })
         if (zoom) {
             this.setState({
                 zoom: zoom
@@ -80,18 +82,18 @@ class Map extends Component {
     componentWillReceiveProps(nextProps) {
         const { location } = nextProps
         if (location.length > 0 && location[0])
-            this.setState({
-                center: {
-                    lat: parseFloat(location[0].latitude),
-                    lng: parseFloat(location[0].longtitude)
-                }
-            })
+            if (location[0].latitude)
+                this.setState({
+                    center: {
+                        lat: parseFloat(location[0].latitude),
+                        lng: parseFloat(location[0].longtitude)
+                    }
+                })
     }
 
     render() {
         const { icon, location } = this.props
         const { center, zoom } = this.state
-
         return (
             <div className="map-container" >
                 <style dangerouslySetInnerHTML={{ __html: _map }} />

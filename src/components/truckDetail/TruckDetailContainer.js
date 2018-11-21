@@ -37,8 +37,6 @@ class TruckDetailContainer extends Component {
     }
 
     static async getInitialProps({ req, query }) {
-
-
         let token = cookies.get('token')
         let truckDetail = null
 
@@ -398,8 +396,8 @@ class TruckDetailContainer extends Component {
                                     "longitude":  ${truckDetail.calendar && truckDetail.calendar.length > 0 && truckDetail.calendar[0].longtitude}
                                 },
                                 "url": https://gotruckster.com/food-truck/${slug},
-                                "logo":  ${truckDetail.logo && truckDetail.logo.length > 0 && truckDetail.logo[0].url},
-                                "image": " ${truckDetail.cover_photo && truckDetail.cover_photo.length > 0 && truckDetail.cover_photo[0].url},
+                                "logo":${truckDetail.logo && truckDetail.logo.length > 0 && truckDetail.logo[0].url},
+                                "image":${truckDetail.cover_photo && truckDetail.cover_photo.length > 0 && truckDetail.cover_photo[0].url},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
                                     "ratingValue":${truckDetail.avg_rating || 0},
