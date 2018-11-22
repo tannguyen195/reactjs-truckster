@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Contact from './Contact'
 import _contact from './_contact.less'
+import Head from '../head'
 class ContactContainer extends Component {
     constructor(props) {
         super(props)
@@ -17,6 +18,13 @@ class ContactContainer extends Component {
 
         return (
             <div>
+                <Head
+                    url="https://gotruckster.com/contact"
+                    title={"Contact Us - Truckster"}
+                    description={"Looking for something important? Have a question? View contract information for Truckster here!"}
+                >
+                </Head>
+
                 <style dangerouslySetInnerHTML={{ __html: _contact }} />
                 <Contact />
             </div>

@@ -18,8 +18,11 @@ class EventDetailContainer extends Component {
         }
     }
 
-    static async getInitialProps({ reduxStore, req, query }) {
-
+    static async getInitialProps({ reduxStore, res, query }) {
+        if (!query.slug) {
+            res.writeHead(301, { Location: `/events` })
+            res.end()
+        }
         return {
             activity: await getDataInitial(`consumer/v1/activities/slug/${query.slug}`),
             slug: query.slug

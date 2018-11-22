@@ -23,6 +23,7 @@ class CategoryContainer extends Component {
                     description={"Satisfying your growling stomach is easy with our cuisine search tool. View Denver food trucks by cuisine type now!"}
                     ogImage={"https://www.langan.com/wp-content/uploads/2017/08/Denver.jpg"}
                 >
+                    <meta name="robots" content="noindex"></meta>
                     <link rel="canonical" href="https://gotruckster.com/food-truck/co/denver" />
                 </Head>
                 <Category

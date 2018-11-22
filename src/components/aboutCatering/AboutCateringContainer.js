@@ -30,9 +30,8 @@ class AboutCateringContainer extends Component {
                 <Head
                     ogImage={cateringImage1}
                     url="https://gotruckster.com/catering"
-                    title="Food Truck Catering"
-                    description="There are so many different kinds of food trucks out there,
-                    how to begin? Truckster makes it easy."
+                    title="Food Truck Catering - Great for Weddings, Birthday Parties & More"
+                    description="Book a food truck here for next special event! Search by cuisine type, choose from a large list of trucks & submit a catering request."
                 />
                 <AboutCatering
                     {...this.state}

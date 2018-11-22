@@ -36,7 +36,9 @@ class TruckDetailContainer extends Component {
         }
     }
 
-    static async getInitialProps({ req, query }) {
+    static async getInitialProps({ req, query, res }) {
+
+
         let token = cookies.get('token')
         let truckDetail = null
 
@@ -46,6 +48,10 @@ class TruckDetailContainer extends Component {
         truckDetail = await getDataInitial(`consumer/v1/foodtrucks/slug/${query.slug}`, token)
 
 
+        if (!query.slug) {
+            res.writeHead(301, { Location: `/food-truck/co/denver` })
+            res.end()
+        }
         return {
             truckDetail,
             slug: query.slug
