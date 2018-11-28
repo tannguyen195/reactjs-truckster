@@ -32,7 +32,7 @@ class BreweryDetailContainer extends Component {
             changeRoute(
                 `gotrucksterconsumer://app/brewery/${breweryDetail.id}`
             )
-            getSuggestBrewery(breweryDetail.breweries_type.name)
+            getSuggestBrewery(breweryDetail.id)
         }
 
     }
@@ -68,7 +68,6 @@ class BreweryDetailContainer extends Component {
 
         let token = cookies.get('token')
         let breweryDetail = null
-        let suggestBrewery = null
         if (req && req.cookies) {
             token = req.cookies.token
         }

@@ -60,15 +60,7 @@ class TruckDetailContainer extends Component {
     componentWillReceiveProps(nextProps) {
         const { truckDetail } = nextProps
         if (this.props.truckDetail !== truckDetail) {
-            // get suggest truck
-            let cuisineStringArray = []
-
-            truckDetail.cuisine.forEach(item => {
-                cuisineStringArray.push(item.name)
-            })
-
-            this.props.getSuggestTruck(cuisineStringArray.toString())
-
+            this.props.getSuggestTruck(truckDetail.id)
         }
         if (truckDetail) {
 
@@ -133,11 +125,7 @@ class TruckDetailContainer extends Component {
             // get suggest truck
             let cuisineStringArray = []
 
-            truckDetail.cuisine.forEach(item => {
-                cuisineStringArray.push(item.name)
-            })
-
-            this.props.getSuggestTruck(cuisineStringArray.toString())
+            this.props.getSuggestTruck(truckDetail.id)
 
             // change deep link route
             this.props.changeRoute(

@@ -140,61 +140,25 @@ class BreweryDetail extends Component {
         )
     }
     renderSuggestBrewery(suggestBrewery) {
-        const { breweryDetail } = this.props
-        let tempArr = [], arrIDsuggest = [], count = 0
-        suggestBrewery.forEach(item => {
-            if (item.id !== breweryDetail.id)
-                tempArr.push(item)
+        console.log("su", suggestBrewery)
+        return suggestBrewery.map((item, index) => {
+            if (item && index < 3)
+                return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
+                    <TruckNewCard data={
+                        {
+                            url: "/brewery/" + item.slug,
+                            image: item.cover_photo ?
+                                item.cover_photo[0].url : breweryIcon,
+                            logo: item.logo ?
+                                item.logo[0].url :
+                                imageBreweryPlaceholder,
+                            name: item.name,
+                            cuisine: item.brewery_type && [{ name: item.brewery_type.name }],
+                            rating: parseFloat((Math.round(item.rating * 2) / 2).toFixed(1), 10)
+                        }
+                    } />
+                </Col>
         })
-
-
-        return <Row gutter={16} className="suggest-brewery">
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[0].slug,
-                        image: tempArr[0].cover_photo ?
-                            tempArr[0].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[0].logo ?
-                            tempArr[0].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[0].name,
-                        cuisine: tempArr[0].breweries_type && [{ name: tempArr[0].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[0].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[1].slug,
-                        image: tempArr[1].cover_photo ?
-                            tempArr[1].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[1].logo ?
-                            tempArr[1].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[1].name,
-                        cuisine: tempArr[1].breweries_type && [{ name: tempArr[1].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[1].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-            <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
-                <TruckNewCard data={
-                    {
-                        url: "/brewery/" + tempArr[2].slug,
-                        image: tempArr[2].cover_photo ?
-                            tempArr[2].cover_photo[0].url : breweryIcon,
-                        logo: tempArr[2].logo ?
-                            tempArr[2].logo[0].url :
-                            imageBreweryPlaceholder,
-                        name: tempArr[2].name,
-                        cuisine: tempArr[2].breweries_type && [{ name: tempArr[2].breweries_type.name }],
-                        rating: parseFloat((Math.round(tempArr[2].rating * 2) / 2).toFixed(1), 10)
-                    }
-                } />
-            </Col>
-        </Row>
     }
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
@@ -296,8 +260,9 @@ class BreweryDetail extends Component {
                                 <div>
                                     <div className="menu-title Display-2BlackLeft">You Might Also Like</div>
 
-
-                                    {this.renderSuggestBrewery(suggestBrewery)}
+                                    <Row gutter={16} className="suggest-brewery">
+                                        {this.renderSuggestBrewery(suggestBrewery)}
+                                    </Row>
                                 </div>
                             }
 
@@ -318,9 +283,6 @@ class BreweryDetail extends Component {
                         this.renderBreweryDetail(breweryDetail)
                     }
                 </div>
-
-
-
             </div>
         )
 

@@ -83,7 +83,6 @@ export function signInError(response) {
 export function checkLogin() {
     let token = cookies.get('token', { doNotParse: true })
     return (dispatch) => {
-
         if (token) {
             dispatch(signInSuccess({
                 token: token

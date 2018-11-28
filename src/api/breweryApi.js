@@ -67,7 +67,7 @@ export const getSuggestBrewery = (type) => {
         dispatch(requestGetSuggestBrewery(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/consumer/v1/breweries?breweries_type=${type}&random=1`,
+            url: apiUrl + `api/consumer/v1/breweries/${type}/suggests`,
             headers: {
                 "Accept": "application/json",
             },

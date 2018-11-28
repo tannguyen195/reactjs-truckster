@@ -207,16 +207,7 @@ class TruckDetail extends Component {
     }
 
     renderSuggestTruck(suggestTruck) {
-        const { truckDetail } = this.props
-
-        let tempArr = []
-        suggestTruck.forEach(item => {
-            if (item.id !== truckDetail.id)
-                tempArr.push(item)
-        })
-
-
-        return tempArr.map((item, index) => {
+        return suggestTruck.map((item, index) => {
             if (item && index < 3)
                 return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
                     <TruckCard data={item} />

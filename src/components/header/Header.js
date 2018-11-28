@@ -234,7 +234,7 @@ class Header extends Component {
 
                         </Link>
                         <Link prefetch to="/food-truck/co/denver/all">
-                            <a className="item Body-1MediumGreyCenter">Food trucks</a>
+                            <a className="item Body-1MediumGreyCenter">Food Trucks</a>
                         </Link>
 
                         {

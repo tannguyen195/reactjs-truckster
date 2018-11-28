@@ -130,10 +130,10 @@ class AboutTruckster extends Component {
                 <div className="about-truckster-container  main-wrapper">
                     <div className="home-main-header" style={{ backgroundImage: `url(${aboutTrucksterImage})` }} >
                         <div className="content-city">
-                            <div className="title DisplayWhiteCenter">
+                            <h1 className="title DisplayWhiteCenter">
                                 {` Your Source for
 Everything Food Trucks`}
-                            </div>
+                            </h1>
                             <div className="explore-breweries">Explore breweries, upcoming events, menus, and your favorite brewery & food truck pairings</div>
                             <div className="button-explore">
 
@@ -168,9 +168,9 @@ Everything Food Trucks`}
                         <Carousel self={this} />
 
                         <div className="get-the-app">
-                            <div className="DisplayBlackCenter">
-                                Get the app today!
-                        </div>
+                            <h2 className="DisplayBlackCenter">
+                                Get the Truckster App today!
+                        </h2>
                             <div className=" get-the-app-bref">
                                 {` Follow your Favorite Food Trucks and Breweries 
     all on one Platform.`}</div>
