@@ -225,7 +225,7 @@ class TruckDetail extends Component {
             favorite,
             suggestTruck
         } = this.props
-
+        console.log("asd", this.props)
         return (
 
             <div>

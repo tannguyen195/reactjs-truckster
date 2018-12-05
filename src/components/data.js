@@ -36,7 +36,7 @@ export const categories =
         {
             name: 'Burgers',
             image: ('/static/images/cuisines/burgers.jpg'), type: 'cuisine',
-            link: 'bugers'
+            link: 'burgers'
         },
         {
             name: 'Cajun Creole',
@@ -44,9 +44,9 @@ export const categories =
             link: 'cajun'
         },
         {
-            name: 'Carribian',
+            name: 'Caribbean',
             image: ('/static/images/cuisines/carribian.jpeg'), type: 'cuisine',
-            link: 'carribian'
+            link: 'Caribbean'
         },
         {
             name: 'Chicago',

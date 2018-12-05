@@ -28,7 +28,7 @@ class CategoryDetail extends Component {
                         <div style={{ padding: "30px" }}
                             className="search-detail-container "   >
                             <div className="detail-header">
-                                <h2 className="name DisplayBlackLeft">{value && value.charAt(0).toUpperCase() + value.slice(1)} </h2>
+                                <h2 className="name DisplayBlackLeft">{value && value.toUpperCase()} </h2>
                             </div>
 
                             <hr />
