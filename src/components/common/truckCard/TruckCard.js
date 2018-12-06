@@ -16,6 +16,7 @@ class TruckCard extends Component {
             coverURL = JSON.parse(data.cover_photo)
             logoURL = JSON.parse(data.logo)
         }
+        console.log("coverURL", coverURL)
         return (
             <Link prefetch to={`/food-truck/${data.slug}`} >
                 <a>

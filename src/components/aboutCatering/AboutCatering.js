@@ -44,10 +44,10 @@ const perfects = [
         image: perfectImage6
     }
 ]
-const stepCatering = ["Decide your cuisine type",
-    "Choose from our list of food trucks",
-    "Select “Book this Truck” and fill out the quick and easy form",
-    "Once submitted, Truckster will get back to you within 24 hours"]
+const stepCatering = ["What’s the Occasion? Tell us about it so we can cater specifically to you",
+    "Choose from our list of food trucks or let us help you decide",
+    "Fill out the quick and easy catering request form",
+    "Let us handle the logistics. We’ll be in touch within 24 hours"]
 export default class extends Component {
     handleScrollToElement() {
         window.scrollTo(0, this.myRef.current.offsetTop);
@@ -73,8 +73,8 @@ export default class extends Component {
                                 Food Truck Catering  </div>
 
                             <div className="LeadRegularWhiteCenter header__desc">
-                                {`There are so many different kinds of food trucks out there,
-                               how to begin? Truckster makes it easy.`}
+                                {`Make your event memorable, whether it’s a wedding, business lunch, or graduation party. There are so many different kinds of food trucks out there, 
+                                how to begin? Truckster makes it easy.”`}
                             </div>
                             <div className="book-button">
                                 <Button type="primary" onClick={() => this.handleScrollToElement()}>
@@ -129,8 +129,10 @@ export default class extends Component {
                                     <div className="section__title">Make your Event
                             Unique</div>
 
-                                    <div className="section__content">Break off from old school catering and try on something fun. Choose from over 50 different cuisine types to make all your guests happy, including BBQ, Cajun, Mexican, Vegan, and
-many more.</div>
+                                    <div className="section__content">{`Break off from old school catering and try on something fun. No two events should be the same. With over 500 food trucks in Truckster’s network and adding your own personal style, they won’t be. Choose from over 50 different cuisine types to make all your guests happy, including BBQ, Cajun, Mexican, Vegan, and many more. 
+
+Booking a truck allows you to serve food wherever your event may be, rural in the mountains, or right at your own home. No on-site kitchen required. Do what you want, where you want. Aren’t food trucks more fun?
+`}</div>
                                 </div>
                             </Col>
                         </Row>
@@ -140,7 +142,10 @@ many more.</div>
                                 <div className="section__container auto">
                                     <div className="section__title">Choose a Style that Best Fits your Event</div>
 
-                                    <div className="section__content">Food trucks offer several different service styles, such as ordering right from the truck, drop-off catering, buffet, family style or plated dinners</div>
+                                    <div className="section__content">{`Choosing a service style helps set the tone for your event, and food trucks offer the flexibility for whatever you envision. A variety of different service styles are possible, such as ordering right from the truck, drop-off catering, buffet, family style or plated dinners.
+
+If you are looking to host a more formal event, plated dinners will help add to the ambience. For an event that encourages socializing, passed appetizers and food stations work well. Family style can create a community feel. While ordering directly from the truck allows people to eat whenever they’re ready and interaction with the food truck staff can be fun. What do you have in mind?
+`}</div>
                                 </div>
                             </Col>
                             <Col md={12} lg={12}>
@@ -156,7 +161,10 @@ many more.</div>
                                 <div className="section__container">
                                     <div className="section__title">Set your Budget</div>
 
-                                    <div className="section__content">Food trucks frequently require a minimum for a catered event. Pricing can vary, but is usually based on the number of people attending and menu selection. </div>
+                                    <div className="section__content">{`Pricing can vary, but is usually based on the number of people attending, your menu selection, the style of service, and the hours of service. For events where the host is paying, it is typical for a food truck to build their proposal on a cost per person basis. 
+
+Will you pay for the food or will the attendees? Keep in mind that food trucks frequently require a minimum for a catered event. Even if your attendees pay, it’s possible that you may be responsible to cover the minimum.
+`}</div>
                                 </div>
                             </Col>
                         </Row>
@@ -166,7 +174,10 @@ many more.</div>
                                 <div className="section__container auto">
                                     <div className="section__title">Plan Ahead</div>
 
-                                    <div className="section__content">Food trucks book up fast, especially in the summer and on weekends. Start planning a few months ahead to make sure your favorite trucks are available.</div>
+                                    <div className="section__content">{`Food trucks book up fast, especially in the summer and on weekends. Start planning a few months ahead to make sure your favorite trucks are available. 
+
+When you submit a catering request through Truckster, we reach out to the food trucks for you. Not sure which questions to ask? We’ll help guide you through it. If your first choice wasn’t available, we will recommend other similar trucks that you would love. Let us handle the hassle of the logistics. Planning an event is enough work, we’ve got the food covered! 
+`}</div>
                                 </div>
                             </Col>
 
@@ -215,8 +226,10 @@ many more.</div>
                     </div>
 
                     <div className="catering__body-perfect">
-                        <div className="Display-2BlackCenter perfect__title">{`Food Truck Catering is 
-                        Perfect for`}</div>
+                        <div className="Display-2BlackCenter perfect__title">{`Food Truck Catering is Perfect for`}</div>
+                        <div className="perfect__sub-header">{`Have something specific in mind? From Vegan to Venezuelan, we’ve got it. 
+                        Take your pick from Truckster’s network of more than 500 food trucks in Colorado. 
+`}</div>
                         <div className="perfect__width">
                             <Row type="flex" justify="center">
                                 {

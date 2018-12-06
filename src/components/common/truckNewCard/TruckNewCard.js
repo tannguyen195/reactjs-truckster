@@ -13,6 +13,7 @@ class TruckCard extends Component {
 
     render() {
         const { data } = this.props
+     
         return (
             <Link prefetch to={data.url} >
                 <a>

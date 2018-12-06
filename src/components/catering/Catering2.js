@@ -27,7 +27,7 @@ export default class extends Component {
                     {getFieldDecorator('eventDate', {
                         rules: [{ type: 'object', required: true, message: 'Please select time!' }],
                     })(
-                        <DatePicker format="MM-DD-YYYY"/>
+                        <DatePicker format="MM-DD-YYYY" />
                     )}
                 </FormItem>
 
@@ -36,14 +36,14 @@ export default class extends Component {
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">Start Time</div>
                         {getFieldDecorator('start_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
-                            <TimePicker use12Hours format="h:mm a" />
+                            <TimePicker minuteStep={15} use12Hours format="h:mm a" />
                         )}
                     </FormItem>
 
                     <FormItem    >
                         <div className="paddingBottom8 LabelGreyLeft">End Time</div>
                         {getFieldDecorator('end_time', { rules: [{ type: 'object', required: true, message: 'Please select time!' }] })(
-                            <TimePicker use12Hours format="h:mm a" />
+                            <TimePicker minuteStep={15} use12Hours format="h:mm a" />
                         )}
                     </FormItem>
                 </div>

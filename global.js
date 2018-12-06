@@ -9,7 +9,7 @@ export function getSchedule(data) {
 
     data.forEach(calendarItem => {
 
-        switch (calendarItem.frequency.name) {
+        switch (calendarItem.frequency && calendarItem.frequency.name) {
             case "ONCE": {
                 schudeles.push({
                     ...calendarItem,
@@ -151,7 +151,7 @@ export const getDataInitial = (url, token) => {
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: header
     })
-        .then(function (response) { 
+        .then(function (response) {
             return response.data
         })
         .catch(function (response) {

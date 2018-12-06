@@ -142,15 +142,24 @@ class BreweryDetail extends Component {
     renderSuggestBrewery(suggestBrewery) {
         console.log("su", suggestBrewery)
         return suggestBrewery.map((item, index) => {
+            let coverURL = "", logoURL = ""
+            if (typeof (item.cover_photo) !== 'string') {
+                coverURL = item.cover_photo
+                logoURL = item.logo
+            }
+            else {
+                coverURL = JSON.parse(item.cover_photo)
+                logoURL = JSON.parse(item.logo)
+            }
             if (item && index < 3)
                 return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
                     <TruckNewCard data={
                         {
                             url: "/brewery/" + item.slug,
                             image: item.cover_photo ?
-                                item.cover_photo[0].url : breweryIcon,
+                                coverURL[0].url : breweryIcon,
                             logo: item.logo ?
-                                item.logo[0].url :
+                                logoURL[0].url :
                                 imageBreweryPlaceholder,
                             name: item.name,
                             cuisine: item.brewery_type && [{ name: item.brewery_type.name }],

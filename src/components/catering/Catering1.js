@@ -1,82 +1,51 @@
 
 import React, { Component } from 'react';
-import { Form, Input } from 'antd';
+import { Form, Input, Radio } from 'antd';
+import { residences } from '../data'
 import { Link } from 'routes'
+const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
-const userIcon = ('/static/images/user-icon.png')
-const mailIcon = ('/static/images/mail-icon.png')
-
-const phoneIcon = ('/static/images/phone-icon.png')
 export default class extends Component {
+
     componentDidMount() {
         const {
-            form, nextStep, cateringData
+            form, cateringData, occasion
         } = this.props
         form.setFieldsValue({
-            email: cateringData.email,
-            name: cateringData.name,
-            phone: cateringData.phone
+            occasion: cateringData.occasion,
         })
     }
-
-
     render() {
-        const { } = this.props
-        const { getFieldDecorator } = this.props.form;
-
+        const { form, occasion, onOccasionChange } = this.props
+        const { getFieldDecorator } = form
         return (
-            <div className="catering1-container">
+            <div className="catering4-container">
 
-                <div className="catering-section-title">How we can reach you?</div>
+                <div className="catering-section-title">What’s the Occasion?</div>
                 <div>
                     <FormItem className="marginBottom16">
-                        {getFieldDecorator('name', {
-                            rules: [{
-                                required: true, message: `Please enter your name`,
-                            }],
+                        {getFieldDecorator('occasion', {
+                            initialValue: "Birthday",
+                            rules: [{ required: true, message: `Please select event's type!` }],
                         })(
-                            <Input
-                                suffix={<img
-                                    className="img-icon"
-                                    alt="email"
-                                    src={userIcon} />} placeholder="Your Name" />
-                        )}
-                    </FormItem>
-                    <FormItem className="marginBottom16">
-                        {getFieldDecorator('email', {
-                            rules: [{
-                                type: 'email', message: `It not a valid email address`,
-                            }, {
-                                required: true, message: `Please enter your email`,
-                            }],
-                        })(
-                            <Input
-                            format="(###) ###-####"
-                                suffix={<img
-                                    className="img-icon"
-                                    alt="email"
-                                    src={mailIcon} />} placeholder="Email Address" />
+                            <RadioGroup>
+                                <Radio value={"Birthday"}>Birthday</Radio>
+                                <Radio value={"Wedding"}>Wedding</Radio>
+                                <Radio value={"Corporate"}>Corporate</Radio>
+                                <Radio value={occasion}>
+                                    <Input value={occasion} onChange={onOccasionChange} style={{ width: "100%", maxWidth: 400 }} />
+                                </Radio>
+                            </RadioGroup>
                         )}
                     </FormItem>
 
-                    <FormItem className="marginBottom40">
-                        {getFieldDecorator('phone', {
-                            rules: [{
-                                required: true, message: `Please enter your phone number`,
-                           
-                                pattern: "[0-9]"
-                            }],
-                        })(
-                            <Input
-                                suffix={<img
-                                    className="img-icon"
-                                    alt="phone"
-                                    src={phoneIcon} />} placeholder="Phone number" />
-                        )}
-                    </FormItem>
+
+
                 </div>
             </div>
         )
+
+
     }
 }
 

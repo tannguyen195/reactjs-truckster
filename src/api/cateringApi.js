@@ -25,8 +25,8 @@ export const catering = (data) => {
                     response
                 ));
                 notification.open({
-                    message: 'Your request has been submitted.',
-                    description: "Expect to hear back from us within 24 hours.",
+                    message: 'Yay! We have your catering request',
+                    description: "We will reach out to you soon",
                     icon: <img width={46} style={{ paddingRight: "8px" }} height={25} src={"/static/images/logo.png"} alt="truck-logo" />
                 });
                 dispatch(toggleCateringModal())

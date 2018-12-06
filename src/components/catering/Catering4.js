@@ -1,43 +1,43 @@
 
 import React, { Component } from 'react';
-import { Form, Input, Radio } from 'antd';
+import { Form, InputNumber, Icon } from 'antd';
 import { residences } from '../data'
 import { Link } from 'routes'
-const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
 export default class extends Component {
 
     componentDidMount() {
         const {
-            form, cateringData, occasion
+            form, cateringData
         } = this.props
         form.setFieldsValue({
-            occasion: cateringData.occasion,
+            budget: cateringData.budget,
         })
     }
     render() {
-        const { form, occasion, onOccasionChange } = this.props
-        const { getFieldDecorator } = form
+        const { } = this.props
+        const { getFieldDecorator } = this.props.form
         return (
-            <div className="catering4-container">
+            <div className="catering5-container">
 
-                <div className="catering-section-title">What’s the Occasion?</div>
-                <div>
-                    <FormItem className="marginBottom16">
-                        {getFieldDecorator('occasion', {
-                            initialValue: "Birthday"
+                <div className="catering-section-title">What’s your budget?</div>
+                <div className="paddingLeftRight56">
+                    <FormItem className="marginBottom40">
+                        {getFieldDecorator('budget', {
+                            rules: [{
+                                required: true, message: `Please enter budget!`,
+                            }],
                         })(
-                            <RadioGroup>
-                                <Radio value={"Birthday"}>Birthday</Radio>
-                                <Radio value={"Wedding"}>Wedding</Radio>
-                                <Radio value={"Corporate"}>Corporate</Radio>
-                                <Radio value={occasion}>
-                                    <Input value={occasion} onChange={onOccasionChange} style={{ width: "100%", maxWidth: 400 }} />
-                                </Radio>
-                            </RadioGroup>
+                            <InputNumber
+
+                                formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                                type="text"
+                                min={0}
+                                prefix={< Icon type="dollar" theme="outlined" />}
+                            />
                         )}
                     </FormItem>
-
 
 
                 </div>

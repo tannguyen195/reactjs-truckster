@@ -39,7 +39,9 @@ class BreweryDetailContainer extends Component {
     componentWillReceiveProps(nextProps) {
         let self = this
         if (nextProps.breweryDetail) {
-
+            if (this.props.breweryDetail !== nextProps.breweryDetail) {
+                this.props.getSuggestBrewery(nextProps.breweryDetail.id)
+            }
             axios({
                 method: 'get',
                 url: `https://maps.googleapis.com/maps/api/geocode/json?address=${nextProps.breweryDetail.location}&key=${googleApi}`,

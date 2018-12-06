@@ -1,42 +1,45 @@
 
 import React, { Component } from 'react';
-import { Form, Input, Icon } from 'antd';
-
+import { Form, Button, Radio } from 'antd';
+const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
+const groupIcon = '/static/images/group-icon.svg'
+const userIcon = '/static/images/user-icon-black.svg'
 export default class extends Component {
     componentDidMount() {
         const {
             form, cateringData
         } = this.props
         form.setFieldsValue({
-            participants: cateringData.participants,
+            paying: cateringData.paying
         })
     }
-
     render() {
         const { } = this.props
         const { getFieldDecorator } = this.props.form
         return (
-            <div className="catering5-container">
-
-                <div className="catering-section-title">How many estimated participants?</div>
-                <div className="paddingLeftRight56">
-                    <FormItem className="marginBottom40">
-                        {getFieldDecorator('participants', {
-                            rules: [{
-                                message: `Please enter number!`, pattern: '[0-9]'
-                            }],
-                        })(
-                            <Input type="number" />
-                        )}
-                    </FormItem>
-
-
-                </div>
+            <div className="catering7-container">
+                <div className="catering-section-title">Who will be paying?</div>
+                <FormItem >
+                    {getFieldDecorator('paying', {
+                        rules: [{ required: true, message: `Please select who will be paying!` }],
+                    })(
+                        <RadioGroup className="catering5-button-paying">
+                            <Radio value={1}>
+                                <div className="paying-button">
+                                    <img src={userIcon} alt="user" />
+                                    Host
+                                    </div>
+                            </Radio>
+                            <Radio value={0}>
+                                <div className="paying-button">
+                                    <img src={groupIcon} alt="group" /> Attendees</div>
+                            </Radio>
+                        </RadioGroup>
+                    )}
+                </FormItem>
             </div>
         )
-
-
     }
 }
 
