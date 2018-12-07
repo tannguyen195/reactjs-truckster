@@ -13,7 +13,7 @@ class TruckCard extends Component {
 
     render() {
         const { data } = this.props
-     
+
         return (
             <Link prefetch to={data.url} >
                 <a>
@@ -25,7 +25,8 @@ class TruckCard extends Component {
                             <img className="truck-logo" src={data.logo} alt="logo-truck" />
                             <div className="truck-name Body-1SemiBlackLeft">{data.name}</div>
                             <div className="cuisine-tag">
-                                {
+
+                                {data.cuisine &&
                                     data.cuisine.map((item, index) => {
                                         if (index === 0)
                                             return <div key={index} className="cuisine-tag-item CaptionGreyLeft">

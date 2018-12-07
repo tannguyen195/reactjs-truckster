@@ -140,7 +140,6 @@ class BreweryDetail extends Component {
         )
     }
     renderSuggestBrewery(suggestBrewery) {
-        console.log("su", suggestBrewery)
         return suggestBrewery.map((item, index) => {
             let coverURL = "", logoURL = ""
             if (typeof (item.cover_photo) !== 'string') {

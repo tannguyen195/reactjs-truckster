@@ -223,7 +223,7 @@ class Header extends Component {
 
 
                     <div className="option-header">
-                        <Link prefetch to="/catering">
+                        <Link prefetch to="/food-truck-catering">
                             <a className="item Body-1MediumGreyCenter">Catering</a>
                         </Link>
                         <Link prefetch to="/nearby">
