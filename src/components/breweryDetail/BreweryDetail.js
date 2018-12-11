@@ -150,6 +150,7 @@ class BreweryDetail extends Component {
                 coverURL = JSON.parse(item.cover_photo)
                 logoURL = JSON.parse(item.logo)
             }
+            
             if (item && index < 3)
                 return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
                     <TruckNewCard data={
@@ -157,7 +158,7 @@ class BreweryDetail extends Component {
                             url: "/brewery/" + item.slug,
                             image: item.cover_photo ?
                                 coverURL[0].url : breweryIcon,
-                            logo: item.logo ?
+                            logo: item.logo && item.logo !== "null" ?
                                 logoURL[0].url :
                                 imageBreweryPlaceholder,
                             name: item.name,
