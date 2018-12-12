@@ -56,7 +56,7 @@ class Footer extends Component {
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">Food trucks</h3>
                         <Link prefetch to='/food-truck/co/denver/all'><a>Find trucks</a></Link>
-                        <Link prefetch to='/cuisine'><a>Cuisine</a></Link>
+                        <Link prefetch to='/food-truck/co/denver/cuisines'><a>Cuisine</a></Link>
                         <Link prefetch to='/event/co/denver'><a>Events</a></Link>
 
                     </Col>

@@ -21,9 +21,6 @@ module.exports = routes()
     .add('events', '/event/:state/:city')
     .add('event', '/event/:slug')
 
-    .add('cuisines', '/cuisine')
-    .add('cuisine', '/cuisine/:value')
-
     .add('breweries', '/brewery/:state/:city')
     .add('brewery', '/brewery/:slug')
 
@@ -33,6 +30,11 @@ module.exports = routes()
     .add('truck-redirect', '/truck/:state/:city')
     .add('food-truck', '/food-truck/:state/:city/all')
     .add('truck', '/food-truck/:slug', 'truck')
+
+    .add('cuisine-redirect', '/cuisine/:value')
+    .add('cuisines', '/food-truck/:state/:city/cuisines')
+    .add('cuisine', '/food-truck/:state/:city/:value')
+  
 
     .add('cities', '/co')
     .add('city-detail', '/food-truck/:state/:city')

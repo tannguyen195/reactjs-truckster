@@ -4,7 +4,7 @@ import {
 } from '../actions/cateringAction'
 
 import React from 'react';
-import { notification } from 'antd'
+import { notification, Icon } from 'antd'
 import $ from 'jquery'
 import { apiUrl } from "config"
 import { toggleCateringModal } from '../actions/toggleAction'

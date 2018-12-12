@@ -14,14 +14,13 @@ import {
 import SignInModalContainer from '../signIn/SignInModalContainer'
 import SignUpModalContainer from '../signUp/SignUpModalContainer'
 import ForgotModalContainer from '../forgot/ForgotModalContainer'
-import { searchTruck } from '../../api/truckApi'
+import { searchTruck, getCuisineList } from '../../api/truckApi'
 import { searchBrewery } from '../../api/breweryApi'
 import { search } from '../../api/searchApi'
 import { signIn, logOut, signUp, loginSocial } from '../../api/authApi'
 import { categories } from '../data'
 import { notification } from 'antd';
 import { onParamChange } from '../../actions/searchAction'
-
 import { checkLogin } from '../../actions/authAction'
 
 import _header from './_header.less'
@@ -41,7 +40,11 @@ class HeaderContainer extends Component {
 
     }
     componentDidMount() {
-        this.props.checkLogin()
+        const { getCuisineList, checkLogin } = this.props
+        getCuisineList(1)
+        getCuisineList(2)
+        getCuisineList(3)
+        checkLogin()
         notification.config({
             placement: 'bottomRight',
             duration: 3,
@@ -197,6 +200,7 @@ export function mapStateToProps(state) {
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        getCuisineList,
         onParamChange,
         toggleShareModal,
         toggleAnnounceModal,

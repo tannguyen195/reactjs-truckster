@@ -40,7 +40,7 @@ class SearchBar extends Component {
             icon = null
         switch (item.type) {
             case "cuisine": {
-                link = `/cuisine/${item.name.toLowerCase()}`;
+                link = `/food-truck/co/denver/${item.name.toLowerCase()}`;
                 icon = foodIconGrey;
                 break;
             }

@@ -6,7 +6,7 @@ export const categories =
         {
             name: 'Multi-Cuisine',
             image: ('/static/images/cuisines/multi-cuisine.jpeg'), type: 'cuisine',
-            link: 'multi-cuisine'
+            link: 'multi-cuisine',
         },
         {
             name: 'American',
@@ -21,7 +21,8 @@ export const categories =
         {
             name: 'BBQ',
             image: ('/static/images/cuisines/bbq.jpg'), type: 'cuisine',
-            link: 'bbq'
+            link: 'bbq',
+            id: 2
         },
         {
             name: 'Brazilian',
@@ -151,12 +152,14 @@ export const categories =
         {
             name: 'Latin Asian Fusion',
             image: ('/static/images/cuisines/latin-asian-fusion.jpg'), type: 'cuisine',
-            link: 'latin asian fusion'
+            link: 'latin asian fusion',
+            id: 4
         },
         {
             name: 'Mediterranean',
             image: ('/static/images/cuisines/mediterranean.jpg'), type: 'cuisine',
-            link: 'multi-cuisine'
+            link: 'mediterranean',
+            id: 1
         },
         {
             name: 'Mexican',
@@ -181,7 +184,8 @@ export const categories =
         {
             name: 'Peruvian',
             image: ('/static/images/cuisines/peruvian.jpg'), type: 'cuisine',
-            link: 'peruvian'
+            link: 'peruvian',
+            id: 3
         },
         {
             name: 'Pizza',
@@ -201,7 +205,8 @@ export const categories =
         {
             name: 'Puertorican',
             image: ('/static/images/cuisines/puertorican.jpg'), type: 'cuisine',
-            link: 'puertorican'
+            link: 'puertorican',
+            id: 5
         },
         {
             name: 'Senegalese',

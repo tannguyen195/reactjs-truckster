@@ -5,8 +5,10 @@ import { searchTruck } from '../../api/truckApi'
 import CategoryDetail from './CategoryDetail'
 import ErrorPage from '../common/errorPage/ErrorPage'
 import { mountTruck } from '../../actions/truckAction'
-
+import { getDataInitial } from '../../../global'
 import _categoryDetail from './_categoryDetail.less'
+import { Router } from 'routes'
+import Head from '../head'
 class CategoryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -15,9 +17,24 @@ class CategoryDetailContainer extends Component {
         }
     }
 
-    static async getInitialProps({ reduxStore, req, query }) {
+    static async getInitialProps(ctx) {
+        if (ctx && ctx.req) {
+            if (!ctx.query.value) {
+                ctx.res.writeHead(301, { Location: `/food-truck/co/denver/cuisines` })
+                ctx.res.end()
+            }
+        }
+        else if (!ctx.query.value)
+            Router.push("/food-truck/co/denver/cuisines")
+        else if (ctx.query.state === "cuisine")
+            Router.push("/food-truck/co/denver/" + ctx.query.value)
+        let cuisineDetail = null
 
-        return { value: query.value }
+        cuisineDetail = await getDataInitial("cuisine?q=" + ctx.query.value)
+        return {
+            cuisineDetail,
+            value: ctx.query.value
+        }
     }
 
 
@@ -52,13 +69,22 @@ class CategoryDetailContainer extends Component {
         }
     }
     render() {
-        const { error, status } = this.props
+        const { error, status, value, cuisineDetail } = this.props
 
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
                     __html: _categoryDetail
                 }} />
+                {
+                    cuisineDetail && <Head
+                        url={"https://gotruckster.com/food-truck/co/denver/" + value}
+                        title={cuisineDetail.meta_title}
+                        description={cuisineDetail.meta_description}
+                    />
+                }
+
+
                 {
                     error ?
                         <ErrorPage status={status} />

@@ -39,7 +39,7 @@ class SearchResult extends Component {
         return categories.map((item, index) => {
             if (item.type === "cuisine")
                 return <Col key={index} style={{ marginBottom: "16px" }} span={6}>
-                    <Link prefetch to={`/cuisine/${item.link.toLowerCase()}`}>
+                    <Link prefetch to={`/food-truck/co/denver/${item.link.toLowerCase()}`}>
                         <a>
                             <CategoryCard
                                 image={item.image}

@@ -7,6 +7,7 @@ const initial = {
     isLoadingGetTruckDetail: false,
     isLoadingGetSuggestTruck: false,
     isLoadingGetRecommendTruck: false,
+    isLoadingGetCuisineList: false,
     recommendTruck: null,
     suggestTruck: null,
     truckDetail: null,
@@ -27,6 +28,7 @@ const initial = {
     total: null,
     nearby: [],
     params: "",
+    cuisineList: []
 }
 const truckReducer = (state = initial, action) => {
 
@@ -216,6 +218,29 @@ const truckReducer = (state = initial, action) => {
                 message: action.response.statusText || 'Something went wrong'
             };
 
+
+        // Get cuisine list
+        case types.REQUEST_GET_CUISINE_LIST:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetCuisineList: action.isLoadingGetCuisineList
+            };
+
+        case types.GET_CUISINE_LIST_SUCCESS:
+            return {
+                ...state,
+                isLoadingGetCuisineList: false,
+                cuisineList: state.cuisineList.concat(action.response.data),
+            }
+        case types.GET_CUISINE_LIST_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetCuisineList: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
         default:
             return state;
     }

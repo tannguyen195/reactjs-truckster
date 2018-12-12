@@ -129,10 +129,35 @@ export function getRecommendTruckSuccess(response) {
         })
     }
 }
+
 export function getRecommendTruckError() {
     return (dispatch) => {
         dispatch({
             type: types.GET_RECOMMEND_TRUCK_ERROR
+        })
+    }
+}
+
+export function requestGetCuisineList(isLoadingGetCuisineList) {
+    return (dispatch) => {
+        dispatch({
+            type: types.REQUEST_GET_CUISINE_LIST,
+            isLoadingGetCuisineList: isLoadingGetCuisineList
+        })
+    }
+}
+export function getCuisineListSuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_CUISINE_LIST_SUCCESS,
+            response
+        })
+    }
+}
+export function getCuisineListError() {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_CUISINE_LIST_ERROR
         })
     }
 }

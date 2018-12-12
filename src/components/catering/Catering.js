@@ -10,9 +10,6 @@ import Catering5 from './Catering5'
 import Catering6 from './Catering6'
 import Catering7 from './Catering7'
 import Catering8 from './Catering8'
-
-const shareIcon = '/static/images/share-icon.png'
-
 export default class extends Component {
     renderCateringStep(step) {
         switch (step) {
@@ -31,7 +28,7 @@ export default class extends Component {
 
     render() {
         const { step, visibleCatering, toggleCateringModal, previousStep, handleSubmit,
-            isLoggedIn, favorite, onFavoriteChange, toggleShareModal,
+        
             handleSubmitForm
         } = this.props
 

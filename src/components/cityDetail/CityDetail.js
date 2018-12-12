@@ -212,7 +212,7 @@ class CityDetail extends Component {
     //render favorite cuisine
     renderCuisine(cuisine) {
         return cuisine.map((item, index) => {
-            return <Link prefetch key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
+            return <Link prefetch key={index} to={`/food-truck/co/denver/${item.name.toLowerCase()}`}>
 
                 <Col lg={4} md={4} sm={6} xs={6} className="cuisine-item">
                     <a>

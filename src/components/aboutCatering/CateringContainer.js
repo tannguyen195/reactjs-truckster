@@ -1,49 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-import Head from '../head'
-import AboutCatering from './AboutCatering'
-
-import _aboutCatering from './_aboutCatering.less'
-import { getRecommenedTruck } from '../../api/truckApi'
-
-import _catering from '../catering/_catering.less'
+import Catering from './Catering'
+import _catering from './_catering.less'
 import { Form } from 'antd'
 import { toggleCateringModal } from '../../actions/toggleAction'
 import { nextStep, previousStep } from '../../actions/cateringAction'
 import { catering } from '../../api/cateringApi'
 import moment from 'moment'
-const cateringImage1 = '/static/images/catering-1.jpg'
-class AboutCateringContainer extends Component {
+
+class CateringContainer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            hasMore: true,
             occasion: "",
-            cuisine: []
         }
-    }
-
-    componentDidMount() {
-        const { getRecommenedTruck } = this.props
-        getRecommenedTruck()
-    }
-    handleAddCuisine = (e) => {
-        const { cuisine } = this.state
-
-        let temp = cuisine
-        if (cuisine.includes(e.id)) {
-            temp.splice(cuisine.indexOf(e.id), 1)
-            this.setState({
-                cuisine: temp
-            })
-        }
-        else
-            this.setState({
-                cuisine: cuisine.concat(e.id)
-            })
-
     }
     handleSubmitForm = () => {
         const { cateringData, catering, food_truck_id, form } = this.props
@@ -54,7 +25,7 @@ class AboutCateringContainer extends Component {
                 city: cateringData.city[0] + "-" + cateringData.city[1],
                 start_time: moment(cateringData.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD') + ` ` + moment(cateringData.start_time, 'HH:mm:s').format('HH:mm:s'),
                 end_time: moment(cateringData.eventDate).format('YYYY-MM-DD') + ` ` + moment(cateringData.end_time, 'HH:mm:s').format('HH:mm:s'),
-                cuisine: this.state.cuisine.toString(),
+                food_truck_id,
                 comment: values.comment
             })
 
@@ -71,7 +42,7 @@ class AboutCateringContainer extends Component {
             occasion: e.target.value
         })
     }
-    onPreviousStep = () => {
+    onPreviousStep() {
         this.props.previousStep()
     }
     handleSubmit = (e) => {
@@ -85,48 +56,37 @@ class AboutCateringContainer extends Component {
             }
         });
     }
-
     render() {
+
 
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
-                    __html: _aboutCatering + _catering
+                    __html: _catering
                 }} />
-                <Head
-                    ogImage={cateringImage1}
-                    url="https://gotruckster.com/catering"
-                    title="Food Truck Catering - Great for Weddings, Birthday Parties & More"
-                    description="Book a food truck here for next special event! Search by cuisine type, choose from a large list of trucks & submit a catering request."
-                />
-                <AboutCatering
+                <Catering
                     handleSubmit={this.handleSubmit}
                     handleSubmitForm={this.handleSubmitForm}
                     onOccasionChange={this.onOccasionChange}
-                    onPreviousStep={this.onPreviousStep}
-                    handleAddCuisine={this.handleAddCuisine}
+                    onPreviousStep={() => { this.onPreviousStep() }}
                     {...this.state}
                     {...this.props}
-
                 />
             </div>
-
         )
     }
 }
+
 export function mapStateToProps(state) {
     return {
-        recommendTruck: state.truckReducer.recommendTruck,
         step: state.cateringReducer.step,
         visibleCatering: state.toggleReducer.visibleCatering,
-        cateringData: state.cateringReducer.cateringData,
-        cuisineList: state.truckReducer.cuisineList
+        cateringData: state.cateringReducer.cateringData
     };
 }
 export function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        getRecommenedTruck,
         nextStep, previousStep, toggleCateringModal, catering
     }, dispatch)
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(AboutCateringContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(CateringContainer));

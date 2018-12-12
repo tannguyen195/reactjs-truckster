@@ -3,7 +3,8 @@ import {
     requestGetTruckDetail, getTruckDetailError, getTruckDetailSuccess,
     requestGetTruckMenu, getTruckMenuError, getTruckMenuSuccess,
     requestGetSuggestTruck, getSuggestTruckError, getSuggestTruckSuccess,
-    requestGetRecommendTruck, getRecommendTruckError, getRecommendTruckSuccess
+    requestGetRecommendTruck, getRecommendTruckError, getRecommendTruckSuccess,
+    requestGetCuisineList, getCuisineListSuccess, getCuisineListError
 } from '../actions/truckAction.js'
 import axios from 'axios'
 var https = require("https");
@@ -136,3 +137,23 @@ export const getRecommenedTruck = () => {
     }
 }
 
+export const getCuisineList = (page) => {
+    return (dispatch) => {
+        dispatch(requestGetCuisineList(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + `api/cuisine?page=` + page,
+            headers: {
+                "Accept": "application/json",
+            },
+            success: function (response, status, xhr) {
+                dispatch(getCuisineListSuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getCuisineListError(error))
+            }
+        })
+    }
+}

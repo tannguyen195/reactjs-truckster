@@ -40,7 +40,7 @@
             position: absolute;
             text-align: center;
             @media only screen and (max-width: 999px) {
-                bottom: -200px;
+                bottom: -320px;
             }
             @media only screen and (max-width: 768px) {
                 position: relative;
@@ -146,6 +146,17 @@
         .catering__body-cuisine {
             background: #fff;
             padding-top: 80px;
+            text-align: center;
+            .perfect__sub-header {
+                margin: 0 auto;
+                font-size: 16px;
+                line-height: 1.5;
+                letter-spacing: normal;
+                text-align: center;
+                color: #757575;
+                padding-top: 16px;
+                max-width: 570px;
+            }
             .favorite-cuisine-container {
                 padding-top: 48px;
                 .cuisine-list {
@@ -177,36 +188,52 @@
             }
         }
         .catering__body-perfect {
-            .perfect__sub-header {
-                font-size: 16px;
-                white-space: pre-line;
-                text-align: center;
-                font-weight: bold;
-                color: #212121;
-                line-height: 1.5;
-                padding-top: 16px;
-                padding-bottom: 72px;
-            }
             .perfect__title {
                 padding-top: 80px;
                 white-space: pre-line;
+                padding-bottom: 80px;
+                max-width: 350px;
+                margin: 0 auto;
             }
             .perfect__width {
                 max-width: 1180px;
                 margin: 0 auto;
                 .perfect__item {
-                    padding-bottom: 120px;
+                    margin-bottom: 120px;
                     text-align: center;
-                    img {
-                        width: 80px;
-                        margin-bottom: 16px;
+                    position: relative;
+                    .perfect__image {
+                        position: absolute;
+                        top: -40px;
+                        right: 40%;
+                        img {
+                            width: 80px;
+                            margin-bottom: 16px;
+                        }
                     }
-                    .perfect__name {
-                        white-space: pre-line;
-                        font-size: 16px;
-                        font-weight: bold;
-                        line-height: 1.5;
-                        color: #212121;
+                    .perfect__content {
+                        padding-top: 68px;
+                        height: 236px;
+                        background: #fff;
+                        .perfect__name {
+                            height: 64px;
+                            white-space: pre-line;
+                            font-size: 24px;
+                            font-weight: 800;
+                            line-height: 1.33;
+                            letter-spacing: -0.1px;
+                            color: #212121;
+                            margin-bottom: 8px;
+                        }
+                        .perfect__desc {
+                            margin: 0 auto;
+                            max-width: 285px;
+                            font-size: 14px;
+                            line-height: 1.43;
+                            letter-spacing: 0.2px;
+                            text-align: center;
+                            color: #757575;
+                        }
                     }
                 }
             }
@@ -262,6 +289,13 @@
             font-weight: bold;
             width: 220px;
             height: 48px;
+            &:first-child {
+                margin-right: 8px;
+                @media only screen and (max-width: 450px) {
+                    margin-right: 0;
+                    margin-bottom: 8px;
+                }
+            }
         }
     }
     .explore-button {

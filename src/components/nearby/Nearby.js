@@ -258,7 +258,7 @@ class Nearby extends Component {
                         <div className="tag">
                             {
                                 data.food_truck.cuisine.map((item, index) => {
-                                    return <Link prefetch key={index} to={`/cuisine/${item.name.toLowerCase()}`}>
+                                    return <Link prefetch key={index} to={`/food-truck/co/denver/${item.name.toLowerCase()}`}>
                                         <a className="tag-item Body-1MediumBlackCenter">
                                             {item.name} </a>
                                     </Link>

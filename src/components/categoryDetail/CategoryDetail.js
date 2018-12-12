@@ -18,7 +18,7 @@ class CategoryDetail extends Component {
         })
     }
     render() {
-        const { value, truckSearch, loadMoreTruck, hasMore } = this.props
+        const { value, truckSearch, loadMoreTruck, hasMore, cuisineDetail } = this.props
 
         return (
             <div className="search-detail main-wrapper body-content">
@@ -28,7 +28,7 @@ class CategoryDetail extends Component {
                         <div style={{ padding: "30px" }}
                             className="search-detail-container "   >
                             <div className="detail-header">
-                                <h2 className="name DisplayBlackLeft">{value && value.toUpperCase()} </h2>
+                                <h2 className="name DisplayBlackLeft">{cuisineDetail.name} </h2>
                             </div>
 
                             <hr />

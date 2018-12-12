@@ -3,7 +3,7 @@ import update from 'immutability-helper'
 
 const initial = {
     cateringData: {
-        
+
     },
     isLoadingCatering: false,
     step: 1,
@@ -16,7 +16,7 @@ const cateringReducer = (state = initial, action) => {
         case types.NEXT_STEP:
 
             return update(state, {
-                step: { $set: state.step !== 8 ? state.step + 1 : 8 },
+                step: { $set: state.step + 1 },
                 cateringData: { $merge: { ...action.payload } }
             })
         case types.PREVIOUS_STEP:

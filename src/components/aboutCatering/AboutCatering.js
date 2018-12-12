@@ -1,10 +1,20 @@
 import ReactDOM from 'react-dom'
 import React, { Component } from 'react';
 import './_aboutCatering.less'
-import { Card, Row, Col, Button } from 'antd';
+import { Card, Row, Col, Button, Modal, Form, Progress } from 'antd';
 import { categories } from '../data'
 import { Link, Router } from 'routes'
 import TruckCard from '../common/truckCard/TruckCard'
+
+import Catering1 from '../catering/Catering1'
+import Catering2 from '../catering/Catering2'
+import Catering3 from '../catering/Catering3'
+import Catering4 from '../catering/Catering4'
+import Catering5 from '../catering/Catering5'
+import Catering6 from '../catering/Catering6'
+import Catering7 from '../catering/Catering7'
+import Catering8 from '../catering/Catering8'
+import Catering9 from '../catering/Catering9'
 const cateringImage1 = '/static/images/catering-1.jpg'
 const cateringImage2 = '/static/images/catering-2.jpg'
 const cateringImage3 = '/static/images/catering-3.jpg'
@@ -22,25 +32,32 @@ const perfects = [
     {
         name: `Corporate Events 
         and Lunches`,
+        desc: `Open Houses, Drop-off Lunches, Team Building, Networking Events, Office Buildings, Business Parks
+        `,
         image: perfectImage1
     },
     {
         name: "Weddings",
+        desc: `Engagement Parties, Bridal Showers, Bridal Luncheons, Rehearsal Dinners, Wedding Receptions, Farewell Brunch`,
         image: perfectImage2
     }, {
         name: "Private Parties",
+        desc: `Graduations, Birthdays, Anniversaries, Sweet Sixteen, Bar-Mitzvahs, Baby Showers, Reunions, Holiday`,
         image: perfectImage3
     },
     {
         name: "Campus Catering",
+        desc: `Teacher Appreciation, Sporting Events, Student Run Organizations, Campus Lunch, Recruitment Events, Alumni Events`,
         image: perfectImage4
     }, {
         name: `Large-Scale Events 
         and Festivals`,
+        desc: `Music Festivals, Food Festivals, Races, Sporting Events, Cultural Events, Conventions, Expos, Conferences`,
         image: perfectImage5
     },
     {
         name: "Neighborhood Events",
+        desc: `Block Parties, Farmers Markets, Recreation Leagues, Car Shows, Art Walks, Fundraisers, Community Events`,
         image: perfectImage6
     }
 ]
@@ -56,9 +73,26 @@ export default class extends Component {
         super(props);
         this.myRef = React.createRef();
     }
+    renderCateringStep(step) {
+        switch (step) {
+            case 1: return <Catering1 {...this.props} />;
+            case 2: return <Catering9 {...this.props} />;
+            case 3: return <Catering2 {...this.props} />;
+            case 4: return <Catering3 {...this.props} />;
+            case 5: return <Catering4 {...this.props} />;
+            case 6: return <Catering5 {...this.props} />;
+            case 7: return <Catering6 {...this.props} />;
+            case 8: return <Catering7 {...this.props} />;
+            case 9: return <Catering8 {...this.props} />;
+
+            default: return <Catering1 {...this.props} />;
+        }
+    }
 
     render() {
-        const { recommendTruck } = this.props
+        const { recommendTruck, step, visibleCatering, toggleCateringModal, previousStep, handleSubmit,
+
+            handleSubmitForm } = this.props
         return (
             <div className="catering__container">
                 <div className="catering__header">
@@ -79,6 +113,8 @@ export default class extends Component {
                             <div className="book-button">
                                 <Button type="primary" onClick={() => this.handleScrollToElement()}>
                                     BOOK A TRUCK</Button>
+                                <Button onClick={toggleCateringModal}>
+                                    HELP ME CHOOSE A TRUCK</Button>
                             </div>
                         </div>
                         <div className="catering__step">
@@ -187,13 +223,16 @@ When you submit a catering request through Truckster, we reach out to the food t
                         </Row>
                     </div>
                     <div className="catering__body-cuisine">
-                        <div className="Display-2BlackCenter">More than 50 different cuisines</div>
+                        <div className="Display-3BlackCenter">More than 50 different cuisines</div>
+                        <div className="perfect__sub-header">{`Have something specific in mind? From Vegan to Venezuelan, we’ve got it. 
+                        Take your pick from Truckster’s network of more than 500 food trucks in Colorado. 
+`}</div>
                         <div className="favorite-cuisine-container">
                             <Row type="flex" justify="center" className="cuisine-list">
                                 {
                                     categories.map((item, index) => {
                                         if (index < 12)
-                                            return <Link prefetch key={index} to={`/cuisine/${item.link}`}>
+                                            return <Link prefetch key={index} to={`/food-truck/co/denver/${item.link}`}>
 
                                                 <Col lg={4} md={4} sm={6} xs={6} className="cuisine-item">
                                                     <a>
@@ -214,7 +253,7 @@ When you submit a catering request through Truckster, we reach out to the food t
                             </Row>
                         </div>
                         <div className="explore-button">
-                            <Link to="/cuisine">
+                            <Link to="/food-truck/co/denver/cuisines">
                                 <a>
                                     <Button >
                                         Explore All Cuisines
@@ -226,17 +265,20 @@ When you submit a catering request through Truckster, we reach out to the food t
                     </div>
 
                     <div className="catering__body-perfect">
-                        <div className="Display-2BlackCenter perfect__title">{`Food Truck Catering is Perfect for`}</div>
-                        <div className="perfect__sub-header">{`Have something specific in mind? From Vegan to Venezuelan, we’ve got it. 
-                        Take your pick from Truckster’s network of more than 500 food trucks in Colorado. 
-`}</div>
+                        <div className="Display-3BlackCenter perfect__title">{`Food Truck Catering is Perfect for`}</div>
+
                         <div className="perfect__width">
-                            <Row type="flex" justify="center">
+                            <Row gutter={30} type="flex" justify="center">
                                 {
                                     perfects.map((item, index) => {
                                         return <Col key={index} className="perfect__item" xs={12} sm={12} md={8} lg={8}>
-                                            <img alt="perfect" src={item.image} />
-                                            <div className="perfect__name">{item.name}</div>
+                                            <div className="perfect__image">
+                                                <img alt="perfect" src={item.image} />
+                                            </div>
+                                            <div className="perfect__content">
+                                                <div className="perfect__name">  {item.name}</div>
+                                                <div className="perfect__desc">{item.desc}</div>
+                                            </div>
                                         </Col>
                                     })
                                 }
@@ -247,7 +289,7 @@ When you submit a catering request through Truckster, we reach out to the food t
                         recommendTruck && <div
                             className="catering__body-recommend"
                             ref={this.myRef}>
-                            <div className="Display-2BlackCenter perfect__title">{`Food Truck Recommendations
+                            <div className="Display-3BlackCenter perfect__title">{`Food Truck Recommendations
 for your Upcoming Event `}</div>
                             <div className="perfect__width">
                                 <Row gutter={30} type="flex" justify="center">
@@ -293,7 +335,43 @@ let us help you make it easy.</div>
 
                     </div>
                 </div>
+                <Modal
+                    wrapClassName="catering-modal-container"
+                    width={480}
+                    onCancel={toggleCateringModal}
+                    footer={null}
+                    visible={visibleCatering}>
 
+                    <Form onSubmit={handleSubmit} className="catering-modal">
+                        <div className="progress-container">
+
+                            <Progress strokeColor="#fa393d" percent={step / 9 * 100} showInfo={false} />
+                        </div>
+                        <div className="catering-header">
+                            <div style={{ paddingLeft: (step * 44.4).toString() + "px" }}
+                                className="LabelBlackCenter step-stage">{step}/9</div>
+                        </div>
+
+                        <div className="catering-body">
+
+                            {
+                                this.renderCateringStep(step)
+                            }
+
+                        </div>
+                        <div style={{ justifyContent: step === 1 && "flex-end" }} className="catering-footer">
+                            {
+                                step !== 1 && <Button onClick={previousStep} >BACK</Button>
+                            }
+
+                            {
+                                step < 9 ? <Button htmlType="submit" type="primary">NEXT</Button>
+                                    : <Button onClick={handleSubmitForm} style={{ width: 200 }} type="primary">SUBMIT</Button>
+                            }
+
+                        </div>
+                    </Form>
+                </Modal>
             </div>
         )
     }
