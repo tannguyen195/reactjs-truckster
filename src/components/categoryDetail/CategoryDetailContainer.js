@@ -70,7 +70,7 @@ class CategoryDetailContainer extends Component {
     }
     render() {
         const { error, status, value, cuisineDetail } = this.props
-
+        
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
@@ -78,6 +78,7 @@ class CategoryDetailContainer extends Component {
                 }} />
                 {
                     cuisineDetail && <Head
+                        ogImage={cuisineDetail.image_url}
                         url={"https://gotruckster.com/food-truck/co/denver/" + value}
                         title={cuisineDetail.meta_title}
                         description={cuisineDetail.meta_description}

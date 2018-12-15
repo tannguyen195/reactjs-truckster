@@ -25,393 +25,391 @@ app.prepare().then(() => {
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
               http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-  
-  
   <url>
-    <loc>https://gotruckster.com/</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/nearby</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/brewery/co/denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/food-truck/co/denver/all</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/help</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/about</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/privacy</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/catering</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/event/co/denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/brewery-type/large</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/brewery-type/micro</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/brewery-type/contract</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/brewery-type/regional</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/american</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/asian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/bbq</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/burgers</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/cajun%20creole</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/coffee</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/columbian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/contact</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/what-is-denver-known-for</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/best-munchies-denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/what-to-do-in-downtown-denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/what-food-is-denver-known-for</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/why-is-denver-a-good-place-for-a-food-truck</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/where-to-eat-in-denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/why-a-food-truck-is-a-great-for-weddings</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/best-types-of-venues-for-food-trucks</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/info/cost-to-start-a-food-truck</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/food-truck/co/denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/multi-cuisine</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/brazilian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/breakfast</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/bugers</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/cajun</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/carribian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/chicago</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/chinese</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/crepes</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/cuban</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/dessert</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/ethiopian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/farm%20fresh</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/filipino</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/french</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/german</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/greek</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/hawaiian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/indian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/italian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/jamaican</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/japanese</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/juice</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/latin%20american</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/latin%20asian%20fusion</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/mexican</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/middle%20eastern</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/native%20american</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/new%20england</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/peruvian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/pizza</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/polish</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/polynesian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/puertorican</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/senegalese</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/southern</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/spanish</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/thai</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/turkish</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/vegan</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/vegetarian</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/venezuelan</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/cuisine/wings</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://gotruckster.com/pairing/co/denver</loc>
-    <lastmod>2018-11-22T02:21:29+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
+  <loc>https://gotruckster.com/</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/nearby</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/brewery/co/denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/all</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/help</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/about</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/privacy</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck-catering</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/event/co/denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/brewery-type/large</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/brewery-type/micro</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/brewery-type/contract</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/brewery-type/regional</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/american</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/asian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/bbq</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/burgers</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/coffee</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/columbian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/contact</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/best-business-practices-for-food-trucks</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/improper-city-beer-garden-food-truck-park</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/what-is-denver-known-for</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/best-munchies-denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/what-to-do-in-downtown-denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/what-food-is-denver-known-for</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/why-is-denver-a-good-place-for-a-food-truck</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/where-to-eat-in-denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/why-a-food-truck-is-a-great-for-weddings</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/best-types-of-venues-for-food-trucks</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/multi-cuisine</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/brazilian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/breakfast</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/cajun</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/caribbean</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/chinese</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/crepes</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/cuban</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/dessert</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/ethiopian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/farm%20fresh</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/filipino</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/french</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/german</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/greek</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/indian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/italian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/jamaican</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/japanese</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/juice</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/latin%20american</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/latin%20asian%20fusion</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/mediterranean</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/mexican</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/middle%20eastern</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/native%20american</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/new%20england</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/peruvian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/pizza</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/polish</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/polynesian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/puertorican</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/senegalese</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/southern</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/spanish</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/thai</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/turkish</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/vegan</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/vegetarian</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/venezuelan</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/co/denver/wings</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/la-rola-urban-colombian-food</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/food-truck/basic-kneads-pizza</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/pairing/co/denver</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://gotruckster.com/info/cost-to-start-a-food-truck</loc>
+  <lastmod>2018-12-15T03:33:48+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
 
   `
 

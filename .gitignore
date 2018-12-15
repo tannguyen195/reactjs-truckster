@@ -11,6 +11,9 @@
 /dist
 /.next
 
+#sitemap
+/static/sitemap.xml
+
 # misc
 .DS_Store
 .env
