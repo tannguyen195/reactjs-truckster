@@ -9,11 +9,12 @@ import { search } from '../../api/searchApi'
 import { toggleAnnounceModal } from '../../actions/toggleAction'
 import { changeRoute } from '../../actions/deepLinkAction'
 import { onParamChange } from '../../actions/searchAction'
-
+import { getDataInitial, getEventTime } from '../../../global'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
-
+import  moment  from "moment"
+import _ from 'lodash'
 import _cityDetail from './_cityDetail.less'
 
 import _articleCard from '../common/articleCard/_articleCard.less'
@@ -32,10 +33,49 @@ class CityContainer extends Component {
             typingTimeout: 0
         }
     }
+    static async getInitialProps({ req, query }) {
+        let activitiesWeek = null,
+            truckFeaturedCity = null,
+            featuredPairings = null,
+            featuredBreweries = null
 
+        activitiesWeek = await getDataInitial("consumer/v1/activities?is_featured=true")
+        truckFeaturedCity = await getDataInitial("consumer/v1/foodtrucks?is_featured=true&city=denver")
+        featuredPairings = await getDataInitial("consumer/v1/pairings?is_featured=true")
+        featuredBreweries = await getDataInitial("consumer/v1/breweries?is_featured=true")
+
+        let activitiesWeekState = []
+        activitiesWeek.data.forEach(element => {
+            let timeTemp = ""
+
+            let events = getEventTime(element)
+
+            for (let i = 0; i < events.length; ++i) {
+                if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
+                    timeTemp = events[i];
+                    activitiesWeekState.push({
+                        ...element,
+                        timeDisplay: timeTemp
+                    })
+                    break;
+                }
+            }
+
+        });
+
+        activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
+        activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
+
+        return {
+            activitiesWeek: activitiesWeekState,
+            truckFeaturedCity: truckFeaturedCity.data,
+            featuredPairings: featuredPairings.data,
+            featuredBreweries: featuredBreweries.data,
+        }
+    }
     componentDidMount() {
         const { searchActivity, searchTruck, searchBrewery, getPairing, changeRoute } = this.props
-        searchActivity(true)
+        // searchActivity(true)
         searchTruck("is_featured=true&city", "denver")
         searchBrewery("is_featured", "true")
         getPairing("is_featured=true&city", "denver")
@@ -119,7 +159,6 @@ class CityContainer extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
@@ -149,18 +188,17 @@ class CityContainer extends Component {
 }
 export function mapStateToProps(state) {
     return {
-        featuredBreweries: state.breweryReducer.featuredBreweries,
+        //featuredBreweries: state.breweryReducer.featuredBreweries,
         errorBrewery: state.breweryReducer.error,
         truckSearchResult: state.truckReducer.truckSearchResult,
-        truckFeaturedCity: state.truckReducer.truckFeaturedCity,
-        pairings: state.pairingReducer.pairings,
+        //truckFeaturedCity: state.truckReducer.truckFeaturedCity,
         errorPairing: state.pairingReducer.error,
         error: state.truckReducer.error,
-        activitiesWeek: state.activityReducer.activitiesWeek,
+        // activitiesWeek: state.activityReducer.activitiesWeek,
         errorActivity: state.activityReducer.error,
         brewerySearchResult: state.breweryReducer.brewerySearchResult,
         searchResult: state.truckReducer.searchResult,
-        featuredPairings: state.pairingReducer.featuredPairings,
+        //featuredPairings: state.pairingReducer.featuredPairings,
     };
 }
 export function mapDispatchToProps(dispatch) {

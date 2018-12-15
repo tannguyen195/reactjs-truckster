@@ -14,31 +14,38 @@ const categories =
     [
         {
             name: 'American',
-            image: ('/static/images/cuisines/american.jpg')
+            image: ('/static/images/cuisines/american.jpg'),
+            url: "american"
         },
         {
             name: 'Asian',
-            image: ('/static/images/cuisines/asian.jpg')
+            image: ('/static/images/cuisines/asian.jpg'),
+            url: "asian"
         },
         {
             name: 'BBQ',
-            image: ('/static/images/cuisines/bbq.jpg')
+            image: ('/static/images/cuisines/bbq.jpg'),
+            url: "bbq"
         },
         {
             name: 'Burgers',
-            image: ('/static/images/cuisines/burgers.jpg')
+            image: ('/static/images/cuisines/burgers.jpg'),
+            url: "burgers"
         },
         {
             name: 'Cajun Creole',
-            image: ('/static/images/cuisines/cajun-creole.jpg')
+            image: ('/static/images/cuisines/cajun-creole.jpg'),
+            url: "cajun"
         },
         {
             name: 'Coffee',
-            image: ('/static/images/cuisines/coffee.jpg')
+            image: ('/static/images/cuisines/coffee.jpg'),
+            url: "coffee"
         },
         {
             name: 'Columbian',
-            image: ('/static/images/cuisines/columbian.jpg')
+            image: ('/static/images/cuisines/columbian.jpg'),
+            url: "columbian"
         },
 
     ];
@@ -50,7 +57,7 @@ class Truck extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col key={index} style={{ marginBottom: "16px" }} lg={6} md={6} sm={12} xs={12}>
-                <Link prefetch to={`/food-truck/co/denver/${item.name.toLowerCase()}`}>
+                <Link prefetch to={`/food-truck/co/denver/${item.url}`}>
                     <a>
                         <CategoryCard
                             image={item.image}
@@ -96,7 +103,7 @@ class Truck extends Component {
                 </Row>
 
                 <h1 className="body-title DisplayBlackLeft">
-                    View All Denver Food Trucks 
+                    View All Denver Food Trucks
                 </h1>
                 <div className="divider"> </div>
 
