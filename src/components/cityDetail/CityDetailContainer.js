@@ -13,7 +13,7 @@ import { getDataInitial, getEventTime } from '../../../global'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
-import moment from "moment"
+import  moment  from "moment"
 import _ from 'lodash'
 import _cityDetail from './_cityDetail.less'
 
@@ -44,26 +44,30 @@ class CityContainer extends Component {
         featuredPairings = await getDataInitial("consumer/v1/pairings?is_featured=true")
         featuredBreweries = await getDataInitial("consumer/v1/breweries?is_featured=true")
 
-        // let activitiesWeekState = []
-        // await activitiesWeek.data.forEach(element => {
-        //     let timeTemp = ""
+        let activitiesWeekState = []
+        activitiesWeek.data.forEach(element => {
+            let timeTemp = ""
 
-        //     let events = getEventTime(element)
+            let events = getEventTime(element)
 
-        //     for (let i = 0; i < events.length; ++i) {
-        //         if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-        //             timeTemp = events[i];
-        //             activitiesWeekState.push({
-        //                 ...element,
-        //                 timeDisplay: timeTemp
-        //             })
-        //             break;
-        //         }
-        //     }
-        // });
+            for (let i = 0; i < events.length; ++i) {
+                if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
+                    timeTemp = events[i];
+                    activitiesWeekState.push({
+                        ...element,
+                        timeDisplay: timeTemp
+                    })
+                    break;
+                }
+            }
+
+        });
+
+        activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
+        activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
 
         return {
-            activitiesWeek: activitiesWeek.data,
+            activitiesWeek: activitiesWeekState,
             truckFeaturedCity: truckFeaturedCity.data,
             featuredPairings: featuredPairings.data,
             featuredBreweries: featuredBreweries.data,
