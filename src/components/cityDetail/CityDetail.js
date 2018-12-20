@@ -399,7 +399,7 @@ class CityDetail extends Component {
 
                 {/* article section */}
 
-                <section className="article-section media">
+                <div className="article-section media">
                     <div className="article-section-container">
                         <Row gutter={30}>
                             <Col md={8} lg={8}>
@@ -442,7 +442,7 @@ class CityDetail extends Component {
                         </Row>
                     </div>
 
-                </section>
+                </div>
             </div>
         )
     }
