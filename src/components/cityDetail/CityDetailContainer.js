@@ -44,23 +44,23 @@ class CityContainer extends Component {
         featuredPairings = await getDataInitial("consumer/v1/pairings?is_featured=true")
         featuredBreweries = await getDataInitial("consumer/v1/breweries?is_featured=true")
 
-        let activitiesWeekState = []
-        await activitiesWeek.data.forEach(element => {
-            let timeTemp = ""
+        // let activitiesWeekState = []
+        // await activitiesWeek.data.forEach(element => {
+        //     let timeTemp = ""
 
-            let events = getEventTime(element)
+        //     let events = getEventTime(element)
 
-            for (let i = 0; i < events.length; ++i) {
-                if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
-                    timeTemp = events[i];
-                    activitiesWeekState.push({
-                        ...element,
-                        timeDisplay: timeTemp
-                    })
-                    break;
-                }
-            }
-        });
+        //     for (let i = 0; i < events.length; ++i) {
+        //         if (moment(events[i], "YYYY-MM-DD h:mm a").unix() > moment().unix()) {
+        //             timeTemp = events[i];
+        //             activitiesWeekState.push({
+        //                 ...element,
+        //                 timeDisplay: timeTemp
+        //             })
+        //             break;
+        //         }
+        //     }
+        // });
 
         return {
             activitiesWeek: activitiesWeekState,
