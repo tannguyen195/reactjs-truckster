@@ -63,7 +63,7 @@ class CityContainer extends Component {
         // });
 
         return {
-            activitiesWeek: activitiesWeek,
+            activitiesWeek: activitiesWeek.data,
             truckFeaturedCity: truckFeaturedCity.data,
             featuredPairings: featuredPairings.data,
             featuredBreweries: featuredBreweries.data,
