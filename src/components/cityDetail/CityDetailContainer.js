@@ -13,7 +13,7 @@ import { getDataInitial, getEventTime } from '../../../global'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
-import  moment  from "moment"
+import moment from "moment"
 import _ from 'lodash'
 import _cityDetail from './_cityDetail.less'
 
@@ -45,7 +45,7 @@ class CityContainer extends Component {
         featuredBreweries = await getDataInitial("consumer/v1/breweries?is_featured=true")
 
         let activitiesWeekState = []
-        activitiesWeek.data.forEach(element => {
+        await activitiesWeek.data.forEach(element => {
             let timeTemp = ""
 
             let events = getEventTime(element)

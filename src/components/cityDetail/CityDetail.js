@@ -289,53 +289,6 @@ class CityDetail extends Component {
                             </div>
                         </div>
 
-
-                        {/* <MediaQuery maxWidth={460}>{(matches) => {
-                            if (matches) {
-                                return <div className="tag-container">
-                                    <div className="tag">
-                                        {
-                                            tags2.map((item, index) => {
-                                                return <Link prefetch key={index} params={{ value: item }} to={`/cuisine/${item.toLowerCase()}`}>
-                                                    <div className="tag-item Body-1MediumBlackCenter">
-                                                        {item}
-                                                    </div>
-                                                </Link>
-                                            })
-                                        }
-                                    </div>
-                                    <div className="tag">
-                                        {
-                                            tags3.map((item, index) => {
-                                                return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
-                                                    <div className="tag-item Body-1MediumBlackCenter">
-                                                        {item}
-                                                    </div>
-                                                </Link>
-                                            })
-                                        }
-                                    </div>
-                                </div>
-                            } else {
-                                return <div className="tag-container">
-                                    <div className="tag">
-                                        {
-                                            tags.map((item, index) => {
-                                                return <Link prefetch key={index} to={`/cuisine/${item.toLowerCase()}`}>
-                                                    <div className="tag-item Body-1MediumBlackCenter">
-                                                        {item}
-                                                    </div>
-                                                </Link>
-                                            })
-                                        }
-
-                                    </div>
-
-                                </div>
-                            }
-                        }}
-                        </MediaQuery> */}
-
                     </div>
 
                     <div className="cover">
@@ -454,22 +407,6 @@ class CityDetail extends Component {
                             }
                         </Row>
                     </section>
-
-                    {/* <Section seeall={false} title="Special Offers" >
-
-                        <MediaQuery maxWidth={767}>
-                            {
-
-                                (matches) => {
-
-                                    return <CustomCarousel slideToShow={matches ? 1 : 2}>
-                                        {this.renderOffers(offers)}
-                                    </CustomCarousel>
-
-                                }
-                            }
-                        </MediaQuery>
-                    </Section> */}
                 </div>
 
                 {/* article section */}
