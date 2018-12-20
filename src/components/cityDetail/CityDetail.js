@@ -305,19 +305,7 @@ class CityDetail extends Component {
                             <div>
                                 {
                                     activitiesWeek && activitiesWeek.length > 0 ?
-
-
-                                        <MediaQuery maxWidth={767}>
-                                            {
-
-                                                (matches) => {
-                                                    return <CustomCarousel slideToShow={matches ? 1 : 3}>
-                                                        {this.renderEventCard(activitiesWeek)}
-                                                    </CustomCarousel>
-
-                                                }
-                                            }
-                                        </MediaQuery>
+                                        this.renderEventCard(activitiesWeek)
 
                                         : <MediaQuery key='loader' maxWidth={767}>
                                             {(matches) => {
