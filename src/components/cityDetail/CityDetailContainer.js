@@ -60,11 +60,7 @@ class CityContainer extends Component {
                     break;
                 }
             }
-
         });
-
-        activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
-        activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
 
         return {
             activitiesWeek: activitiesWeekState,
