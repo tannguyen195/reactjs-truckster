@@ -40,7 +40,7 @@ class CityContainer extends Component {
             featuredBreweries = null
 
         activitiesWeek = await getDataInitial("consumer/v1/activities?is_featured=true")
-        truckFeaturedCity = await getDataInitial("consumer/v1/foodtrucks?is_featured=true&city=denver")
+        truckFeaturedCity = await getDataInitial("consumer/v1/foodtrucks?is_featured=true")
         featuredPairings = await getDataInitial("consumer/v1/pairings?is_featured=true")
         featuredBreweries = await getDataInitial("consumer/v1/breweries?is_featured=true")
 

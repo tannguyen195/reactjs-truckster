@@ -136,14 +136,7 @@ class CityDetail extends Component {
         })
     }
 
-    // render truck card 
-    renderEventCard(events) {
-        return events.map((item, index) => {
 
-            return <EventCard key={index} data={item} />
-
-        })
-    }
     renderPlaceHolder() {
         return <Row gutter={16}>
             <Col style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
@@ -166,7 +159,16 @@ class CityDetail extends Component {
             </Col>
         </Row>
     }
+    // render truck card 
+    renderEventCard(events) {
+        return events.map((item, index) => {
 
+            return <Col key={index} sm={12} xs={24} md={6} lg={8}>
+                <EventCard data={item} />
+            </Col>
+
+        })
+    }
     // render truck card 
     renderTruckCard(trucks) {
         return trucks.map((item, index) => {
@@ -305,7 +307,9 @@ class CityDetail extends Component {
                             <div>
                                 {
                                     activitiesWeek && activitiesWeek.length > 0 ?
-                                        this.renderEventCard(activitiesWeek)
+                                        <Row gutter={16}>
+                                            {this.renderEventCard(activitiesWeek)}
+                                        </Row>
 
                                         : <MediaQuery key='loader' maxWidth={767}>
                                             {(matches) => {
