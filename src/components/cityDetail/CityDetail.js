@@ -77,44 +77,31 @@ const cuisine = [
 const articles = [
 
     {
-        url: "/cuisine/Mexican",
-        title: 'Find the Best Taco Food Trucks in Denver',
-        image: ('/static/images/tacos-card.png'),
-        detail: `Taco trucks are what kicked off the food truck craze to begin with so it's only natural that there would be plenty to choose from.
 
-        Food trucks tend to offer tacos in all kinds of interesting varieties. That’s not to say that there aren’t any traditional Mexican food trucks either. You can also find foods from other cultures like Venezuelan or Brazilian.
-        
-        They usually offer a variety of favorites like tacos, enchiladas, burritos and more. Vegetarian and vegan options tend to be available as well depending on the food truck.`
-    },
-    {
-        url: "/cuisine/Multi-Cuisine",
-        title: 'Experience Multi-Cuisine Food Trucks',
-        image: ('/static/images/home-image.jpg'),
-        detail: `If you're looking for something with their own unique twist then you're in luck. The Denver area is home to many different food trucks that blend different types of cuisines or have their own creative spin on a certain type of dish.
-
-        For example, instead of regular french fries you can try different fry dishes like classic poutine, Greek fries, chili fries, and even steak and cheese fries.
-        
-        On the healthier side you'll find some trucks that serve salad bowl dishes with gluten free and vegan options to choose from.`
-    },
-    {
-        url: "/cuisine/BBQ",
-        title: `Taste the Flavor of
-        Denver BBQ`,
-        image: ('/static/images/bbq-card.png'),
-        detail: `In the mood for some mouth-watering BBQ? These and many other food trucks in the area have plenty of smoked meats to choose from.
-
-        Bar-B-Que comes in a variety of types such as Texas style brisket, St. Louis style pork rib, pulled pork and more. Beef ribs are a popular choice as well. Plenty of trucks offer their own spin on BBQ chicken, beans and coleslaw.
-        
-        For something a little different than traditional BBQ, some food trucks offer a blend of Mexican and American. They create blends like BBQ nachos and BBQ mac n’ cheese.`
-    },
-    {
-        url: "/nearby",
         title: 'I Am Searching For a Food Truck Near Me',
-        image: ('/static/images/map-card.png'),
-        detail: `No matter where you are at in Denver, Truckster can find you a great food truck to check out. Get something for any time of day or any meal, be it breakfast, lunch, dinner or even dessert.
-
-        Planning an event and want to find a food truck to cater? Many of these businesses offer food truck catering in Denver for your special occasion whether it be a corporate event, wedding or outdoor event. Find the one you like and contact them by phone or email to set something up.`
+        image: ('/static/images/card-map.png'),
+        detail: `Hungry and don’t know where to eat? In a new neighborhood and don’t know what’s nearby? No matter where you are in Denver, Truckster can find you a great food truck. Get something for any time of day or any meal, be it breakfast, lunch, dinner or even dessert. 
+        Looking for somewhere to meet your friends? Food trucks create a fun atmosphere for you and your friends to eat and socialize, taking in the 300 days of sunshine that Denver offers. 
+        `
     },
+    {
+
+        title: `I Want a Food Truck to 
+        Cater my Party`,
+        image: ('/static/images/card-cater.png'),
+        detail: `Food truck catering is becoming more and more popular. The novelty of having a truck immediately makes your event unique and stand out. It also allows you to serve food wherever your event may be, rural in the mountains, or right at your own home. No on-site kitchen required. 
+        Food truck catering is ideal for many different occasions, whether it be a corporate event, wedding, or party with family and friends. Find one you like on Truckster and submit your request through our easy to use form. This makes it effortless for both you and the trucks, allowing you to fully enjoy your event! 
+        `
+    },
+    {
+
+        title: 'Find Today’s Best Food Truck and Brewery Pairings',
+        image: ('/static/images/card-alls.png'),
+        detail: `We’re so lucky in Colorado to have the heart of the craft beer culture right in our backyard. It’s no secret that what makes a good brewery is the food truck parked outside, and what makes a good food truck is the beer that goes with it. 
+        Choosing which brewery to visit today? Explore on Truckster all your favorite breweries and their upcoming food truck calendars. Easily plan your Saturday with your family or meeting friends at one of our many awesome micro-breweries in town. 
+        `
+    },
+
 ]
 class CityDetail extends Component {
 
@@ -235,13 +222,13 @@ class CityDetail extends Component {
     //render article
     renderArticleCard(articles) {
         return articles.map((item, index) => {
-            return <Col key={index} xs={24} sm={12} md={12} lg={12}>
-                <Link prefetch to={item.url.toLowerCase()}>
-                    <a>
-                        <ArticleCard
-                            data={item} />
-                    </a>
-                </Link>
+            return <Col key={index} xs={24} sm={12} md={8} lg={8}>
+
+                <a>
+                    <ArticleCard
+                        data={item} />
+                </a>
+
             </Col>
         })
     }
@@ -405,45 +392,67 @@ class CityDetail extends Component {
 
                 <div className="article-section media">
                     <div className="article-section-container">
+                        <h2 className="Display-3WhiteCenter">Denver Food Truck Events & Festivals</h2>
+
+                        <div className="article-description Body-2RegularWhiteLeft">Truckster is your gateway into the food truck community and lets you know about the best local food truck festivals and events happening throughout Colorado. Whether you are looking for a family friendly event, a unique brewery event, or a music festival, we’ve got you covered. Here are a few of our favorite regularly occurring events to keep you happy all year long. Be sure to go to the App Store (link) or Google Play (link) to download Truckster and find all the food truck events happening near you.
+</div>
+
+                        <h3 className="article__title">Some of our Favorite Events:</h3>
                         <Row gutter={30}>
-                            <Col md={8} lg={8}>
-                                <h2 className="Display-3WhiteLeft">Denver Food Truck Events & Festivals</h2>
-                                <div className="Body-1RegularWhiteLeft article-description">Truckster can also let you know if a local food truck festival or event is happening so you can check out all kinds at once. Be sure to go to the <a target="_blank" href="https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8">App Store</a> or <a target="_blank" href="https://play.google.com/store/apps/details?id=com.truckster">Google Play</a>  to download our app and find a food truck near you.</div>
-                                <div className="SubheadingWhiteLeft">Some annual events include:</div>
+                            <Col sm={12} xs={24} md={8} lg={8}>
                                 <div className="event-card-small-container">
-                                    <a href="https://thecarnationfestival.com/" target="_blank" className="event-card-small">
+                                    <a href="http://www.ucdenver.edu/about/departments/FoodServices/Pages/Food-Truck-Wednesdays.aspx" target="_blank" className="event-card-small">
                                         <div>
-                                            <img src={carnationfestivalCard} alt="card" />
+                                            <img src={"https://pbs.twimg.com/media/C7ias3MUwAAC2cB.jpg"} alt="card" />
                                         </div>
 
                                         <div className="event-card-small-detail">
-                                            <div className="Body-1RegularWhiteLeft">The Carnation Festival</div>
-                                            <div className="Body-1RegularGrayLeft">For nearly 50 years this local festival provides fun for the whole family with rides, games, live music and of course plenty of food.</div>
+                                            <div className="Body-1RegularWhiteLeft">Food Truck Wednesdays at Anschutz Medical Campus</div>
+                                            <div className="Body-1RegularGrayLeft">Food Truck Wednesdays serves the medical community and visitors to the Anschutz Medical Campus every week all summer long. A variety of 10 or more food trucks attend each Wednesday, and picnic tables are setup on the campus lawn for you to enjoy.</div>
                                         </div>
                                     </a>
 
+
+                                </div>
+                            </Col>
+                            <Col sm={12} xs={24} md={8} lg={8}>
+                                <div className="event-card-small-container">
                                     <a href="http://www.civiccenterconservancy.org/event-civic-center-eats-2018_88.html"
                                         target="_blank"
                                         className="event-card-small">
                                         <div> <img src={civicCard} alt="card" /></div>
 
                                         <div className="event-card-small-detail">
-                                            <div className="Body-1RegularWhiteLeft">Civic Center Eats</div>
-                                            <div className="Body-1RegularGrayLeft">The largest gathering of food trucks and gourmet foods in the entire Denver area. Enjoy live music and other activities along with over 80 varieties of food vendors.</div>
+                                            <div className="Body-1RegularWhiteLeft">DTC Eats</div>
+                                            <div className="Body-1RegularGrayLeft">This lunch takes place in the Denver Tech Center every other Monday from May through September. It features over 15 trucks with a wide range of cuisine types and is the perfect cure for your everyday lunch. Picnic tables are setup nearby to enjoy the Colorado outdoors on your lunchbreak.</div>
                                         </div>
                                     </a>
                                 </div>
-
                             </Col>
-                            <Col md={16} lg={16}>
-                                <Row gutter={30}>
-                                    {
-                                        this.renderArticleCard(articles)
-                                    }
+                            <Col sm={12} xs={24} md={8} lg={8}>
+                                <div className="event-card-small-container">
+                                    <a href="https://denversartdistrict.org/first-friday/"
+                                        target="_blank"
+                                        className="event-card-small">
+                                        <div> <img src={"https://static1.squarespace.com/static/598679b4cf81e0278eb708fb/t/59e67c0eb078699478c320a5/1533008031364/20637837_1613853705313913_3592591070002448170_n.jpg"} alt="card" /></div>
 
-                                </Row>
+                                        <div className="event-card-small-detail">
+                                            <div className="Body-1RegularWhiteLeft">First Friday Art Walk on Santa Fe</div>
+                                            <div className="Body-1RegularGrayLeft">Attended by thousands year round, the art walk happens every first Friday of the month from 5:30pm-9:30pm. Santa Fe’s Art District spans from 13th to Alameda, with the majority of food trucks parked between 7th Street and 9th Street. Check out hundreds of artists in the galleries and studios that line streets while you take in some local bites from your favorite trucks.</div>
+                                        </div>
+                                    </a>
+                                </div>
                             </Col>
+
+                            {
+                                this.renderArticleCard(articles)
+                            }
+
+
+
                         </Row>
+
+
                     </div>
 
                 </div>
