@@ -75,7 +75,42 @@ const cuisine = [
     },
 ]
 const articles = [
+    {
 
+        title: `Find the Best Taco Food 
+        Trucks in Denver`,
+        image: ('/static/images/card-tacos.png'),
+        detail: `Taco trucks are what kicked off the food truck craze to begin with so it's only natural that there would be plenty to choose from.
+
+        Food trucks tend to offer tacos in all kinds of interesting varieties. That’s not to say that there aren’t any traditional Mexican food trucks either. You can also find foods from other cultures like Venezuelan or Brazilian.
+        
+        They usually offer a variety of favorites like tacos, enchiladas, burritos and more. Vegetarian and vegan options tend to be available as well depending on the food truck.
+        `
+    },
+    {
+
+        title: `Experience Multi-Cuisine
+         Food Trucks`,
+        image: ('/static/images/home-image.jpg'),
+        detail: `If you're looking for something with their own unique twist then you're in luck. The Denver area is home to many different food trucks that blend different types of cuisines or have their own creative spin on a certain type of dish.
+
+        For example, instead of regular french fries you can try different fry dishes like classic poutine, Greek fries, chili fries, and even steak and cheese fries.
+        
+        On the healthier side you'll find some trucks that serve salad bowl dishes with gluten free and vegan options to choose from.
+        `
+    },
+    {
+
+        title: `Taste the Flavor of
+        Denver BBQ`,
+        image: ('/static/images/card-bbq.png'),
+        detail: `In the mood for some mouth-watering BBQ? These and many other food trucks in the area have plenty of smoked meats to choose from.
+
+        Bar-B-Que comes in a variety of types such as Texas style brisket, St. Louis style pork rib, pulled pork and more. Beef ribs are a popular choice as well. Plenty of trucks offer their own spin on BBQ chicken, beans and coleslaw.
+        
+        For something a little different than traditional BBQ, some food trucks offer a blend of Mexican and American. They create blends like BBQ nachos and BBQ mac n’ cheese.
+        `
+    },
     {
 
         title: 'I Am Searching For a Food Truck Near Me',
@@ -394,12 +429,33 @@ class CityDetail extends Component {
                     <div className="article-section-container">
                         <h2 className="Display-3WhiteCenter">Denver Food Truck Events & Festivals</h2>
 
-                        <div className="article-description Body-2RegularWhiteLeft">Truckster is your gateway into the food truck community and lets you know about the best local food truck festivals and events happening throughout Colorado. Whether you are looking for a family friendly event, a unique brewery event, or a music festival, we’ve got you covered. Here are a few of our favorite regularly occurring events to keep you happy all year long. Be sure to go to the App Store (link) or Google Play (link) to download Truckster and find all the food truck events happening near you.
-</div>
+                        <div className="article-description Body-2RegularWhiteLeft">
+                            {`  Truckster is your gateway into the food truck community and lets you know about the best local food truck festivals and events happening throughout Colorado. Whether you are looking for a family friendly event, a unique brewery event, or a music festival, we’ve got you covered. Here are a few of our favorite regularly occurring events to keep you happy all year long. Be sure to go to the `} <a onClick={() => {
+                                window.open("https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8");
+                            }}>App Store</a> or <a onClick={() => {
+                                window.open("https://play.google.com/store/apps/details?id=com.truckster");
+                            }}>Google Play</a> to download Truckster and find all the food truck events happening near you.
+                        </div>
 
                         <h3 className="article__title">Some of our Favorite Events:</h3>
                         <Row gutter={30}>
-                            <Col sm={12} xs={24} md={8} lg={8}>
+                            <Col sm={12} xs={24} md={6} lg={6}>
+                                <div className="event-card-small-container">
+                                    <a href="https://colorado.ourcommunitynow.com/2018/05/14/dtc-eats-back-food-trucks/" target="_blank" className="event-card-small">
+                                        <div>
+                                            <img src={"https://www.thedenverear.com/wp-content/uploads/2015/07/11403320_832715533486476_306799773388049945_n.png"} alt="card" />
+                                        </div>
+
+                                        <div className="event-card-small-detail">
+                                            <div className="Body-1RegularWhiteLeft">DTC Eats</div>
+                                            <div className="Body-1RegularGrayLeft">This lunch takes place in the Denver Tech Center every other Monday from May through September. It features over 15 trucks with a wide range of cuisine types and is the perfect cure for your everyday lunch. Picnic tables are setup nearby to enjoy the Colorado outdoors on your lunchbreak.</div>
+                                        </div>
+                                    </a>
+
+
+                                </div>
+                            </Col>
+                            <Col sm={12} xs={24} md={6} lg={6}>
                                 <div className="event-card-small-container">
                                     <a href="http://www.ucdenver.edu/about/departments/FoodServices/Pages/Food-Truck-Wednesdays.aspx" target="_blank" className="event-card-small">
                                         <div>
@@ -415,7 +471,7 @@ class CityDetail extends Component {
 
                                 </div>
                             </Col>
-                            <Col sm={12} xs={24} md={8} lg={8}>
+                            <Col sm={12} xs={24} md={6} lg={6}>
                                 <div className="event-card-small-container">
                                     <a href="http://www.civiccenterconservancy.org/event-civic-center-eats-2018_88.html"
                                         target="_blank"
@@ -423,13 +479,13 @@ class CityDetail extends Component {
                                         <div> <img src={civicCard} alt="card" /></div>
 
                                         <div className="event-card-small-detail">
-                                            <div className="Body-1RegularWhiteLeft">DTC Eats</div>
-                                            <div className="Body-1RegularGrayLeft">This lunch takes place in the Denver Tech Center every other Monday from May through September. It features over 15 trucks with a wide range of cuisine types and is the perfect cure for your everyday lunch. Picnic tables are setup nearby to enjoy the Colorado outdoors on your lunchbreak.</div>
+                                            <div className="Body-1RegularWhiteLeft">Civic Center Eats</div>
+                                            <div className="Body-1RegularGrayLeft">The largest gathering of food trucks and gourmet foods in the entire Denver area. Enjoy live music and other activities along with over 80 varieties of food vendors.</div>
                                         </div>
                                     </a>
                                 </div>
                             </Col>
-                            <Col sm={12} xs={24} md={8} lg={8}>
+                            <Col sm={12} xs={24} md={6} lg={6}>
                                 <div className="event-card-small-container">
                                     <a href="https://denversartdistrict.org/first-friday/"
                                         target="_blank"
