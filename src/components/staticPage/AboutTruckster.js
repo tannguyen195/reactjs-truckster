@@ -10,11 +10,12 @@ const landingImage2 = ("/static/images/video-2.png")
 const landingImage3 = ("/static/images/video-3.png")
 const landingImage4 = ("/static/images/video-4.png")
 const pairingIcon = ("/static/images/pairing-icon.svg")
+
 const starIcon = ("/static/images/star-icon.svg")
 const placeIcon = ("/static/images/place-icon.svg")
 const googlePlay = ("/static/images/google-play.png")
 const appStore = ("/static/images/app-store.png")
-
+const upcomingCities = ("/static/images/upcoming-cities.png")
 const data = [{
     image: landingImage1,
     icon: placeIcon,
@@ -166,41 +167,25 @@ Everything Food Trucks`}
 
                     <div className="about-body">
                         <Carousel self={this} />
-
-                        <div className="get-the-app">
-                            <h2 className="DisplayBlackCenter">
-                                Get the Truckster App today!
-                        </h2>
-                            <div className=" get-the-app-bref">
-                                {` Follow your Favorite Food Trucks and Breweries 
-    all on one Platform.`}</div>
-                            <div className=" get-the-app-store">
-                                <Row>
-
-                                    <Col lg={12} md={12} sm={24} xs={24}>
-                                        <a onClick={() => {
-                                            window.open("https://itunes.apple.com/us/app/truckster-denver-food-trucks/id1375284993?l=vi&ls=1&mt=8");
-                                        }} >
-                                            <div className="store-container" >
-                                                <img src={appStore} alt="appple" />
-                                            </div>
-
-                                        </a></Col>
-                                    <Col lg={12} md={12} sm={24} xs={24}>
-                                        <a onClick={() => {
-                                            window.open("https://play.google.com/store/apps/details?id=com.truckster");
-                                        }} >
-                                            <div className="store-container" >
-                                                <img className="store-container" src={googlePlay} alt="google" />
-                                            </div>
-
+                        <div className="upcoming__plan-container">
+                            <Row type="flex" justify="space-between" align="middle" className="upcoming__plan">
+                                <Col className="left" lg={12} md={12} sm={24} xs={24}>
+                                    <h3 className="Display-4WhiteLeft">See when we plan to launch
+in your city</h3>
+                                    <div className="Body-1RegularWhiteLeft desc">We are covering Colorado food trucks today, and actively working to add more cities and states soon! Contact us to see when we plan to launch in your city.</div>
+                                    <Link prefetch to="/contact" >
+                                        <a>
+                                            <Button type="primary">CONTACT US NOW!</Button>
                                         </a>
-                                    </Col>
+                                    </Link>
 
-
-
-                                </Row>
-                            </div>
+                                </Col>
+                                <Col lg={12} md={12} sm={24} xs={24}>
+                                    <div className="image__container">
+                                        <img src={upcomingCities} alt="upcoming" />
+                                    </div>
+                                </Col>
+                            </Row>
                         </div>
                     </div>
                 </div>

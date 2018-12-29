@@ -43,7 +43,6 @@
                         border: none;
                     }
                 }
-               
             }
         }
         .cover {
@@ -108,60 +107,36 @@
             }
         }
     }
-    .get-the-app {
-        text-align: center;
-        background: #fff;
-        padding: 80px 0;
-        .get-the-app-bref {
-            white-space: pre-wrap;
+    .upcoming__plan-container {
+        background: #212121;
+        margin-top: 120px;
+        .upcoming__plan {
+            .left {
+                padding: 10px;
+            }
+            max-width: 1110px;
             margin: 0 auto;
-            padding-top: 17px;
-            padding-bottom: 31px;
-            font-size: 24px;
-            font-weight: normal;
-            font-style: normal;
-            font-stretch: normal;
-            line-height: 1.33;
-            letter-spacing: normal;
-            text-align: center;
-            color: #757575;
-        }
-        .get-the-app-store {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .store-container {
-                margin-bottom: 8px;
-                img {
-                    margin: 0 8px;
-                    width: 192px;
-                    height: 60px;
-                }
-                transform: perspective(1px) translateZ(0);
-                box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            h3 {
+                max-width: 450px;
+            }
+            .desc {
+                margin-top: 16px;
+                max-width: 460px;
+            }
+            button {
+
+                width: 210px;
+                height: 56px;
+                margin-top: 24px;
+            }
+            .image__container {
                 position: relative;
-                transition-duration: 0.3s;
-                transition-property: transform;
-                &:hover {
-                    transform: translateY(-5px);
-                    &::before {
-                        opacity: 1;
-                        transform: translateY(5px);
-                    }
-                }
-                &::before {
-                    pointer-events: none;
+                height: 362px;
+                img {
+                    top: -40px;
                     position: absolute;
-                    z-index: -1;
-                    content: '';
-                    top: 100%;
-                    left: 5%;
-                    height: 10px;
-                    width: 90%;
-                    opacity: 0;
-                    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
-                    transition-duration: 0.3s;
-                    transition-property: transform, opacity;
+                    width: 628px;
+                    object-fit: contain;
                 }
             }
         }
