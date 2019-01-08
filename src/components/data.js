@@ -117,7 +117,7 @@ export const categories =
         {
             name: 'Hawaiian',
             image: ('/static/images/cuisines/hawaiian.jpg'), type: 'cuisine',
-            link: 'hawaiian'
+            link: 'hawaiian style'
         },
         {
             name: 'Indian',

@@ -41,7 +41,7 @@ class Contact extends Component {
                             </div>
                             <div className="item-info">
                                 <img alt="info" src={phoneIcon} />
-                                <span className="Body-2GreyLeft"><a href="tel:720-626-4619">720-626-4619</a></span>
+                                <span className="Body-2GreyLeft"><a href="tel:720-626-4619">720-230-6750</a></span>
                             </div>
                             <div className="item-info">
                                 <img alt="info" src={mailIcon} />
