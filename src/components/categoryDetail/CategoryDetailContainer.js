@@ -19,8 +19,7 @@ class CategoryDetailContainer extends Component {
     }
 
     static async getInitialProps({ req, query, res, store }) {
-
-
+        await store.dispatch(mountTruck())
         if (req) {
             if (!query.value) {
                 res.writeHead(301, { Location: `/food-truck/co/denver/cuisines` })
@@ -32,11 +31,11 @@ class CategoryDetailContainer extends Component {
         else if (query.state === "cuisine")
             Router.push("/food-truck/co/denver/" + query.value)
         let cuisineDetail = null
-        let custom = null
-        custom = await store.dispatch(searchTruck("cuisine", query.value, 1, store))
+
+        await store.dispatch(searchTruck("cuisine", query.value, 1, store))
         cuisineDetail = await getDataInitial("cuisine?q=" + query.value)
         return {
-            custom,
+
             cuisineDetail,
             value: query.value
         }
@@ -45,7 +44,7 @@ class CategoryDetailContainer extends Component {
 
 
     componentDidMount() {
-        this.props.mountTruck()
+
     }
     loadMoreTruck() {
         const { searchTruck, currentPage, lastPage, truckSearch, total, value } = this.props
