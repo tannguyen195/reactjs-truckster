@@ -500,9 +500,9 @@ class CityDetail extends Component {
                                 </div>
                             </Col>
 
-                            {
+                            {/* {
                                 this.renderArticleCard(articles)
-                            }
+                            } */}
 
 
 
