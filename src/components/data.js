@@ -52,7 +52,7 @@ export const categories =
         {
             name: 'Chicago',
             image: ('/static/images/cuisines/chicago.jpg'), type: 'cuisine',
-            link: 'chicago'
+            link: 'chicago-style'
         },
         {
             name: 'Chinese',
@@ -117,7 +117,7 @@ export const categories =
         {
             name: 'Hawaiian',
             image: ('/static/images/cuisines/hawaiian.jpg'), type: 'cuisine',
-            link: 'hawaiian style'
+            link: 'hawaiian-style'
         },
         {
             name: 'Indian',
@@ -147,12 +147,12 @@ export const categories =
         {
             name: 'Latin American',
             image: ('/static/images/cuisines/latin-american.jpg'), type: 'cuisine',
-            link: 'latin american'
+            link: 'latin-american'
         },
         {
             name: 'Latin Asian Fusion',
             image: ('/static/images/cuisines/latin-asian-fusion.jpg'), type: 'cuisine',
-            link: 'latin asian fusion',
+            link: 'latin-asian-fusion',
             id: 4
         },
         {

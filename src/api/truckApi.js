@@ -16,25 +16,25 @@ import { Cookies } from 'react-cookie'
 const cookies = new Cookies()
 
 // Search truck api
-export const searchTruck = (params, value, page) => {
+export const searchTruck = (params, value, page, ) => {
 
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(requestSearchTruck(true))
-        $.ajax({
-            type: 'GET',
+        await axios({
+            method: 'GET',
             url: apiUrl + `api/consumer/v1/foodtrucks?${params}=${value}&sort_by=avg_rating&sort_type=desc&per_page=12&page=${page}`,
             headers: {
                 "Accept": "application/json",
-            },
-            success: function (response, status, xhr) {
-                dispatch(searchTruckSuccess(
-                    { ...response, params: params }
-                ));
-            },
-            error: function (error) {
-                dispatch(searchTruckError(error))
             }
+        }).then(function (response) {
+
+            return dispatch(searchTruckSuccess(
+                { ...response.data, params: params }
+            ));
         })
+            .catch(function (error) {
+                return dispatch(searchTruckError(error))
+            });
     }
 }
 

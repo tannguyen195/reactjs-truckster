@@ -1,8 +1,8 @@
 import App, { Container } from 'next/app'
 import React from 'react'
-import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
-
+import { initializeStore } from '../store'
+import withRedux from "next-redux-wrapper";
 import HeaderContainer from '../src/components/header/HeaderContainer'
 import FooterContainer from '../src/components/footer/FooterContainer'
 
@@ -23,14 +23,20 @@ import _userReview from '../src/components/common/userReview/_userReview.less'
 import _renderContainer from '../src/components/common/renderContainer/_renderContainer.less'
 import _reviewModify from '../src/components/common/reviewModify/_reviewModify.less'
 import _reviewSummary from '../src/components/common/reviewSummary/_reviewSummary.less'
+
+
 class MyApp extends App {
 
+  static async getInitialProps({ Component, ctx }) {
+    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+    return { pageProps };
+  }
   render() {
-    const { Component, pageProps, reduxStore } = this.props
+    const { Component, pageProps, store } = this.props
 
     return (
       <Container>
-        <Provider store={reduxStore}>
+        <Provider store={store}>
           <div>
             <style dangerouslySetInnerHTML={{
               __html: stylesheet +
@@ -63,4 +69,4 @@ class MyApp extends App {
   }
 }
 
-export default withReduxStore(MyApp)
+export default withRedux(initializeStore)(MyApp)

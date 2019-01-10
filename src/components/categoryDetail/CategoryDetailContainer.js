@@ -9,6 +9,7 @@ import { getDataInitial } from '../../../global'
 import _categoryDetail from './_categoryDetail.less'
 import { Router } from 'routes'
 import Head from '../head'
+
 class CategoryDetailContainer extends Component {
     constructor(props) {
         super(props)
@@ -17,30 +18,34 @@ class CategoryDetailContainer extends Component {
         }
     }
 
-    static async getInitialProps(ctx) {
-        if (ctx && ctx.req) {
-            if (!ctx.query.value) {
-                ctx.res.writeHead(301, { Location: `/food-truck/co/denver/cuisines` })
-                ctx.res.end()
+    static async getInitialProps({ req, query, res, store }) {
+
+
+        if (req) {
+            if (!query.value) {
+                res.writeHead(301, { Location: `/food-truck/co/denver/cuisines` })
+                res.end()
             }
         }
-        else if (!ctx.query.value)
+        else if (!query.value)
             Router.push("/food-truck/co/denver/cuisines")
-        else if (ctx.query.state === "cuisine")
-            Router.push("/food-truck/co/denver/" + ctx.query.value)
+        else if (query.state === "cuisine")
+            Router.push("/food-truck/co/denver/" + query.value)
         let cuisineDetail = null
-
-        cuisineDetail = await getDataInitial("cuisine?q=" + ctx.query.value)
+        let custom = null
+        custom = await store.dispatch(searchTruck("cuisine", query.value, 1, store))
+        cuisineDetail = await getDataInitial("cuisine?q=" + query.value)
         return {
+            custom,
             cuisineDetail,
-            value: ctx.query.value
+            value: query.value
         }
+
     }
 
 
     componentDidMount() {
         this.props.mountTruck()
-        this.props.searchTruck("cuisine", this.props.value, 1)
     }
     loadMoreTruck() {
         const { searchTruck, currentPage, lastPage, truckSearch, total, value } = this.props
@@ -70,7 +75,7 @@ class CategoryDetailContainer extends Component {
     }
     render() {
         const { error, status, value, cuisineDetail } = this.props
-        
+
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
