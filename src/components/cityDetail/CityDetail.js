@@ -419,6 +419,10 @@ class CityDetail extends Component {
                             }
                         </Row>
 
+
+                    </section>
+
+                    <section className="favorite-cuisine-container">
                         {/* article section */}
                         <div className="article-section media">
                             <div className="article-section-container">
@@ -433,7 +437,7 @@ class CityDetail extends Component {
                         </div>
 
                                 <h3 className="article__title">Some of our Favorite Events:</h3>
-                                {/* <Row gutter={30}>
+                                <Row gutter={30}>
                                     <Col sm={12} xs={24} md={6} lg={6}>
                                         <div className="event-card-small-container">
                                             <a href="https://colorado.ourcommunitynow.com/2018/05/14/dtc-eats-back-food-trucks/" target="_blank" className="event-card-small">
@@ -462,8 +466,6 @@ class CityDetail extends Component {
                                                     <div className="Body-1RegularGrayLeft">Food Truck Wednesdays serves the medical community and visitors to the Anschutz Medical Campus every week all summer long. A variety of 10 or more food trucks attend each Wednesday, and picnic tables are setup on the campus lawn for you to enjoy.</div>
                                                 </div>
                                             </a>
-
-
                                         </div>
                                     </Col>
                                     <Col sm={12} xs={24} md={6} lg={6}>
@@ -498,7 +500,7 @@ class CityDetail extends Component {
                                     {
                                         this.renderArticleCard(articles)
                                     }
-                                </Row> */}
+                                </Row>
                             </div>
                         </div>
                     </section>
