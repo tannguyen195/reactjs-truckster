@@ -257,12 +257,11 @@ class CityDetail extends Component {
     //render article
     renderArticleCard(articles) {
         return articles.map((item, index) => {
-            return <Col key={index} xs={24} sm={12} md={8} lg={8}>
-                <a>
-                    <ArticleCard
-                        data={item} />
-                </a>
-            </Col>
+            return <a key={index}>
+                <ArticleCard
+                    data={item} />
+            </a>
+
         })
     }
     render() {
@@ -304,8 +303,7 @@ class CityDetail extends Component {
                                 <Link prefetch to="/search">
                                     <a>
                                         <Button disabled={searchValue.length < 1 ? true : false} className="search-btn SubheadingWhiteCenter" size="large" type="primary">
-                                            Find trucks
-                            </Button>
+                                            Find trucks </Button>
                                     </a>
                                 </Link>
                             </div>
@@ -316,7 +314,6 @@ class CityDetail extends Component {
                     <div className="cover">
                         <div className="cover-mask"></div>
                     </div>
-
                 </div>
 
                 {/* home body  */}
@@ -355,7 +352,6 @@ class CityDetail extends Component {
                                                 return <LoadingPlaceHolder itemNum={matches ? 4 : 8} key='loader' />
                                             }}
                                         </MediaQuery>
-
                                 }
                             </div>
                         </RenderContainer>
@@ -418,11 +414,9 @@ class CityDetail extends Component {
                                 this.renderCuisine(cuisine)
                             }
                         </Row>
-
-
                     </section>
 
-                    <section className="favorite-cuisine-container">
+            
                         {/* article section */}
                         <div className="article-section media">
                             <div className="article-section-container">
@@ -437,76 +431,70 @@ class CityDetail extends Component {
                         </div>
 
                                 <h3 className="article__title">Some of our Favorite Events:</h3>
-                                <Row gutter={30}>
-                                    <Col sm={12} xs={24} md={6} lg={6}>
-                                        <div className="event-card-small-container">
-                                            <a href="https://colorado.ourcommunitynow.com/2018/05/14/dtc-eats-back-food-trucks/" target="_blank" className="event-card-small">
-                                                <div>
-                                                    <img src={"https://www.thedenverear.com/wp-content/uploads/2015/07/11403320_832715533486476_306799773388049945_n.png"} alt="card" />
-                                                </div>
 
-                                                <div className="event-card-small-detail">
-                                                    <div className="Body-1RegularWhiteLeft">DTC Eats</div>
-                                                    <div className="Body-1RegularGrayLeft">This lunch takes place in the Denver Tech Center every other Monday from May through September. It features over 15 trucks with a wide range of cuisine types and is the perfect cure for your everyday lunch. Picnic tables are setup nearby to enjoy the Colorado outdoors on your lunchbreak.</div>
-                                                </div>
-                                            </a>
+                                <Row gutter={30} type="flex" justify="center" >
+                                    <Col lg={6} md={6} sm={12} xs={12} className="event-card-small-container">
+                                        <a href="https://colorado.ourcommunitynow.com/2018/05/14/dtc-eats-back-food-trucks/" target="_blank" className="event-card-small">
+                                            <div>
+                                                <img src={"https://www.thedenverear.com/wp-content/uploads/2015/07/11403320_832715533486476_306799773388049945_n.png"} alt="card" />
+                                            </div>
 
-
-                                        </div>
-                                    </Col>
-                                    <Col sm={12} xs={24} md={6} lg={6}>
-                                        <div className="event-card-small-container">
-                                            <a href="http://www.ucdenver.edu/about/departments/FoodServices/Pages/Food-Truck-Wednesdays.aspx" target="_blank" className="event-card-small">
-                                                <div>
-                                                    <img src={"https://pbs.twimg.com/media/C7ias3MUwAAC2cB.jpg"} alt="card" />
-                                                </div>
-
-                                                <div className="event-card-small-detail">
-                                                    <div className="Body-1RegularWhiteLeft">Food Truck Wednesdays at Anschutz Medical Campus</div>
-                                                    <div className="Body-1RegularGrayLeft">Food Truck Wednesdays serves the medical community and visitors to the Anschutz Medical Campus every week all summer long. A variety of 10 or more food trucks attend each Wednesday, and picnic tables are setup on the campus lawn for you to enjoy.</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </Col>
-                                    <Col sm={12} xs={24} md={6} lg={6}>
-                                        <div className="event-card-small-container">
-                                            <a href="http://www.civiccenterconservancy.org/event-civic-center-eats-2018_88.html"
-                                                target="_blank"
-                                                className="event-card-small">
-                                                <div> <img src={civicCard} alt="card" /></div>
-
-                                                <div className="event-card-small-detail">
-                                                    <div className="Body-1RegularWhiteLeft">Civic Center Eats</div>
-                                                    <div className="Body-1RegularGrayLeft">The largest gathering of food trucks and gourmet foods in the entire Denver area. Enjoy live music and other activities along with over 80 varieties of food vendors.</div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </Col>
-                                    <Col sm={12} xs={24} md={6} lg={6}>
-                                        <div className="event-card-small-container">
-                                            <a href="https://denversartdistrict.org/first-friday/"
-                                                target="_blank"
-                                                className="event-card-small">
-                                                <div> <img src={"https://static1.squarespace.com/static/598679b4cf81e0278eb708fb/t/59e67c0eb078699478c320a5/1533008031364/20637837_1613853705313913_3592591070002448170_n.jpg"} alt="card" /></div>
-
-                                                <div className="event-card-small-detail">
-                                                    <div className="Body-1RegularWhiteLeft">First Friday Art Walk on Santa Fe</div>
-                                                    <div className="Body-1RegularGrayLeft">Attended by thousands year round, the art walk happens every first Friday of the month from 5:30pm-9:30pm. Santa Fe’s Art District spans from 13th to Alameda, with the majority of food trucks parked between 7th Street and 9th Street. Check out hundreds of artists in the galleries and studios that line streets while you take in some local bites from your favorite trucks.</div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                            <div className="event-card-small-detail">
+                                                <div className="Body-1RegularWhiteLeft">DTC Eats</div>
+                                                <div className="Body-1RegularGrayLeft">This lunch takes place in the Denver Tech Center every other Monday from May through September. It features over 15 trucks with a wide range of cuisine types and is the perfect cure for your everyday lunch. Picnic tables are setup nearby to enjoy the Colorado outdoors on your lunchbreak.</div>
+                                            </div>
+                                        </a>
                                     </Col>
 
+                                    <Col lg={6} md={6} sm={12} xs={12} className="event-card-small-container">
+                                        <a href="http://www.ucdenver.edu/about/departments/FoodServices/Pages/Food-Truck-Wednesdays.aspx" target="_blank" className="event-card-small">
+                                            <div>
+                                                <img src={"https://pbs.twimg.com/media/C7ias3MUwAAC2cB.jpg"} alt="card" />
+                                            </div>
+
+                                            <div className="event-card-small-detail">
+                                                <div className="Body-1RegularWhiteLeft">Food Truck Wednesdays at Anschutz Medical Campus</div>
+                                                <div className="Body-1RegularGrayLeft">Food Truck Wednesdays serves the medical community and visitors to the Anschutz Medical Campus every week all summer long. A variety of 10 or more food trucks attend each Wednesday, and picnic tables are setup on the campus lawn for you to enjoy.</div>
+                                            </div>
+                                        </a>
+                                    </Col>
+
+
+                                    <Col lg={6} md={6} sm={12} xs={12} className="event-card-small-container">
+                                        <a href="http://www.civiccenterconservancy.org/event-civic-center-eats-2018_88.html"
+                                            target="_blank"
+                                            className="event-card-small">
+                                            <div> <img src={civicCard} alt="card" /></div>
+
+                                            <div className="event-card-small-detail">
+                                                <div className="Body-1RegularWhiteLeft">Civic Center Eats</div>
+                                                <div className="Body-1RegularGrayLeft">The largest gathering of food trucks and gourmet foods in the entire Denver area. Enjoy live music and other activities along with over 80 varieties of food vendors.</div>
+                                            </div>
+                                        </a>
+                                    </Col>
+
+                                    <Col lg={6} md={6} sm={12} xs={12} className="event-card-small-container">
+                                        <a href="https://denversartdistrict.org/first-friday/"
+                                            target="_blank"
+                                            className="event-card-small">
+                                            <div> <img src={"https://static1.squarespace.com/static/598679b4cf81e0278eb708fb/t/59e67c0eb078699478c320a5/1533008031364/20637837_1613853705313913_3592591070002448170_n.jpg"} alt="card" /></div>
+
+                                            <div className="event-card-small-detail">
+                                                <div className="Body-1RegularWhiteLeft">First Friday Art Walk on Santa Fe</div>
+                                                <div className="Body-1RegularGrayLeft">Attended by thousands year round, the art walk happens every first Friday of the month from 5:30pm-9:30pm. Santa Fe’s Art District spans from 13th to Alameda, with the majority of food trucks parked between 7th Street and 9th Street. Check out hundreds of artists in the galleries and studios that line streets while you take in some local bites from your favorite trucks.</div>
+                                            </div>
+                                        </a>
+                                    </Col>
+                                </Row>
+                                <div className="article-card">
                                     {
                                         this.renderArticleCard(articles)
                                     }
-                                </Row>
+                                </div>
                             </div>
                         </div>
-                    </section>
+              
                 </div>
-
-
             </div>
         )
     }
