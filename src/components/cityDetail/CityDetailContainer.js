@@ -74,7 +74,7 @@ class CityContainer extends Component {
         }
     }
     componentDidMount() {
-        const { searchActivity, searchTruck, searchBrewery, getPairing, changeRoute } = this.props
+        const {  searchTruck, searchBrewery, getPairing, changeRoute } = this.props
         // searchActivity(true)
         searchTruck("is_featured=true&city", "denver")
         searchBrewery("is_featured", "true")
@@ -135,7 +135,6 @@ class CityContainer extends Component {
                 newArr.push(item)
             }
         })
-
         return newArr
     }
 
@@ -186,6 +185,7 @@ class CityContainer extends Component {
         )
     }
 }
+
 export function mapStateToProps(state) {
     return {
         //featuredBreweries: state.breweryReducer.featuredBreweries,

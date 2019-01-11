@@ -169,12 +169,12 @@ export const categories =
         {
             name: 'Middle Eastern',
             image: ('/static/images/cuisines/middle-eastern.jpg'), type: 'cuisine',
-            link: 'middle eastern'
+            link: 'middle-eastern'
         },
         {
             name: 'Native American',
             image: ('/static/images/cuisines/native-american.jpg'), type: 'cuisine',
-            link: 'native american'
+            link: 'native-american'
         },
         {
             name: 'New England',

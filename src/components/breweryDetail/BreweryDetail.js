@@ -37,7 +37,6 @@ class BreweryDetail extends Component {
                                 <img alt="back" src={locationIcon} />
                                 <div>{breweryDetail.location}</div>
                             </div>
-
                         </div>
                     }
                     {
@@ -46,7 +45,6 @@ class BreweryDetail extends Component {
                                 <img alt="back" src={phoneIcon} />
                                 <a className="Body-1RegularGrayLeft" href={`tel:${breweryDetail.phone}`}>{breweryDetail.phone}</a>
                             </div>
-
                         </div>
                     }
                     {
@@ -169,6 +167,7 @@ class BreweryDetail extends Component {
                 </Col>
         })
     }
+
     renderBreweryDetail(breweryDetail) {
         let rateNum = parseFloat((Math.round(breweryDetail.rating * 2) / 2).toFixed(1), 10)
         const { isPairing, toggleShareModal, suggestBrewery, isLoggedIn, onFavoriteChange, favorite } = this.props
@@ -191,19 +190,14 @@ class BreweryDetail extends Component {
                                     <div className="rate-star">
                                         <Rate disabled value={isNaN(rateNum) ? 0 : rateNum} />
                                     </div>
-
                                 </div>
                                 <div className="flex-row">
                                     <div className="tag">
-
-                                        <Link prefetch to={`/brewery/type/${breweryDetail.breweries_type && breweryDetail.breweries_type.name}`}>
+                                        <Link prefetch to={`/brewery-type/${breweryDetail.breweries_type && breweryDetail.breweries_type.name}`}>
                                             <a className="tag-item Body-1MediumBlackCenter">
                                                 {breweryDetail.breweries_type && breweryDetail.breweries_type.name} </a>
-
                                         </Link>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
