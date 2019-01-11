@@ -258,12 +258,10 @@ class CityDetail extends Component {
     renderArticleCard(articles) {
         return articles.map((item, index) => {
             return <Col key={index} xs={24} sm={12} md={8} lg={8}>
-
                 <a>
                     <ArticleCard
                         data={item} />
                 </a>
-
             </Col>
         })
     }
@@ -435,7 +433,7 @@ class CityDetail extends Component {
                         </div>
 
                                 <h3 className="article__title">Some of our Favorite Events:</h3>
-                                <Row gutter={30}>
+                                {/* <Row gutter={30}>
                                     <Col sm={12} xs={24} md={6} lg={6}>
                                         <div className="event-card-small-container">
                                             <a href="https://colorado.ourcommunitynow.com/2018/05/14/dtc-eats-back-food-trucks/" target="_blank" className="event-card-small">
@@ -497,20 +495,12 @@ class CityDetail extends Component {
                                         </div>
                                     </Col>
 
-                                    {/* {
+                                    {
                                         this.renderArticleCard(articles)
                                     }
- */}
-
-
-                                </Row>
-
-
+                                </Row> */}
                             </div>
-
                         </div>
-
-
                     </section>
                 </div>
 
