@@ -32,7 +32,7 @@ class CategoryDetailContainer extends Component {
             Router.push("/food-truck/co/denver/" + query.value)
         let cuisineDetail = null
 
-        await store.dispatch(searchTruck("cuisine", query.value, 1, store))
+        await store.dispatch(searchTruck("cuisine_slug", query.value, 1, store))
         cuisineDetail = await getDataInitial("cuisine?q=" + query.value)
         return {
 

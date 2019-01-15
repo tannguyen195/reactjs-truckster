@@ -15,6 +15,8 @@ import moment from 'moment'
 import { Cookies } from 'react-cookie'
 
 import _truckDetail from './_truckDetail.less'
+
+
 const cookies = new Cookies()
 class TruckDetailContainer extends Component {
     constructor(props) {
