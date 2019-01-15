@@ -24,6 +24,7 @@ const instagramIconWhite = ('/static/images/instagram-icon-white.svg')
 const twitterIconWhite = ('/static/images/twitter-icon-white.svg')
 const websiteIcon = ('/static/images/website-icon.svg')
 const formatPhoneNumber = (phoneNumberString) => {
+
     let cleaned = ('' + phoneNumberString.match(/\d/g).join("")).replace(/\D/g, '');
     let match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
     if (match) {
@@ -111,9 +112,11 @@ class TruckDetail extends Component {
                 }
 
                 {
-                    truckDetail.phone && <div className="location">
+                    truckDetail.phone && truckDetail.phone !== " " &&
+                    <div className="location">
                         <img alt="phone" src={phoneIcon} />
-                        <a href={`tel:${truckDetail.phone}`} className="Body-2GreyLeft">{formatPhoneNumber(truckDetail.phone)}</a>
+
+                        <a href={`tel:${truckDetail.phone}`} className="Body-2GreyLeft">{formatPhoneNumber(truckDetail.phone.toString())}</a>
                     </div>
                 }
                 {
