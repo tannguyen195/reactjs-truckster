@@ -460,7 +460,7 @@ class CityDetail extends Component {
 
 
                     {/* article section */}
-                    <div className="article-section media">
+                    {/* <div className="article-section media">
                         <div className="article-section-container">
                             <h2 className="Display-3WhiteCenter">Denver Food Truck Events & Festivals</h2>
 
@@ -473,7 +473,7 @@ class CityDetail extends Component {
                         </div>
 
                             <h3 className="article__title">Some of our Favorite Events:</h3>
-{/* 
+
                             <div type="flex" justify="center" >
                                 {
                                     this.renderSmallEventCard(events)
@@ -484,9 +484,9 @@ class CityDetail extends Component {
                                 {
                                     this.renderArticleCard(articles)
                                 }
-                            </div> */}
+                            </div>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
             </div>
