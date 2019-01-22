@@ -92,7 +92,7 @@ export const categories =
         {
             name: 'Farm Fresh',
             image: ('/static/images/cuisines/farm-fresh.jpg'), type: 'cuisine',
-            link: 'farm fresh'
+            link: 'farm-fresh'
         },
         {
             name: 'Filipino',
@@ -179,7 +179,7 @@ export const categories =
         {
             name: 'New England',
             image: ('/static/images/cuisines/new-england.jpg'), type: 'cuisine',
-            link: 'new england'
+            link: 'new-england'
         },
         {
             name: 'Peruvian',
