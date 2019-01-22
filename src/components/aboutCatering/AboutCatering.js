@@ -103,13 +103,13 @@ export default class extends Component {
                         }}>
                         {/* <div className="catering__mask"></div> */}
                         <div className="header__content">
-                            <div className="DisplayWhiteCenter header__text">
-                                Food Truck Catering  </div>
+                            <h1 className="DisplayWhiteCenter header__text">
+                                Food Truck Catering  </h1>
 
-                            <div className="LeadRegularWhiteCenter header__desc">
+                            <h2 className="LeadRegularWhiteCenter header__desc">
                                 {`Make your event memorable, whether it’s a wedding, business lunch, or graduation party. There are so many different kinds of food trucks out there, 
                                 how to begin? Truckster makes it easy.”`}
-                            </div>
+                            </h2>
                             <div className="book-button">
                                 <Button type="primary" onClick={() => this.handleScrollToElement()}>
                                     BOOK A TRUCK</Button>
@@ -162,8 +162,8 @@ export default class extends Component {
                             </Col>
                             <Col md={12} lg={12}>
                                 <div className="section__container">
-                                    <div className="section__title">Make your Event
-                            Unique</div>
+                                    <h3 className="section__title">Make your Event
+                            Unique</h3>
 
                                     <div className="section__content">{`Break off from old school catering and try on something fun. No two events should be the same. With over 500 food trucks in Truckster’s network and adding your own personal style, they won’t be. Choose from over 50 different cuisine types to make all your guests happy, including BBQ, Cajun, Mexican, Vegan, and many more. 
 
@@ -176,7 +176,7 @@ Booking a truck allows you to serve food wherever your event may be, rural in th
                         <Row className="catering__section" >
                             <Col md={12} lg={12}>
                                 <div className="section__container auto">
-                                    <div className="section__title">Choose a Style that Best Fits your Event</div>
+                                    <h3 className="section__title">Choose a Style that Best Fits your Event</h3>
 
                                     <div className="section__content">{`Choosing a service style helps set the tone for your event, and food trucks offer the flexibility for whatever you envision. A variety of different service styles are possible, such as ordering right from the truck, drop-off catering, buffet, family style or plated dinners.
 
@@ -195,7 +195,7 @@ If you are looking to host a more formal event, plated dinners will help add to 
                             </Col>
                             <Col md={12} lg={12}>
                                 <div className="section__container">
-                                    <div className="section__title">Set your Budget</div>
+                                    <h3 className="section__title">Set your Budget</h3>
 
                                     <div className="section__content">{`Pricing can vary, but is usually based on the number of people attending, your menu selection, the style of service, and the hours of service. For events where the host is paying, it is typical for a food truck to build their proposal on a cost per person basis. 
 
@@ -208,7 +208,7 @@ Will you pay for the food or will the attendees? Keep in mind that food trucks f
                         <Row className="catering__section" style={{ justifyContent: 'flex-end' }}>
                             <Col md={12} lg={12}>
                                 <div className="section__container auto">
-                                    <div className="section__title">Plan Ahead</div>
+                                    <h3 className="section__title">Plan Ahead</h3>
 
                                     <div className="section__content">{`Food trucks book up fast, especially in the summer and on weekends. Start planning a few months ahead to make sure your favorite trucks are available. 
 
@@ -223,7 +223,7 @@ When you submit a catering request through Truckster, we reach out to the food t
                         </Row>
                     </div>
                     <div className="catering__body-cuisine">
-                        <div className="Display-3BlackCenter">More than 50 different cuisines</div>
+                        <h3 className="Display-3BlackCenter">More than 50 different cuisines</h3>
                         <div className="perfect__sub-header">{`Have something specific in mind? From Vegan to Venezuelan, we’ve got it. 
                         Take your pick from Truckster’s network of more than 500 food trucks in Colorado. 
 `}</div>
@@ -235,7 +235,7 @@ When you submit a catering request through Truckster, we reach out to the food t
                                             return <Link prefetch key={index} to={`/food-truck/co/denver/${item.link}`}>
 
                                                 <Col lg={4} md={4} sm={6} xs={6} className="cuisine-item">
-                                                    <a>
+                                                    <a rel="nofollow">
                                                         <div className="cuisine-image">
                                                             <img src={item.image} alt="cuisine-image" />
                                                         </div>
@@ -265,7 +265,7 @@ When you submit a catering request through Truckster, we reach out to the food t
                     </div>
 
                     <div className="catering__body-perfect">
-                        <div className="Display-3BlackCenter perfect__title">{`Food Truck Catering is Perfect for`}</div>
+                        <h3 className="Display-3BlackCenter perfect__title">{`Food Truck Catering is Perfect for`}</h3>
 
                         <div className="perfect__width">
                             <Row gutter={30} type="flex" justify="center">
@@ -289,8 +289,8 @@ When you submit a catering request through Truckster, we reach out to the food t
                         recommendTruck && <div
                             className="catering__body-recommend"
                             ref={this.myRef}>
-                            <div className="Display-3BlackCenter perfect__title">{`Food Truck Recommendations
-for your Upcoming Event `}</div>
+                            <h3 className="Display-3BlackCenter perfect__title">{`Food Truck Recommendations
+for your Upcoming Event `}</h3>
                             <div className="perfect__width">
                                 <Row gutter={30} type="flex" justify="center">
                                     {

@@ -121,7 +121,9 @@ class BreweryDetailContainer extends Component {
                             <Head
                                 url={"https://gotruckster.com/brewery/" + `${slug}`}
                                 title={breweryDetail.name + " - Brewery Denver, CO - Truckster"}
-                                description={breweryDetail.company_description}
+                                description={breweryDetail.company_description.length > 160 ?
+                                    breweryDetail.company_description.substring(0, 160) :
+                                    breweryDetail.company_description}
                                 ogImage={breweryDetail.cover_photo[0].url}
                             >
                                 <script type="application/ld+json" dangerouslySetInnerHTML={{

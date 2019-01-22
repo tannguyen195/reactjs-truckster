@@ -135,7 +135,7 @@ class AboutTruckster extends Component {
                                 {` Your Source for
 Everything Food Trucks`}
                             </h1>
-                            <div className="explore-breweries">Explore breweries, upcoming events, menus, and your favorite brewery & food truck pairings</div>
+                            <h2 className="explore-breweries">Explore breweries, upcoming events, menus, and your favorite brewery & food truck pairings</h2>
                             <div className="button-explore">
 
                                 <Button onClick={() => {

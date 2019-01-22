@@ -169,7 +169,7 @@ class CityDetail extends Component {
     renderSmallEventCard(events) {
         return events.map((item, index) => {
             return <div className="event-card-small-container">
-                <a href={item.link} target="_blank" className="event-card-small">
+                <a href={item.link} rel="nofollow" target="_blank" className="event-card-small">
                     <div>
                         <img src={item.image} alt="card" />
                     </div>
@@ -299,7 +299,7 @@ class CityDetail extends Component {
     //render article
     renderArticleCard(articles) {
         return articles.map((item, index) => {
-            return <a key={index}>
+            return <a key={index} rel="nofollow">
                 <ArticleCard
                     data={item} />
             </a>

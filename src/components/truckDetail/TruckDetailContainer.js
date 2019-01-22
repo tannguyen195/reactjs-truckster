@@ -378,7 +378,9 @@ class TruckDetailContainer extends Component {
                         <Head
                             url={"https://gotruckster.com/food-truck/" + `${slug}`}
                             title={truckDetail.name + " - Food Truck Denver, CO - Truckster"}
-                            description={truckDetail.company_description}
+                            description={truckDetail.company_description.length > 160 ?
+                                truckDetail.company_description.substring(0, 160) :
+                                truckDetail.company_description}
                             ogImage={truckDetail.cover_photo[0].url}
                         >
                             <script type="application/ld+json" dangerouslySetInnerHTML={{

@@ -68,7 +68,10 @@ class EventDetailContainer extends Component {
                             <Head
                                 url={"https://gotruckster.com/event/" + `${slug}`}
                                 title={activity.name + " - Event in Denver, CO - Truckster"}
-                                description={activity.information}
+
+                                description={activity.information.length > 160 ?
+                                    activity.information.substring(0, 160) :
+                                    activity.information}
                                 ogImage={activity.pictures[0].url}
                             />
                             <EventDetail
