@@ -7,7 +7,7 @@ export default class Information extends Component {
     renderBlog(renderPage) {
         const { query } = this.props
         return renderPage.map((item, index) => {
-            return <div key={index}> 
+            return <div key={index}>
                 <Link prefetch to={"/info/" + item.slug}>
                     <a>
                         <h1 className="article-title Display-2BlackLeft" dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
@@ -15,7 +15,13 @@ export default class Information extends Component {
                 </Link>
                 {
                     query && query.slug ?
-                        <div className="blog-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
+                        <div>
+                            <div className="blog-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
+
+                            <Link prefetch to={"/info/"}>
+                                <a>{"< Older Posts"}</a>
+                            </Link>
+                        </div>
                         : <div>
                             <div dangerouslySetInnerHTML={{ __html: item.content.rendered.slice(0, item.content.rendered.indexOf(".</p>", 1)) }} />
                             <Link prefetch to={"/info/" + item.slug}>
@@ -30,7 +36,7 @@ export default class Information extends Component {
     }
     render() {
         const { parsedInfoPage, renderPage } = this.props
-       
+
         return (
             <article className="info-wrapper media">
                 <div className="Body-1SemiBlackLeft"> POST</div>
@@ -39,6 +45,8 @@ export default class Information extends Component {
                         {
                             this.renderBlog(renderPage)
                         }
+
+
                     </Col>
 
                     <Col className="recent-post-container" lg={8}>

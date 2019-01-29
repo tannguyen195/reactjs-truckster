@@ -6,19 +6,26 @@ import { getPageData } from 'global.js'
 import _information from './_information.less'
 export default class InformationContainer extends Component {
 
-    static async getInitialProps({ reduxStore, req, query }) {
-        let infoPage = null, renderPage = null, title = "The Official Truckster Blog - Fun, Food & Drinks"
+    static async getInitialProps({ reduxStore, req, query, res }) {
+        let infoPage = null, renderPage = null, title = "The Official Truckster Blog - Fun, Food & Drinks",
+            queryList = []
 
         infoPage = (await getPageData())
         renderPage = CircularJSON.parse(infoPage).data
 
         if (query.slug) {
             CircularJSON.parse(infoPage).data.forEach(element => {
-                if (element.slug == query.slug) {
+                queryList.push(element.slug)
+                if (element.slug === query.slug) {
                     renderPage = [element]
                     title = element.title.rendered + ' - Truckter'
+
                 }
             });
+            if (!queryList.includes(query.slug)) {
+                ctx.res.writeHead(301, { Location: `/info` })
+                ctx.res.end()
+            }
         }
         return {
             infoPage, renderPage, query, title
