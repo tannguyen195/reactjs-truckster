@@ -23,10 +23,12 @@ export default class InformationContainer extends Component {
                 }
             });
             if (!queryList.includes(query.slug)) {
-                ctx.res.writeHead(301, { Location: `/info` })
-                ctx.res.end()
+                res.writeHead(301, { Location: `/info` })
+                res.end()
             }
         }
+        
+        
         return {
             infoPage, renderPage, query, title
         }
