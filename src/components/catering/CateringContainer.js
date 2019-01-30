@@ -26,8 +26,8 @@ class CateringContainer extends Component {
             catering({
                 ...cateringData,
                 city: cateringData.city[0] + "-" + cateringData.city[1],
-                start_time: moment(cateringData.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD') + ` ` + moment(cateringData.start_time, 'HH:mm:s').format('HH:mm:s'),
-                end_time: moment(cateringData.eventDate).format('YYYY-MM-DD') + ` ` + moment(cateringData.end_time, 'HH:mm:s').format('HH:mm:s'),
+                start_time: moment(cateringData.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD') + ` ` + moment(cateringData.start_time, 'HH:mm:s').format('HH:mm'),
+                end_time: moment(cateringData.eventDate).format('YYYY-MM-DD') + ` ` + moment(cateringData.end_time, 'HH:mm:s').format('HH:mm'),
                 food_truck_id,
                 comment: values.comment
             })
