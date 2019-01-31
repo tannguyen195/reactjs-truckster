@@ -63,7 +63,6 @@ export default class extends Component {
                         {getFieldDecorator('phone', {
                             rules: [{
                                 required: true, message: `Please enter your phone number`,
-                                required: true,
                             }, {
                                 pattern: "[0-9]{10}",
                                 message: 'The phone must be at least 10 characters.!',
