@@ -381,7 +381,7 @@ class TruckDetailContainer extends Component {
                             description={truckDetail.company_description.length > 160 ?
                                 truckDetail.company_description.substring(0, 160) :
                                 truckDetail.company_description}
-                            ogImage={truckDetail.cover_photo && truckDetail.cover_photo[0].url}
+                            ogImage={truckDetail.cover_photo && truckDetail.cover_photo.length > 0 && truckDetail.cover_photo[0].url}
                         >
                             <script type="application/ld+json" dangerouslySetInnerHTML={{
                                 __html: `{

@@ -18,9 +18,7 @@ export default class Information extends Component {
                         <div>
                             <div className="blog-content" dangerouslySetInnerHTML={{ __html: item.content.rendered }} />
 
-                            <Link prefetch to={"/info/"}>
-                                <a>{"< Older Posts"}</a>
-                            </Link>
+                          
                         </div>
                         : <div>
                             <div dangerouslySetInnerHTML={{ __html: item.content.rendered.slice(0, item.content.rendered.indexOf(".</p>", 1)) }} />
