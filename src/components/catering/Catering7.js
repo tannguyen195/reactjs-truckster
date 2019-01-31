@@ -51,7 +51,7 @@ export default class extends Component {
                             }],
                         })(
                             <Input
-                            format="(###) ###-####"
+                                format="(###) ###-####"
                                 suffix={<img
                                     className="img-icon"
                                     alt="email"
@@ -63,8 +63,10 @@ export default class extends Component {
                         {getFieldDecorator('phone', {
                             rules: [{
                                 required: true, message: `Please enter your phone number`,
-                           
-                                pattern: "[0-9]"
+                                required: true,
+                            }, {
+                                pattern: "[0-9]{10}",
+                                message: 'The phone must be at least 10 characters.!',
                             }],
                         })(
                             <Input
