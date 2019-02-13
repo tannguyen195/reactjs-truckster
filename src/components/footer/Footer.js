@@ -62,8 +62,8 @@ class Footer extends Component {
                     </Col>
                     <Col md={4} className="column">
                         <h3 className="SubheadingBlackLeft">Vendor</h3>
-                        <a onClick={toggleAnnounceModal}>Vendor login</a>
-                        <a onClick={toggleAnnounceModal}>Add my truck</a>
+                        <a href="https://itunes.apple.com/vn/app/truckster-vendor/id1375287755?mt=8&fbclid=IwAR1WMhekkYtGr1w3Qeq2Qzp9rFSkcgzCGoSasEKrK_e7b2MGZfYUgE2kpVo" target="_blank">Vendor login</a>
+                        <a href={`mailto:info@gotruckster.com`}>Add my truck</a>
                     </Col>
                     <Col xs={24} sm={24} md={5} className="social">
                         <div className="logo">
