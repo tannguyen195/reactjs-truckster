@@ -6,7 +6,7 @@ import {
 
 
 // import { notification, Icon } from 'antd'
-
+import axios from 'axios'
 import $ from 'jquery'
 import { apiUrl } from "config"
 import { Cookies } from 'react-cookie'
@@ -14,23 +14,23 @@ const cookies = new Cookies()
 
 
 export const searchBrewery = (params, value, page) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(requestSearchBrewery(true))
-        $.ajax({
-            type: 'GET',
+        await axios({
+            method: 'GET',
             url: apiUrl + `api/consumer/v1/breweries?${params}=${value}&per_page=12&page=${page}`,
             headers: {
                 "Accept": "application/json",
-            },
-            success: function (response, status, xhr) {
-                dispatch(searchBrewerySuccess(
-                    { ...response, params: params }
-                ));
-            },
-            error: function (error) {
-                dispatch(searchBreweryError(error))
             }
+        }).then(function (response) {
+
+            return dispatch(searchBrewerySuccess(
+                { ...response.data, params: params }
+            ));
         })
+            .catch(function (error) {
+                return dispatch(searchBreweryError(error))
+            });
     }
 }
 

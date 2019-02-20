@@ -47,7 +47,7 @@ export default class extends Component {
                             {getFieldDecorator('zip_code', {
                                 initialValue: 0,
                                 rules: [{
-                                    message: `Please enter zipcode!`, pattern: "[0-9]"
+                                    message: `Please enter zipcode!`, pattern: "[0-9]", required: true
                                 }],
                             })(
                                 <Input placeholder="Zip code" />

@@ -35,7 +35,7 @@ export const catering = (data) => {
                 dispatch(cateringError(error))
                 notification.open({
                     message: 'Opps!',
-                    description: "Send catering request fail!",
+                    description: "Something went wrong!",
                     icon: <Icon type="close-circle" style={{ color: '#f32126' }} />
                 });
             }

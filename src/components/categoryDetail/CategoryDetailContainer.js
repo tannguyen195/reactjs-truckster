@@ -35,17 +35,12 @@ class CategoryDetailContainer extends Component {
         await store.dispatch(searchTruck("cuisine_slug", query.value, 1, store))
         cuisineDetail = await getDataInitial("cuisine?q=" + query.value)
         return {
-
             cuisineDetail,
             value: query.value
         }
 
     }
 
-
-    componentDidMount() {
-
-    }
     loadMoreTruck() {
         const { searchTruck, currentPage, lastPage, truckSearch, total, value } = this.props
 

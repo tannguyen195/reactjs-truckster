@@ -15,27 +15,33 @@ class BreweryTypeContainer extends Component {
             hasMore: true
         }
     }
-    static async getInitialProps({ reduxStore, req, query }) {
+    static async getInitialProps({ reduxStore, req, query, store }) {
+        await store.dispatch(mountBrewery())
+        await store.dispatch(searchBrewery("breweries_type", query.value, 1))
         return { value: query.value }
     }
 
-    componentDidMount() {
-        this.props.mountBrewery()
-    }
-
     loadMoreBrewery() {
-        const { searchBrewery, currentPage, lastPage, value } = this.props
+        const { searchBrewery, currentPage, lastPage, value, brewerySearch, total } = this.props
 
+        if (currentPage === 1 && lastPage === 1 && brewerySearch.length !== 0) {
 
-        if (!currentPage && !renderPageFlag) {
-            renderPageFlag = true
-            searchBrewery("breweries_type", value, 1)
+            this.setState({
+                hasMore: false
+            })
         }
+        else if (currentPage < lastPage) {
 
-        else if (currentPage < lastPage)
             searchBrewery("breweries_type", value, currentPage + 1)
+        }
+        else if (currentPage + 1 > lastPage && brewerySearch.length !== 0) {
 
-        else if (currentPage === lastPage && currentPage) {
+            this.setState({
+                hasMore: false
+            })
+        }
+        else if (total === 0) {
+
             this.setState({
                 hasMore: false
             })
