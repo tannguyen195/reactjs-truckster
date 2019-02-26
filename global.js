@@ -162,7 +162,7 @@ export const getDataInitial = (url, token) => {
 export const getPageData = () => {
     return axios({
         method: 'get',
-        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts`,
+        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts?per_page=20`,
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: {
             "Accept": "application/json",
