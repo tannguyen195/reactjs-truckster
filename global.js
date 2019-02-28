@@ -14,7 +14,7 @@ export function getSchedule(data) {
                 schudeles.push({
                     ...calendarItem,
                     timeDisplay: calendarItem.end_time,
-                    start: moment(calendarItem.end_time).toDate(),
+                    start: moment(calendarItem.start_time).toDate(),
                     end: moment(calendarItem.end_time).toDate()
                 })
                 break;

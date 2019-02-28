@@ -362,7 +362,7 @@ class TruckDetail extends Component {
 
     render() {
         const { truckDetail, isPairing, toggleCateringModal, visibleDeepLink } = this.props
-console.log("Asd", this.props)
+    
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
 

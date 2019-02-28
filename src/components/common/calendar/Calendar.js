@@ -30,7 +30,6 @@ class Calendar extends Component {
 
     }
     getCalendarEvents = (date) => {
-
         const currentMonth = moment(date).endOf('month').format('MMMM YYYY');
         const monthToday = moment(date).endOf('month').format('MMM');
         let nextCurrentMonth = moment(date).add(1, 'month').format('MMM');
@@ -119,6 +118,7 @@ class Calendar extends Component {
     }
     render() {
         const { events, handleClickEvent } = this.props
+    
         return (
             <div >
 
