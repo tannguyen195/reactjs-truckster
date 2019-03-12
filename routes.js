@@ -16,6 +16,7 @@ module.exports = routes()
     .add('success', '/order/:success')
 
     .add('info', '/info/:slug')
+    .add('info-page', '/info/page/:page')
     .add('pairing', '/pairing/:state/:city')
 
     .add('events', '/event/:state/:city')

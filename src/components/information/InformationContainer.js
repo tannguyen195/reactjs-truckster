@@ -10,7 +10,7 @@ export default class InformationContainer extends Component {
         let infoPage = null, renderPage = null, title = "The Official Truckster Blog - Fun, Food & Drinks",
             queryList = []
 
-        infoPage = (await getPageData())
+        infoPage = (await getPageData(query.page ? query.page : 1))
         renderPage = CircularJSON.parse(infoPage).data
 
         if (query.slug) {
@@ -27,8 +27,8 @@ export default class InformationContainer extends Component {
                 res.end()
             }
         }
-        
-        
+
+
         return {
             infoPage, renderPage, query, title
         }

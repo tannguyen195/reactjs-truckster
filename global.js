@@ -159,10 +159,10 @@ export const getDataInitial = (url, token) => {
         });
 }
 
-export const getPageData = () => {
+export const getPageData = (page) => {
     return axios({
         method: 'get',
-        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts?per_page=20`,
+        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts?page=` + page,
         httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         headers: {
             "Accept": "application/json",
