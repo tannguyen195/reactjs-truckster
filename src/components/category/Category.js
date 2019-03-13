@@ -10,7 +10,7 @@ class Category extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col lg={6} md={12} sm={12} xs={12} key={index} style={{ marginBottom: "16px" }}>
-                <Link prefetch to={`/food-truck/co/denver/${item.name && item.name.toLowerCase().replace(" ", "-")}`}>
+                <Link prefetch to={`/food-truck/co/denver/${item.slug && item.slug}`}>
                     <a>
                         <CategoryCard
                             image={item.image_url}
