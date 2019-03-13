@@ -10,10 +10,10 @@ class Category extends Component {
     renderCategoryCard(categories) {
         return categories.map((item, index) => {
             return <Col lg={6} md={12} sm={12} xs={12} key={index} style={{ marginBottom: "16px" }}>
-                <Link prefetch to={`/food-truck/co/denver/${item.link.toLowerCase()}`}>
+                <Link prefetch to={`/food-truck/co/denver/${item.name && item.name.toLowerCase().replace(" ", "-")}`}>
                     <a>
                         <CategoryCard
-                            image={item.image}
+                            image={item.image_url}
                             name={item.name}  >
                         </CategoryCard>
                     </a>
@@ -24,7 +24,7 @@ class Category extends Component {
 
 
     render() {
-
+        const { cuisineList } = this.props
         return (
             <div className="category main-wrapper body-content">
 
@@ -33,7 +33,7 @@ class Category extends Component {
                 </h1>
                 <div className="divider"> </div>
                 <Row style={{ paddingTop: "30px" }} gutter={16}>
-                    {this.renderCategoryCard(categories)}
+                    {this.renderCategoryCard(cuisineList)}
 
                 </Row>
 

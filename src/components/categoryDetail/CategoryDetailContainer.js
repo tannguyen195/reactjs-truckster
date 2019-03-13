@@ -38,7 +38,6 @@ class CategoryDetailContainer extends Component {
             cuisineDetail,
             value: query.value
         }
-
     }
 
     loadMoreTruck() {

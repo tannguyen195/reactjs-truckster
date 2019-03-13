@@ -14,7 +14,7 @@ class CategoryContainer extends Component {
         window.scrollTo(0, 0);
     }
     render() {
-
+        const { cuisineList } = this.props
         return (
             <div style={{ background: "#fafafa" }}>
                 <Head
@@ -26,18 +26,21 @@ class CategoryContainer extends Component {
                     <meta name="robots" content="noindex"></meta>
                     <link rel="canonical" href="https://gotruckster.com/food-truck/co/denver" />
                 </Head>
-                <Category
-                    {...this.state}
-                    {...this.props}
+                {
+                    cuisineList && <Category
+                        {...this.state}
+                        {...this.props}
 
-                />
+                    />
+                }
+
             </div>
         )
     }
 }
 export function mapStateToProps(state) {
     return {
-
+        cuisineList: state.truckReducer.cuisineList
     };
 }
 export function mapDispatchToProps(dispatch) {
