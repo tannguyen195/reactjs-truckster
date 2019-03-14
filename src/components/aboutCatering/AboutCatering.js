@@ -108,7 +108,7 @@ export default class extends Component {
 
                             <h2 className="LeadRegularWhiteCenter header__desc">
                                 {`Make your event memorable, whether it’s a wedding, business lunch, or graduation party. There are so many different kinds of food trucks out there, 
-                                how to begin? Truckster makes it easy.”`}
+                                how to begin? Truckster makes it easy.`}
                             </h2>
                             <div className="book-button">
                                 <Button type="primary" onClick={() => this.handleScrollToElement()}>
