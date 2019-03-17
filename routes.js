@@ -15,8 +15,8 @@ module.exports = routes()
     .add('food-truck-catering')
     .add('success', '/order/:success')
 
-    .add('info', '/info/:slug')
-    .add('info-page', '/info/page/:page')
+    .add('info-detail', '/info/:slug')
+    .add('info', '/info/page/:page')
     .add('pairing', '/pairing/:state/:city')
 
     .add('events', '/event/:state/:city')

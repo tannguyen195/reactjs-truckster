@@ -37,7 +37,6 @@ export default class InformationContainer extends Component {
 
     render() {
         const { infoPage, renderPage, title } = this.props
-
         return (
             <div >
                 {

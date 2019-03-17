@@ -174,3 +174,19 @@ export const getPageData = (page) => {
         .catch(function (error) {
         });
 }
+
+export const getPageDetail = (slug) => {
+    return axios({
+        method: 'get',
+        url: `https://cms.gotruckster.com/wp-json/wp/v2/posts?slug=` + slug,
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+        headers: {
+            "Accept": "application/json",
+        }
+    })
+        .then(function (response) {
+            return CircularJSON.stringify(response);
+        })
+        .catch(function (error) {
+        });
+}
