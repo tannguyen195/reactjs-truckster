@@ -142,7 +142,7 @@ export const getCuisineList = (page) => {
         dispatch(requestGetCuisineList(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/cuisine?page=` + page,
+            url: apiUrl + `api/cuisine` ,
             headers: {
                 "Accept": "application/json",
             },

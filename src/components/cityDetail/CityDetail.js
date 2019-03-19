@@ -168,7 +168,7 @@ const events = [
 class CityDetail extends Component {
     renderSmallEventCard(events) {
         return events.map((item, index) => {
-            return <div className="event-card-small-container">
+            return <div key={index} className="event-card-small-container">
                 <a href={item.link} rel="nofollow" target="_blank" className="event-card-small">
                     <div>
                         <img src={item.image} alt="card" />

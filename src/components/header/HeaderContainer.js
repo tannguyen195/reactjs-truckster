@@ -41,9 +41,8 @@ class HeaderContainer extends Component {
     }
     componentDidMount() {
         const { getCuisineList, checkLogin } = this.props
-        getCuisineList(1)
-        getCuisineList(2)
-        getCuisineList(3)
+        getCuisineList()
+
         checkLogin()
         notification.config({
             placement: 'bottomRight',
