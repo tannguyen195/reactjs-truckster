@@ -20,7 +20,7 @@ class SearchResult extends Component {
                         {
                             url: "/brewery/" + item.slug,
                             image: JSON.parse(item.cover_photo) && JSON.parse(item.cover_photo)[0] ?
-                                JSON.parse(item.cover_photo)[0].url : breweryIcon,
+                                JSON.parse(item.cover_photo)[0].thumbnails.large.url : breweryIcon,
                             logo: JSON.parse(item.logo) && JSON.parse(item.logo)[0] ?
                                 JSON.parse(item.logo)[0].url :
                                 imageBreweryPlaceholder,

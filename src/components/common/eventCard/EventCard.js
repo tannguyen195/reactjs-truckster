@@ -17,7 +17,7 @@ class EventCard extends Component {
                             <div className="event-image"
                                 style={{
                                     backgroundImage: `url(${data.pictures ?
-                                        data.pictures[0].url : eventIcon})`,
+                                        data.pictures[0].thumbnails.large.url : eventIcon})`,
                                     backgroundSize: data.pictures ?
                                         "" : "50px",
                                     height: imageWidth && imageWidth

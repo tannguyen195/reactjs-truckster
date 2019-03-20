@@ -18,29 +18,10 @@ import Placeholder from '../common/placeholder/Placeholder'
 
 const breweryIcon = ('/static/images/brewery-marker-icon.png')
 const imageBreweryPlaceholder = ("/static/images/image_brewery_placeholder.png")
-const carnationfestivalCard = ("/static/images/carnationfestival-card.jpg")
 const civicCard = ("/static/images/civic-card.jpg")
 const homeImage = ("/static/images/denver-city.jpg")
-const tags = [
-    "American", "Mexican", "Thai", "Pizza", "Dessert", "Coffee"
-]
-const tags2 = [
-    "American", "Mexican", "Thai",
-]
-const tags3 = [
-    "Pizza", "Dessert", "Coffee"
-]
 
-const offers = [
-    {
-        offerName: "Refer your friends and earn credit to eat at your favorite food trucks!",
-        image: "https://c.tadst.com/gfx/750w/eat-outside-day-fun.jpg"
-    },
-    {
-        offerName: "Rate trucks and earn credit towards your next mobile order",
-        image: ("/static/images/offer-image.jpg")
-    }
-]
+
 const cuisine = [
 
     {
@@ -263,7 +244,7 @@ class CityDetail extends Component {
                     {
                         url: "/brewery/" + item.slug,
                         image: item.cover_photo ?
-                            item.cover_photo[0].url : breweryIcon,
+                            item.cover_photo[0].thumbnails.large.url : breweryIcon,
                         logo: item.logo ?
                             item.logo[0].url :
                             imageBreweryPlaceholder,

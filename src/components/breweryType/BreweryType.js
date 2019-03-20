@@ -18,7 +18,7 @@ class BreweryType extends Component {
                     {
                         url: "/brewery/" + item.slug,
                         image: item.cover_photo ?
-                            item.cover_photo[0].url : breweryIcon,
+                            item.cover_photo[0].thumbnails.large.url : breweryIcon,
                         logo: item.logo ?
                             item.logo[0].url :
                             imageBreweryPlaceholder,

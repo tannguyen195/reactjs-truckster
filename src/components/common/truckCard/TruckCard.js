@@ -25,7 +25,7 @@ class TruckCard extends Component {
                             <div className="truck-image"
                                 style={{
                                     backgroundImage: `url(${coverURL ?
-                                        coverURL[0].url : truckIcon})`,
+                                        coverURL[0].thumbnails.large.url : truckIcon})`,
                                     backgroundSize: coverURL ?
                                         "cover" : "50px"
                                 }}

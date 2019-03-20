@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SignUpModal from './SignUpModal.jsx'
-
+import { Router } from 'routes'
 import { Form } from 'antd'
 
 class SignUpModalContainer extends Component {
@@ -22,10 +22,21 @@ class SignUpModalContainer extends Component {
 					"c_password": values.c_password,
 					"phone": values.phone,
 					"birthday": "2018-01-01 00:00:00",
-					"gender": 1
+					"gender": 1,
+					"refer_code": values.refer_code
 				})
 			}
 		})
+
+	}
+	componentDidMount() {
+		const form = this.props.form
+
+		if (Router.query && Router.query.referCode) {
+			form.setFieldsValue({
+				"refer_code": Router.query.referCode
+			})
+		}
 
 	}
 	checkPassword(rule, value, callback) {

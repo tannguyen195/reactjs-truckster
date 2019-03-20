@@ -157,7 +157,7 @@ class BreweryDetail extends Component {
                             image: item.cover_photo ?
                                 coverURL[0].url : breweryIcon,
                             logo: item.logo && item.logo !== "null" ?
-                                logoURL[0].url :
+                                logoURL[0].thumbnails.large.url :
                                 imageBreweryPlaceholder,
                             name: item.name,
                             cuisine: item.brewery_type && [{ name: item.brewery_type.name }],

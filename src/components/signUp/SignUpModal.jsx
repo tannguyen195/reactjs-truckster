@@ -56,7 +56,7 @@ class SignUpModal extends React.Component {
                                     suffix={<img
                                         className="img-icon"
                                         alt="email"
-                                        src={userIcon} />} placeholder="User Name" />
+                                        src={userIcon} />} placeholder="Full Name" />
                             )}
                         </FormItem>
                         <Popover
@@ -140,6 +140,13 @@ class SignUpModal extends React.Component {
                                             alt="password"
                                             src={lockIcon} />}
                                     type="password" placeholder="Confirm Password" />
+                            )}
+                        </FormItem>
+                        <FormItem style={{ marginBottom: '24px' }}>
+                            {getFieldDecorator('refer_code', {
+                               
+                            })(
+                                <Input placeholder="Referral code (Optional)" />
                             )}
                         </FormItem>
                         <div className="secondary-color Body-1RegularGrayLeft" style={{ marginBottom: "15px" }}>
