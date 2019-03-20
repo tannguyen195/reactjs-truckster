@@ -33,6 +33,7 @@ class SignUpModalContainer extends Component {
 		const form = this.props.form
 
 		if (Router.query && Router.query.referCode) {
+			this.props.toggleSignUpModal()
 			form.setFieldsValue({
 				"refer_code": Router.query.referCode
 			})
