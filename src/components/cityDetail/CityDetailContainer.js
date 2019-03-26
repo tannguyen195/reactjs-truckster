@@ -13,7 +13,7 @@ import { getDataInitial, getEventTime } from '../../../global'
 import CityDetail from './CityDetail'
 import { categories } from '../data'
 import Head from '../head'
-import  moment  from "moment"
+import moment from "moment"
 import _ from 'lodash'
 import _cityDetail from './_cityDetail.less'
 
@@ -65,16 +65,16 @@ class CityContainer extends Component {
 
         activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
         activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
-
+        console.log("ASdasd", truckFeaturedCity)
         return {
             activitiesWeek: activitiesWeekState,
-            truckFeaturedCity: truckFeaturedCity.data,
+            truckFeaturedCity: truckFeaturedCity.data ? truckFeaturedCity.data : [],
             featuredPairings: featuredPairings.data,
             featuredBreweries: featuredBreweries.data,
         }
     }
     componentDidMount() {
-        const {  searchTruck, searchBrewery, getPairing, changeRoute } = this.props
+        const { searchTruck, searchBrewery, getPairing, changeRoute } = this.props
         // searchActivity(true)
         searchTruck("is_featured=true&city", "denver")
         searchBrewery("is_featured", "true")
@@ -158,6 +158,7 @@ class CityContainer extends Component {
     }
 
     render() {
+        console.log("ASdasd", this.props)
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
