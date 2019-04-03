@@ -72,7 +72,7 @@ class EventDetailContainer extends Component {
                                 description={activity.information.length > 160 ?
                                     activity.information.substring(0, 160) :
                                     activity.information}
-                                ogImage={activity.pictures[0].url}
+                                ogImage={activity.pictures && activity.pictures[0].thumbnails && activity.pictures[0].thumbnails.large.url}
                             />
                             <EventDetail
                                 {...this.state}

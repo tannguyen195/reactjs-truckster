@@ -367,7 +367,7 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail, slug } = this.props
-
+console.log("truckDetail", truckDetail)
         return (
             <div>
                 {
@@ -381,7 +381,7 @@ class TruckDetailContainer extends Component {
                             description={truckDetail.company_description.length > 160 ?
                                 truckDetail.company_description.substring(0, 160) :
                                 truckDetail.company_description}
-                            ogImage={truckDetail.cover_photo && truckDetail.cover_photo.length > 0 && truckDetail.cover_photo[0].url}
+                            ogImage={truckDetail.cover_photo && truckDetail.cover_photo[0].thumbnails && truckDetail.cover_photo[0].thumbnails.large.url}
                         >
                             <script type="application/ld+json" dangerouslySetInnerHTML={{
                                 __html: `{
@@ -396,7 +396,7 @@ class TruckDetailContainer extends Component {
                                 },
                                 "url": https://gotruckster.com/food-truck/${slug},
                                 "logo":${truckDetail.logo && truckDetail.logo.length > 0 && truckDetail.logo[0].url},
-                                "image":${truckDetail.cover_photo && truckDetail.cover_photo.length > 0 && truckDetail.cover_photo[0].url},
+                                "image":${truckDetail.cover_photo && truckDetail.cover_photo[0].thumbnails && truckDetail.cover_photo[0].thumbnails.large.url},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
                                     "ratingValue":${truckDetail.avg_rating || 0},

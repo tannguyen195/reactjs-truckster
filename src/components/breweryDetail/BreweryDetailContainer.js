@@ -124,7 +124,7 @@ class BreweryDetailContainer extends Component {
                                 description={breweryDetail.company_description.length > 160 ?
                                     breweryDetail.company_description.substring(0, 160) :
                                     breweryDetail.company_description}
-                                ogImage={breweryDetail.cover_photo[0].url}
+                                ogImage={breweryDetail.cover_photo && breweryDetail.cover_photo[0].thumbnails && breweryDetail.cover_photo[0].thumbnails.large.url}
                             >
                                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                                     __html: `{
@@ -139,7 +139,7 @@ class BreweryDetailContainer extends Component {
                                 },
                                 "url": https://gotruckster.com/brewery/${slug},
                                 "logo":${breweryDetail.logo && breweryDetail.logo.length > 0 && breweryDetail.logo[0].url},
-                                "image":${breweryDetail.cover_photo && breweryDetail.cover_photo.length > 0 && breweryDetail.cover_photo[0].url},
+                                "image":${breweryDetail.cover_photo && breweryDetail.cover_photo[0].thumbnails && breweryDetail.cover_photo[0].thumbnails.large.url},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
                                     "ratingValue":${breweryDetail.avg_rating || 0},

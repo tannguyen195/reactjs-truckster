@@ -236,7 +236,7 @@ app.prepare().then(() => {
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/farm%20fresh</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/farm-fresh</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -286,12 +286,12 @@ app.prepare().then(() => {
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/latin%20american</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/latin-american</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/latin%20asian%20fusion</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/latin-asian-fusion</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
@@ -306,17 +306,17 @@ app.prepare().then(() => {
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/middle%20eastern</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/middle-eastern</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/native%20american</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/native-american</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://gotruckster.com/food-truck/co/denver/new%20england</loc>
+  <loc>https://gotruckster.com/food-truck/co/denver/new-england</loc>
   <lastmod>2018-12-15T03:33:48+00:00</lastmod>
   <priority>0.64</priority>
 </url>
