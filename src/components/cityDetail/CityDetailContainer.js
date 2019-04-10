@@ -65,7 +65,7 @@ class CityContainer extends Component {
 
         activitiesWeekState = _.orderBy(activitiesWeekState, item => moment(item.timeDisplay, "YYYY-MM-DD h:mm a").unix())
         activitiesWeekState = _.uniqBy(activitiesWeekState, 'name');
-        console.log("ASdasd", truckFeaturedCity)
+
         return {
             activitiesWeek: activitiesWeekState,
             truckFeaturedCity: truckFeaturedCity.data ? truckFeaturedCity.data : [],
@@ -158,7 +158,7 @@ class CityContainer extends Component {
     }
 
     render() {
-        console.log("ASdasd", this.props)
+     
         return (
             <div>
                 <style dangerouslySetInnerHTML={{

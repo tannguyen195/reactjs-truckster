@@ -117,6 +117,23 @@ class AboutTruckster extends Component {
             currentSelect: 0
         }
     }
+    static async getInitialProps(ctx) {
+
+        if (ctx && ctx.query) {
+            if (ctx.query.foodtruck) {
+                ctx.res.writeHead(301, { Location: `/food-truck/` + ctx.query.foodtruck })
+                ctx.res.end()
+            }
+            else if (ctx.query.brewery) {
+                ctx.res.writeHead(301, { Location: `/brewery/` + ctx.query.brewery })
+                ctx.res.end()
+            }
+            else if (ctx.query.event) {
+                ctx.res.writeHead(301, { Location: `/event/` + ctx.query.event })
+                ctx.res.end()
+            }
+        }
+    }
     render() {
         return (
             <div>
