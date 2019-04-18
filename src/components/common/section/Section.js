@@ -9,10 +9,10 @@ class Section extends Component {
         };
 
     }
-
+ 
     render() {
 
-        const { children, title, url } = this.props
+        const { children, title, url, type } = this.props
 
         return (
             <section className="section-block-main">
@@ -31,8 +31,8 @@ class Section extends Component {
                     url && <div className="see-all">
                         <Link prefetch to={url} >
                             <a className="ButtonRedCenter">
-                                <Button className="ButtonWhiteCenter" type="primary">
-                                    SEE ALL
+                                <Button className="ButtonBlackCenter" >
+                                    MORE {`${type}`}
                                 </Button>
                             </a>
                         </Link>

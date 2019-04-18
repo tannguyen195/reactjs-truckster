@@ -367,6 +367,7 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail, slug } = this.props
+        
         return (
             <div>
                 {
