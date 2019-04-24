@@ -10,6 +10,7 @@ import Calendar from '../common/calendar/Calendar'
 import TruckCard from '../common/truckCard/TruckCard'
 import _ from "lodash";
 import { isMobile } from 'react-device-detect';
+import Gallery from 'react-grid-gallery';
 const cateringIcon = '/static/images/catering-icon.svg'
 const LinkAnchor = Anchor.Link;
 
@@ -216,7 +217,84 @@ class TruckDetail extends Component {
 
                 </div>)
     }
+    renderPhoto(album) {
+        
+        let photos = []
+        const size =
+            [
+                {
 
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 174,
+
+                },
+                {
+
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 183,
+
+                },
+                {
+
+                    thumbnailWidth: 271,
+                    thumbnailHeight: 320,
+
+                },
+                {
+
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 213,
+
+                },
+                {
+
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 213,
+
+                },
+                {
+
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 213,
+
+                },
+                {
+
+                    thumbnailWidth: 320,
+                    thumbnailHeight: 213,
+
+                },
+                {
+
+                    thumbnailWidth: 257,
+                    thumbnailHeight: 320,
+
+                }
+            ]
+       
+        album.forEach(item => {
+            let sizeThumbnail = _.sample(size)
+            photos.push({
+                ...item,
+                src: item.path,
+                thumbnailWidth: sizeThumbnail.thumbnailWidth,
+                thumbnailHeight: sizeThumbnail.thumbnailHeight,
+                thumbnail: item.path,
+            })
+        })
+
+
+
+
+        return (
+
+            <Gallery
+                images={photos}
+
+                enableImageSelection={false} />
+
+        );
+    }
     renderSuggestTruck(suggestTruck) {
         return suggestTruck.map((item, index) => {
             if (item && index < 3)
@@ -234,7 +312,8 @@ class TruckDetail extends Component {
             isPairing,
             toggleShareModal,
             favorite,
-            suggestTruck
+            suggestTruck,
+            albumDetail
         } = this.props
 
         return (
@@ -314,6 +393,19 @@ class TruckDetail extends Component {
                             }
 
                             <hr />
+                            {
+                                albumDetail && albumDetail.length > 0 &&
+                                <div>
+                                    {/* Album Section */}
+                                    <div style={{ paddingBottom: 0 }} id="menu" className="menu-title Display-2BlackLeft">Photos</div>
+                                    <div className="album-truck">
+                                        {this.renderPhoto(albumDetail)}
+                                    </div>
+
+                                    <hr />
+                                </div>
+                            }
+
                             {/* Menu Section */}
                             <div style={{ paddingBottom: 0 }} id="menu" className="menu-title Display-2BlackLeft">Menu</div>
                             <div className="menu-truck">
@@ -362,7 +454,7 @@ class TruckDetail extends Component {
 
     render() {
         const { truckDetail, isPairing, toggleCateringModal, visibleDeepLink } = this.props
-    
+
         return (
             <div style={{ padding: isPairing && 0 }} className="truck-detail">
 

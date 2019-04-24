@@ -37,6 +37,7 @@
     "react-dropzone": "^4.3.0",
     "react-facebook-login": "^4.1.0",
     "react-google-login": "^3.2.1",
+    "react-grid-gallery": "^0.5.4",
     "react-infinite-scroller": "^1.2.1",
     "react-redux": "^5.0.7",
     "react-responsive": "^5.0.0",

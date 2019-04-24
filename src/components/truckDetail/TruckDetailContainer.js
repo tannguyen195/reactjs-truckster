@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TruckDetail from './TruckDetail'
-import { getTruckDetail, getSuggestTruck } from '../../api/truckApi'
+import { getTruckDetail, getSuggestTruck, getAlbumDetail } from '../../api/truckApi'
 import { getTruckReview, postReview, markFavorite, unmarkFavorite, editReview } from '../../api/reviewApi'
 import { getDataInitial } from 'global'
 import AnnounceModal from '../common/announceModal/AnnounceModal'
@@ -122,15 +122,16 @@ class TruckDetailContainer extends Component {
         }
     }
     componentDidMount() {
-        const { truckDetail } = this.props
+        const { truckDetail, getAlbumDetail, getSuggestTruck, changeRoute } = this.props
         if (truckDetail) {
             // get suggest truck
             let cuisineStringArray = []
-
-            this.props.getSuggestTruck(truckDetail.id)
+            if (truckDetail.albums.length > 0)
+                getAlbumDetail({ albumID: truckDetail.albums[0].id, truckID: truckDetail.albums[0].food_truck_id })
+            getSuggestTruck(truckDetail.id)
 
             // change deep link route
-            this.props.changeRoute(
+            changeRoute(
                 `gotrucksterconsumer://app/truck/${truckDetail.id}`
             )
             // Set location
@@ -367,7 +368,7 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail, slug } = this.props
-        
+      
         return (
             <div>
                 {
@@ -447,7 +448,8 @@ export function mapStateToProps(state) {
         isLoadingEditReview: state.reviewReducer.isLoadingEditReview,
         isLoggedIn: state.authReducer.isLoggedIn,
         reviews: state.reviewReducer.reviews,
-        suggestTruck: state.truckReducer.suggestTruck
+        suggestTruck: state.truckReducer.suggestTruck,
+        albumDetail: state.truckReducer.albumDetail
 
     };
 }
@@ -461,8 +463,9 @@ export function mapDispatchToProps(dispatch) {
         getTruckReview,
         postReview,
         editReview,
-        changeRoute
-        , toggleCateringModal
+        changeRoute,
+        toggleCateringModal,
+        getAlbumDetail
     }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TruckDetailContainer);

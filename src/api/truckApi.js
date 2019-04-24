@@ -4,7 +4,8 @@ import {
     requestGetTruckMenu, getTruckMenuError, getTruckMenuSuccess,
     requestGetSuggestTruck, getSuggestTruckError, getSuggestTruckSuccess,
     requestGetRecommendTruck, getRecommendTruckError, getRecommendTruckSuccess,
-    requestGetCuisineList, getCuisineListSuccess, getCuisineListError
+    requestGetCuisineList, getCuisineListSuccess, getCuisineListError,
+    requestGetAlbumDetail, getAlbumDetailError, getAlbumDetailSuccess
 } from '../actions/truckAction.js'
 import axios from 'axios'
 var https = require("https");
@@ -142,7 +143,7 @@ export const getCuisineList = (page) => {
         dispatch(requestGetCuisineList(true))
         $.ajax({
             type: 'GET',
-            url: apiUrl + `api/cuisine` ,
+            url: apiUrl + `api/cuisine`,
             headers: {
                 "Accept": "application/json",
             },
@@ -153,6 +154,27 @@ export const getCuisineList = (page) => {
             },
             error: function (error) {
                 dispatch(getCuisineListError(error))
+            }
+        })
+    }
+}
+
+export const getAlbumDetail = (data) => {
+    return (dispatch) => {
+        dispatch(requestGetAlbumDetail(true))
+        $.ajax({
+            type: 'GET',
+            url: apiUrl + `api/consumer/v1/foodtrucks/${data.truckID}/album/${data.albumID}`,
+            headers: {
+                "Accept": "application/json",
+            },
+            success: function (response, status, xhr) {
+                dispatch(getAlbumDetailSuccess(
+                    response
+                ));
+            },
+            error: function (error) {
+                dispatch(getAlbumDetailError(error))
             }
         })
     }

@@ -161,3 +161,27 @@ export function getCuisineListError() {
         })
     }
 }
+
+export function requestGetAlbumDetail(isLoadingGetAlbumDetail) {
+    return (dispatch) => {
+        dispatch({
+            type: types.REQUEST_GET_ALBUM_DETAIL,
+            isLoadingGetAlbumDetail: isLoadingGetAlbumDetail
+        })
+    }
+}
+export function getAlbumDetailSuccess(response) {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_ALBUM_DETAIL_SUCCESS,
+            response
+        })
+    }
+}
+export function getAlbumDetailError() {
+    return (dispatch) => {
+        dispatch({
+            type: types.GET_ALBUM_DETAIL_ERROR
+        })
+    }
+}

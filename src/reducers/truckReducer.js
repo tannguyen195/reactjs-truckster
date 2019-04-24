@@ -28,7 +28,8 @@ const initial = {
     total: null,
     nearby: [],
     params: "",
-    cuisineList: []
+    cuisineList: [],
+    albumDetail: null
 }
 const truckReducer = (state = initial, action) => {
 
@@ -238,6 +239,29 @@ const truckReducer = (state = initial, action) => {
                 ...state,
                 error: true,
                 isLoadingGetCuisineList: false,
+                status: action.response.status,
+                message: action.response.statusText || 'Something went wrong'
+            };
+
+        // Get album detail
+        case types.REQUEST_GET_ALBUM_DETAIL:
+            return {
+                ...state,
+                error: false,
+                isLoadingGetAlbumDetail: action.isLoadingGetAlbumDetail
+            };
+
+        case types.GET_ALBUM_DETAIL_SUCCESS:
+            return {
+                ...state,
+                isLoadingGetAlbumDetail: false,
+                albumDetail: action.response.data
+            }
+        case types.GET_ALBUM_DETAIL_ERROR:
+            return {
+                ...state,
+                error: true,
+                isLoadingGetalbumDetail: false,
                 status: action.response.status,
                 message: action.response.statusText || 'Something went wrong'
             };
