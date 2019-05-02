@@ -88,7 +88,7 @@ class Help extends Component {
         const { callback } = this.props
         return (
             <div >
-                
+
                 <div className="help-container">
                     <div className="help-main-header">
                         <div className="title-help DisplayBlackCenter ">
@@ -159,7 +159,7 @@ class Help extends Component {
                     </div>
                     <div className="not-find">
                         <div className="title Display-2BlackCenter">
-                            Not finding what you looking for?
+                            Not finding what you're looking for?
                             </div>
                         <div className="button-contact">
                             <Link prefetch to="/contact" >

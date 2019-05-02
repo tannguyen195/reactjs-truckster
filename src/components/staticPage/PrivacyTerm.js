@@ -214,7 +214,7 @@ class PrivacyTerm extends Component {
 
                     <div className="not-find">
                         <div className="title Display-2BlackCenter">
-                            Not finding what you looking for?
+                            Not finding what you're looking for?
                             </div>
                         <div className="button-contact">
                             <Link prefetch to="/contact" >

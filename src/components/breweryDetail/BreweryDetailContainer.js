@@ -110,6 +110,7 @@ class BreweryDetailContainer extends Component {
     }
     render() {
         const { status, breweryDetail, slug } = this.props
+     
         return (
             <div>
                 {

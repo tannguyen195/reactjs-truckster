@@ -310,26 +310,7 @@ class CityDetail extends Component {
                 <div style={{ backgroundImage: `url(${homeImage})` }} className="home-main-header">
                     <div className="content-city">
                         <h1 className="title DisplayBlackCenter">Discover the Best Denver Food Trucks and Upcoming Events</h1>
-                        <div className="search">
-                            <SearchBar
-                                searchValue={searchValue}
-                                onSearchValueChange={onSearchValueChange}
-                                result={result}
-                                match={match}
-                                isHeader={false}
-                                history={history}
-
-                            />
-                            <div className="button-find">
-                                <Link prefetch to="/search">
-                                    <a>
-                                        <Button disabled={searchValue.length < 1 ? true : false} className="search-btn SubheadingWhiteCenter" size="large" type="primary">
-                                            Find trucks </Button>
-                                    </a>
-                                </Link>
-                            </div>
-                        </div>
-
+                        
                     </div>
 
                     <div className="cover">

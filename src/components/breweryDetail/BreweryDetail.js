@@ -138,6 +138,7 @@ class BreweryDetail extends Component {
         )
     }
     renderSuggestBrewery(suggestBrewery) {
+      
         return suggestBrewery.map((item, index) => {
             let coverURL = "", logoURL = ""
             if (typeof (item.cover_photo) !== 'string') {
@@ -156,7 +157,7 @@ class BreweryDetail extends Component {
                             url: "/brewery/" + item.slug,
                             image: item.cover_photo ?
                                 coverURL[0].url : breweryIcon,
-                            logo: item.logo && item.logo !== "null" ?
+                            logo: item.logo && item.logo !== "null" && logoURL[0].thumbnails ?
                                 logoURL[0].thumbnails.large.url :
                                 imageBreweryPlaceholder,
                             name: item.name,

@@ -108,7 +108,7 @@ Connor and his wife Molly teamed up to build Truckster, your hub for everything 
 
                 <div className="not-find">
                     <div className="title Display-2BlackCenter">
-                        Not finding what you looking for?
+                        Not finding what you're looking for?
                             </div>
                     <div className="button-contact">
                         <Link prefetch to="/contact" >
