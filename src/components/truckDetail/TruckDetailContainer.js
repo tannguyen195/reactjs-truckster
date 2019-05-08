@@ -60,9 +60,12 @@ class TruckDetailContainer extends Component {
         }
     }
     componentWillReceiveProps(nextProps) {
-        const { truckDetail } = nextProps
+        const { truckDetail, getAlbumDetail } = nextProps
         if (this.props.truckDetail !== truckDetail) {
             this.props.getSuggestTruck(truckDetail.id)
+
+            if (truckDetail.albums.length > 0)
+                getAlbumDetail({ albumID: truckDetail.albums[0].id, truckID: truckDetail.albums[0].food_truck_id })
         }
         if (truckDetail) {
 
@@ -368,7 +371,7 @@ class TruckDetailContainer extends Component {
     }
     render() {
         const { truckDetail, slug } = this.props
-      
+
         return (
             <div>
                 {
