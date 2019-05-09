@@ -305,7 +305,7 @@ class TruckDetail extends Component {
 
     }
     renderTruckDetail(truckDetail) {
-        let rateNum = parseFloat((Math.round(truckDetail.avg_rating * 2) / 2).toFixed(1), 10)
+        let rateNum = parseFloat((Math.round(truckDetail.reviews_summary.avg_rating * 2) / 2).toFixed(1), 10)
         const {
             isLoggedIn,
             onFavoriteChange,
@@ -325,7 +325,7 @@ class TruckDetail extends Component {
                             <h1 className="DisplayWhiteLeft name">  {truckDetail.name}</h1>
                             <div className="detail-rate">
                                 <div className="rate-number Body-1SemiBlackCenter">
-                                    {isNaN(rateNum) ? 0 : rateNum}
+                                    {truckDetail.reviews_summary.avg_rating}
                                 </div>
 
                                 <div className="rate-star">
