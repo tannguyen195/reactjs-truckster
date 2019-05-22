@@ -391,20 +391,20 @@ class TruckDetailContainer extends Component {
                                 __html: `{
                                 "@context": "http://schema.org",
                                 "@type": "LocalBusiness",
-                                "name": ${truckDetail.name},
-                                "telePhone": ${truckDetail.phone},                               
+                                "name": "${truckDetail.name}",
+                                "telePhone": "${truckDetail.phone}",                               
                                 "geo": {
                                     "@type": "GeoCoordinates",
-                                    "latitude": ${truckDetail.calendar && truckDetail.calendar.length > 0 && truckDetail.calendar[0].latitude},
-                                    "longitude":  ${truckDetail.calendar && truckDetail.calendar.length > 0 && truckDetail.calendar[0].longtitude}
+                                    "latitude": ${truckDetail.calendar && truckDetail.calendar.length > 0 && `"${truckDetail.calendar[0].latitude}"`},
+                                    "longitude":  ${truckDetail.calendar && truckDetail.calendar.length > 0 && `"${truckDetail.calendar[0].longtitude}"`}
                                 },
-                                "url": https://gotruckster.com/food-truck/${slug},
-                                "logo":${truckDetail.logo && truckDetail.logo.length > 0 && truckDetail.logo[0].url},
-                                "image":${truckDetail.cover_photo && truckDetail.cover_photo[0].thumbnails && truckDetail.cover_photo[0].thumbnails.large.url},
+                                "url": "https://gotruckster.com/food-truck/${slug}",
+                                "logo":${truckDetail.logo && truckDetail.logo.length > 0 && `"${truckDetail.logo[0].url}"`},
+                                "image":${truckDetail.cover_photo && truckDetail.cover_photo[0].thumbnails && `"${truckDetail.cover_photo[0].thumbnails.large.url}"`},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
-                                    "ratingValue":${truckDetail.avg_rating || 0},
-                                    "ratingCount": ${truckDetail.reviews_summary.total_reviews}
+                                    "ratingValue":"${truckDetail.avg_rating || 0}",
+                                    "ratingCount": "${truckDetail.reviews_summary.total_reviews}"
                                 }}`
                             }} >
                             </script>
