@@ -16,7 +16,19 @@ export default class MyDocument extends Document {
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-5VKZ6ZK');`}} />
 
-                    <noscript dangerouslySetInnerHTML={{ __html: `  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VKZ6ZK" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} />
+                    <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VKZ6ZK" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} />
+
+                    <script type="application/ld+json" dangerouslySetInnerHTML={{
+                        __html: `{"@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "url": "https://www.gotruckster.com/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "https://dev.gotruckster.com/api/consumer/v1/search?keyword={search_term_string}",
+                            "query-input": "required name=search_term_string"}`}}>
+                    </script>
+
+
                     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,500,700,800,900" rel="stylesheet" />
                     <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
                     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
