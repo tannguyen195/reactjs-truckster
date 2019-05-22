@@ -19,13 +19,16 @@ export default class MyDocument extends Document {
                     <noscript dangerouslySetInnerHTML={{ __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VKZ6ZK" height="0" width="0" style="display:none;visibility:hidden"></iframe>` }} />
 
                     <script type="application/ld+json" dangerouslySetInnerHTML={{
-                        __html: `{"@context": "https://schema.org",
+                        __html: `{
+                        "@context": "https://schema.org",
                         "@type": "WebSite",
                         "url": "https://www.gotruckster.com/",
                         "potentialAction": {
                             "@type": "SearchAction",
                             "target": "https://dev.gotruckster.com/api/consumer/v1/search?keyword={search_term_string}",
-                            "query-input": "required name=search_term_string"}`}}>
+                            "query-input": "required name=search_term_string"
+                            }
+                        }`}}>
                     </script>
 
 
