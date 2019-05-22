@@ -110,7 +110,7 @@ class BreweryDetailContainer extends Component {
     }
     render() {
         const { status, breweryDetail, slug } = this.props
-     
+
         return (
             <div>
                 {
@@ -127,24 +127,25 @@ class BreweryDetailContainer extends Component {
                                     breweryDetail.company_description}
                                 ogImage={breweryDetail.cover_photo && breweryDetail.cover_photo[0].thumbnails && breweryDetail.cover_photo[0].thumbnails.large.url}
                             >
+
                                 <script type="application/ld+json" dangerouslySetInnerHTML={{
                                     __html: `{
                                 "@context": "http://schema.org",
                                 "@type": "LocalBusiness",
-                                "name": ${breweryDetail.name},
-                                "telePhone": ${breweryDetail.phone},                               
+                                "name": "${breweryDetail.name}",
+                                "telePhone": "${breweryDetail.phone}",                               
                                 "geo": {
                                     "@type": "GeoCoordinates",
-                                    "latitude": ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && breweryDetail.calendar[0].latitude},
-                                    "longitude":  ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && breweryDetail.calendar[0].longtitude}
+                                    "latitude": ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && `"${breweryDetail.calendar[0].latitude}"`},
+                                    "longitude":  ${breweryDetail.calendar && breweryDetail.calendar.length > 0 && `"${breweryDetail.calendar[0].longtitude}"`}
                                 },
-                                "url": https://gotruckster.com/brewery/${slug},
-                                "logo":${breweryDetail.logo && breweryDetail.logo.length > 0 && breweryDetail.logo[0].url},
-                                "image":${breweryDetail.cover_photo && breweryDetail.cover_photo[0].thumbnails && breweryDetail.cover_photo[0].thumbnails.large.url},
+                                "url": "https://gotruckster.com/brewery/${slug}",
+                                "logo":${breweryDetail.logo && breweryDetail.logo.length > 0 && `"${breweryDetail.logo[0].url}"`},
+                                "image":${breweryDetail.cover_photo && breweryDetail.cover_photo[0].thumbnails && `"${breweryDetail.cover_photo[0].thumbnails.large.url}"`},
                                 "aggregateRating": {
                                     "@type": "AggregateRating",
-                                    "ratingValue":${breweryDetail.avg_rating || 0},
-                                    "ratingCount": ${breweryDetail.reviews_summary.total_reviews}
+                                    "ratingValue":"${breweryDetail.avg_rating || 0}",
+                                    "ratingCount": "${breweryDetail.reviews_summary.total_reviews}"
                                 }}`
                                 }} >
                                 </script>
