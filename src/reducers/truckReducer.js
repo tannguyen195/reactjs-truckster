@@ -45,7 +45,7 @@ const truckReducer = (state = initial, action) => {
 
         case types.SEARCH_TRUCK_SUCCESS:
 
-            if (!action.response.params)
+            if (action.response.params === "per_page")
                 return {
                     ...state,
                     error: false,

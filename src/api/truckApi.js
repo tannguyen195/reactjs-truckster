@@ -23,7 +23,7 @@ export const searchTruck = (params, value, page, ) => {
         dispatch(requestSearchTruck(true))
         await axios({
             method: 'GET',
-            url: apiUrl + `api/consumer/v1/foodtrucks?${params}=${value}&sort_by=avg_rating&sort_type=desc&per_page=12&page=${page}`,
+            url: apiUrl + `api/consumer/v1/foodtrucks?${params}=${value}&page=${page}`,
             headers: {
                 "Accept": "application/json",
             }

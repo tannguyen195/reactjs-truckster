@@ -18,7 +18,7 @@ class TruckContainer extends Component {
     componentDidMount() {
         const { mountTruck, searchTruck } = this.props
         mountTruck()
-        searchTruck("", "", 1)
+        searchTruck("per_page", "12", 1)
         window.scrollTo(0, 0);
     }
     loadMoreTruck() {
@@ -26,7 +26,7 @@ class TruckContainer extends Component {
 
         if (currentPage && lastPage) {
             if (currentPage < lastPage)
-                searchTruck("", "", currentPage + 1)
+                searchTruck("per_page", "12", currentPage + 1)
 
             else if (currentPage === lastPage && currentPage) {
                 this.setState({

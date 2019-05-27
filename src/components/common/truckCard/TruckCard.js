@@ -4,7 +4,14 @@ import { Link } from 'routes'
 
 const truckIcon = ('/static/images/truck-marker-icon.png')
 class TruckCard extends Component {
-
+    renderCoverPhoto(coverURL) {
+     
+        if (coverURL === null)
+            return truckIcon
+        else if (coverURL[0] && coverURL[0].thumbnails && coverURL[0].thumbnails.large)
+            return coverURL[0].thumbnails.large.url
+        else return coverURL[0].url
+    }
     render() {
         const { data } = this.props
         let coverURL = "", logoURL = ""
@@ -12,10 +19,14 @@ class TruckCard extends Component {
             coverURL = data.cover_photo
             logoURL = data.logo
         }
+        else if (data.cover_photo === null) {
+            coverURL = truckIcon
+        }
         else {
             coverURL = JSON.parse(data.cover_photo)
             logoURL = JSON.parse(data.logo)
         }
+      
         return (
             <Link prefetch to={`/food-truck/${data.slug}`} >
                 <a>
@@ -24,8 +35,7 @@ class TruckCard extends Component {
                         <div className="truck-cover">
                             <div className="truck-image"
                                 style={{
-                                    backgroundImage: `url(${coverURL && coverURL[0].thumbnails && coverURL[0].thumbnails.large ?
-                                        coverURL[0].thumbnails.large.url : coverURL[0].url})`,
+                                    backgroundImage: `url(${this.renderCoverPhoto(coverURL)})`,
                                     backgroundSize: coverURL ?
                                         "cover" : "50px"
                                 }}
