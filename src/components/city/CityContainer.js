@@ -16,7 +16,6 @@ class CityContainer extends Component {
     }
 
     render() {
-
         return (
             <div className="gray-background">
 

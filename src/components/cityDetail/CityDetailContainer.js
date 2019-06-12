@@ -158,7 +158,6 @@ class CityContainer extends Component {
     }
 
     render() {
-     
         return (
             <div>
                 <style dangerouslySetInnerHTML={{

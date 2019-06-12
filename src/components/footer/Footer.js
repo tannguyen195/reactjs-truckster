@@ -64,6 +64,7 @@ class Footer extends Component {
                         <h3 className="SubheadingBlackLeft">Vendor</h3>
                         <a href="https://itunes.apple.com/vn/app/truckster-vendor/id1375287755?mt=8&fbclid=IwAR1WMhekkYtGr1w3Qeq2Qzp9rFSkcgzCGoSasEKrK_e7b2MGZfYUgE2kpVo" target="_blank">Vendor login</a>
                         <a href={`mailto:info@gotruckster.com`}>Add my truck</a>
+                        <Link prefetch to='/truck-owner'><a>Food truck Owner</a></Link>
                     </Col>
                     <Col xs={24} sm={24} md={5} className="social">
                         <div className="logo">

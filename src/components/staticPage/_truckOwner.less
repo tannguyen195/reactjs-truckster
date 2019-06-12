@@ -1,0 +1,200 @@
+.owner {
+    padding-top: 180px;
+    overflow-x: hidden;
+
+    &__header {
+        max-width: 730px;
+        margin: 0 auto;
+        text-align: center;
+
+        button {
+
+            align-items: center;
+            text-transform: uppercase;
+            height: 56px;
+            border-radius: 6px;
+        }
+    }
+
+    &__image {
+        padding-top: 72px;
+        margin: 0 auto;
+        max-width: 1440px;
+
+        img {
+            width: 100%
+        }
+    }
+
+    &__tabs {
+        padding-top: 240px;
+        margin: 0 auto;
+        max-width: 1140px;
+
+        .title {
+            max-width: 250px;
+            padding-bottom: 70px;
+        }
+
+        .ant-tabs {
+
+            @media only screen and (max-width: 1100px) {
+                display: flex;
+                flex-direction: column;
+
+                img {
+                    margin-top: 24px;
+                    width: 100%;
+                }
+            }
+            img {
+            
+                width: 100%;
+            }
+        }
+
+        .ant-tabs-vertical.ant-tabs-left>.ant-tabs-bar {
+
+            border-right: none;
+
+        }
+
+        .ant-tabs-nav .ant-tabs-tab-active {
+            border-left: solid 3px #5289ff
+        }
+
+        .ant-tabs-vertical.ant-tabs-left>.ant-tabs-bar .ant-tabs-tab {
+            text-align: initial;
+            font-size: 20px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.6;
+            letter-spacing: normal;
+            text-align: left;
+            color: #212121;
+        }
+
+        .ant-tabs .ant-tabs-left-bar .ant-tabs-tab {
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .ant-tabs .ant-tabs-left-content {
+            padding-left: 82px;
+
+        }
+
+        .ant-tabs-nav .ant-tabs-tab-active {
+
+            background-color: rgba(23, 116, 230, 0.1);
+
+        }
+
+
+        .ant-tabs-vertical.ant-tabs-left>.ant-tabs-content {
+            text-align: center;
+            border-left: none;
+        }
+    }
+
+    &__benefits {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 160px 0;
+
+        .title {
+            max-width: 464px;
+            margin: 0 auto;
+        }
+
+        .benefit__item {
+            margin-top: 64px;
+
+            position: relative;
+
+            .benefit__image {
+                img {
+                    height: 64px;
+                    width: 64px;
+                    margin-bottom: 16px;
+                }
+            }
+
+            .benefit__content {
+                padding-top: 24px;
+
+                background: #fff;
+
+                .benefit__name {
+                    padding-bottom: 16px;
+                }
+
+                .benefit__desc {}
+            }
+        }
+    }
+
+    &__control {
+        background: #fafafa;
+        padding: 120px 0;
+
+        .control {
+            @media only screen and (max-width: 1100px) {
+                display: flex;
+                flex-direction: column;
+
+                &__right {
+                    padding-top: 24px;
+                    text-align: center;
+
+                }
+            }
+
+
+            display: flex;
+            max-width: 1140px;
+            margin: 0 auto;
+            justify-content: space-between;
+
+            &__left {
+                max-width: 445px;
+                margin: 0 auto;
+
+                button {
+                    width: 200px;
+                    height: 56px;
+                }
+            }
+
+            &__right {
+                img {
+                    max-width: 642px;
+                }
+
+            }
+        }
+    }
+
+    &__download {
+        background: #fa393d;
+        padding-top: 120px;
+
+        .download {
+
+            display: flex;
+            max-width: 1140px;
+            margin: 0 auto;
+            justify-content: space-between;
+
+            &__left {
+                .title {
+                    max-width: 350px;
+                }
+            }
+        }
+    }
+}

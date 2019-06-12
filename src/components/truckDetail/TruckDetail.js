@@ -218,7 +218,7 @@ class TruckDetail extends Component {
                 </div>)
     }
     renderPhoto(album) {
-        
+
         let photos = []
         const size =
             [
@@ -271,7 +271,7 @@ class TruckDetail extends Component {
 
                 }
             ]
-       
+
         album.forEach(item => {
             let sizeThumbnail = _.sample(size)
             photos.push({
@@ -304,6 +304,18 @@ class TruckDetail extends Component {
         })
 
     }
+    renderCover() {
+        const {
+            truckDetail
+        } = this.props
+
+        if (truckDetail.cover_photos && truckDetail.cover_photos.length > 0)
+            return truckDetail.cover_photos[truckDetail.cover_photos.length - 1].path
+        else if (truckDetail.cover_photo)
+            return truckDetail.cover_photo[0].url
+        else return homeImage
+
+    }
     renderTruckDetail(truckDetail) {
         let rateNum = parseFloat((Math.round(truckDetail.reviews_summary.avg_rating * 2) / 2).toFixed(1), 10)
         const {
@@ -319,7 +331,7 @@ class TruckDetail extends Component {
         return (
 
             <div>
-                <div className="detail-main-header" style={{ backgroundImage: `url(${truckDetail.cover_photo ? truckDetail.cover_photo[0].url : homeImage})` }} >
+                <div className="detail-main-header" style={{ backgroundImage: `url(${this.renderCover()})` }} >
                     <div className="content-detail">
                         <div className="detail-wrapper">
                             <h1 className="DisplayWhiteLeft name">  {truckDetail.name}</h1>
