@@ -36,8 +36,8 @@ module.exports = routes()
     .add('truck', '/food-truck/:slug', 'truck')
     .add('cuisine-redirect', '/cuisine/:value')
     .add('cuisines', '/food-truck/:state/:city/cuisines')
-
+    .add('food-truck', '/food-truck/:state/:city/all')
     .add('city-detail', '/food-truck/:state/:city')
     .add('city-detail-redirect', '/:state/:city')
     .add('cuisine', '/food-truck/:state/:city/:value')
-    .add('food-truck', '/food-truck/:state/:city/all')
+

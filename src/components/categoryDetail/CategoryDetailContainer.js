@@ -68,7 +68,7 @@ class CategoryDetailContainer extends Component {
     }
     render() {
         const { error, status, value, cuisineDetail } = this.props
-
+        
         return (
             <div>
                 <style dangerouslySetInnerHTML={{
