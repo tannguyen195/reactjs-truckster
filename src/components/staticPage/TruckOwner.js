@@ -5,9 +5,12 @@ import Head from '../head'
 import { Link } from 'routes'
 const { TabPane } = Tabs;
 const appStore = ("/static/images/app-store.png")
+const googlePlay = ("/static/images/google-play.png")
+
+const googleIcon = ("/static/images/icon-google.svg")
 const appleIcon = '/static/images/icon-apple.svg'
 const ownerImage1 = '/static/images/image-owner-1.png'
-const ownerImage2 = '/static/images/image-owner-2.jpg'
+
 const ownerImage3 = '/static/images/image-owner-3.png'
 const ownerImage4 = '/static/images/image-owner-4.png'
 
@@ -86,7 +89,7 @@ const benefits = [
 export default class extends Component {
 
     handleClick = e => {
-      
+
     };
     renderFeature(e) {
         return <div><img src={e.image} alt="feature" /></div>
@@ -104,14 +107,18 @@ export default class extends Component {
                 />
                 <div className="owner__header media">
 
-                    <h1 className="DisplayBlackCenter">Truckster is Built for Food Trucks</h1>
-                    <div className="LeadRegularBlackCenter paddingTop32 paddingBottom40">Truckster is a food truck network built with a consumer app, mobile and desktop website, and a vendor app. We understand how busy you are, so we’ve built a seamless, easy to use platform for you. With thousands of food truck fans already on board, Truckster gives you the ability to directly address your exact target market.</div>
-                    <a href="https://apps.apple.com/us/app/truckster-vendor/id1375287755" target="_blank">
+                    <h1 className="DisplayBlackCenter">Take Control with Truckster Vendor</h1>
+                    <div className="LeadRegularBlackCenter paddingTop32 paddingBottom40">Truckster is a food truck network built with a consumer app, mobile and desktop website, and a vendor app. We understand how busy you are, so we’ve built a seamless, easy to use platform for you. With thousands of food truck fans already on board, Truckster Vendor gives you the ability to directly address your exact target market.</div>
+                    <div className="download__store">
+                        <a href="https://apps.apple.com/us/app/truckster-vendor/id1375287755" target="_blank">
 
 
-                        <Button className="ButtonWhiteCenter" type="primary"> <img src={appleIcon} alt="apple" /> Download on the App Store</Button>
-                    </a>
+                            <Button className="ButtonWhiteCenter" type="primary"> <img src={appleIcon} alt="apple" /> Download on the App Store</Button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.gotruckster.truckstervendor&hl=en" target="_blank">
 
+                            <Button className="ButtonWhiteCenter" type="primary"> <img src={googleIcon} alt="apple" /> Download on the Play Store</Button>
+                        </a></div>
                 </div>
                 <div className="owner__image"><img src={ownerImage1} alt="owner1" /></div>
                 <div className="owner__tabs media">
@@ -129,7 +136,7 @@ export default class extends Component {
                 </div>
 
                 <div className="owner__benefits media">
-                    <h2 style={{ fontSize: "32px" }} className="title Display-2BlackCenter">How Truckster benefits you as a food truck owner</h2>
+                    <h2 style={{ fontSize: "32px" }} className="title Display-2BlackCenter">How Truckster Vendor benefits you as a food truck owner</h2>
                     <div>
 
                         {
@@ -187,11 +194,16 @@ export default class extends Component {
 
                             <div className="DisplayWhiteLeft title paddingBottom40">Download Truckster Vendor
 to get started</div>
-                            <div>
+                            <div className="button__group">
                                 <a onClick={() => {
                                     window.open("https://apps.apple.com/us/app/truckster-vendor/id1375287755");
                                 }} className="image-container">
                                     <img alt="Alternative text" src={appStore} />
+                                </a>
+                                <a onClick={() => {
+                                    window.open("https://play.google.com/store/apps/details?id=com.gotruckster.truckstervendor&hl=en");
+                                }} className="image-container">
+                                    <img alt="Alternative text" src={googlePlay} />
                                 </a>
                             </div>
                         </div>

@@ -9,7 +9,7 @@ class TruckCard extends Component {
         if (truckDetail.cover_photos && truckDetail.cover_photos.length > 0)
             return truckDetail.cover_photos[truckDetail.cover_photos.length - 1].path
         else if (truckDetail.cover_photo)
-            return truckDetail.cover_photo[0].url
+            return truckDetail.cover_photo[0].url || truckDetail.cover_photo
         else return homeImage
     }
     renderLogo(truckDetail) {
@@ -17,7 +17,7 @@ class TruckCard extends Component {
         if (truckDetail.self_logo)
             return truckDetail.self_logo
         else if (truckDetail.logo)
-            return truckDetail.logo[0].url
+            return truckDetail.logo[0].url || truckDetail.logo
         else return truckIcon
 
         
