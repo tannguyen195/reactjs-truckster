@@ -138,27 +138,18 @@ class BreweryDetail extends Component {
         )
     }
     renderSuggestBrewery(suggestBrewery) {
-      
+
         return suggestBrewery.map((item, index) => {
-            let coverURL = "", logoURL = ""
-            if (typeof (item.cover_photo) !== 'string') {
-                coverURL = item.cover_photo
-                logoURL = item.logo
-            }
-            else {
-                coverURL = JSON.parse(item.cover_photo)
-                logoURL = JSON.parse(item.logo)
-            }
-            
+
+
             if (item && index < 3)
                 return <Col key={index} style={{ marginBottom: "16px" }} sm={12} xs={24} md={8} lg={8}>
                     <TruckNewCard data={
                         {
                             url: "/brewery/" + item.slug,
                             image: item.cover_photo ?
-                                coverURL[0].url : breweryIcon,
-                            logo: item.logo && item.logo !== "null" && logoURL[0].thumbnails ?
-                                logoURL[0].thumbnails.large.url :
+                                item.cover_photo : breweryIcon,
+                            logo: item.logo ? item.logo :
                                 imageBreweryPlaceholder,
                             name: item.name,
                             cuisine: item.brewery_type && [{ name: item.brewery_type.name }],
