@@ -352,7 +352,7 @@ class TruckDetail extends Component {
                                 <div className="tag">
                                     {
                                         truckDetail.cuisine.map((item, index) => {
-                                            return <Link prefetch key={index} to={`/food-truck/co/denver/${item.name.toLowerCase()}`}>
+                                            return <Link prefetch key={index} to={`/food-truck/co/denver/${item.slug}`}>
                                                 <a className="tag-item Body-1MediumBlackCenter">
                                                     {item.name} </a>
                                             </Link>
