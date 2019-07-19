@@ -5,10 +5,10 @@ const homeImage = ("/static/images/home-image.jpg")
 const truckIcon = ('/static/images/truck-marker-icon.png')
 class TruckCard extends Component {
     renderCoverPhoto(truckDetail) {
-       
+
         if (truckDetail.cover_photos && truckDetail.cover_photos.length > 0)
             return truckDetail.cover_photos[truckDetail.cover_photos.length - 1].path
-        else if (truckDetail.cover_photo)
+        else if (truckDetail.cover_photo && truckDetail.cover_photo.length > 0)
             return truckDetail.cover_photo[0].url || truckDetail.cover_photo
         else return homeImage
     }
@@ -20,11 +20,11 @@ class TruckCard extends Component {
             return truckDetail.logo[0].url || truckDetail.logo
         else return truckIcon
 
-        
+
     }
     render() {
         const { data } = this.props
-
+        
         return (
             <Link prefetch to={`/food-truck/${data.slug}`} >
                 <a>
@@ -50,7 +50,7 @@ class TruckCard extends Component {
                             <div className="meta-header-title  Body-2SemiBlackLeft ">{data.name}</div>
                             <div className="cuisine-tag">
                                 {
-                                    data.cuisine.map((item, index) => {
+                                    data.cuisine && data.cuisine.map((item, index) => {
                                         if (index === 0)
                                             return <div key={index} className="cuisine-tag-item CaptionGreyLeft">
                                                 {item.name} </div>
