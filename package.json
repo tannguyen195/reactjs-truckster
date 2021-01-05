@@ -11,7 +11,7 @@
   "dependencies": {
     "all": "^0.0.0",
     "antd": "^3.9.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.9.1",
     "babel-plugin-module-resolver": "^3.1.1",
     "circular-json": "^0.5.7",
